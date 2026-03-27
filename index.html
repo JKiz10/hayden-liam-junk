@@ -1,0 +1,2425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hayden & Liam Junk Removal — We Haul. You Relax.</title>
+  <meta name="description" content="Fast, reliable junk removal in your city. Full home cleanouts, furniture removal, appliance disposal and more. Same day service available." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --bg2: #111820;
+      --bg3: #161d27;
+      --orange: #ff6b35;
+      --orange-dark: #e85520;
+      --orange-glow: rgba(255,107,53,0.18);
+      --white: #ffffff;
+      --white-80: rgba(255,255,255,0.80);
+      --white-60: rgba(255,255,255,0.60);
+      --white-30: rgba(255,255,255,0.30);
+      --white-10: rgba(255,255,255,0.10);
+      --white-05: rgba(255,255,255,0.05);
+      --light-bg: #f8f8f8;
+      --light-text: #1a1a2e;
+      --light-sub: #555566;
+      --card-border: rgba(255,107,53,0.12);
+      --glass: rgba(13,17,23,0.72);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --transition: 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+      --transition-fast: 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* =============================================
+       SCROLLBAR
+    ============================================= */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--orange-dark); }
+
+    /* =============================================
+       GRAIN OVERLAY
+    ============================================= */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* =============================================
+       TYPOGRAPHY HELPERS
+    ============================================= */
+    .section-label {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.15; }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title.dark { color: var(--light-text); }
+
+    .section-sub {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.05rem;
+      color: var(--white-60);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    .section-sub.dark { color: var(--light-sub); }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      cursor: pointer;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.12);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover::after { opacity: 1; }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      box-shadow: 0 0 0 0 var(--orange-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255,107,53,0.40);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white-30);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      transform: translateY(-2px);
+    }
+
+    /* =============================================
+       SECTION LAYOUT
+    ============================================= */
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section { position: relative; overflow: hidden; }
+
+    .section-dark { background: var(--bg); }
+    .section-dark2 { background: var(--bg2); }
+    .section-light { background: var(--light-bg); }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    /* =============================================
+       MOUSE SPOTLIGHT
+    ============================================= */
+    .spotlight-section {
+      position: relative;
+    }
+
+    .spotlight-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.4s;
+      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(255,107,53,0.06) 0%,
+        transparent 70%);
+    }
+
+    .spotlight-section:hover .spotlight-layer { opacity: 1; }
+
+    /* =============================================
+       ANIMATION BASE STATES
+    ============================================= */
+    .anim-img {
+      clip-path: inset(100% 0 0 0);
+      transform: scale(1.15);
+      transition: clip-path 0.95s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.95s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .anim-img.visible {
+      clip-path: inset(0% 0 0 0);
+      transform: scale(1);
+    }
+
+    .anim-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .anim-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .anim-fade {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .anim-fade.visible { opacity: 1; }
+
+    /* Character split animation */
+    .split-title .char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(60px) rotateX(-40deg);
+      transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .split-title.visible .char { opacity: 1; transform: translateY(0) rotateX(0deg); }
+
+    /* =============================================
+       NAVIGATION
+    ============================================= */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 22px 0;
+      transition: padding 0.4s ease, background 0.4s ease, backdrop-filter 0.4s ease,
+                  box-shadow 0.4s ease;
+    }
+
+    #nav.scrolled {
+      padding: 12px 0;
+      background: rgba(13,17,23,0.88);
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      box-shadow: 0 1px 0 rgba(255,107,53,0.12), 0 4px 40px rgba(0,0,0,0.4);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo-name span { color: var(--orange); }
+
+    .nav-logo-tag {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      color: var(--white-80);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--orange);
+      transition: width var(--transition-fast);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta { margin-left: 0.5rem; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(13,17,23,0.97);
+      backdrop-filter: blur(24px);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--orange); }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    #particles-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,107,53,0.12) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      padding: 140px 0 100px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,107,53,0.10);
+      border: 1px solid rgba(255,107,53,0.25);
+      border-radius: 50px;
+      padding: 7px 16px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 2rem;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-title .accent { color: var(--orange); }
+
+    .hero-title .italic { font-style: italic; }
+
+    .hero-sub {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--white-60);
+      max-width: 540px;
+      line-height: 1.8;
+      margin-bottom: 2.6rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .scroll-indicator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white-60);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .scroll-mouse {
+      width: 24px;
+      height: 38px;
+      border: 2px solid var(--white-30);
+      border-radius: 12px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .scroll-mouse::after {
+      content: '';
+      width: 3px;
+      height: 7px;
+      background: var(--orange);
+      border-radius: 2px;
+      position: absolute;
+      top: 6px;
+      animation: scroll-bounce 2s infinite;
+    }
+
+    @keyframes scroll-bounce {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(8px); opacity: 0.3; }
+    }
+
+    /* hero image collage */
+    .hero-image-col {
+      position: absolute;
+      right: -4%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      z-index: 1;
+      opacity: 0.85;
+    }
+
+    .hero-img-card {
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-img-card:nth-child(1) { margin-top: 60px; }
+    .hero-img-card:nth-child(3) { margin-top: -40px; }
+
+    .hero-img-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 8s linear;
+    }
+
+    .hero-img-card:hover img { transform: scale(1.04); }
+
+    .hero-img-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,107,53,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* =============================================
+       TRUST BAR
+    ============================================= */
+    #trust {
+      background: var(--bg2);
+      border-top: 1px solid rgba(255,107,53,0.10);
+      border-bottom: 1px solid rgba(255,107,53,0.10);
+      padding: 5rem 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .trust-item {
+      padding: 2rem 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--white-05);
+      background: var(--white-05);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+
+    .trust-item:hover {
+      border-color: rgba(255,107,53,0.25);
+      background: rgba(255,107,53,0.05);
+      transform: translateY(-4px);
+    }
+
+    .trust-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .trust-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white-60);
+      letter-spacing: 0.04em;
+    }
+
+    .trust-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    /* =============================================
+       SERVICES
+    ============================================= */
+    #services {
+      padding: 7rem 0;
+      background: var(--bg);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg2);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      position: relative;
+      cursor: default;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,107,53,0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-radius: var(--radius);
+    }
+
+    .service-card:hover {
+      border-color: rgba(255,107,53,0.35);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,107,53,0.15),
+                  inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      font-size: 2.6rem;
+      display: block;
+      margin-bottom: 1.2rem;
+      line-height: 1;
+    }
+
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--white-60);
+      line-height: 1.7;
+    }
+
+    .service-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 1.5rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .service-card:hover .service-arrow { opacity: 1; transform: translateX(0); }
+
+    .service-number {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* =============================================
+       HOW IT WORKS
+    ============================================= */
+    #how {
+      padding: 7rem 0;
+      background: var(--light-bg);
+      position: relative;
+    }
+
+    #how .section-title { color: var(--light-text); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 60px;
+      left: calc(100% / 6);
+      right: calc(100% / 6);
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+      z-index: 0;
+    }
+
+    .step-item {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.8rem;
+      box-shadow: 0 0 0 8px rgba(255,107,53,0.12), 0 8px 24px rgba(255,107,53,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .step-item:hover .step-num {
+      transform: scale(1.08) translateY(-4px);
+      box-shadow: 0 0 0 12px rgba(255,107,53,0.12), 0 16px 40px rgba(255,107,53,0.4);
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--light-text);
+      margin-bottom: 0.75rem;
+    }
+
+    .step-desc {
+      font-size: 0.9rem;
+      color: var(--light-sub);
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       PRICING
+    ============================================= */
+    #pricing {
+      padding: 7rem 0;
+      background: var(--bg2);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .pricing-card {
+      background: var(--bg3);
+      border: 1px solid var(--white-10);
+      border-radius: var(--radius);
+      padding: 2.8rem 2rem;
+      text-align: center;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .pricing-card:hover { transform: translateY(-6px); }
+
+    .pricing-card.featured {
+      background: linear-gradient(145deg, #1a1f2e, #0f1520);
+      border: 2px solid var(--orange);
+      padding: 3.4rem 2rem;
+      box-shadow: 0 0 0 1px rgba(255,107,53,0.15), 0 32px 80px rgba(0,0,0,0.5),
+                  0 0 60px rgba(255,107,53,0.08);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .pricing-tier {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .pricing-price {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-price sup {
+      font-size: 1.4rem;
+      font-weight: 700;
+      vertical-align: top;
+      margin-top: 0.6rem;
+      display: inline-block;
+    }
+
+    .pricing-sub-label {
+      font-size: 0.82rem;
+      color: var(--white-60);
+      margin-bottom: 1.8rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2.2rem;
+      text-align: left;
+    }
+
+    .pricing-features li {
+      font-size: 0.88rem;
+      color: var(--white-80);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--white-05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       GALLERY
+    ============================================= */
+    #gallery {
+      padding: 7rem 0;
+      background: var(--bg);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 280px);
+      gap: 12px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-item:nth-child(1) { grid-column: 1 / 2; grid-row: 1 / 2; }
+    .gallery-item:nth-child(2) { grid-column: 2 / 3; grid-row: 1 / 2; }
+    .gallery-item:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 3; }
+    .gallery-item:nth-child(4) { grid-column: 1 / 2; grid-row: 2 / 3; }
+    .gallery-item:nth-child(5) { grid-column: 2 / 3; grid-row: 2 / 3; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,17,23,0.85) 0%, transparent 50%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-tag {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+
+    /* =============================================
+       TESTIMONIALS
+    ============================================= */
+    #testimonials {
+      padding: 7rem 0;
+      background: var(--bg2);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      font-weight: 900;
+      color: rgba(255,107,53,0.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(255,107,53,0.20);
+      background: rgba(255,107,53,0.04);
+      transform: translateY(-4px);
+    }
+
+    .testimonial-stars {
+      color: var(--orange);
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--white-80);
+      line-height: 1.8;
+      margin-bottom: 1.8rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(255,107,53,0.30);
+      flex-shrink: 0;
+    }
+
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonial-name {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: var(--white-60);
+      margin-top: 2px;
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    #about {
+      padding: 7rem 0;
+      background: var(--light-bg);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .about-img-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-img-wrap:nth-child(2) { margin-top: 2.5rem; }
+
+    .about-img-wrap img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .about-img-wrap:hover img { transform: scale(1.04); }
+
+    .about-img-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(13,17,23,0.85), transparent);
+      padding: 1.5rem 1.2rem 1rem;
+    }
+
+    .about-img-label-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+    }
+
+    .about-img-label-role {
+      font-size: 0.75rem;
+      color: var(--orange);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .about-content { }
+
+    .about-content .section-title { color: var(--light-text); }
+
+    .about-content .section-sub { color: var(--light-sub); }
+
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--light-sub);
+      line-height: 1.85;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .about-value {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .about-value-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,107,53,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .about-value-text h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--light-text);
+      margin-bottom: 3px;
+    }
+
+    .about-value-text p {
+      font-size: 0.8rem;
+      color: var(--light-sub);
+      line-height: 1.5;
+    }
+
+    /* =============================================
+       CONTACT / BOOK
+    ============================================= */
+    #contact {
+      padding: 7rem 0;
+      background: var(--bg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info { }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,107,53,0.10);
+      border: 1px solid rgba(255,107,53,0.20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-text h4 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      margin-bottom: 4px;
+    }
+
+    .contact-detail-text p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .contact-form {
+      background: var(--bg2);
+      border: 1px solid var(--white-10);
+      border-radius: var(--radius);
+      padding: 2.8rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--white-10);
+      border-radius: var(--radius-sm);
+      padding: 13px 16px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.92rem;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+      background: rgba(255,107,53,0.04);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--white-30);
+    }
+
+    .form-group select option {
+      background: var(--bg2);
+      color: var(--white);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px 32px;
+      font-size: 0.95rem;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    #footer {
+      background: #08090d;
+      padding: 5rem 0 2.5rem;
+      border-top: 1px solid rgba(255,107,53,0.10);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-brand .nav-logo-name { font-size: 1.6rem; }
+
+    .footer-brand-desc {
+      font-size: 0.88rem;
+      color: var(--white-60);
+      line-height: 1.7;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--white-05);
+      border: 1px solid var(--white-10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      color: var(--white-60);
+    }
+
+    .footer-social:hover {
+      background: rgba(255,107,53,0.12);
+      border-color: rgba(255,107,53,0.30);
+      color: var(--orange);
+      transform: translateY(-3px);
+    }
+
+    .footer-col h4 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.4rem;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col ul li { margin-bottom: 0.7rem; }
+
+    .footer-col ul li a {
+      font-size: 0.88rem;
+      color: var(--white-60);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: var(--orange); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-contact-item span:first-child {
+      font-size: 1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .footer-contact-item span:last-child {
+      font-size: 0.88rem;
+      color: var(--white-60);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--white-05);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: var(--white-30);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-legal a {
+      font-size: 0.82rem;
+      color: var(--white-30);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover { color: var(--orange); }
+
+    /* =============================================
+       PARALLAX
+    ============================================= */
+    .parallax-container { overflow: hidden; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid::before { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-image-col { display: none; }
+      .hero-inner { max-width: 100%; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item:nth-child(1),
+      .gallery-item:nth-child(2),
+      .gallery-item:nth-child(3),
+      .gallery-item:nth-child(4),
+      .gallery-item:nth-child(5) {
+        grid-column: auto;
+        grid-row: auto;
+      }
+      .form-row { grid-template-columns: 1fr; }
+      .about-images { grid-template-columns: 1fr; }
+      .about-img-wrap:nth-child(2) { margin-top: 0; }
+      .about-img-wrap img { height: 250px; }
+    }
+
+    @media (max-width: 480px) {
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
+      .contact-form { padding: 1.8rem 1.5rem; }
+    }
+
+    /* =============================================
+       LOADING STATE — ensure everything visible
+       after 3s fallback
+    ============================================= */
+    .fallback-visible .anim-img,
+    .fallback-visible .anim-up,
+    .fallback-visible .anim-fade,
+    .fallback-visible .split-title .char {
+      opacity: 1 !important;
+      transform: none !important;
+      clip-path: none !important;
+    }
+
+    /* Orange accent line on sections */
+    .accent-line {
+      width: 56px;
+      height: 3px;
+      background: var(--orange);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .accent-line.center { margin-left: auto; margin-right: auto; }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== NAV ==================== -->
+  <nav id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">
+          <span class="nav-logo-name">Hayden <span>&</span> Liam</span>
+          <span class="nav-logo-tag">Junk Removal</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary nav-cta">Book Now</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#how" class="mobile-link">How It Works</a>
+    <a href="#pricing" class="mobile-link">Pricing</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+    <a href="#contact" class="btn btn-primary">Book Now</a>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero" class="spotlight-section">
+    <div class="spotlight-layer" id="hero-spotlight"></div>
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-glow"></div>
+
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-badge anim-up">
+          <span class="hero-badge-dot"></span>
+          Same Day Service Available
+        </div>
+
+        <h1 class="hero-title split-title">
+          We Haul.<br><span class="accent italic">You Relax.</span>
+        </h1>
+
+        <p class="hero-sub anim-up" style="--delay:0.2s">
+          Fast, reliable junk removal in your city. From single items to full home cleanouts — we handle it all with professionalism and care, so you can get back to what matters.
+        </p>
+
+        <div class="hero-btns anim-up" style="--delay:0.35s">
+          <a href="#contact" class="btn btn-primary">
+            <span>Get Free Quote</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#gallery" class="btn btn-outline">See Our Work</a>
+        </div>
+
+        <div class="scroll-indicator anim-up" style="--delay:0.5s">
+          <div class="scroll-mouse"></div>
+          <span>Scroll to explore</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- hero image collage (desktop only) -->
+    <div class="hero-image-col">
+      <div class="hero-img-card anim-img">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop" alt="Junk removal truck" loading="lazy" />
+      </div>
+      <div class="hero-img-card anim-img" style="transition-delay:0.15s">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&auto=format&fit=crop" alt="Clean modern home" loading="lazy" />
+      </div>
+      <div class="hero-img-card anim-img" style="transition-delay:0.3s">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&auto=format&fit=crop" alt="Clean garage" loading="lazy" />
+      </div>
+      <div class="hero-img-card anim-img" style="transition-delay:0.45s">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop" alt="Team at work" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TRUST BAR ==================== -->
+  <section id="trust" class="spotlight-section">
+    <div class="spotlight-layer"></div>
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item anim-up">
+          <span class="trust-icon">🚛</span>
+          <span class="trust-number" data-count="2400" data-suffix="+">0</span>
+          <span class="trust-label">Loads Removed</span>
+        </div>
+        <div class="trust-item anim-up" style="transition-delay:0.1s">
+          <span class="trust-icon">😊</span>
+          <span class="trust-number" data-count="1200" data-suffix="+">0</span>
+          <span class="trust-label">Happy Customers</span>
+        </div>
+        <div class="trust-item anim-up" style="transition-delay:0.2s">
+          <span class="trust-icon">⚡</span>
+          <span class="trust-number">Same Day</span>
+          <span class="trust-label">Service Available</span>
+        </div>
+        <div class="trust-item anim-up" style="transition-delay:0.3s">
+          <span class="trust-icon">⭐</span>
+          <span class="trust-number">5 Star</span>
+          <span class="trust-label">Customer Rated</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES ==================== -->
+  <section id="services" class="spotlight-section" style="padding: 7rem 0;">
+    <div class="spotlight-layer"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label anim-up">What We Do</span>
+        <h2 class="section-title split-title anim-up" style="transition-delay:0.1s">Everything You Need<br><span style="font-style:italic; color:var(--orange)">Hauled Away</span></h2>
+        <div class="accent-line center anim-fade" style="transition-delay:0.2s"></div>
+        <p class="section-sub" style="margin:0 auto;" class="anim-up">No job too big or too small. We handle residential and commercial junk removal with speed, care, and an eco-friendly approach.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card anim-up">
+          <span class="service-number">01</span>
+          <span class="service-icon">🏠</span>
+          <h3 class="service-title">Full Home Cleanouts</h3>
+          <p class="service-desc">Moving out, downsizing, or just decluttering? We clear every room, every floor — fast and efficient.</p>
+          <span class="service-arrow">Learn More →</span>
+        </div>
+        <div class="service-card anim-up" style="transition-delay:0.1s">
+          <span class="service-number">02</span>
+          <span class="service-icon">🛋️</span>
+          <h3 class="service-title">Furniture Removal</h3>
+          <p class="service-desc">Old sofas, mattresses, tables, dressers — we haul heavy furniture without scratching your floors.</p>
+          <span class="service-arrow">Learn More →</span>
+        </div>
+        <div class="service-card anim-up" style="transition-delay:0.2s">
+          <span class="service-number">03</span>
+          <span class="service-icon">🔌</span>
+          <h3 class="service-title">Appliance Disposal</h3>
+          <p class="service-desc">Washers, dryers, fridges, stoves — we dispose of appliances responsibly including eco-friendly recycling.</p>
+          <span class="service-arrow">Learn More →</span>
+        </div>
+        <div class="service-card anim-up" style="transition-delay:0.3s">
+          <span class="service-number">04</span>
+          <span class="service-icon">🏗️</span>
+          <h3 class="service-title">Construction Debris</h3>
+          <p class="service-desc">Post-renovation mess? We remove drywall, lumber, tiles, and all construction waste from your site.</p>
+          <span class="service-arrow">Learn More →</span>
+        </div>
+        <div class="service-card anim-up" style="transition-delay:0.4s">
+          <span class="service-number">05</span>
+          <span class="service-icon">🌿</span>
+          <h3 class="service-title">Yard Waste</h3>
+          <p class="service-desc">Branches, brush, leaves, old fencing — we clean up your outdoor spaces so you can enjoy them again.</p>
+          <span class="service-arrow">Learn More →</span>
+        </div>
+        <div class="service-card anim-up" style="transition-delay:0.5s">
+          <span class="service-number">06</span>
+          <span class="service-icon">🏛️</span>
+          <h3 class="service-title">Estate Cleanouts</h3>
+          <p class="service-desc">Handling an estate with care and respect. We work sensitively and efficiently during difficult times.</p>
+          <span class="service-arrow">Learn More →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOW IT WORKS ==================== -->
+  <section id="how">
+    <div class="container" style="padding: 7rem 0;">
+      <div class="section-header">
+        <span class="section-label anim-up" style="color:var(--orange)">The Process</span>
+        <h2 class="section-title dark split-title anim-up" style="transition-delay:0.1s">Three Simple Steps<br><span style="font-style:italic">to a Clutter-Free Space</span></h2>
+        <div class="accent-line center anim-fade" style="transition-delay:0.2s"></div>
+        <p class="section-sub dark" style="margin:0 auto;">We've made the process as painless as possible. From booking to completion, we respect your time and your property.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-item anim-up">
+          <div class="step-num">1</div>
+          <h3 class="step-title">Book Online or Call</h3>
+          <p class="step-desc">Schedule online in 60 seconds or give us a call. We offer flexible windows including same-day availability in most areas.</p>
+        </div>
+        <div class="step-item anim-up" style="transition-delay:0.15s">
+          <div class="step-num">2</div>
+          <h3 class="step-title">We Show Up & Quote</h3>
+          <p class="step-desc">Our friendly team arrives on time, assesses the job, and gives you an upfront price — no hidden fees, no surprises.</p>
+        </div>
+        <div class="step-item anim-up" style="transition-delay:0.3s">
+          <div class="step-num">3</div>
+          <h3 class="step-title">We Haul It Away</h3>
+          <p class="step-desc">We load up everything and leave your space spotless. We handle all responsible disposal and donation where possible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRICING ==================== -->
+  <section id="pricing" class="spotlight-section" style="padding: 7rem 0;">
+    <div class="spotlight-layer"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label anim-up">Transparent Pricing</span>
+        <h2 class="section-title split-title anim-up" style="transition-delay:0.1s">Simple, Upfront<br><span style="font-style:italic; color:var(--orange)">Pricing That's Fair</span></h2>
+        <div class="accent-line center anim-fade" style="transition-delay:0.2s"></div>
+        <p class="section-sub" style="margin:0 auto;">No hourly rates. No hidden fees. Pricing is based on how much truck space your junk takes up — that's it.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card anim-up">
+          <div class="pricing-tier">Minimum Load</div>
+          <div class="pricing-price"><sup>$</sup>75</div>
+          <div class="pricing-sub-label">Single Items & Small Loads</div>
+          <ul class="pricing-features">
+            <li>1–2 bulky items</li>
+            <li>Single appliance</li>
+            <li>Small pile of debris</li>
+            <li>Free on-site estimate</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="width:100%; justify-content:center;">Get Started</a>
+        </div>
+
+        <div class="pricing-card featured anim-up" style="transition-delay:0.15s">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-tier">Half Load</div>
+          <div class="pricing-price"><sup>$</sup>175</div>
+          <div class="pricing-sub-label">Garage &amp; Room Cleanouts</div>
+          <ul class="pricing-features">
+            <li>Garage or room cleanout</li>
+            <li>Multiple furniture pieces</li>
+            <li>Yard waste haul</li>
+            <li>Free on-site estimate</li>
+            <li>Eco-friendly disposal</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="width:100%; justify-content:center;">Book This</a>
+        </div>
+
+        <div class="pricing-card anim-up" style="transition-delay:0.3s">
+          <div class="pricing-tier">Full Load</div>
+          <div class="pricing-price"><sup>$</sup>325</div>
+          <div class="pricing-sub-label">Full Home &amp; Estate Cleanouts</div>
+          <ul class="pricing-features">
+            <li>Full home cleanout</li>
+            <li>Estate cleanout service</li>
+            <li>Construction debris</li>
+            <li>Free on-site estimate</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="width:100%; justify-content:center;">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GALLERY ==================== -->
+  <section id="gallery" style="padding: 7rem 0; background: var(--bg);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label anim-up">Our Work</span>
+        <h2 class="section-title split-title anim-up" style="transition-delay:0.1s">Before &amp; After<br><span style="font-style:italic; color:var(--orange)">Transformations</span></h2>
+        <div class="accent-line center anim-fade" style="transition-delay:0.2s"></div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item anim-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop" alt="Truck loaded with junk" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-tag">After → Clean</span></div>
+        </div>
+        <div class="gallery-item anim-img" style="transition-delay:0.12s">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop" alt="Clean living room" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-tag">After → Cleared</span></div>
+        </div>
+        <div class="gallery-item anim-img" style="transition-delay:0.24s">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&auto=format&fit=crop" alt="Team removing items" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-tag">Team at Work</span></div>
+        </div>
+        <div class="gallery-item anim-img" style="transition-delay:0.36s">
+          <img src="https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?w=800&auto=format&fit=crop" alt="Cluttered garage before" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-tag">Before → Garage</span></div>
+        </div>
+        <div class="gallery-item anim-img" style="transition-delay:0.48s">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&auto=format&fit=crop" alt="Clean modern kitchen" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-tag">After → Kitchen</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section id="testimonials" class="spotlight-section" style="padding: 7rem 0;">
+    <div class="spotlight-layer"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label anim-up">What Clients Say</span>
+        <h2 class="section-title split-title anim-up" style="transition-delay:0.1s">Real Stories From<br><span style="font-style:italic; color:var(--orange)">Happy Customers</span></h2>
+        <div class="accent-line center anim-fade" style="transition-delay:0.2s"></div>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card anim-up">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Hayden and Liam showed up on time, gave a fair quote, and had our entire basement cleared out in under two hours. Absolutely outstanding service. I cannot recommend them enough!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&face" alt="Sarah M." loading="lazy" />
+            </div>
+            <div>
+              <div class="testimonial-name">Sarah Mitchell</div>
+              <div class="testimonial-role">Homeowner, Portland</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card anim-up" style="transition-delay:0.15s">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Called at 8am, they were at my door by noon. Cleared out a huge pile of construction debris from my renovation. Professional, respectful, and reasonably priced. Booked them again already."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&face" alt="James R." loading="lazy" />
+            </div>
+            <div>
+              <div class="testimonial-name">James Rodriguez</div>
+              <div class="testimonial-role">Contractor, Seattle</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card anim-up" style="transition-delay:0.3s">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"After my mom passed, we needed her home cleared quickly and with care. These guys were so respectful. They donated what could be donated and handled everything thoughtfully. Truly a 5-star team."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&auto=format&fit=crop&face" alt="Linda K." loading="lazy" />
+            </div>
+            <div>
+              <div class="testimonial-name">Linda Kessler</div>
+              <div class="testimonial-role">Estate Client, Denver</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about" style="padding: 7rem 0; background: var(--light-bg);">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images">
+          <div class="about-img-wrap parallax-container">
+            <img class="anim-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop&face" alt="Hayden - Co-founder" loading="lazy" />
+            <div class="about-img-label">
+              <div class="about-img-label-name">Hayden</div>
+              <div class="about-img-label-role">Co-Founder</div>
+            </div>
+          </div>
+          <div class="about-img-wrap parallax-container">
+            <img class="anim-img" style="transition-delay:0.2s" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&auto=format&fit=crop&face" alt="Liam - Co-founder" loading="lazy" />
+            <div class="about-img-label">
+              <div class="about-img-label-name">Liam</div>
+              <div class="about-img-label-role">Co-Founder</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="section-label anim-up">Our Story</span>
+          <h2 class="section-title dark split-title anim-up" style="transition-delay:0.1s">Two Friends, One<br><span style="font-style:italic">Big Idea</span></h2>
+          <div class="accent-line anim-fade" style="transition-delay:0.2s"></div>
+          <p class="section-sub dark anim-up" style="transition-delay:0.25s">We started Hayden & Liam Junk Removal because we saw a gap — people needed junk removed, but were getting flaky no-shows, surprise fees, and lackluster service.</p>
+          <p class="about-text anim-up" style="transition-delay:0.35s">Growing up in the same neighborhood, Hayden and Liam turned a side hustle into a full-blown operation built on a simple promise: show up when you say you will, price fairly, and leave the place cleaner than you found it. Today, we serve hundreds of customers across the region and have built a reputation that speaks for itself.</p>
+
+          <div class="about-values anim-up" style="transition-delay:0.45s">
+            <div class="about-value">
+              <div class="about-value-icon">⏱️</div>
+              <div class="about-value-text">
+                <h4>Always On Time</h4>
+                <p>We respect your schedule. Guaranteed arrival windows.</p>
+              </div>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">♻️</div>
+              <div class="about-value-text">
+                <h4>Eco Responsible</h4>
+                <p>We recycle, donate, and divert from landfill when possible.</p>
+              </div>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">💬</div>
+              <div class="about-value-text">
+                <h4>No Hidden Fees</h4>
+                <p>The price we quote is the price you pay. Period.</p>
+              </div>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">🛡️</div>
+              <div class="about-value-text">
+                <h4>Fully Insured</h4>
+                <p>Licensed, bonded, and insured for your peace of mind.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT / BOOK ==================== -->
+  <section id="contact" class="spotlight-section" style="padding: 7rem 0;">
+    <div class="spotlight-layer"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label anim-up">Get In Touch</span>
+        <h2 class="section-title split-title anim-up" style="transition-delay:0.1s">Ready to Reclaim<br><span style="font-style:italic; color:var(--orange)">Your Space?</span></h2>
+        <div class="accent-line center anim-fade" style="transition-delay:0.2s"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info anim-up">
+          <p class="section-sub" style="margin-bottom:2.5rem;">Fill out the form and we'll get back to you within 30 minutes during business hours. Or reach us directly:</p>
+
+          <div class="contact-detail">
+            <div class="contact-icon">📞</div>
+            <div class="contact-detail-text">
+              <h4>Call or Text</h4>
+              <p>(555) 867-5309</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-detail-text">
+              <h4>Email Us</h4>
+              <p>hello@haydenandliam.com</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">🕒</div>
+            <div class="contact-detail-text">
+              <h4>Hours</h4>
+              <p>Mon–Sat: 7am–7pm · Sun: 8am–4pm</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">📍</div>
+            <div class="contact-detail-text">
+              <h4>Service Area</h4>
+              <p>Metro Area &amp; Surrounding Communities</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form anim-up" style="transition-delay:0.2s">
+          <form id="booking-form" onsubmit="handleFormSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" name="date" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address">Service Address</label>
+              <input type="text" id="address" name="address" placeholder="123 Main St, City, State" required />
+            </div>
+            <div class="form-group">
+              <label for="service">Service Type</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option value="home">Full Home Cleanout</option>
+                <option value="furniture">Furniture Removal</option>
+                <option value="appliance">Appliance Disposal</option>
+                <option value="construction">Construction Debris</option>
+                <option value="yard">Yard Waste</option>
+                <option value="estate">Estate Cleanout</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Additional Details</label>
+              <textarea id="message" name="message" placeholder="Tell us a bit about what needs to be removed, access details, or any questions..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              <span>Send My Request</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo">
+            <span class="nav-logo-name" style="font-size:1.5rem">Hayden <span style="color:var(--orange)">&</span> Liam</span>
+            <span class="nav-logo-tag" style="display:block; margin-top:4px">Junk Removal</span>
+          </a>
+          <p class="footer-brand-desc">Fast, reliable junk removal with a commitment to transparency, eco-friendly disposal, and five-star service every single time.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="Facebook">📘</a>
+            <a href="#" class="footer-social" aria-label="Instagram">📸</a>
+            <a href="#" class="footer-social" aria-label="Google">🔍</a>
+            <a href="#" class="footer-social" aria-label="Yelp">⭐</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Full Home Cleanouts</a></li>
+            <li><a href="#services">Furniture Removal</a></li>
+            <li><a href="#services">Appliance Disposal</a></li>
+            <li><a href="#services">Construction Debris</a></li>
+            <li><a href="#services">Yard Waste</a></li>
+            <li><a href="#services">Estate Cleanouts</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#gallery">Our Work</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Book Now</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <span>(555) 867-5309</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <span>hello@haydenandliam.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>🕒</span>
+            <span>Mon–Sat 7am–7pm</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>Metro Area &amp; Surrounding</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2025 Hayden & Liam Junk Removal. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+  (function() {
+    'use strict';
+
+    /* ============================================
+       PARTICLES
+    ============================================ */
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animFrame;
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.8 + 0.4;
+        this.speedX = (Math.random() - 0.5) * 0.35;
+        this.speedY = (Math.random() - 0.5) * 0.35;
+        this.opacity = Math.random() * 0.45 + 0.05;
+        this.color = Math.random() > 0.75 ? '#ff6b35' : '#ffffff';
+        this.pulse = Math.random() * Math.PI * 2;
+        this.pulseSpeed = Math.random() * 0.02 + 0.005;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.pulse += this.pulseSpeed;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.opacity * (0.7 + 0.3 * Math.sin(this.pulse));
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function initParticles() {
+      resizeCanvas();
+      particles = [];
+      const count = Math.floor((canvas.width * canvas.height) / 7000);
+      for (let i = 0; i < count; i++) { particles.push(new Particle()); }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      // draw connections
+      particles.forEach((a, i) => {
+        particles.slice(i + 1).forEach(b => {
+          const d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < 110) {
+            ctx.save();
+            ctx.globalAlpha = (1 - d / 110) * 0.08;
+            ctx.strokeStyle = '#ff6b35';
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+            ctx.restore();
+          }
+        });
+      });
+      animFrame = requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', () => { initParticles(); });
+    initParticles();
+    animateParticles();
+
+    /* ============================================
+       NAV SCROLL
+    ============================================ */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ============================================
+       HAMBURGER MENU
+    ============================================ */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-link, .mobile-menu .btn').forEach(el => {
+      el.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    /* ============================================
+       MOUSE SPOTLIGHT
+    ============================================ */
+    document.querySelectorAll('.spotlight-section').forEach(section => {
+      const layer = section.querySelector('.spotlight-layer');
+      if (!layer) return;
+      section.addEventListener('mousemove', e => {
+        const rect = section.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        section.style.setProperty('--mx', x + '%');
+        section.style.setProperty('--my', y + '%');
+      });
+    });
+
+    /* ============================================
+       3D TILT ON SERVICE CARDS
+    ============================================ */
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) / (rect.width / 2);
+        const dy = (e.clientY - cy) / (rect.height / 2);
+        const tiltX = dy * -10;
+        const tiltY = dx * 10;
+        card.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(8px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+        card.style.transition = 'transform 0.5s ease';
+        setTimeout(() => { card.style.transition = ''; }, 500);
+      });
+    });
+
+    /* ============================================
+       CHARACTER SPLIT ANIMATION
+    ============================================ */
+    function splitChars(el) {
+      const text = el.innerHTML;
+      // preserve HTML tags (span, br)
+      const parser = new DOMParser();
+      const doc = parser.parseFromString('<span>' + text + '</span>', 'text/html');
+      const container = doc.body.firstChild;
+
+      function processNode(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const chars = node.textContent.split('');
+          const fragment = document.createDocumentFragment();
+          chars.forEach(c => {
+            if (c === ' ') {
+              fragment.appendChild(document.createTextNode(' '));
+            } else {
+              const span = document.createElement('span');
+              span.className = 'char';
+              span.textContent = c;
+              fragment.appendChild(span);
+            }
+          });
+          return fragment;
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          const clone = node.cloneNode(false);
+          Array.from(node.childNodes).forEach(child => {
+            const processed = processNode(child);
+            clone.appendChild(processed);
+          });
+          return clone;
+        }
+        return node.cloneNode(true);
+      }
+
+      el.innerHTML = '';
+      Array.from(container.childNodes).forEach(child => {
+        el.appendChild(processNode(child));
+      });
+
+      // stagger delays
+      Array.from(el.querySelectorAll('.char')).forEach((char, i) => {
+        char.style.transitionDelay = (i * 0.025) + 's';
+      });
+    }
+
+    document.querySelectorAll('.split-title').forEach(splitChars);
+
+    /* ============================================
+       INTERSECTION OBSERVER — ANIMATIONS
+    ============================================ */
+    const baseDelay = {
+      'anim-up': 0,
+      'anim-img': 0,
+      'anim-fade': 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          // respect inline transition-delay set via style attr
+          el.classList.add('visible');
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    function observeAll() {
+      document.querySelectorAll('.anim-up, .anim-img, .anim-fade, .split-title').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    observeAll();
+
+    // 3-second fallback: make everything visible
+    setTimeout(() => {
+      document.body.classList.add('fallback-visible');
+      document.querySelectorAll('.anim-up, .anim-img, .anim-fade, .split-title').forEach(el => {
+        el.classList.add('visible');
+      });
+    }, 3000);
+
+    /* ============================================
+       COUNTER ANIMATION
+    ============================================ */
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-count'));
+        const suffix = el.getAttribute('data-suffix') || '';
+        if (!target) return;
+
+        const duration = 1800;
+        const start = performance.now();
+
+        function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+        function update(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const current = Math.floor(easeOut(progress) * target);
+          el.textContent = current.toLocaleString() + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+          else el.textContent = target.toLocaleString() + suffix;
+        }
+
+        requestAnimationFrame(update);
+        counterObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
+
+    /* ============================================
+       PARALLAX ON IMAGES
+    ============================================ */
+    const parallaxEls = document.querySelectorAll('.parallax-container img');
+
+    function updateParallax() {
+      parallaxEls.forEach(img => {
+        const rect = img.closest('.parallax-container').getBoundingClientRect();
+        const viewH = window.innerHeight;
+        const progress = (viewH - rect.top) / (viewH + rect.height);
+        const offset = (progress - 0.5) * 40;
+        img.style.transform = `translateY(${offset}px) scale(1.06)`;
+      });
+    }
+
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    updateParallax();
+
+    /* ============================================
+       HERO PARALLAX
+    ============================================ */
+    const heroInner = document.querySelector('.hero-inner');
+    const heroGlow = document.querySelector('.hero-glow');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY < window.innerHeight) {
+        if (heroInner) heroInner.style.transform = `translateY(${scrollY * 0.25}px)`;
+        if (heroGlow) heroGlow.style.transform = `translate(-50%, calc(-50% + ${scrollY * 0.15}px))`;
+      }
+    }, { passive: true });
+
+    /* ============================================
+       FORM SUBMISSION
+    ============================================ */
+    window.handleFormSubmit = function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.innerHTML = '<span>Request Sent!</span> ✓';
+        btn.style.background = '#22c55e';
+        form.reset();
+        setTimeout(() => {
+          btn.innerHTML = '<span>Send My Request</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3500);
+      }, 1200);
+    };
+
+    /* ============================================
+       SMOOTH SECTION REVEAL ENHANCEMENT
+    ============================================ */
+    // Add transition delays based on parent stagger index
+    document.querySelectorAll('.services-grid .service-card').forEach((card, i) => {
+      if (!card.style.transitionDelay) {
+        card.style.transitionDelay = (i * 0.09) + 's';
+      }
+    });
+
+  })();
+  </script>
+</body>
+</html>
