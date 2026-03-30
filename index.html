@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>H &amp; L Junk Removal LLC</title>
-  <meta name="description" content="H &amp; L Junk Removal LLC — fast, affordable junk removal serving Galveston and Harris County. Full cleanouts, furniture removal, appliance disposal and more." />
+  <title>H&amp;L Junk Removal &amp; Hauling Solutions, LLC</title>
+  <meta name="description" content="H&amp;L Junk Removal &amp; Hauling Solutions, LLC — fast, affordable junk removal serving Galveston and Harris County. Full cleanouts, furniture removal, appliance disposal and more." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -156,24 +156,17 @@
 
     .nav-logo {
       display: flex;
-      align-items: baseline;
-      gap: 10px;
+      align-items: center;
     }
 
-    .nav-logo-mark {
-      font-family: 'Space Mono', monospace;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--white);
-      letter-spacing: -0.02em;
+    .nav-logo img {
+      height: 50px;
+      width: auto;
+      transition: height 0.4s var(--ease);
     }
 
-    .nav-logo-name {
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      font-size: 0.75rem;
-      color: var(--gray-light);
-      letter-spacing: 0.05em;
+    .nav.scrolled .nav-logo img {
+      height: 36px;
     }
 
     .nav-links {
@@ -980,23 +973,12 @@
 
     .footer-logo {
       display: flex;
-      align-items: baseline;
-      gap: 10px;
+      align-items: center;
     }
 
-    .footer-logo-mark {
-      font-family: 'Space Mono', monospace;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--white);
-    }
-
-    .footer-logo-name {
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      font-size: 0.7rem;
-      color: var(--gray-light);
-      letter-spacing: 0.05em;
+    .footer-logo img {
+      height: 64px;
+      width: auto;
     }
 
     .footer-nav {
@@ -1191,8 +1173,7 @@
   <!-- Navigation -->
   <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
     <a href="#" class="nav-logo">
-      <span class="nav-logo-mark">H&amp;L</span>
-      <span class="nav-logo-name">Junk Removal LLC</span>
+      <img src="logo.png" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
     </a>
     <div class="nav-links" role="list">
       <a href="#services" class="nav-link" role="listitem">Services</a>
@@ -1322,8 +1303,8 @@
   <section class="quote-cta" aria-label="Call to action">
     <h2 class="quote-cta-title">Ready to Clear It Out?</h2>
     <p class="quote-cta-sub">Call us today for a free honest quote. No obligation.</p>
-    <a href="#contact" class="btn-cta-large" role="button">Call to Get a Quote Today</a>
-    <span class="quote-phone">(000) 000-0000</span>
+    <a href="tel:4099786982" class="btn-cta-large" role="button">Call to Get a Quote Today</a>
+    <a href="tel:4099786982" class="quote-phone">(409) 978-6982</a>
   </section>
 
   <!-- About -->
@@ -1333,7 +1314,7 @@
       <div class="about-text-col">
         <span class="section-label">About Us</span>
         <h2 class="section-title" id="aboutTitle" style="color: var(--white); margin-bottom: 32px;">Local. Reliable. Affordable.</h2>
-        <p class="about-body">H &amp; L Junk Removal LLC is a locally owned and operated junk removal service proudly serving Galveston and Harris County. We are committed to fast, affordable, and responsible hauling for homes and businesses across the greater Houston and Galveston area.</p>
+        <p class="about-body">H&amp;L Junk Removal &amp; Hauling Solutions, LLC is a locally owned and operated junk removal service proudly serving Galveston and Harris County. We are committed to fast, affordable, and responsible hauling for homes and businesses across the greater Houston and Galveston area.</p>
         <div class="about-stats">
           <div class="about-stat">
             <div class="about-stat-value">Same Day</div>
@@ -1352,11 +1333,12 @@
       <div class="about-img-col">
         <div class="about-img-wrap" id="aboutImgWrap">
           <img
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
-            alt="Junk removal truck loaded with items ready to be hauled away"
+            src="logo.png"
+            alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC"
             width="800"
             height="560"
             loading="lazy"
+            style="object-fit: contain; background: var(--dark3); padding: 32px;"
           />
         </div>
       </div>
@@ -1418,19 +1400,19 @@
   <footer class="footer" role="contentinfo">
     <div class="footer-top">
       <a href="#" class="footer-logo">
-        <span class="footer-logo-mark">H&amp;L</span>
-        <span class="footer-logo-name">Junk Removal LLC</span>
+        <img src="logo.png" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
       </a>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="#services" class="footer-nav-link">Services</a>
         <a href="#process" class="footer-nav-link">Process</a>
         <a href="#about" class="footer-nav-link">About</a>
         <a href="#contact" class="footer-nav-link">Contact</a>
+        <a href="https://www.instagram.com/h.l_junk.removal/" target="_blank" rel="noopener noreferrer" class="footer-nav-link" aria-label="Instagram">Instagram</a>
       </nav>
       <p class="footer-tagline">Fast. Reliable. Local.</p>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">2024 H &amp; L Junk Removal LLC. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2025 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. All rights reserved.</p>
     </div>
   </footer>
 
