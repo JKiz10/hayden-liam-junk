@@ -160,13 +160,14 @@
     }
 
     .nav-logo img {
-      height: 50px;
+      height: 56px;
       width: auto;
-      transition: height 0.4s var(--ease);
+      transition: height 0.4s var(--ease), filter 0.4s var(--ease);
+      filter: drop-shadow(0 0 12px rgba(255,255,255,0.15));
     }
 
     .nav.scrolled .nav-logo img {
-      height: 36px;
+      height: 40px;
     }
 
     .nav-links {
@@ -814,9 +815,12 @@
     .about-img-wrap img {
       width: 100%;
       height: 560px;
-      object-fit: cover;
-      transform: scale(1.1);
+      object-fit: contain;
+      background: var(--dark3);
+      padding: 40px;
+      transform: scale(1.05);
       transition: transform 1.2s var(--ease);
+      filter: drop-shadow(0 0 40px rgba(255,255,255,0.06));
     }
 
     .about-img-wrap.in img {
@@ -977,8 +981,9 @@
     }
 
     .footer-logo img {
-      height: 64px;
+      height: 72px;
       width: auto;
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
     }
 
     .footer-nav {
@@ -1038,6 +1043,7 @@
 
       .about-img-wrap img {
         height: 400px;
+        padding: 32px;
       }
     }
 
@@ -1134,6 +1140,10 @@
         text-align: center;
       }
 
+      .footer-logo {
+        justify-content: center;
+      }
+
       .footer-nav {
         flex-wrap: wrap;
         gap: 20px;
@@ -1181,7 +1191,7 @@
       <a href="#about" class="nav-link" role="listitem">About</a>
       <a href="#contact" class="nav-link" role="listitem">Contact</a>
     </div>
-    <a href="#contact" class="nav-cta nav-cta-desktop">Get a Quote</a>
+    <a href="tel:4099786982" class="nav-cta nav-cta-desktop">(409) 978-6982</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span>
       <span></span>
@@ -1195,7 +1205,8 @@
     <a href="#process" class="nav-link" data-close-menu>How It Works</a>
     <a href="#about" class="nav-link" data-close-menu>About</a>
     <a href="#contact" class="nav-link" data-close-menu>Contact</a>
-    <a href="#contact" class="nav-cta" data-close-menu>Get a Quote</a>
+    <a href="https://www.instagram.com/h.l_junk.removal/" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
+    <a href="tel:4099786982" class="nav-cta" data-close-menu>Call (409) 978-6982</a>
   </div>
 
   <!-- Hero -->
@@ -1218,8 +1229,8 @@
       </p>
 
       <div class="hero-ctas" id="heroCtas">
-        <a href="#contact" class="btn-primary">Get a Free Quote</a>
-        <a href="#services" class="btn-outline">Our Services</a>
+        <a href="tel:4099786982" class="btn-primary">Call Now — (409) 978-6982</a>
+        <a href="#contact" class="btn-outline">Get a Free Quote</a>
       </div>
     </div>
 
@@ -1338,7 +1349,6 @@
             width="800"
             height="560"
             loading="lazy"
-            style="object-fit: contain; background: var(--dark3); padding: 32px;"
           />
         </div>
       </div>
