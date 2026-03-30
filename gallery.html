@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Before &amp; After Gallery — H&amp;L Junk Removal</title>
+  <meta name="description" content="See the difference H&amp;L Junk Removal makes. Browse our before and after gallery of junk removal jobs across Galveston and Harris County." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black: #000000;
+      --dark: #0a0a0a;
+      --dark2: #111111;
+      --dark3: #1a1a1a;
+      --gray-dark: #2a2a2a;
+      --gray-mid: #555555;
+      --gray: #888888;
+      --gray-light: #cccccc;
+      --off-white: #f5f5f7;
+      --white: #ffffff;
+      --accent: #e8e8e8;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; cursor: none !important; }
+
+    @media (hover: none) and (pointer: coarse) {
+      *, *::before, *::after { cursor: auto !important; }
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.3) transparent;
+    }
+
+    html::-webkit-scrollbar { width: 6px; }
+    html::-webkit-scrollbar-track { background: transparent; }
+    html::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* CUSTOM CURSOR */
+    .cursor-outer {
+      width: 40px; height: 40px;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      border-radius: 50%; position: fixed; pointer-events: none; z-index: 999999;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s var(--ease), height 0.4s var(--ease), border-color 0.3s, background 0.3s, opacity 0.3s;
+      mix-blend-mode: difference; will-change: left, top;
+    }
+    .cursor-dot {
+      width: 5px; height: 5px; background: var(--white);
+      border-radius: 50%; position: fixed; pointer-events: none; z-index: 999999;
+      transform: translate(-50%, -50%); will-change: left, top;
+      transition: width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s;
+    }
+    .cursor-outer.hover { width: 64px; height: 64px; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.6); }
+    .cursor-outer.click { transform: translate(-50%, -50%) scale(0.8); transition: transform 0.1s ease; }
+    .cursor-dot.hover { width: 0; height: 0; }
+    @media (hover: none) and (pointer: coarse) { .cursor-outer, .cursor-dot { display: none !important; } }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    button { border: none; background: none; font-family: inherit; }
+    ul, ol { list-style: none; }
+
+    /* SCROLL PROGRESS */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px; background: var(--white);
+      z-index: 10000; transform-origin: left; transform: scaleX(0); will-change: transform;
+    }
+
+    /* PAGE LOADER */
+    .page-loader {
+      position: fixed; inset: 0; background: var(--black); z-index: 99999;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 1s var(--ease), visibility 1s;
+    }
+    .page-loader.loaded { opacity: 0; visibility: hidden; }
+    .loader-logo { height: 80px; animation: loaderPulse 1.5s var(--ease) infinite; }
+    @keyframes loaderPulse { 0%, 100% { opacity: 0.4; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1); } }
+
+    /* GRAIN */
+    .grain-overlay {
+      position: fixed; inset: 0; z-index: 9998; pointer-events: none; opacity: 0.02;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* NAVIGATION */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 20px 48px; display: flex; align-items: center; justify-content: space-between;
+      transition: padding 0.5s var(--ease), background 0.5s var(--ease), backdrop-filter 0.5s;
+    }
+    .nav.scrolled {
+      padding: 12px 48px; background: rgba(0,0,0,0.85);
+      backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 56px; width: auto; transition: height 0.5s var(--ease); filter: drop-shadow(0 0 12px rgba(255,255,255,0.15)); }
+    .nav.scrolled .nav-logo img { height: 38px; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-link {
+      font-weight: 400; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); transition: color 0.3s; position: relative;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+      background: var(--white); transition: width 0.4s var(--ease);
+    }
+    .nav-link:hover { color: var(--white); }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: var(--white); }
+    .nav-link.active::after { width: 100%; }
+    .nav-cta {
+      font-weight: 500; font-size: 0.8rem; letter-spacing: 0.05em; color: var(--black);
+      background: var(--white); padding: 10px 24px; border-radius: 100px;
+      transition: transform 0.3s var(--ease-spring), box-shadow 0.3s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(255,255,255,0.25); }
+
+    /* Hamburger */
+    .nav-hamburger { display: none; flex-direction: column; gap: 6px; padding: 8px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: transform 0.4s var(--ease), opacity 0.4s; border-radius: 1px; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    .nav-mobile-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.97);
+      backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); z-index: 999;
+      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      opacity: 0; pointer-events: none; transition: opacity 0.5s var(--ease);
+    }
+    .nav-mobile-overlay.open { opacity: 1; pointer-events: all; }
+    .nav-mobile-overlay .nav-link {
+      font-size: 1.8rem; font-weight: 600; letter-spacing: 0.05em; color: var(--white);
+      opacity: 0; transform: translateY(20px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+    }
+    .nav-mobile-overlay.open .nav-link { opacity: 1; transform: translateY(0); }
+    .nav-mobile-overlay .nav-link:nth-child(1) { transition-delay: 0.1s; }
+    .nav-mobile-overlay .nav-link:nth-child(2) { transition-delay: 0.15s; }
+    .nav-mobile-overlay .nav-link:nth-child(3) { transition-delay: 0.2s; }
+    .nav-mobile-overlay .nav-link:nth-child(4) { transition-delay: 0.25s; }
+    .nav-mobile-overlay .nav-link:nth-child(5) { transition-delay: 0.3s; }
+    .nav-mobile-overlay .nav-link:nth-child(6) { transition-delay: 0.35s; }
+    .nav-mobile-overlay .nav-cta {
+      font-size: 1rem; padding: 16px 40px; opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s var(--ease) 0.4s, transform 0.5s var(--ease) 0.4s, box-shadow 0.3s;
+    }
+    .nav-mobile-overlay.open .nav-cta { opacity: 1; transform: translateY(0); }
+
+    /* REVEAL ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(60px); transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .reveal-scale { opacity: 0; transform: scale(0.9); transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
+    .reveal-scale.in { opacity: 1; transform: scale(1); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* SECTION SHARED */
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; display: block;
+    }
+    .section-title { font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.1; letter-spacing: -0.03em; }
+
+    /* =============================================
+       GALLERY PAGE HERO
+    ============================================= */
+    .gallery-hero {
+      padding: 180px 48px 80px;
+      text-align: center;
+      position: relative;
+    }
+    .gallery-hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,255,255,0.04), transparent);
+      pointer-events: none;
+    }
+    .gallery-hero .section-title { margin-bottom: 16px; }
+    .gallery-hero-sub {
+      font-size: 1.1rem; color: rgba(255,255,255,0.5); max-width: 500px; margin: 0 auto;
+    }
+
+    /* =============================================
+       BEFORE & AFTER SLIDER
+    ============================================= */
+    .gallery-grid {
+      padding: 0 48px 140px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .ba-item-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .ba-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      aspect-ratio: 4 / 3;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+
+    .ba-slider img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .ba-slider .ba-after {
+      clip-path: inset(0 0 0 50%);
+      z-index: 1;
+    }
+
+    .ba-slider .ba-before {
+      z-index: 0;
+    }
+
+    .ba-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: var(--white);
+      z-index: 3;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .ba-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      z-index: 4;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+      transition: transform 0.2s var(--ease-spring), box-shadow 0.2s;
+    }
+
+    .ba-handle:hover, .ba-handle:active {
+      transform: translate(-50%, -50%) scale(1.15);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    }
+
+    .ba-handle svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: var(--black);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ba-label {
+      position: absolute;
+      bottom: 16px;
+      z-index: 2;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 100px;
+      pointer-events: none;
+    }
+
+    .ba-label-before { left: 16px; }
+    .ba-label-after { right: 16px; }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer {
+      background: var(--dark); padding: 60px 48px 32px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-top {
+      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 40px;
+      padding-bottom: 32px;
+    }
+    .footer-logo { display: flex; align-items: center; }
+    .footer-logo img { height: 72px; width: auto; filter: drop-shadow(0 0 8px rgba(255,255,255,0.1)); }
+    .footer-nav { display: flex; gap: 28px; justify-content: center; }
+    .footer-nav-link {
+      font-weight: 400; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); transition: color 0.3s;
+    }
+    .footer-nav-link:hover { color: var(--white); }
+    .footer-tagline { font-weight: 400; font-size: 0.75rem; color: rgba(255,255,255,0.35); text-align: right; letter-spacing: 0.05em; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.04); padding-top: 24px; }
+    .footer-copy {
+      font-family: 'Space Mono', monospace; font-size: 0.6rem; color: rgba(255,255,255,0.2);
+      letter-spacing: 0.1em; text-align: center;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 768px) {
+      .nav { padding: 16px 24px; }
+      .nav.scrolled { padding: 12px 24px; }
+      .nav-links, .nav-cta-desktop { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-mobile-overlay { display: flex; }
+      .gallery-hero { padding: 140px 24px 60px; }
+      .gallery-grid { padding: 0 24px 100px; gap: 60px; }
+      .footer { padding: 40px 24px 24px; }
+      .footer-top { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+      .footer-logo { justify-content: center; }
+      .footer-tagline { text-align: center; }
+      .footer-nav { flex-wrap: wrap; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <img class="loader-logo" src="logo.PNG" alt="Loading..." />
+  </div>
+
+  <!-- Grain -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-outer" id="cursorOuter"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.PNG" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
+    </a>
+    <div class="nav-links">
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="index.html#process" class="nav-link">How It Works</a>
+      <a href="gallery.html" class="nav-link active">Gallery</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </div>
+    <a href="tel:4099786982" class="nav-cta nav-cta-desktop">(409) 978-6982</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile-overlay" id="mobileMenu" role="dialog" aria-modal="true">
+    <a href="index.html#services" class="nav-link" data-close-menu>Services</a>
+    <a href="index.html#process" class="nav-link" data-close-menu>How It Works</a>
+    <a href="gallery.html" class="nav-link" data-close-menu>Gallery</a>
+    <a href="index.html#about" class="nav-link" data-close-menu>About</a>
+    <a href="index.html#contact" class="nav-link" data-close-menu>Contact</a>
+    <a href="https://www.instagram.com/h.l_junk.removal/" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
+    <a href="tel:4099786982" class="nav-cta" data-close-menu>Call (409) 978-6982</a>
+  </div>
+
+  <!-- Gallery Hero -->
+  <section class="gallery-hero">
+    <div class="gallery-hero-bg" aria-hidden="true"></div>
+    <span class="section-label reveal">Our Work</span>
+    <h1 class="section-title reveal d1" style="color: var(--white);">Before &amp; After</h1>
+    <p class="gallery-hero-sub reveal d2">Drag the slider to see the transformation. Real jobs, real results.</p>
+  </section>
+
+  <!-- Gallery -->
+  <div class="gallery-grid">
+
+    <!-- Pair 1 -->
+    <div class="reveal-scale d1">
+      <p class="ba-item-label">Job 01</p>
+      <div class="ba-slider" data-ba-slider>
+        <img class="ba-before" src="images/before1.jpg" alt="Before junk removal — Job 1" />
+        <img class="ba-after" src="images/after1.jpg" alt="After junk removal — Job 1" />
+        <div class="ba-divider"></div>
+        <div class="ba-handle" aria-label="Drag to compare before and after">
+          <svg viewBox="0 0 24 24"><polyline points="8 4 2 12 8 20"/><polyline points="16 4 22 12 16 20"/></svg>
+        </div>
+        <span class="ba-label ba-label-before">Before</span>
+        <span class="ba-label ba-label-after">After</span>
+      </div>
+    </div>
+
+    <!-- Pair 2 -->
+    <div class="reveal-scale d2">
+      <p class="ba-item-label">Job 02</p>
+      <div class="ba-slider" data-ba-slider>
+        <img class="ba-before" src="images/before2.jpg" alt="Before junk removal — Job 2" />
+        <img class="ba-after" src="images/after2.jpg" alt="After junk removal — Job 2" />
+        <div class="ba-divider"></div>
+        <div class="ba-handle" aria-label="Drag to compare before and after">
+          <svg viewBox="0 0 24 24"><polyline points="8 4 2 12 8 20"/><polyline points="16 4 22 12 16 20"/></svg>
+        </div>
+        <span class="ba-label ba-label-before">Before</span>
+        <span class="ba-label ba-label-after">After</span>
+      </div>
+    </div>
+
+    <!-- Pair 3 -->
+    <div class="reveal-scale d3">
+      <p class="ba-item-label">Job 03</p>
+      <div class="ba-slider" data-ba-slider>
+        <img class="ba-before" src="images/before3.jpg" alt="Before junk removal — Job 3" />
+        <img class="ba-after" src="images/after3.jpg" alt="After junk removal — Job 3" />
+        <div class="ba-divider"></div>
+        <div class="ba-handle" aria-label="Drag to compare before and after">
+          <svg viewBox="0 0 24 24"><polyline points="8 4 2 12 8 20"/><polyline points="16 4 22 12 16 20"/></svg>
+        </div>
+        <span class="ba-label ba-label-before">Before</span>
+        <span class="ba-label ba-label-after">After</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">
+        <img src="logo.PNG" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
+      </a>
+      <nav class="footer-nav">
+        <a href="index.html#services" class="footer-nav-link">Services</a>
+        <a href="index.html#process" class="footer-nav-link">Process</a>
+        <a href="gallery.html" class="footer-nav-link">Gallery</a>
+        <a href="index.html#about" class="footer-nav-link">About</a>
+        <a href="index.html#contact" class="footer-nav-link">Contact</a>
+        <a href="https://www.instagram.com/h.l_junk.removal/" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Instagram</a>
+      </nav>
+      <p class="footer-tagline">Fast. Reliable. Local.</p>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+
+      /* PAGE LOADER */
+      window.addEventListener('load', function() {
+        var loader = document.getElementById('pageLoader');
+        if (!loader) return;
+        setTimeout(function() {
+          loader.classList.add('loaded');
+          setTimeout(function() { loader.style.display = 'none'; }, 1000);
+        }, 600);
+      });
+
+      /* SCROLL PROGRESS */
+      var progressBar = document.getElementById('scrollProgress');
+      function updateProgress() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? scrollTop / docHeight : 0;
+        progressBar.style.transform = 'scaleX(' + progress + ')';
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
+
+      /* CUSTOM CURSOR */
+      var outer = document.getElementById('cursorOuter');
+      var cdot = document.getElementById('cursorDot');
+      var mx = 0, my = 0, ox = 0, oy = 0;
+      var cursorLerp = 0.12;
+
+      function animateCursor() {
+        ox += (mx - ox) * cursorLerp;
+        oy += (my - oy) * cursorLerp;
+        outer.style.left = ox + 'px';
+        outer.style.top = oy + 'px';
+        cdot.style.left = mx + 'px';
+        cdot.style.top = my + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      requestAnimationFrame(animateCursor);
+
+      document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
+      document.addEventListener('mousedown', function() { outer.classList.add('click'); });
+      document.addEventListener('mouseup', function() { outer.classList.remove('click'); });
+
+      document.querySelectorAll('a, button, input, select, textarea, [role="button"], .ba-handle').forEach(function(el) {
+        el.addEventListener('mouseenter', function() { outer.classList.add('hover'); cdot.classList.add('hover'); });
+        el.addEventListener('mouseleave', function() { outer.classList.remove('hover'); cdot.classList.remove('hover'); });
+      });
+
+      /* NAVIGATION */
+      var nav = document.getElementById('mainNav');
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+
+      var hamburger = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobileMenu');
+      var menuOpen = false;
+
+      function toggleMenu() {
+        menuOpen = !menuOpen;
+        hamburger.classList.toggle('open', menuOpen);
+        mobileMenu.classList.toggle('open', menuOpen);
+        hamburger.setAttribute('aria-expanded', String(menuOpen));
+        document.body.style.overflow = menuOpen ? 'hidden' : '';
+      }
+
+      hamburger.addEventListener('click', toggleMenu);
+      document.querySelectorAll('[data-close-menu]').forEach(function(el) {
+        el.addEventListener('click', function() { if (menuOpen) toggleMenu(); });
+      });
+
+      /* SCROLL REVEAL */
+      var reveals = document.querySelectorAll('.reveal, .reveal-scale');
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function(el) { revealObserver.observe(el); });
+      } else {
+        reveals.forEach(function(el) { el.classList.add('in'); });
+      }
+
+      /* =============================================
+         BEFORE / AFTER SLIDER
+      ============================================= */
+      document.querySelectorAll('[data-ba-slider]').forEach(function(slider) {
+        var afterImg = slider.querySelector('.ba-after');
+        var divider = slider.querySelector('.ba-divider');
+        var handle = slider.querySelector('.ba-handle');
+        var isDragging = false;
+
+        function getPosition(e) {
+          var rect = slider.getBoundingClientRect();
+          var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          var x = clientX - rect.left;
+          var pct = Math.max(0, Math.min(1, x / rect.width));
+          return pct;
+        }
+
+        function updateSlider(pct) {
+          var percent = (pct * 100).toFixed(2) + '%';
+          afterImg.style.clipPath = 'inset(0 0 0 ' + percent + ')';
+          divider.style.left = percent;
+          handle.style.left = percent;
+        }
+
+        function onStart(e) {
+          isDragging = true;
+          updateSlider(getPosition(e));
+          e.preventDefault();
+        }
+
+        function onMove(e) {
+          if (!isDragging) return;
+          updateSlider(getPosition(e));
+        }
+
+        function onEnd() {
+          isDragging = false;
+        }
+
+        /* Mouse */
+        handle.addEventListener('mousedown', onStart);
+        slider.addEventListener('mousedown', onStart);
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('mouseup', onEnd);
+
+        /* Touch */
+        handle.addEventListener('touchstart', onStart, { passive: false });
+        slider.addEventListener('touchstart', onStart, { passive: false });
+        window.addEventListener('touchmove', onMove, { passive: true });
+        window.addEventListener('touchend', onEnd);
+      });
+
+    })();
+  </script>
+</body>
+</html>
