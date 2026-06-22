@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>H&amp;L Junk Removal &amp; Hauling Solutions, LLC</title>
-  <meta name="description" content="H&amp;L Junk Removal &amp; Hauling Solutions, LLC — fast, affordable junk removal serving Galveston and Harris County. Full cleanouts, furniture removal, appliance disposal and more." />
+  <meta name="description" content="H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured junk removal and hauling serving Galveston and Harris County. Residential and commercial cleanouts, furniture and appliance removal, and more. Free quotes." />
   <link rel="icon" type="image/png" href="logo.PNG" />
   <link rel="shortcut icon" type="image/png" href="logo.PNG" />
   <link rel="apple-touch-icon" href="logo.PNG" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -50,7 +50,7 @@
     body {
       background: var(--black);
       color: var(--white);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Oswald', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 400;
       line-height: 1.6;
       overflow-x: hidden;
@@ -321,13 +321,15 @@
     .nav-mobile-overlay .nav-link:nth-child(4) { transition-delay: 0.25s; }
     .nav-mobile-overlay .nav-link:nth-child(5) { transition-delay: 0.3s; }
     .nav-mobile-overlay .nav-link:nth-child(6) { transition-delay: 0.35s; }
+    .nav-mobile-overlay .nav-link:nth-child(7) { transition-delay: 0.4s; }
+    .nav-mobile-overlay .nav-link:nth-child(8) { transition-delay: 0.45s; }
 
     .nav-mobile-overlay .nav-cta {
       font-size: 1rem;
       padding: 16px 40px;
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.5s var(--ease) 0.35s, transform 0.5s var(--ease) 0.35s, box-shadow 0.3s;
+      transition: opacity 0.5s var(--ease) 0.5s, transform 0.5s var(--ease) 0.5s, box-shadow 0.3s;
     }
 
     .nav-mobile-overlay.open .nav-cta {
@@ -479,7 +481,7 @@
     }
 
     .hero-headline {
-      font-weight: 800;
+      font-weight: 700;
       font-size: clamp(3.5rem, 9vw, 7rem);
       line-height: 0.95;
       letter-spacing: -0.04em;
@@ -577,7 +579,7 @@
     }
 
     .hero-scroll-label {
-      font-family: 'Space Mono', monospace;
+      font-family: 'Special Elite', monospace;
       font-size: 0.6rem;
       letter-spacing: 0.3em;
       color: rgba(255,255,255,0.3);
@@ -612,7 +614,7 @@
        SECTION SHARED
     ============================================= */
     .section-label {
-      font-family: 'Space Mono', monospace;
+      font-family: 'Special Elite', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
@@ -670,7 +672,7 @@
     .service-card:hover { background: rgba(255,255,255,0.03); }
 
     .service-number {
-      font-family: 'Space Mono', monospace;
+      font-family: 'Special Elite', monospace;
       font-size: 0.7rem;
       color: rgba(255,255,255,0.25);
       letter-spacing: 0.1em;
@@ -694,6 +696,195 @@
       font-size: 0.875rem;
       color: rgba(255,255,255,0.45);
       line-height: 1.7;
+    }
+
+    /* =============================================
+       COMMERCIAL / B2B
+    ============================================= */
+    .commercial {
+      padding: 140px 48px;
+      position: relative;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .commercial-inner { max-width: 1200px; margin: 0 auto; }
+
+    .commercial-header { margin-bottom: 56px; max-width: 680px; }
+
+    .commercial-lead {
+      font-weight: 300;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      margin-top: 24px;
+    }
+
+    .commercial-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .commercial-item {
+      background: var(--dark2);
+      padding: 36px 28px;
+      transition: background 0.4s;
+    }
+
+    .commercial-item:hover { background: rgba(255,255,255,0.03); }
+
+    .commercial-item-tag {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .commercial-item-name {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .commercial-cta {
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .commercial-cta-text {
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* =============================================
+       RECENT WORK — BENTO GALLERY
+    ============================================= */
+    .work {
+      padding: 140px 48px;
+      position: relative;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .work-inner { max-width: 1200px; margin: 0 auto; }
+
+    .work-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+
+    .work-header-text { max-width: 620px; }
+
+    .work-lead {
+      font-weight: 300;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      margin-top: 24px;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 200px;
+      grid-auto-flow: dense;
+      gap: 12px;
+    }
+
+    .work-cell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      background: var(--dark2);
+    }
+
+    .work-cell.feature { grid-column: span 2; grid-row: span 2; }
+    .work-cell.tall { grid-row: span 2; }
+    .work-cell.wide { grid-column: span 2; }
+
+    .work-cell img,
+    .work-cell video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.9s var(--ease);
+      will-change: transform;
+    }
+
+    .work-cell::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.45), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.5s var(--ease);
+      pointer-events: none;
+    }
+
+    .work-cell:hover img,
+    .work-cell:hover video { transform: scale(1.06); }
+    .work-cell:hover::after { opacity: 1; }
+
+    .work-cell-tag {
+      position: absolute;
+      left: 16px;
+      bottom: 14px;
+      z-index: 2;
+      font-family: 'Special Elite', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    }
+
+    .work-cell:hover .work-cell-tag { opacity: 1; transform: translateY(0); }
+
+    .work-cell.tall .work-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-family: 'Special Elite', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .work-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #34c759;
+      animation: pulse 2s ease infinite;
     }
 
     /* =============================================
@@ -735,7 +926,7 @@
     .process-step:last-child::before { display: none; }
 
     .process-step-number {
-      font-family: 'Space Mono', monospace;
+      font-family: 'Special Elite', monospace;
       font-weight: 700;
       font-size: clamp(4rem, 7vw, 6rem);
       color: rgba(0,0,0,0.06);
@@ -778,7 +969,7 @@
     }
 
     .quote-cta-title {
-      font-weight: 800;
+      font-weight: 700;
       font-size: clamp(2.5rem, 6vw, 4.5rem);
       color: var(--white);
       letter-spacing: -0.04em;
@@ -815,7 +1006,7 @@
     }
 
     .quote-phone {
-      font-family: 'Space Mono', monospace;
+      font-family: 'Special Elite', monospace;
       font-size: 0.8rem;
       color: rgba(255,255,255,0.35);
       letter-spacing: 0.12em;
@@ -871,7 +1062,7 @@
     .about-stat:hover { border-color: rgba(255,255,255,0.4); }
 
     .about-stat-value {
-      font-family: 'Space Mono', monospace;
+      font-family: 'Special Elite', monospace;
       font-weight: 700;
       font-size: 0.85rem;
       color: var(--white);
@@ -1070,7 +1261,7 @@
     }
 
     .footer-copy {
-      font-family: 'Space Mono', monospace;
+      font-family: 'Special Elite', monospace;
       font-size: 0.6rem;
       color: rgba(255,255,255,0.2);
       letter-spacing: 0.1em;
@@ -1082,6 +1273,10 @@
     ============================================= */
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .commercial-grid { grid-template-columns: repeat(2, 1fr); }
+      .work-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+      .work-cell.feature { grid-column: span 2; grid-row: span 2; }
+      .work-cell.wide { grid-column: span 2; }
       .about-inner { grid-template-columns: 1fr; gap: 60px; }
       .about-img-wrap img { height: 400px; padding: 24px; }
     }
@@ -1095,6 +1290,13 @@
       .hero { padding: 120px 24px 80px; }
       .services { padding: 100px 24px; }
       .services-grid { grid-template-columns: 1fr; border-radius: 12px; }
+      .commercial { padding: 100px 24px; }
+      .commercial-grid { grid-template-columns: 1fr; border-radius: 12px; }
+      .work { padding: 100px 24px; }
+      .work-grid { grid-template-columns: 1fr; grid-auto-rows: 230px; }
+      .work-cell.feature { grid-column: span 1; grid-row: span 1; }
+      .work-cell.wide { grid-column: span 1; }
+      .work-cell.tall { grid-row: span 1; aspect-ratio: 9 / 16; height: auto; }
       .process { padding: 100px 24px; }
       .process-steps { grid-template-columns: 1fr; }
       .process-step::before { width: 100%; height: 1px; bottom: 0; top: auto; right: auto; }
@@ -1142,12 +1344,14 @@
     </a>
     <div class="nav-links">
       <a href="#services" class="nav-link">Services</a>
-      <a href="#process" class="nav-link">How It Works</a>
+      <a href="#commercial" class="nav-link">Commercial</a>
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#process" class="nav-link">Process</a>
       <a href="gallery.html" class="nav-link">Gallery</a>
       <a href="#about" class="nav-link">About</a>
       <a href="#contact" class="nav-link">Contact</a>
     </div>
-    <a href="tel:4099786982" class="nav-cta nav-cta-desktop">(409) 978-6982</a>
+    <a href="tel:8324257749" class="nav-cta nav-cta-desktop">832-425-7749</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1156,12 +1360,14 @@
   <!-- Mobile Menu -->
   <div class="nav-mobile-overlay" id="mobileMenu" role="dialog" aria-modal="true">
     <a href="#services" class="nav-link" data-close-menu>Services</a>
-    <a href="#process" class="nav-link" data-close-menu>How It Works</a>
+    <a href="#commercial" class="nav-link" data-close-menu>Commercial</a>
+    <a href="#work" class="nav-link" data-close-menu>Work</a>
+    <a href="#process" class="nav-link" data-close-menu>Process</a>
     <a href="gallery.html" class="nav-link" data-close-menu>Gallery</a>
     <a href="#about" class="nav-link" data-close-menu>About</a>
     <a href="#contact" class="nav-link" data-close-menu>Contact</a>
     <a href="https://www.instagram.com/h.l_junk.removal/" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
-    <a href="tel:4099786982" class="nav-cta" data-close-menu>Call (409) 978-6982</a>
+    <a href="tel:8324257749" class="nav-cta" data-close-menu>Call 832-425-7749</a>
   </div>
 
   <!-- Hero -->
@@ -1180,10 +1386,10 @@
         <span class="line"><span class="line-inner" id="heroLine2">You Relax.</span></span>
       </h1>
       <p class="hero-sub" id="heroSub">
-        No job too big or too small — we show up, load up, and haul away. Fast, honest, and affordable.
+        No job too big or too small. We show up, load up, and haul it away. Fully insured, and your quote is always free.
       </p>
       <div class="hero-ctas" id="heroCtas">
-        <a href="tel:4099786982" class="btn-primary">Call Now — (409) 978-6982</a>
+        <a href="tel:8324257749" class="btn-primary">Call Now 832-425-7749</a>
         <a href="#contact" class="btn-outline">Get a Free Quote</a>
       </div>
     </div>
@@ -1210,7 +1416,7 @@
       <div class="service-card" data-tilt>
         <span class="service-number">02</span>
         <h3 class="service-name">Furniture Removal</h3>
-        <p class="service-desc">Sofas, beds, dressers, tables — we haul any furniture regardless of size or condition.</p>
+        <p class="service-desc">Sofas, beds, dressers, and tables. We haul any furniture regardless of size or condition.</p>
       </div>
       <div class="service-card" data-tilt>
         <span class="service-number">03</span>
@@ -1235,6 +1441,98 @@
     </div>
   </section>
 
+  <!-- Commercial / B2B -->
+  <section class="commercial" id="commercial">
+    <div class="commercial-inner">
+      <div class="commercial-header">
+        <span class="section-label reveal">Commercial Accounts</span>
+        <h2 class="section-title reveal d1" style="color: var(--white);">Built for Business</h2>
+        <p class="commercial-lead reveal d2">Hi, if you manage property or turn over units, we make cleanouts easy. We show up on schedule, work fast, and keep your sites clear so you can keep moving. Fully insured, with a free quote on every job.</p>
+      </div>
+
+      <div class="commercial-grid reveal-scale d2">
+        <div class="commercial-item">
+          <span class="commercial-item-tag">01</span>
+          <h3 class="commercial-item-name">Property Managers</h3>
+        </div>
+        <div class="commercial-item">
+          <span class="commercial-item-tag">02</span>
+          <h3 class="commercial-item-name">Apartment Complexes</h3>
+        </div>
+        <div class="commercial-item">
+          <span class="commercial-item-tag">03</span>
+          <h3 class="commercial-item-name">REO &amp; Foreclosure Cleanouts</h3>
+        </div>
+        <div class="commercial-item">
+          <span class="commercial-item-tag">04</span>
+          <h3 class="commercial-item-name">Storage Facilities</h3>
+        </div>
+        <div class="commercial-item">
+          <span class="commercial-item-tag">05</span>
+          <h3 class="commercial-item-name">Estate Sale Companies</h3>
+        </div>
+        <div class="commercial-item">
+          <span class="commercial-item-tag">06</span>
+          <h3 class="commercial-item-name">Contractors</h3>
+        </div>
+        <div class="commercial-item">
+          <span class="commercial-item-tag">07</span>
+          <h3 class="commercial-item-name">Realtors</h3>
+        </div>
+        <div class="commercial-item">
+          <span class="commercial-item-tag">08</span>
+          <h3 class="commercial-item-name">Recurring &amp; Volume Work</h3>
+        </div>
+      </div>
+
+      <div class="commercial-cta reveal d2">
+        <a href="#contact" class="btn-primary">Set Up an Account</a>
+        <span class="commercial-cta-text">Or call us at <a href="tel:8324257749" style="color: var(--white);">832-425-7749</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Work -->
+  <section class="work" id="work">
+    <div class="work-inner">
+      <div class="work-header">
+        <div class="work-header-text">
+          <span class="section-label reveal">Recent Work</span>
+          <h2 class="section-title reveal d1" style="color: var(--white);">On the Job</h2>
+          <p class="work-lead reveal d2">Hi, here is some of our recent work around Galveston and Harris County. Real trucks, real trailers, real cleanouts. This is what shows up when you call us.</p>
+        </div>
+        <a href="gallery.html" class="btn-outline reveal d2">View Full Gallery</a>
+      </div>
+
+      <div class="work-grid reveal-scale d2">
+        <div class="work-cell feature">
+          <img src="images/work/work1.jpg" alt="Truck bed loaded with furniture and junk for removal" width="1600" height="1200" loading="lazy" />
+          <span class="work-cell-tag">Loaded and gone</span>
+        </div>
+        <div class="work-cell tall">
+          <img src="images/work/work4.jpg" alt="H&amp;L dump trailer unloading on a residential job in Texas" width="1200" height="1600" loading="lazy" />
+          <span class="work-cell-tag">Dump trailer service</span>
+        </div>
+        <div class="work-cell tall">
+          <span class="work-badge"><span class="work-badge-dot"></span>On the job</span>
+          <video src="images/work/work-clip.mp4" poster="images/work/work-clip-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <div class="work-cell wide">
+          <img src="images/work/work5.jpg" alt="H&amp;L dump trailer parked at a suburban home" width="1600" height="1200" loading="lazy" />
+          <span class="work-cell-tag">Any size load</span>
+        </div>
+        <div class="work-cell">
+          <img src="images/work/work6.jpg" alt="Clean H&amp;L dump trailer ready for the next haul" width="1200" height="1600" loading="lazy" />
+          <span class="work-cell-tag">Ready to haul</span>
+        </div>
+        <div class="work-cell">
+          <img src="images/work/work2.jpg" alt="Cleared and swept driveway after a junk removal job" width="1200" height="1600" loading="lazy" />
+          <span class="work-cell-tag">Cleared and clean</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- How It Works -->
   <section class="process" id="process">
     <div class="process-header">
@@ -1246,7 +1544,7 @@
       <div class="process-step reveal d1">
         <div class="process-step-number">01</div>
         <h3 class="process-step-title">Call or Book Online</h3>
-        <p class="process-step-desc">Reach out by phone or fill out our contact form. We respond fast with a free honest quote — no hidden fees.</p>
+        <p class="process-step-desc">Reach out by phone or fill out our contact form. We respond fast with a free honest quote and no hidden fees.</p>
       </div>
       <div class="process-step reveal d2">
         <div class="process-step-number">02</div>
@@ -1266,8 +1564,8 @@
     <div class="quote-cta-bg" aria-hidden="true"></div>
     <h2 class="quote-cta-title reveal">Ready to Clear It Out?</h2>
     <p class="quote-cta-sub reveal d1">Call us today for a free honest quote. No obligation.</p>
-    <a href="tel:4099786982" class="btn-cta-large reveal d2">Call to Get a Quote Today</a>
-    <a href="tel:4099786982" class="quote-phone reveal d3">(409) 978-6982</a>
+    <a href="tel:8324257749" class="btn-cta-large reveal d2">Call to Get a Quote Today</a>
+    <a href="tel:8324257749" class="quote-phone reveal d3">832-425-7749</a>
   </section>
 
   <!-- About -->
@@ -1275,8 +1573,8 @@
     <div class="about-inner">
       <div class="about-text-col">
         <span class="section-label reveal">About Us</span>
-        <h2 class="section-title reveal d1" style="color: var(--white); margin-bottom: 32px;">Local. Reliable. Affordable.</h2>
-        <p class="about-body reveal d2">H&amp;L Junk Removal &amp; Hauling Solutions, LLC is a locally owned and operated junk removal service proudly serving Galveston and Harris County. We are committed to fast, affordable, and responsible hauling for homes and businesses across the greater Houston and Galveston area.</p>
+        <h2 class="section-title reveal d1" style="color: var(--white); margin-bottom: 32px;">Local. Reliable. Fully Insured.</h2>
+        <p class="about-body reveal d2">Hi, we are H&amp;L Junk Removal &amp; Hauling Solutions, LLC. We are a locally owned and operated team based in League City, proudly serving Galveston County and Harris County. We handle fast, responsible hauling for homes and businesses across the area, and we are fully insured on every job. Reach out any time and we will get you a free quote.</p>
         <div class="about-stats">
           <div class="about-stat reveal d2">
             <div class="about-stat-value">Same Day</div>
@@ -1287,8 +1585,8 @@
             <div class="about-stat-label">No Obligation</div>
           </div>
           <div class="about-stat reveal d4">
-            <div class="about-stat-value">Licensed &amp; Insured</div>
-            <div class="about-stat-label">Professional</div>
+            <div class="about-stat-value">Fully Insured</div>
+            <div class="about-stat-label">Every Job</div>
           </div>
         </div>
       </div>
@@ -1363,6 +1661,8 @@
       </a>
       <nav class="footer-nav">
         <a href="#services" class="footer-nav-link">Services</a>
+        <a href="#commercial" class="footer-nav-link">Commercial</a>
+        <a href="#work" class="footer-nav-link">Work</a>
         <a href="#process" class="footer-nav-link">Process</a>
         <a href="gallery.html" class="footer-nav-link">Gallery</a>
         <a href="#about" class="footer-nav-link">About</a>
@@ -1372,7 +1672,7 @@
       <p class="footer-tagline">Fast. Reliable. Local.</p>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">&copy; 2025 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Galveston &amp; Harris County, TX. All rights reserved.</p>
     </div>
   </footer>
 
@@ -1622,14 +1922,14 @@
               submitBtn.disabled = false;
               submitBtn.textContent = originalText;
               submitBtn.style.opacity = '1';
-              var msg = (result.data && result.data.message) ? result.data.message : 'Something went wrong. Please try again or call us at (409) 978-6982.';
+              var msg = (result.data && result.data.message) ? result.data.message : 'Something went wrong. Please try again or call us at 832-425-7749.';
               alert(msg);
             }
           }).catch(function() {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
             submitBtn.style.opacity = '1';
-            alert('Connection error. Please call us at (409) 978-6982 or try again.');
+            alert('Connection error. Please call us at 832-425-7749 or try again.');
           });
         });
       }

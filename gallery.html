@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Before &amp; After Gallery — H&amp;L Junk Removal</title>
+  <title>Before &amp; After Gallery | H&amp;L Junk Removal</title>
   <meta name="description" content="See the difference H&amp;L Junk Removal makes. Browse our before and after gallery of junk removal jobs across Galveston and Harris County." />
+  <link rel="icon" type="image/png" href="logo.PNG" />
+  <link rel="shortcut icon" type="image/png" href="logo.PNG" />
+  <link rel="apple-touch-icon" href="logo.PNG" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -47,7 +50,7 @@
     body {
       background: var(--black);
       color: var(--white);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Oswald', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 400;
       line-height: 1.6;
       overflow-x: hidden;
@@ -162,9 +165,11 @@
     .nav-mobile-overlay .nav-link:nth-child(4) { transition-delay: 0.25s; }
     .nav-mobile-overlay .nav-link:nth-child(5) { transition-delay: 0.3s; }
     .nav-mobile-overlay .nav-link:nth-child(6) { transition-delay: 0.35s; }
+    .nav-mobile-overlay .nav-link:nth-child(7) { transition-delay: 0.4s; }
+    .nav-mobile-overlay .nav-link:nth-child(8) { transition-delay: 0.45s; }
     .nav-mobile-overlay .nav-cta {
       font-size: 1rem; padding: 16px 40px; opacity: 0; transform: translateY(20px);
-      transition: opacity 0.5s var(--ease) 0.4s, transform 0.5s var(--ease) 0.4s, box-shadow 0.3s;
+      transition: opacity 0.5s var(--ease) 0.5s, transform 0.5s var(--ease) 0.5s, box-shadow 0.3s;
     }
     .nav-mobile-overlay.open .nav-cta { opacity: 1; transform: translateY(0); }
 
@@ -180,7 +185,7 @@
 
     /* SECTION SHARED */
     .section-label {
-      font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.3em;
+      font-family: 'Special Elite', monospace; font-size: 0.65rem; letter-spacing: 0.3em;
       text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; display: block;
     }
     .section-title { font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.1; letter-spacing: -0.03em; }
@@ -216,7 +221,7 @@
     }
 
     .ba-item-label {
-      font-family: 'Space Mono', monospace;
+      font-family: 'Special Elite', monospace;
       font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -303,7 +308,7 @@
       position: absolute;
       bottom: 16px;
       z-index: 2;
-      font-family: 'Space Mono', monospace;
+      font-family: 'Special Elite', monospace;
       font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -318,6 +323,42 @@
 
     .ba-label-before { left: 16px; }
     .ba-label-after { right: 16px; }
+
+    /* =============================================
+       RECENT JOBS GRID
+    ============================================= */
+    .jobs {
+      padding: 40px 48px 140px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .jobs-header { text-align: center; margin-bottom: 56px; }
+    .jobs-header .section-title { color: var(--white); margin-bottom: 14px; }
+    .jobs-sub { font-size: 1rem; color: rgba(255,255,255,0.5); max-width: 520px; margin: 0 auto; }
+    .jobs-grid {
+      columns: 3;
+      column-gap: 14px;
+    }
+    .job-cell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--dark2);
+      break-inside: avoid;
+      margin-bottom: 14px;
+    }
+    .job-cell img {
+      width: 100%; height: auto; display: block;
+      transition: transform 0.9s var(--ease);
+      will-change: transform;
+    }
+    .job-cell::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.4), transparent 60%);
+      opacity: 0; transition: opacity 0.5s var(--ease); pointer-events: none;
+    }
+    .job-cell:hover img { transform: scale(1.04); }
+    .job-cell:hover::after { opacity: 1; }
 
     /* =============================================
        FOOTER
@@ -341,13 +382,17 @@
     .footer-tagline { font-weight: 400; font-size: 0.75rem; color: rgba(255,255,255,0.35); text-align: right; letter-spacing: 0.05em; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.04); padding-top: 24px; }
     .footer-copy {
-      font-family: 'Space Mono', monospace; font-size: 0.6rem; color: rgba(255,255,255,0.2);
+      font-family: 'Special Elite', monospace; font-size: 0.6rem; color: rgba(255,255,255,0.2);
       letter-spacing: 0.1em; text-align: center;
     }
 
     /* =============================================
        RESPONSIVE
     ============================================= */
+    @media (max-width: 1024px) {
+      .jobs-grid { columns: 2; }
+    }
+
     @media (max-width: 768px) {
       .nav { padding: 16px 24px; }
       .nav.scrolled { padding: 12px 24px; }
@@ -356,6 +401,8 @@
       .nav-mobile-overlay { display: flex; }
       .gallery-hero { padding: 140px 24px 60px; }
       .gallery-grid { padding: 0 24px 100px; gap: 60px; }
+      .jobs { padding: 20px 24px 100px; }
+      .jobs-grid { columns: 1; }
       .footer { padding: 40px 24px 24px; }
       .footer-top { grid-template-columns: 1fr; gap: 20px; text-align: center; }
       .footer-logo { justify-content: center; }
@@ -388,12 +435,14 @@
     </a>
     <div class="nav-links">
       <a href="index.html#services" class="nav-link">Services</a>
-      <a href="index.html#process" class="nav-link">How It Works</a>
+      <a href="index.html#commercial" class="nav-link">Commercial</a>
+      <a href="index.html#work" class="nav-link">Work</a>
+      <a href="index.html#process" class="nav-link">Process</a>
       <a href="gallery.html" class="nav-link active">Gallery</a>
       <a href="index.html#about" class="nav-link">About</a>
       <a href="index.html#contact" class="nav-link">Contact</a>
     </div>
-    <a href="tel:4099786982" class="nav-cta nav-cta-desktop">(409) 978-6982</a>
+    <a href="tel:8324257749" class="nav-cta nav-cta-desktop">832-425-7749</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -402,12 +451,14 @@
   <!-- Mobile Menu -->
   <div class="nav-mobile-overlay" id="mobileMenu" role="dialog" aria-modal="true">
     <a href="index.html#services" class="nav-link" data-close-menu>Services</a>
-    <a href="index.html#process" class="nav-link" data-close-menu>How It Works</a>
+    <a href="index.html#commercial" class="nav-link" data-close-menu>Commercial</a>
+    <a href="index.html#work" class="nav-link" data-close-menu>Work</a>
+    <a href="index.html#process" class="nav-link" data-close-menu>Process</a>
     <a href="gallery.html" class="nav-link" data-close-menu>Gallery</a>
     <a href="index.html#about" class="nav-link" data-close-menu>About</a>
     <a href="index.html#contact" class="nav-link" data-close-menu>Contact</a>
     <a href="https://www.instagram.com/h.l_junk.removal/" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
-    <a href="tel:4099786982" class="nav-cta" data-close-menu>Call (409) 978-6982</a>
+    <a href="tel:8324257749" class="nav-cta" data-close-menu>Call 832-425-7749</a>
   </div>
 
   <!-- Gallery Hero -->
@@ -425,8 +476,8 @@
     <div class="reveal-scale d1">
       <p class="ba-item-label">Job 01</p>
       <div class="ba-slider" data-ba-slider>
-        <img class="ba-before" src="images/before1.jpg" alt="Before junk removal — Job 1" />
-        <img class="ba-after" src="images/after1.jpg" alt="After junk removal — Job 1" />
+        <img class="ba-before" src="images/before1.jpg" alt="Before junk removal, Job 1" width="1050" height="1400" loading="lazy" />
+        <img class="ba-after" src="images/after1.jpg" alt="After junk removal, Job 1" width="1050" height="1400" loading="lazy" />
         <div class="ba-divider"></div>
         <div class="ba-handle" aria-label="Drag to compare before and after">
           <svg viewBox="0 0 24 24"><polyline points="8 4 2 12 8 20"/><polyline points="16 4 22 12 16 20"/></svg>
@@ -440,8 +491,8 @@
     <div class="reveal-scale d2">
       <p class="ba-item-label">Job 02</p>
       <div class="ba-slider" data-ba-slider>
-        <img class="ba-before" src="images/before2.jpg" alt="Before junk removal — Job 2" />
-        <img class="ba-after" src="images/after2.jpg" alt="After junk removal — Job 2" />
+        <img class="ba-before" src="images/before2.jpg" alt="Before junk removal, Job 2" width="1050" height="1400" loading="lazy" />
+        <img class="ba-after" src="images/after2.jpg" alt="After junk removal, Job 2" width="1050" height="1400" loading="lazy" />
         <div class="ba-divider"></div>
         <div class="ba-handle" aria-label="Drag to compare before and after">
           <svg viewBox="0 0 24 24"><polyline points="8 4 2 12 8 20"/><polyline points="16 4 22 12 16 20"/></svg>
@@ -455,8 +506,8 @@
     <div class="reveal-scale d3">
       <p class="ba-item-label">Job 03</p>
       <div class="ba-slider" data-ba-slider>
-        <img class="ba-before" src="images/before3.jpg" alt="Before junk removal — Job 3" />
-        <img class="ba-after" src="images/after3.jpg" alt="After junk removal — Job 3" />
+        <img class="ba-before" src="images/before3.jpg" alt="Before junk removal, Job 3" width="1050" height="1400" loading="lazy" />
+        <img class="ba-after" src="images/after3.jpg" alt="After junk removal, Job 3" width="1050" height="1400" loading="lazy" />
         <div class="ba-divider"></div>
         <div class="ba-handle" aria-label="Drag to compare before and after">
           <svg viewBox="0 0 24 24"><polyline points="8 4 2 12 8 20"/><polyline points="16 4 22 12 16 20"/></svg>
@@ -468,6 +519,27 @@
 
   </div>
 
+  <!-- Recent Jobs -->
+  <section class="jobs">
+    <div class="jobs-header">
+      <span class="section-label reveal">Recent Jobs</span>
+      <h2 class="section-title reveal d1">Around the Area</h2>
+      <p class="jobs-sub reveal d2">A look at the trucks, trailers, and cleanouts we have been running across Galveston and Harris County.</p>
+    </div>
+    <div class="jobs-grid">
+      <div class="job-cell reveal-scale"><img src="images/work/work1.jpg" alt="Truck bed loaded with furniture and junk" width="1600" height="1200" loading="lazy" /></div>
+      <div class="job-cell reveal-scale"><img src="images/work/work4.jpg" alt="H&amp;L dump trailer unloading on a residential job" width="1200" height="1600" loading="lazy" /></div>
+      <div class="job-cell reveal-scale"><img src="images/work/work5.jpg" alt="H&amp;L dump trailer parked at a suburban home" width="1600" height="1200" loading="lazy" /></div>
+      <div class="job-cell reveal-scale"><img src="images/work/work2.jpg" alt="Cleared and swept driveway after a junk removal job" width="1200" height="1600" loading="lazy" /></div>
+      <div class="job-cell reveal-scale"><img src="images/work/work9.jpg" alt="Loading a pile of junk and debris for removal" width="1600" height="1200" loading="lazy" /></div>
+      <div class="job-cell reveal-scale"><img src="images/work/work6.jpg" alt="Clean H&amp;L dump trailer ready for the next haul" width="1200" height="1600" loading="lazy" /></div>
+      <div class="job-cell reveal-scale"><img src="images/work/work3.jpg" alt="Truck bed and cleared yard on a junk removal job" width="1600" height="1200" loading="lazy" /></div>
+      <div class="job-cell reveal-scale"><img src="images/work/work7.jpg" alt="H&amp;L truck and trailer hauling debris" width="1200" height="1600" loading="lazy" /></div>
+      <div class="job-cell reveal-scale"><img src="images/work/work10.jpg" alt="H&amp;L equipment and truck on a job site" width="1600" height="1200" loading="lazy" /></div>
+      <div class="job-cell reveal-scale"><img src="images/work/work8.jpg" alt="Empty H&amp;L dump trailer bed after offloading" width="1200" height="1600" loading="lazy" /></div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-top">
@@ -476,6 +548,8 @@
       </a>
       <nav class="footer-nav">
         <a href="index.html#services" class="footer-nav-link">Services</a>
+        <a href="index.html#commercial" class="footer-nav-link">Commercial</a>
+        <a href="index.html#work" class="footer-nav-link">Work</a>
         <a href="index.html#process" class="footer-nav-link">Process</a>
         <a href="gallery.html" class="footer-nav-link">Gallery</a>
         <a href="index.html#about" class="footer-nav-link">About</a>
@@ -485,7 +559,7 @@
       <p class="footer-tagline">Fast. Reliable. Local.</p>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">&copy; 2025 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Galveston &amp; Harris County, TX. All rights reserved.</p>
     </div>
   </footer>
 
