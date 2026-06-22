@@ -991,6 +991,77 @@
     }
 
     /* =============================================
+       REVIEWS
+    ============================================= */
+    .reviews {
+      padding: 130px 48px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+    .reviews-inner { max-width: 720px; margin: 0 auto; }
+    .reviews-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 26px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 100px;
+      margin-bottom: 36px;
+    }
+    .reviews-stars {
+      display: inline-flex;
+      gap: 3px;
+      font-size: 1.15rem;
+      color: #fbbc04;
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+    .reviews-badge-text {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+    .reviews-badge-text strong { color: var(--white); font-weight: 400; }
+    .reviews-title {
+      font-weight: 700;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 22px;
+    }
+    .reviews-sub {
+      font-weight: 300;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      margin-bottom: 44px;
+    }
+    .reviews-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .reviews-ctas .btn-outline { display: inline-flex; align-items: center; gap: 9px; }
+    .reviews-g {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--white);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.7rem;
+      line-height: 1;
+    }
+
+    /* =============================================
        QUOTE CTA
     ============================================= */
     .quote-cta {
@@ -1452,6 +1523,7 @@
       .process-steps { grid-template-columns: 1fr; }
       .process-step::before { width: 100%; height: 1px; bottom: 0; top: auto; right: auto; }
       .process-step { padding: 32px 0; }
+      .reviews { padding: 90px 24px; }
       .quote-cta { padding: 100px 24px; }
       .about { padding: 100px 24px; }
       .about-stats { grid-template-columns: 1fr; gap: 16px; }
@@ -1544,6 +1616,13 @@
           "@type": "PropertyValue",
           "name": "Fully Insured",
           "value": "true"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "5",
+          "bestRating": "5",
+          "worstRating": "1"
         },
         "knowsAbout": [
           "junk removal", "household cleanouts", "furniture removal", "appliance disposal",
@@ -1836,6 +1915,22 @@
     </div>
   </section>
 
+  <!-- Reviews -->
+  <section class="reviews" id="reviews">
+    <div class="reviews-inner">
+      <div class="reviews-badge reveal">
+        <span class="reviews-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="reviews-badge-text"><strong>5.0</strong> Rated on Google</span>
+      </div>
+      <h2 class="reviews-title reveal d1">Trusted by Your Neighbors</h2>
+      <p class="reviews-sub reveal d2">Homeowners and businesses across League City and the Bay Area count on H&amp;L to show up, work hard, and haul it away. Fully insured, free quotes, and a five-star job every time. See what our customers say, then let us clear your space next.</p>
+      <div class="reviews-ctas reveal d2">
+        <a href="https://www.google.com/search?q=H%26L+Junk+Removal+%26+Hauling+Solutions+League+City+TX" target="_blank" rel="noopener noreferrer" class="btn-primary">Read Our Google Reviews</a>
+        <a href="https://www.google.com/search?q=H%26L+Junk+Removal+%26+Hauling+Solutions+League+City+TX" target="_blank" rel="noopener noreferrer" class="btn-outline"><span class="reviews-g" aria-hidden="true">G</span> Leave a Review</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Quote CTA -->
   <section class="quote-cta">
     <div class="quote-cta-bg" aria-hidden="true"></div>
@@ -2025,6 +2120,7 @@
         <a href="#services" class="footer-nav-link">Services</a>
         <a href="#commercial" class="footer-nav-link">Commercial</a>
         <a href="#work" class="footer-nav-link">Work</a>
+        <a href="#reviews" class="footer-nav-link">Reviews</a>
         <a href="#process" class="footer-nav-link">Process</a>
         <a href="gallery.html" class="footer-nav-link">Gallery</a>
         <a href="#areas" class="footer-nav-link">Service Areas</a>
