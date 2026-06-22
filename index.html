@@ -3,11 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>H&amp;L Junk Removal &amp; Hauling Solutions, LLC</title>
-  <meta name="description" content="H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured junk removal and hauling serving Galveston and Harris County. Residential and commercial cleanouts, furniture and appliance removal, and more. Free quotes." />
+  <title>Junk Removal &amp; Hauling in League City, TX | H&amp;L</title>
+  <meta name="description" content="Fully insured junk removal &amp; hauling in League City, TX. Furniture, appliances &amp; full cleanouts across Galveston &amp; Harris County. Free quote: 832-425-7749." />
+  <link rel="canonical" href="https://hljunkremovalandhauling.com/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
+  <meta name="geo.region" content="US-TX" />
+  <meta name="geo.placename" content="League City, Texas" />
+  <meta name="geo.position" content="29.5075;-95.0949" />
+  <meta name="ICBM" content="29.5075, -95.0949" />
+  <meta name="theme-color" content="#000000" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="H&amp;L Junk Removal &amp; Hauling" />
+  <meta property="og:title" content="Junk Removal &amp; Hauling in League City, TX | H&amp;L" />
+  <meta property="og:description" content="Fully insured junk removal, hauling &amp; cleanouts in League City, TX and across Galveston &amp; Harris County. Free quotes: 832-425-7749." />
+  <meta property="og:url" content="https://hljunkremovalandhauling.com/" />
+  <meta property="og:image" content="https://hljunkremovalandhauling.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Junk Removal &amp; Hauling in League City, TX | H&amp;L" />
+  <meta name="twitter:description" content="Fully insured junk removal, hauling &amp; cleanouts in League City, TX. Free quotes: 832-425-7749." />
+  <meta name="twitter:image" content="https://hljunkremovalandhauling.com/og-image.jpg" />
   <link rel="icon" type="image/png" href="logo.PNG?v=2" />
   <link rel="shortcut icon" type="image/png" href="logo.PNG?v=2" />
   <link rel="apple-touch-icon" href="logo.PNG?v=2" />
+  <link rel="preload" as="image" href="logo.PNG?v=2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet" />
@@ -216,7 +240,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 36px;
+      gap: 28px;
     }
 
     .nav-link {
@@ -323,6 +347,8 @@
     .nav-mobile-overlay .nav-link:nth-child(6) { transition-delay: 0.35s; }
     .nav-mobile-overlay .nav-link:nth-child(7) { transition-delay: 0.4s; }
     .nav-mobile-overlay .nav-link:nth-child(8) { transition-delay: 0.45s; }
+    .nav-mobile-overlay .nav-link:nth-child(9) { transition-delay: 0.5s; }
+    .nav-mobile-overlay .nav-link:nth-child(10) { transition-delay: 0.55s; }
 
     .nav-mobile-overlay .nav-cta {
       font-size: 1rem;
@@ -487,6 +513,18 @@
       letter-spacing: -0.04em;
       color: var(--white);
       margin-bottom: 32px;
+    }
+
+    .hero-kicker {
+      display: block;
+      font-family: 'Special Elite', monospace;
+      font-size: clamp(0.75rem, 1.4vw, 0.95rem);
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 22px;
+      line-height: 1.4;
     }
 
     .hero-headline .line {
@@ -1098,6 +1136,116 @@
     .about-img-wrap:hover img { transform: scale(1.03); }
 
     /* =============================================
+       SERVICE AREAS
+    ============================================= */
+    .areas {
+      padding: 140px 48px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .areas-inner { max-width: 1100px; margin: 0 auto; }
+    .areas-header { max-width: 720px; margin-bottom: 48px; }
+    .areas-lead {
+      font-weight: 300;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      margin-top: 24px;
+    }
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .area-chip {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.01em;
+      transition: border-color 0.4s, color 0.4s, background 0.4s;
+    }
+    .area-chip:hover {
+      border-color: rgba(255,255,255,0.35);
+      color: var(--white);
+      background: rgba(255,255,255,0.03);
+    }
+    .area-chip span {
+      display: block;
+      font-family: 'Special Elite', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-top: 4px;
+    }
+    .areas-note {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+      border-left: 2px solid rgba(255,255,255,0.2);
+      padding-left: 20px;
+    }
+    .areas-note strong { color: var(--white); font-weight: 600; }
+    .areas-note a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* =============================================
+       FAQ
+    ============================================= */
+    .faq {
+      background: var(--dark2);
+      padding: 140px 48px;
+    }
+    .faq-inner { max-width: 820px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 56px; }
+    .faq-header .section-label { color: rgba(255,255,255,0.4); }
+    .faq-header .section-title { color: var(--white); }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 26px 48px 26px 0;
+      position: relative;
+      font-weight: 500;
+      font-size: 1.08rem;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      transition: color 0.3s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: rgba(255,255,255,0.75); }
+    .faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      transition: transform 0.3s var(--ease), color 0.3s;
+    }
+    .faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); color: var(--white); }
+    .faq-answer {
+      padding: 0 48px 28px 0;
+      font-weight: 300;
+      font-size: 0.98rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+    }
+    .faq-answer a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+    .faq-cta {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .faq-cta a { color: var(--white); font-weight: 600; }
+
+    /* =============================================
        CONTACT
     ============================================= */
     .contact {
@@ -1272,11 +1420,15 @@
        RESPONSIVE
     ============================================= */
     @media (max-width: 1024px) {
+      .nav-links, .nav-cta-desktop { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-mobile-overlay { display: flex; }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .commercial-grid { grid-template-columns: repeat(2, 1fr); }
       .work-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
       .work-cell.feature { grid-column: span 2; grid-row: span 2; }
       .work-cell.wide { grid-column: span 2; }
+      .areas-grid { grid-template-columns: repeat(2, 1fr); }
       .about-inner { grid-template-columns: 1fr; gap: 60px; }
       .about-img-wrap img { height: 400px; padding: 24px; }
     }
@@ -1284,9 +1436,6 @@
     @media (max-width: 768px) {
       .nav { padding: 16px 24px; }
       .nav.scrolled { padding: 12px 24px; }
-      .nav-links, .nav-cta-desktop { display: none; }
-      .nav-hamburger { display: flex; }
-      .nav-mobile-overlay { display: flex; }
       .hero { padding: 120px 24px 80px; }
       .services { padding: 100px 24px; }
       .services-grid { grid-template-columns: 1fr; border-radius: 12px; }
@@ -1304,6 +1453,9 @@
       .quote-cta { padding: 100px 24px; }
       .about { padding: 100px 24px; }
       .about-stats { grid-template-columns: 1fr; gap: 16px; }
+      .areas { padding: 100px 24px; }
+      .areas-grid { grid-template-columns: 1fr; }
+      .faq { padding: 100px 24px; }
       .contact { padding: 100px 24px; }
       .contact-form { grid-template-columns: 1fr; }
       .footer { padding: 40px 24px 24px; }
@@ -1319,6 +1471,124 @@
       .btn-primary, .btn-outline { padding: 16px 32px; font-size: 0.85rem; }
     }
   </style>
+
+  <!-- ============================================================
+       STRUCTURED DATA (JSON-LD)
+  ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HomeAndConstructionBusiness",
+        "@id": "https://hljunkremovalandhauling.com/#business",
+        "name": "H&L Junk Removal & Hauling Solutions, LLC",
+        "alternateName": "H&L Junk Removal & Hauling",
+        "url": "https://hljunkremovalandhauling.com/",
+        "telephone": "+1-832-425-7749",
+        "image": "https://hljunkremovalandhauling.com/og-image.jpg",
+        "logo": "https://hljunkremovalandhauling.com/logo.PNG",
+        "description": "Fully insured junk removal, hauling, and cleanouts based in League City, TX, serving Galveston and Harris County. Residential and commercial. Free, no-obligation quotes.",
+        "slogan": "We Haul. You Relax.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "League City",
+          "addressRegion": "TX",
+          "postalCode": "77573",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 29.5075,
+          "longitude": -95.0949
+        },
+        "areaServed": [
+          {
+            "@type": "GeoCircle",
+            "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 29.5075, "longitude": -95.0949 },
+            "geoRadius": 32187
+          },
+          { "@type": "AdministrativeArea", "name": "Galveston County, TX" },
+          { "@type": "AdministrativeArea", "name": "Harris County, TX" },
+          { "@type": "City", "name": "League City, TX" },
+          { "@type": "City", "name": "Webster, TX" },
+          { "@type": "City", "name": "Friendswood, TX" },
+          { "@type": "City", "name": "Dickinson, TX" },
+          { "@type": "City", "name": "Kemah, TX" },
+          { "@type": "City", "name": "Clear Lake, TX" },
+          { "@type": "City", "name": "Nassau Bay, TX" },
+          { "@type": "City", "name": "Seabrook, TX" },
+          { "@type": "City", "name": "Texas City, TX" },
+          { "@type": "City", "name": "La Marque, TX" },
+          { "@type": "City", "name": "Santa Fe, TX" },
+          { "@type": "City", "name": "Bacliff, TX" },
+          { "@type": "City", "name": "San Leon, TX" },
+          { "@type": "City", "name": "Pasadena, TX" },
+          { "@type": "City", "name": "Pearland, TX" },
+          { "@type": "City", "name": "Galveston, TX" },
+          { "@type": "City", "name": "Taylor Lake Village, TX" }
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-832-425-7749",
+          "contactType": "customer service",
+          "areaServed": "US",
+          "availableLanguage": "English"
+        },
+        "sameAs": [
+          "https://www.instagram.com/h.l_junk.removal/"
+        ],
+        "additionalProperty": {
+          "@type": "PropertyValue",
+          "name": "Fully Insured",
+          "value": "true"
+        },
+        "knowsAbout": [
+          "junk removal", "household cleanouts", "furniture removal", "appliance disposal",
+          "construction debris removal", "yard waste removal", "estate cleanouts",
+          "commercial cleanouts", "hauling"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Junk Removal & Hauling Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full Home Cleanouts", "description": "Complete removal of everything from single rooms to entire properties, fast and thorough.", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "League City, TX" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Furniture Removal", "description": "Sofas, beds, dressers, and tables hauled away regardless of size or condition.", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "League City, TX" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Appliance Disposal", "description": "Refrigerators, washers, dryers, and more removed and disposed of responsibly.", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "League City, TX" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Construction Debris Removal", "description": "Demo waste, drywall, lumber, and materials cleared quickly from job sites.", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "League City, TX" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yard Waste Removal", "description": "Branches, brush, clippings, and organic debris cleared from outdoor spaces.", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "League City, TX" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Estate Cleanouts", "description": "Respectful, efficient cleanouts for estates and transitional properties.", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "League City, TX" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Cleanouts", "description": "Fully insured cleanouts for property managers, apartments, REO and foreclosure, storage facilities, estate sale companies, contractors, and realtors.", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "Galveston County, TX" } }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://hljunkremovalandhauling.com/#website",
+        "url": "https://hljunkremovalandhauling.com/",
+        "name": "H&L Junk Removal & Hauling",
+        "publisher": { "@id": "https://hljunkremovalandhauling.com/#business" },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://hljunkremovalandhauling.com/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "What areas do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "We are based in League City, TX and serve customers across Galveston County and Harris County, generally within about a 20-mile radius. That includes League City, Dickinson, Texas City, Friendswood, Webster, Kemah, Seabrook, Clear Lake, Pasadena, Pearland, La Marque, Santa Fe, and the surrounding Bay Area Houston communities. Not sure if you are in our zone? Call 832-425-7749 and we will let you know. Quotes are always free." } },
+          { "@type": "Question", "name": "How much does junk removal cost?", "acceptedAnswer": { "@type": "Answer", "text": "Every job is different, so each one is custom quoted. The quote depends on the volume of junk, the type of items, and access at your property. We give you a free, no-obligation quote up front before any work begins, so you always know the price before we start. Call or text 832-425-7749 for your free quote." } },
+          { "@type": "Question", "name": "Are you insured?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. H&L Junk Removal & Hauling Solutions is fully insured. That protects you, your property, and our crew on every residential and commercial job, so you can have peace of mind from the moment we arrive. A certificate of insurance is available on request for commercial clients." } },
+          { "@type": "Question", "name": "Do you offer free quotes?", "acceptedAnswer": { "@type": "Answer", "text": "Always. Every estimate is 100% free and there is no obligation to book. Send a description or a few photos of your items, or have us take a quick look on-site, and we will give you an upfront quote before any work starts." } },
+          { "@type": "Question", "name": "What kinds of junk do you remove?", "acceptedAnswer": { "@type": "Answer", "text": "We handle full home and household cleanouts, furniture removal, appliance disposal, construction debris, yard waste, estate cleanouts, and commercial cleanouts. From a single couch to a whole-property cleanout, we do the heavy lifting, loading, and hauling. Tell us what you have at 832-425-7749 for a free quote." } },
+          { "@type": "Question", "name": "Do you work with property managers, apartment complexes, and realtors?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, commercial work is a core part of what we do. We regularly help property managers, apartment complexes, REO and foreclosure cleanouts, storage facilities, estate sale companies, contractors, and realtors with fast, reliable cleanouts and hauling. We are fully insured for commercial jobs and every quote is free. Call 832-425-7749 to set up service." } },
+          { "@type": "Question", "name": "Do you handle full home and estate cleanouts?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We do complete home, household, and estate cleanouts, clearing out furniture, appliances, accumulated belongings, and debris so the property is move-in or sale-ready. We work respectfully and discreetly, especially on estate jobs, and we are fully insured. Contact us at 832-425-7749 for a free cleanout quote." } },
+          { "@type": "Question", "name": "How quickly can you come out?", "acceptedAnswer": { "@type": "Answer", "text": "We aim to be fast and flexible and can often schedule pickups quickly depending on the day and your location in our Galveston and Harris County service area. The best way to lock in a time is to call or text 832-425-7749. We will find a slot that works and give you a free quote when we confirm." } },
+          { "@type": "Question", "name": "Do I need to move the items outside before you arrive?", "acceptedAnswer": { "@type": "Answer", "text": "No, you do not have to lift a thing. Our crew handles all the loading and hauling, whether items are in the garage, upstairs, in the backyard, or inside a unit. Just point us to what is going and we will take care of the rest. Every job starts with a free quote at 832-425-7749." } },
+          { "@type": "Question", "name": "What do you do with the junk after pickup?", "acceptedAnswer": { "@type": "Answer", "text": "We haul everything away and dispose of it responsibly, recycling or donating usable items where we can rather than sending everything straight to the landfill. You get a cleared space without the hassle of a dump run. Call 832-425-7749 for your free, fully insured pickup." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1327,7 +1597,7 @@
 
   <!-- Page Loader -->
   <div class="page-loader" id="pageLoader">
-    <img class="loader-logo" src="logo.PNG?v=2" alt="Loading..." />
+    <img class="loader-logo" src="logo.PNG?v=2" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" width="1600" height="1200" />
   </div>
 
   <!-- Grain -->
@@ -1339,8 +1609,8 @@
 
   <!-- Navigation -->
   <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
-    <a href="#" class="nav-logo">
-      <img src="logo.PNG?v=2" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
+    <a href="/" class="nav-logo">
+      <img src="logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
     </a>
     <div class="nav-links">
       <a href="#services" class="nav-link">Services</a>
@@ -1348,7 +1618,9 @@
       <a href="#work" class="nav-link">Work</a>
       <a href="#process" class="nav-link">Process</a>
       <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="#areas" class="nav-link">Areas</a>
       <a href="#about" class="nav-link">About</a>
+      <a href="#faq" class="nav-link">FAQ</a>
       <a href="#contact" class="nav-link">Contact</a>
     </div>
     <a href="tel:8324257749" class="nav-cta nav-cta-desktop">832-425-7749</a>
@@ -1364,7 +1636,9 @@
     <a href="#work" class="nav-link" data-close-menu>Work</a>
     <a href="#process" class="nav-link" data-close-menu>Process</a>
     <a href="gallery.html" class="nav-link" data-close-menu>Gallery</a>
+    <a href="#areas" class="nav-link" data-close-menu>Service Areas</a>
     <a href="#about" class="nav-link" data-close-menu>About</a>
+    <a href="#faq" class="nav-link" data-close-menu>FAQ</a>
     <a href="#contact" class="nav-link" data-close-menu>Contact</a>
     <a href="https://www.instagram.com/h.l_junk.removal/" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
     <a href="tel:8324257749" class="nav-cta" data-close-menu>Call 832-425-7749</a>
@@ -1379,14 +1653,15 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Serving Galveston &amp; Harris County
+        Based in League City, TX &middot; Fully Insured
       </div>
       <h1 class="hero-headline">
+        <span class="hero-kicker">Junk Removal &amp; Hauling in League City, TX</span>
         <span class="line"><span class="line-inner" id="heroLine1">We Haul.</span></span>
         <span class="line"><span class="line-inner" id="heroLine2">You Relax.</span></span>
       </h1>
       <p class="hero-sub" id="heroSub">
-        No job too big or too small. We show up, load up, and haul it away. Fully insured, and your quote is always free.
+        Fully insured junk removal, hauling, and cleanouts for homes and businesses across League City, Galveston County, and Harris County. No job too big or too small. We show up, load up, and haul it away, and your quote is always free.
       </p>
       <div class="hero-ctas" id="heroCtas">
         <a href="tel:8324257749" class="btn-primary">Call Now 832-425-7749</a>
@@ -1515,7 +1790,7 @@
         </div>
         <div class="work-cell tall">
           <span class="work-badge"><span class="work-badge-dot"></span>On the job</span>
-          <video src="images/work/work-clip.mp4" poster="images/work/work-clip-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+          <video src="images/work/work-clip.mp4" poster="images/work/work-clip-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="H&amp;L crew and dump trailer on a junk removal job in League City, TX"></video>
         </div>
         <div class="work-cell wide">
           <img src="images/work/work5.jpg" alt="H&amp;L dump trailer parked at a suburban home" width="1600" height="1200" loading="lazy" />
@@ -1592,9 +1867,94 @@
       </div>
       <div class="about-img-col reveal-right d2">
         <div class="about-img-wrap">
-          <img src="logo.PNG?v=2" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" loading="lazy" />
+          <img src="logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" loading="lazy" />
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="areas" id="areas">
+    <div class="areas-inner">
+      <div class="areas-header">
+        <span class="section-label reveal">Service Area</span>
+        <h2 class="section-title reveal d1" style="color: var(--white);">Serving League City &amp; the Bay Area</h2>
+        <p class="areas-lead reveal d2">We are based right here in League City, TX and cover roughly a 20-mile radius across Galveston County and Harris County. From Clear Lake to Texas City, if you are in the Bay Area Houston corridor, we will haul your junk away. Fully insured on every job, and your quote is always free.</p>
+      </div>
+
+      <div class="areas-grid reveal d2">
+        <div class="area-chip">League City<span>77573 &middot; 77574</span></div>
+        <div class="area-chip">Webster<span>Harris County</span></div>
+        <div class="area-chip">Friendswood<span>Galveston County</span></div>
+        <div class="area-chip">Dickinson<span>Galveston County</span></div>
+        <div class="area-chip">Kemah<span>Galveston County</span></div>
+        <div class="area-chip">Clear Lake<span>Harris County</span></div>
+        <div class="area-chip">Nassau Bay<span>Harris County</span></div>
+        <div class="area-chip">Seabrook<span>Harris County</span></div>
+        <div class="area-chip">Texas City<span>Galveston County</span></div>
+        <div class="area-chip">La Marque<span>Galveston County</span></div>
+        <div class="area-chip">Santa Fe<span>Galveston County</span></div>
+        <div class="area-chip">Bacliff &amp; San Leon<span>Galveston County</span></div>
+        <div class="area-chip">Pasadena<span>Harris County</span></div>
+        <div class="area-chip">Pearland<span>Harris County</span></div>
+        <div class="area-chip">Galveston<span>Galveston County</span></div>
+        <div class="area-chip">Taylor Lake Village<span>Harris County</span></div>
+      </div>
+
+      <p class="areas-note reveal d2"><strong>League City neighborhoods we serve</strong> include South Shore Harbour, Victory Lakes, Tuscan Lakes, Magnolia Creek, Lago Mar, Westover Park, Mar Bella, Brittany Lakes, and Bay Colony. Do not see your area on the list? <a href="tel:8324257749">Call or text 832-425-7749</a> and we will let you know. Quotes are always free.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="faq-inner">
+      <div class="faq-header">
+        <span class="section-label reveal">FAQ</span>
+        <h2 class="section-title reveal d1">Common Questions</h2>
+      </div>
+
+      <details class="faq-item reveal">
+        <summary>What areas do you serve?</summary>
+        <div class="faq-answer">We are based in League City, TX and serve customers across Galveston County and Harris County, generally within about a 20-mile radius. That includes League City, Dickinson, Texas City, Friendswood, Webster, Kemah, Seabrook, Clear Lake, Pasadena, Pearland, La Marque, Santa Fe, and the surrounding Bay Area Houston communities. Not sure if you are in our zone? <a href="tel:8324257749">Call 832-425-7749</a> and we will let you know. Quotes are always free.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>How much does junk removal cost?</summary>
+        <div class="faq-answer">Every job is different, so each one is custom quoted. The quote depends on the volume of junk, the type of items, and access at your property. We give you a free, no-obligation quote up front before any work begins, so you always know the price before we start. <a href="tel:8324257749">Call or text 832-425-7749</a> for your free quote.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Are you insured?</summary>
+        <div class="faq-answer">Yes. H&amp;L Junk Removal &amp; Hauling Solutions is fully insured. That protects you, your property, and our crew on every residential and commercial job, so you can have peace of mind from the moment we arrive. A certificate of insurance is available on request for commercial clients.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Do you offer free quotes?</summary>
+        <div class="faq-answer">Always. Every estimate is 100% free and there is no obligation to book. Send a description or a few photos of your items, or have us take a quick look on-site, and we will give you an upfront quote before any work starts.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What kinds of junk do you remove?</summary>
+        <div class="faq-answer">We handle full home and household cleanouts, furniture removal, appliance disposal, construction debris, yard waste, estate cleanouts, and commercial cleanouts. From a single couch to a whole-property cleanout, we do the heavy lifting, loading, and hauling. Tell us what you have at <a href="tel:8324257749">832-425-7749</a> for a free quote.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Do you work with property managers, apartment complexes, and realtors?</summary>
+        <div class="faq-answer">Yes, commercial work is a core part of what we do. We regularly help property managers, apartment complexes, REO and foreclosure cleanouts, storage facilities, estate sale companies, contractors, and realtors with fast, reliable cleanouts and hauling. We are fully insured for commercial jobs and every quote is free. <a href="tel:8324257749">Call 832-425-7749</a> to set up service.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Do you handle full home and estate cleanouts?</summary>
+        <div class="faq-answer">Absolutely. We do complete home, household, and estate cleanouts, clearing out furniture, appliances, accumulated belongings, and debris so the property is move-in or sale-ready. We work respectfully and discreetly, especially on estate jobs, and we are fully insured. Contact us at <a href="tel:8324257749">832-425-7749</a> for a free cleanout quote.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>How quickly can you come out?</summary>
+        <div class="faq-answer">We aim to be fast and flexible and can often schedule pickups quickly depending on the day and your location in our Galveston and Harris County service area. The best way to lock in a time is to call or text <a href="tel:8324257749">832-425-7749</a>. We will find a slot that works and give you a free quote when we confirm.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Do I need to move the items outside before you arrive?</summary>
+        <div class="faq-answer">No, you do not have to lift a thing. Our crew handles all the loading and hauling, whether items are in the garage, upstairs, in the backyard, or inside a unit. Just point us to what is going and we will take care of the rest. Every job starts with a free quote at <a href="tel:8324257749">832-425-7749</a>.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What do you do with the junk after pickup?</summary>
+        <div class="faq-answer">We haul everything away and dispose of it responsibly, recycling or donating usable items where we can rather than sending everything straight to the landfill. You get a cleared space without the hassle of a dump run. <a href="tel:8324257749">Call 832-425-7749</a> for your free, fully insured pickup.</div>
+      </details>
+
+      <p class="faq-cta reveal">Still have a question? <a href="tel:8324257749">Call or text 832-425-7749</a> for a free quote.</p>
     </div>
   </section>
 
@@ -1656,8 +2016,8 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-top">
-      <a href="#" class="footer-logo">
-        <img src="logo.PNG?v=2" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
+      <a href="/" class="footer-logo">
+        <img src="logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
       </a>
       <nav class="footer-nav">
         <a href="#services" class="footer-nav-link">Services</a>
@@ -1665,7 +2025,9 @@
         <a href="#work" class="footer-nav-link">Work</a>
         <a href="#process" class="footer-nav-link">Process</a>
         <a href="gallery.html" class="footer-nav-link">Gallery</a>
+        <a href="#areas" class="footer-nav-link">Service Areas</a>
         <a href="#about" class="footer-nav-link">About</a>
+        <a href="#faq" class="footer-nav-link">FAQ</a>
         <a href="#contact" class="footer-nav-link">Contact</a>
         <a href="https://www.instagram.com/h.l_junk.removal/" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Instagram</a>
       </nav>
