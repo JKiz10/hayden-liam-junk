@@ -1428,6 +1428,46 @@
     }
 
     /* =============================================
+       NOTION QUOTE FORM EMBED
+    ============================================= */
+    .contact-intro {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 44px;
+      font-weight: 300;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+    }
+    .contact-intro a { color: var(--white); font-weight: 600; }
+    .notion-form-wrap {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+    }
+    .notion-form-wrap iframe {
+      width: 100%;
+      height: 920px;
+      border: 0;
+      display: block;
+    }
+    .contact-reassure {
+      text-align: center;
+      margin-top: 28px;
+      font-family: 'Special Elite', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    @media (max-width: 768px) {
+      .notion-form-wrap iframe { height: 1000px; }
+    }
+
+    /* =============================================
        FOOTER
     ============================================= */
     .footer {
@@ -2063,50 +2103,13 @@
         <h2 class="section-title reveal d1" style="color: var(--white);">Get in Touch</h2>
       </div>
 
-      <form class="contact-form reveal d2" id="contactForm" action="https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="New H&L Junk Removal Inquiry">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" style="display:none">
-        <div class="form-field">
-          <label class="form-label" for="fieldName">Name</label>
-          <input class="form-input" type="text" id="fieldName" name="name" autocomplete="name" required />
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="fieldPhone">Phone</label>
-          <input class="form-input" type="tel" id="fieldPhone" name="phone" autocomplete="tel" />
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="fieldEmail">Email</label>
-          <input class="form-input" type="email" id="fieldEmail" name="email" autocomplete="email" required />
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="fieldAddress">Address</label>
-          <input class="form-input" type="text" id="fieldAddress" name="address" autocomplete="street-address" />
-        </div>
-        <div class="form-field full">
-          <label class="form-label" for="fieldService">Service Type</label>
-          <select class="form-select" id="fieldService" name="service">
-            <option value="" disabled selected></option>
-            <option value="home-cleanout">Full Home Cleanout</option>
-            <option value="furniture">Furniture Removal</option>
-            <option value="appliance">Appliance Disposal</option>
-            <option value="construction">Construction Debris</option>
-            <option value="yard">Yard Waste Removal</option>
-            <option value="estate">Estate Cleanout</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-field full">
-          <label class="form-label" for="fieldMessage">Message</label>
-          <textarea class="form-textarea" id="fieldMessage" name="message"></textarea>
-        </div>
-        <button class="form-submit" type="submit">Send Message</button>
-      </form>
+      <p class="contact-intro reveal d1">Fill out the quick form below and we'll get right back to you with a free, no-obligation quote. Prefer to talk? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
 
-      <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
-        <p class="form-success-text">We will be in touch soon.</p>
+      <div class="notion-form-wrap reveal d2">
+        <iframe src="https://neon-fragrance-aa2.notion.site/ebd/3887fc0332b58025823cfa90915fb7c0" title="Request a Free Quote from H&amp;L Junk Removal" loading="lazy"></iframe>
       </div>
+
+      <p class="contact-reassure reveal d2">Fully Insured &middot; Free Quotes &middot; Serving League City &amp; the Bay Area</p>
     </div>
   </section>
 
