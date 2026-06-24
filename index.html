@@ -1454,6 +1454,50 @@
       border: 0;
       display: block;
     }
+    .quote-facade {
+      padding: 52px 28px;
+      text-align: center;
+    }
+    .quote-facade-title {
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #111;
+      margin: 0 0 12px;
+    }
+    .quote-facade-sub {
+      color: #555;
+      font-size: 0.95rem;
+      max-width: 440px;
+      margin: 0 auto 26px;
+      line-height: 1.55;
+    }
+    .quote-load-btn {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 16px 34px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .quote-load-btn:hover { background: #000; transform: translateY(-2px); }
+    .quote-facade-alt {
+      margin: 22px auto 0;
+      font-size: 0.8rem;
+      color: #777;
+      max-width: 440px;
+      line-height: 1.5;
+    }
+    .quote-facade-alt a { color: #111; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
     .contact-reassure {
       text-align: center;
       margin-top: 28px;
@@ -2115,8 +2159,13 @@
 
       <p class="contact-intro reveal d1">Fill out the quick form below and we'll get right back to you with a free, no-obligation quote. Prefer to talk? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
 
-      <div class="notion-form-wrap reveal d2">
-        <iframe src="https://neon-fragrance-aa2.notion.site/ebd/3887fc0332b58025823cfa90915fb7c0" title="Request a Free Quote from H&amp;L Junk Removal" loading="lazy"></iframe>
+      <div class="notion-form-wrap reveal d2" id="quoteFormWrap">
+        <div class="quote-facade" id="quoteFacade">
+          <p class="quote-facade-title">Request a Free Quote</p>
+          <p class="quote-facade-sub">Tell us what you need hauled and we will get right back to you with a free, no-obligation quote.</p>
+          <button type="button" class="quote-load-btn" id="loadQuoteForm">Open the Free Quote Form</button>
+          <p class="quote-facade-alt">On a phone and the form will not open? <a href="https://neon-fragrance-aa2.notion.site/3887fc0332b58025823cfa90915fb7c0" target="_blank" rel="noopener">Open it in a new tab</a>, or just call or text <a href="tel:8324257749">832-425-7749</a>.</p>
+        </div>
       </div>
 
       <p class="contact-reassure reveal d2">Fully Insured &middot; Free Quotes &middot; Serving League City &amp; the Bay Area</p>
@@ -2404,6 +2453,25 @@
             submitBtn.style.opacity = '1';
             alert('Connection error. Please call us at 832-425-7749 or try again.');
           });
+        });
+      }
+
+      /* =============================================
+         QUOTE FORM - click to load
+         (prevents the heavy Notion embed from auto-
+         loading on scroll and crashing mobile Safari)
+      ============================================= */
+      var loadQuoteBtn = document.getElementById('loadQuoteForm');
+      if (loadQuoteBtn) {
+        loadQuoteBtn.addEventListener('click', function() {
+          var wrap = document.getElementById('quoteFormWrap');
+          var facade = document.getElementById('quoteFacade');
+          var iframe = document.createElement('iframe');
+          iframe.src = 'https://neon-fragrance-aa2.notion.site/ebd/3887fc0332b58025823cfa90915fb7c0';
+          iframe.title = 'Request a Free Quote from H&L Junk Removal';
+          iframe.setAttribute('loading', 'eager');
+          if (facade && facade.parentNode) facade.parentNode.removeChild(facade);
+          if (wrap) wrap.appendChild(iframe);
         });
       }
 
