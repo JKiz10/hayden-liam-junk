@@ -32,10 +32,10 @@
   <link rel="icon" type="image/png" href="logo.PNG?v=2" />
   <link rel="shortcut icon" type="image/png" href="logo.PNG?v=2" />
   <link rel="apple-touch-icon" href="logo.PNG?v=2" />
-  <link rel="preload" as="image" href="logo.PNG?v=2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Special+Elite&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Special+Elite&display=swap" /></noscript>
 
   <style>
     :root {
@@ -164,6 +164,8 @@
     /* =============================================
        PAGE LOADER
     ============================================= */
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 100000; background: #111; color: #fff; padding: 12px 18px; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; }
+    .skip-link:focus { left: 0; }
     .page-loader {
       position: fixed;
       inset: 0;
@@ -1694,7 +1696,8 @@
           "availableLanguage": "English"
         },
         "sameAs": [
-          "https://www.instagram.com/h.l_junk.removal/"
+          "https://www.instagram.com/h.l_junk.removal/",
+          "https://g.page/r/CUoEnjQdISJpEBM"
         ],
         "additionalProperty": {
           "@type": "PropertyValue",
@@ -1750,7 +1753,8 @@
           { "@type": "Question", "name": "Do I need to move the items outside before you arrive?", "acceptedAnswer": { "@type": "Answer", "text": "No, you do not have to lift a thing. Our crew handles all the loading and hauling, whether items are in the garage, upstairs, in the backyard, or inside a unit. Just point us to what is going and we will take care of the rest. Every job starts with a free quote at 832-425-7749." } },
           { "@type": "Question", "name": "What do you do with the junk after pickup?", "acceptedAnswer": { "@type": "Answer", "text": "We haul everything away and dispose of it responsibly, recycling or donating usable items where we can rather than sending everything straight to the landfill. You get a cleared space without the hassle of a dump run. Call 832-425-7749 for your free, fully insured pickup." } },
           { "@type": "Question", "name": "Do you remove refrigerators, freezers, and air conditioners?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We remove and haul off refrigerators, freezers, window and central AC units, and other appliances. Units that contain refrigerant need to be handled the right way, and we take care of that as part of the job so you do not have to worry about it. Call or text 832-425-7749 for a free quote on appliance removal." } },
-          { "@type": "Question", "name": "Do you handle storm and hurricane debris?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. After a storm we help homeowners and businesses across League City and Galveston County clear downed limbs, fence panels, soggy drywall, and other debris, and we haul it all off in one stop. We are fully insured and can mobilize quickly. Save our number, 832-425-7749, before hurricane season so you are ready." } }
+          { "@type": "Question", "name": "Do you handle storm and hurricane debris?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. After a storm we help homeowners and businesses across League City and Galveston County clear downed limbs, fence panels, soggy drywall, and other debris, and we haul it all off in one stop. We are fully insured and can mobilize quickly. Save our number, 832-425-7749, before hurricane season so you are ready." } },
+          { "@type": "Question", "name": "Do you offer same-day junk removal in League City?", "acceptedAnswer": { "@type": "Answer", "text": "Often, yes. We schedule quickly across League City and the Bay Area and can frequently come out the same day or next day depending on the day and your location. Call or text 832-425-7749 and we will find a time and give you a free quote." } }
         ]
       }
     ]
@@ -1758,6 +1762,8 @@
   </script>
 </head>
 <body>
+
+  <a href="#hero" class="skip-link">Skip to main content</a>
 
   <!-- Scroll Progress -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -1810,6 +1816,8 @@
     <a href="https://www.instagram.com/h.l_junk.removal/" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
     <a href="tel:8324257749" class="nav-cta" data-close-menu>Call 832-425-7749</a>
   </div>
+
+  <main id="main">
 
   <!-- Hero -->
   <section class="hero" id="hero">
@@ -2144,6 +2152,10 @@
         <summary>Do you handle storm and hurricane debris?</summary>
         <div class="faq-answer">Yes. After a storm we help homeowners and businesses across League City and Galveston County clear downed limbs, fence panels, soggy drywall, and other debris, and we haul it all off in one stop. We are fully insured and can mobilize quickly. Save our number, <a href="tel:8324257749">832-425-7749</a>, before hurricane season so you are ready.</div>
       </details>
+      <details class="faq-item reveal">
+        <summary>Do you offer same-day junk removal in League City?</summary>
+        <div class="faq-answer">Often, yes. We schedule quickly across League City and the Bay Area and can frequently come out the same day or next day depending on the day and your location. <a href="tel:8324257749">Call or text 832-425-7749</a> and we will find a time and give you a free quote.</div>
+      </details>
 
       <p class="faq-cta reveal">Still have a question? <a href="tel:8324257749">Call or text 832-425-7749</a> for a free quote.</p>
     </div>
@@ -2172,6 +2184,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-top">
@@ -2194,6 +2208,7 @@
       <p class="footer-tagline">Fast. Reliable. Local.</p>
     </div>
     <div class="footer-bottom">
+      <p class="footer-copy" style="margin-bottom:10px;">H&amp;L Junk Removal &amp; Hauling Solutions, LLC &middot; League City, TX 77573 &middot; <a href="tel:8324257749" style="color:inherit;">832-425-7749</a></p>
       <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Galveston &amp; Harris County, TX. All rights reserved.</p>
     </div>
   </footer>
@@ -2208,10 +2223,8 @@
       window.addEventListener('load', function() {
         var loader = document.getElementById('pageLoader');
         if (!loader) return;
-        setTimeout(function() {
-          loader.classList.add('loaded');
-          setTimeout(function() { loader.style.display = 'none'; }, 1000);
-        }, 600);
+        loader.classList.add('loaded');
+        setTimeout(function() { loader.style.display = 'none'; }, 400);
       });
 
       /* =============================================
@@ -2385,76 +2398,8 @@
       setupParallax();
       window.addEventListener('scroll', onParallaxScroll, { passive: true });
 
-      /* =============================================
-         CONTACT FORM — Float labels & Formsubmit
-      ============================================= */
-      document.querySelectorAll('.form-field').forEach(function(fieldWrap) {
-        var input = fieldWrap.querySelector('.form-input, .form-select, .form-textarea');
-        if (!input) return;
-
-        function checkFilled() {
-          fieldWrap.classList.toggle('filled', !!(input.value && input.value.trim()));
-        }
-
-        input.addEventListener('focus', function() { fieldWrap.classList.add('focused'); });
-        input.addEventListener('blur', function() { fieldWrap.classList.remove('focused'); checkFilled(); });
-        input.addEventListener('input', checkFilled);
-        input.addEventListener('change', checkFilled);
-        checkFilled();
-      });
-
-      var contactForm = document.getElementById('contactForm');
-      var formSuccess = document.getElementById('formSuccess');
-
-      if (contactForm && formSuccess) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-
-          var nameInput = contactForm.querySelector('#fieldName');
-          var emailInput = contactForm.querySelector('#fieldEmail');
-          if ((nameInput && !nameInput.value.trim()) || (emailInput && !emailInput.value.trim())) {
-            alert('Please enter your name and email so we can get back to you.');
-            return;
-          }
-
-          var submitBtn = contactForm.querySelector('.form-submit');
-          var originalText = submitBtn.textContent;
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Sending...';
-          submitBtn.style.opacity = '0.6';
-
-          var formData = new FormData(contactForm);
-
-          fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-          }).then(function(response) {
-            return response.json().then(function(data) {
-              return { ok: response.ok, data: data };
-            }).catch(function() {
-              return { ok: response.ok, data: null };
-            });
-          }).then(function(result) {
-            if (result.ok && (!result.data || result.data.success !== 'false')) {
-              contactForm.style.display = 'none';
-              formSuccess.classList.add('visible');
-              contactForm.reset();
-            } else {
-              submitBtn.disabled = false;
-              submitBtn.textContent = originalText;
-              submitBtn.style.opacity = '1';
-              var msg = (result.data && result.data.message) ? result.data.message : 'Something went wrong. Please try again or call us at 832-425-7749.';
-              alert(msg);
-            }
-          }).catch(function() {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-            submitBtn.style.opacity = '1';
-            alert('Connection error. Please call us at 832-425-7749 or try again.');
-          });
-        });
-      }
+      /* Contact form is the click-to-load Notion facade (#quoteFormWrap / #loadQuoteForm).
+         The old native-form handler was removed; the facade + new-tab link + phone are the paths. */
 
       /* =============================================
          QUOTE FORM - click to load
