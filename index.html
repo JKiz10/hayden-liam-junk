@@ -137,8 +137,8 @@
       height: 0;
     }
 
-    @media (hover: none) and (pointer: coarse) {
-      .cursor-outer, .cursor-dot { display: none !important; }
+    @media (hover: none), (pointer: coarse), (max-width: 900px) {
+      .cursor-outer, .cursor-dot, .hero-spotlight { display: none !important; }
     }
 
     img { display: block; max-width: 100%; height: auto; }
@@ -1593,32 +1593,39 @@
     }
 
     @media (max-width: 768px) {
-      .nav { padding: 16px 24px; }
-      .nav.scrolled { padding: 12px 24px; }
-      .hero { padding: 120px 24px 80px; }
-      .services { padding: 100px 24px; }
+      .nav { padding: 14px 20px; }
+      .nav.scrolled { padding: 10px 20px; }
+      .hero { padding: 108px 22px 60px; }
+      .services { padding: 60px 22px; }
       .services-grid { grid-template-columns: 1fr; border-radius: 12px; }
-      .commercial { padding: 100px 24px; }
+      .service-card { padding: 30px 26px; }
+      .service-number { margin-bottom: 12px; }
+      .service-name { font-size: 1.18rem; }
+      .commercial { padding: 60px 22px; }
       .commercial-grid { grid-template-columns: 1fr; border-radius: 12px; }
-      .work { padding: 100px 24px; }
+      .work { padding: 60px 22px; }
       .work-grid { grid-template-columns: 1fr; grid-auto-rows: 230px; }
       .work-cell.feature { grid-column: span 1; grid-row: span 1; }
       .work-cell.wide { grid-column: span 1; }
       .work-cell.tall { grid-row: span 1; aspect-ratio: 9 / 16; height: auto; }
-      .process { padding: 100px 24px; }
+      .process { padding: 60px 22px; }
       .process-steps { grid-template-columns: 1fr; }
       .process-step::before { width: 100%; height: 1px; bottom: 0; top: auto; right: auto; }
-      .process-step { padding: 32px 0; }
-      .reviews { padding: 90px 24px; }
-      .quote-cta { padding: 100px 24px; }
-      .about { padding: 100px 24px; }
+      .process-step { padding: 22px 0; }
+      .process-step-number { font-size: 3rem; margin-bottom: 8px; }
+      .reviews { padding: 60px 22px; }
+      .quote-cta { padding: 64px 22px; }
+      .about { padding: 60px 22px; }
       .about-stats { grid-template-columns: 1fr; gap: 16px; }
-      .areas { padding: 100px 24px; }
+      .areas { padding: 60px 22px; }
       .areas-grid { grid-template-columns: 1fr; }
-      .faq { padding: 100px 24px; }
-      .contact { padding: 100px 24px; }
+      .faq { padding: 60px 22px; }
+      .contact { padding: 60px 22px; }
       .contact-form { grid-template-columns: 1fr; }
-      .footer { padding: 40px 24px 24px; }
+      .services-header, .process-header { margin-bottom: 32px; }
+      .commercial-header, .faq-header, .contact-header, .areas-header { margin-bottom: 30px; }
+      .commercial-intro, .work-intro, .reviews-intro, .areas-intro, .about-intro { margin-bottom: 28px; }
+      .footer { padding: 40px 22px 24px; }
       .footer-top { grid-template-columns: 1fr; gap: 20px; text-align: center; }
       .footer-logo { justify-content: center; }
       .footer-tagline { text-align: center; }

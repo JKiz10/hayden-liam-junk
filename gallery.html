@@ -99,7 +99,7 @@
     .cursor-outer.hover { width: 64px; height: 64px; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.6); }
     .cursor-outer.click { transform: translate(-50%, -50%) scale(0.8); transition: transform 0.1s ease; }
     .cursor-dot.hover { width: 0; height: 0; }
-    @media (hover: none) and (pointer: coarse) { .cursor-outer, .cursor-dot { display: none !important; } }
+    @media (hover: none), (pointer: coarse), (max-width: 900px) { .cursor-outer, .cursor-dot, .hero-spotlight { display: none !important; } }
 
     img { display: block; max-width: 100%; height: auto; }
     a { text-decoration: none; color: inherit; }
@@ -422,13 +422,13 @@
     }
 
     @media (max-width: 768px) {
-      .nav { padding: 16px 24px; }
-      .nav.scrolled { padding: 12px 24px; }
-      .gallery-hero { padding: 140px 24px 60px; }
-      .gallery-grid { padding: 0 24px 100px; gap: 60px; }
-      .jobs { padding: 20px 24px 100px; }
+      .nav { padding: 14px 20px; }
+      .nav.scrolled { padding: 10px 20px; }
+      .gallery-hero { padding: 104px 22px 44px; }
+      .gallery-grid { padding: 0 22px 56px; gap: 32px; }
+      .jobs { padding: 16px 22px 56px; }
       .jobs-grid { columns: 1; }
-      .footer { padding: 40px 24px 24px; }
+      .footer { padding: 40px 22px 24px; }
       .footer-top { grid-template-columns: 1fr; gap: 20px; text-align: center; }
       .footer-logo { justify-content: center; }
       .footer-tagline { text-align: center; }
