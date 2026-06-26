@@ -1195,11 +1195,29 @@
       letter-spacing: 0.01em;
       transition: border-color 0.4s, color 0.4s, background 0.4s;
     }
-    .area-chip:hover {
-      border-color: rgba(255,255,255,0.35);
-      color: var(--white);
-      background: rgba(255,255,255,0.03);
+    a.area-chip-link {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
     }
+    .area-chip-link:hover {
+      border-color: rgba(255,255,255,0.45);
+      color: var(--white);
+      background: rgba(255,255,255,0.05);
+    }
+    a.area-chip-link::after {
+      content: "\2192";
+      font-family: 'Special Elite', monospace;
+      font-size: 0.85rem;
+      position: absolute;
+      top: 13px;
+      right: 16px;
+      color: var(--white);
+      opacity: 0.4;
+      transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+    }
+    a.area-chip-link:hover::after { opacity: 1; transform: translateX(3px); }
     .area-chip span {
       display: block;
       font-family: 'Special Elite', monospace;
@@ -2050,20 +2068,20 @@
 
       <div class="areas-grid reveal d2">
         <div class="area-chip">League City<span>77573 &middot; 77574</span></div>
-        <div class="area-chip">Webster<span>Harris County</span></div>
-        <div class="area-chip">Friendswood<span>Galveston County</span></div>
-        <div class="area-chip">Dickinson<span>Galveston County</span></div>
+        <a class="area-chip area-chip-link" href="/junk-removal-webster-tx/" aria-label="Junk removal in Webster, TX">Webster<span>Harris County</span></a>
+        <a class="area-chip area-chip-link" href="/junk-removal-friendswood-tx/" aria-label="Junk removal in Friendswood, TX">Friendswood<span>Galveston County</span></a>
+        <a class="area-chip area-chip-link" href="/junk-removal-dickinson-tx/" aria-label="Junk removal in Dickinson, TX">Dickinson<span>Galveston County</span></a>
         <div class="area-chip">Kemah<span>Galveston County</span></div>
-        <div class="area-chip">Clear Lake<span>Harris County</span></div>
+        <a class="area-chip area-chip-link" href="/junk-removal-clear-lake-tx/" aria-label="Junk removal in Clear Lake, TX">Clear Lake<span>Harris County</span></a>
         <div class="area-chip">Nassau Bay<span>Harris County</span></div>
         <div class="area-chip">Seabrook<span>Harris County</span></div>
-        <div class="area-chip">Texas City<span>Galveston County</span></div>
+        <a class="area-chip area-chip-link" href="/junk-removal-texas-city-tx/" aria-label="Junk removal in Texas City, TX">Texas City<span>Galveston County</span></a>
         <div class="area-chip">La Marque<span>Galveston County</span></div>
         <div class="area-chip">Santa Fe<span>Galveston County</span></div>
         <div class="area-chip">Bacliff &amp; San Leon<span>Galveston County</span></div>
         <div class="area-chip">Pasadena<span>Harris County</span></div>
         <div class="area-chip">Pearland<span>Harris County</span></div>
-        <div class="area-chip">Galveston<span>Galveston County</span></div>
+        <a class="area-chip area-chip-link" href="/junk-removal-galveston-tx/" aria-label="Junk removal in Galveston, TX">Galveston<span>Galveston County</span></a>
         <div class="area-chip">Taylor Lake Village<span>Harris County</span></div>
       </div>
 
