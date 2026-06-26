@@ -55,11 +55,7 @@
       --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; cursor: none !important; }
-
-    @media (hover: none) and (pointer: coarse) {
-      *, *::before, *::after { cursor: auto !important; }
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
       scroll-behavior: smooth;
@@ -83,62 +79,8 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* =============================================
-       CUSTOM CURSOR
-    ============================================= */
-    .cursor-outer {
-      width: 40px;
-      height: 40px;
-      border: 1.5px solid rgba(255,255,255,0.4);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 999999;
-      transform: translate(-50%, -50%);
-      transition: width 0.4s var(--ease), height 0.4s var(--ease), border-color 0.3s, background 0.3s, opacity 0.3s;
-      mix-blend-mode: difference;
-      will-change: left, top;
-    }
-
-    .cursor-dot {
-      width: 5px;
-      height: 5px;
-      background: var(--white);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 999999;
-      transform: translate(-50%, -50%);
-      will-change: left, top;
-      transition: width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s;
-    }
-
-    .cursor-outer.hover {
-      width: 64px;
-      height: 64px;
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.6);
-    }
-
-    .cursor-outer.click {
-      transform: translate(-50%, -50%) scale(0.8);
-      transition: transform 0.1s ease;
-    }
-
-    .cursor-outer.text {
-      width: 80px;
-      height: 80px;
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.2);
-    }
-
-    .cursor-dot.hover {
-      width: 0;
-      height: 0;
-    }
-
     @media (hover: none), (pointer: coarse), (max-width: 900px) {
-      .cursor-outer, .cursor-dot, .hero-spotlight { display: none !important; }
+      .hero-spotlight { display: none !important; }
     }
 
     img { display: block; max-width: 100%; height: auto; }
@@ -811,7 +753,7 @@
     }
 
     /* =============================================
-       RECENT WORK — BENTO GALLERY
+       RECENT WORK - BENTO GALLERY
     ============================================= */
     .work {
       padding: 140px 48px;
@@ -1783,10 +1725,6 @@
   <!-- Grain -->
   <div class="grain-overlay" aria-hidden="true"></div>
 
-  <!-- Custom Cursor -->
-  <div class="cursor-outer" id="cursorOuter"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-
   <!-- Navigation -->
   <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-logo">
@@ -2249,51 +2187,6 @@
       window.addEventListener('scroll', updateProgress, { passive: true });
 
       /* =============================================
-         CUSTOM CURSOR
-      ============================================= */
-      var outer = document.getElementById('cursorOuter');
-      var cdot = document.getElementById('cursorDot');
-      var mx = 0, my = 0, ox = 0, oy = 0;
-      var cursorLerp = 0.12;
-
-      function animateCursor() {
-        ox += (mx - ox) * cursorLerp;
-        oy += (my - oy) * cursorLerp;
-        outer.style.left = ox + 'px';
-        outer.style.top = oy + 'px';
-        cdot.style.left = mx + 'px';
-        cdot.style.top = my + 'px';
-        requestAnimationFrame(animateCursor);
-      }
-      requestAnimationFrame(animateCursor);
-
-      document.addEventListener('mousemove', function(e) {
-        mx = e.clientX;
-        my = e.clientY;
-      });
-
-      document.addEventListener('mousedown', function() { outer.classList.add('click'); });
-      document.addEventListener('mouseup', function() { outer.classList.remove('click'); });
-
-      /* Hover states for interactive elements */
-      document.querySelectorAll('a, button, input, select, textarea, [role="button"]').forEach(function(el) {
-        el.addEventListener('mouseenter', function() {
-          outer.classList.add('hover');
-          cdot.classList.add('hover');
-        });
-        el.addEventListener('mouseleave', function() {
-          outer.classList.remove('hover');
-          cdot.classList.remove('hover');
-        });
-      });
-
-      /* Text hover — expand on headings */
-      document.querySelectorAll('h1, h2, h3, .hero-sub, .about-body').forEach(function(el) {
-        el.addEventListener('mouseenter', function() { outer.classList.add('text'); });
-        el.addEventListener('mouseleave', function() { outer.classList.remove('text'); });
-      });
-
-      /* =============================================
          NAVIGATION
       ============================================= */
       var nav = document.getElementById('mainNav');
@@ -2343,7 +2236,7 @@
       }
 
       /* =============================================
-         SCROLL REVEAL — Intersection Observer
+         SCROLL REVEAL - Intersection Observer
       ============================================= */
       var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
       if ('IntersectionObserver' in window) {
@@ -2362,7 +2255,7 @@
       }
 
       /* =============================================
-         SERVICE CARD — Mouse glow effect
+         SERVICE CARD - Mouse glow effect
       ============================================= */
       document.querySelectorAll('.service-card').forEach(function(card) {
         card.addEventListener('mousemove', function(e) {
