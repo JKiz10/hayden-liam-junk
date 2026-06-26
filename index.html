@@ -36,6 +36,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Special+Elite&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Special+Elite&display=swap" /></noscript>
+  <noscript>
+    <style>
+      #pageLoader, .page-loader { display: none !important; }
+      .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
 
   <style>
     :root {
@@ -438,7 +444,8 @@
     .hero-badge-dot {
       width: 6px;
       height: 6px;
-      background: #34c759;
+      background: #ffffff;
+      box-shadow: 0 0 6px rgba(255,255,255,0.5);
       border-radius: 50%;
       animation: pulse 2s ease infinite;
     }
@@ -867,7 +874,8 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #34c759;
+      background: #ffffff;
+      box-shadow: 0 0 6px rgba(255,255,255,0.5);
       animation: pulse 2s ease infinite;
     }
 
@@ -880,7 +888,7 @@
       overflow: hidden;
     }
 
-    .process .section-label { color: rgba(0,0,0,0.35); }
+    .process .section-label { color: rgba(0,0,0,0.7); }
     .process .section-title { color: var(--dark); }
 
     .process-header { margin-bottom: 80px; }
@@ -1063,7 +1071,7 @@
     .quote-phone {
       font-family: 'Special Elite', monospace;
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.35);
+      color: var(--gray-light);
       letter-spacing: 0.12em;
       display: block;
       transition: color 0.3s;
@@ -1091,7 +1099,7 @@
       margin: 0 auto;
     }
 
-    .about-text-col .section-label { color: rgba(255,255,255,0.35); }
+    .about-text-col .section-label { color: var(--gray); }
     .about-text-col .section-title { color: var(--white); margin-bottom: 32px; }
 
     .about-body {
@@ -1128,7 +1136,7 @@
     .about-stat-label {
       font-weight: 400;
       font-size: 0.7rem;
-      color: rgba(255,255,255,0.35);
+      color: var(--gray);
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
@@ -1296,7 +1304,7 @@
       left: 0;
       font-weight: 400;
       font-size: 0.875rem;
-      color: rgba(255,255,255,0.35);
+      color: var(--gray);
       pointer-events: none;
       transition: top 0.3s var(--ease), font-size 0.3s var(--ease), color 0.3s;
       letter-spacing: 0.02em;
@@ -1330,7 +1338,7 @@
       border-radius: 0;
     }
 
-    .form-select { color: rgba(255,255,255,0.35); }
+    .form-select { color: var(--gray); }
     .form-select option { background: var(--dark2); color: var(--white); }
     .form-input:focus, .form-select:focus, .form-textarea:focus { border-bottom-color: var(--white); }
     .form-textarea { resize: none; height: 120px; }
@@ -1490,7 +1498,7 @@
       font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
+      color: var(--gray);
       transition: color 0.3s;
     }
 
@@ -1499,7 +1507,7 @@
     .footer-tagline {
       font-weight: 400;
       font-size: 0.75rem;
-      color: rgba(255,255,255,0.35);
+      color: var(--gray);
       text-align: right;
       letter-spacing: 0.05em;
     }
@@ -1512,7 +1520,7 @@
     .footer-copy {
       font-family: 'Special Elite', monospace;
       font-size: 0.6rem;
-      color: rgba(255,255,255,0.2);
+      color: var(--gray);
       letter-spacing: 0.1em;
       text-align: center;
     }
@@ -1579,6 +1587,31 @@
       .hero-ctas a { text-align: center; }
       .btn-primary, .btn-outline { padding: 16px 32px; font-size: 0.85rem; }
     }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .reveal, [class*="reveal"] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      [style*="opacity:0"], [style*="opacity: 0"] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
   </style>
 
   <!-- ============================================================
@@ -1594,7 +1627,7 @@
         "name": "H&L Junk Removal & Hauling Solutions, LLC",
         "alternateName": "H&L Junk Removal & Hauling",
         "url": "https://hljunkremovalandhauling.com/",
-        "telephone": "+1-832-425-7749",
+        "telephone": "+18324257749",
         "image": "https://hljunkremovalandhauling.com/og-image.jpg",
         "logo": "https://hljunkremovalandhauling.com/logo.PNG",
         "description": "Fully insured junk removal, hauling, and cleanouts based in League City, TX, serving Galveston and Harris County. Residential and commercial. Free, no-obligation quotes.",
@@ -1639,7 +1672,7 @@
         ],
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+1-832-425-7749",
+          "telephone": "+18324257749",
           "contactType": "customer service",
           "areaServed": "US",
           "availableLanguage": "English"
@@ -1652,13 +1685,6 @@
           "@type": "PropertyValue",
           "name": "Fully Insured",
           "value": "true"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5.0",
-          "reviewCount": "5",
-          "bestRating": "5",
-          "worstRating": "1"
         },
         "knowsAbout": [
           "junk removal", "household cleanouts", "furniture removal", "appliance disposal",
@@ -1712,7 +1738,7 @@
 </head>
 <body>
 
-  <a href="#hero" class="skip-link">Skip to main content</a>
+  <a href="#main" class="skip-link">Skip to main content</a>
 
   <!-- Scroll Progress -->
   <div class="scroll-progress" id="scrollProgress"></div>
