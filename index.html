@@ -267,8 +267,12 @@
       z-index: 999;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: safe center;
       gap: 32px;
+      padding: 88px 22px 44px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.5s var(--ease);

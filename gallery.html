@@ -157,7 +157,8 @@
     .nav-mobile-overlay {
       display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.97);
       backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); z-index: 999;
-      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      flex-direction: column; align-items: center; justify-content: safe center; gap: 32px;
+      padding: 88px 22px 44px; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
       opacity: 0; pointer-events: none; transition: opacity 0.5s var(--ease);
     }
     .nav-mobile-overlay.open { opacity: 1; pointer-events: all; }
