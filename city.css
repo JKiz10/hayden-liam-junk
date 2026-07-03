@@ -302,4 +302,48 @@ section { padding: var(--space-section) 0; }
 .blog-card .kicker { font-family: 'Special Elite', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 12px; display: block; }
 .blog-card h2 { font-size: 1.22rem; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; line-height: 1.18; }
 .blog-card p { color: var(--gray); font-weight: 300; font-size: 0.97rem; }
+
+/* ---------------- BREADCRUMB ---------------- */
+.breadcrumb {
+  max-width: 1200px; margin: 0 auto; padding: 18px 32px 0;
+  font-size: 0.82rem; letter-spacing: 0.02em; color: var(--gray);
+}
+.breadcrumb a { color: var(--gray-light); }
+.breadcrumb a:hover { color: var(--white); }
+.breadcrumb span[aria-current] { color: var(--gray); }
+@media (max-width: 560px) { .breadcrumb { padding: 14px 18px 0; } }
+
+/* ---------------- SERVICE / RELATED LINK BLOCK ---------------- */
+.svc-links { margin-top: 34px; }
+.svc-links-label {
+  font-family: 'Special Elite', monospace; font-size: 0.72rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gray); margin-bottom: 14px;
+}
+.svc-links-list { display: flex; flex-wrap: wrap; gap: 12px; }
+.svc-links-list a {
+  border: 1px solid rgba(255,255,255,0.16); border-radius: 8px;
+  padding: 10px 16px; font-size: 0.92rem; color: var(--gray-light);
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.svc-links-list a:hover { border-color: var(--white); color: var(--white); }
+
+/* ---------------- QUOTE FORM (click-to-load Notion facade) ---------------- */
+.notion-form-wrap { max-width: 720px; margin: 0 auto; }
+.notion-form-wrap iframe { width: 100%; min-height: 640px; border: 0; border-radius: var(--radius); background: var(--dark2); }
+.quote-facade {
+  background: var(--dark2); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius); padding: 40px 32px; text-align: center;
+}
+.quote-facade-title { font-family: 'Oswald', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 1.5rem; margin-bottom: 12px; color: var(--white); }
+.quote-facade-sub { color: var(--gray-light); font-weight: 300; max-width: 460px; margin: 0 auto 24px; }
+.quote-load-btn {
+  font-family: 'Oswald', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+  background: var(--white); color: var(--black); border: 0; border-radius: 10px;
+  padding: 16px 32px; font-size: 1rem; cursor: pointer;
+  transition: transform 0.25s var(--ease);
+}
+.quote-load-btn:hover { transform: translateY(-3px); }
+.quote-facade-alt { color: var(--gray); font-size: 0.86rem; font-weight: 300; margin-top: 20px; }
+.quote-facade-alt a { color: var(--gray-light); text-decoration: underline; text-underline-offset: 2px; }
+.quote-facade-alt a:hover { color: var(--white); }
 @media (max-width: 860px) { .blog-grid { grid-template-columns: 1fr; } }
