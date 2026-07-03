@@ -2451,6 +2451,7 @@
       var loadQuoteBtn = document.getElementById('loadQuoteForm');
       if (loadQuoteBtn) {
         loadQuoteBtn.addEventListener('click', function() {
+          if (typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18264252114/sPLOCNWoq8ocENK9iYVE'}); }
           var wrap = document.getElementById('quoteFormWrap');
           var facade = document.getElementById('quoteFacade');
           var iframe = document.createElement('iframe');
