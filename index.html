@@ -1797,6 +1797,76 @@
     ]
   }
   </script>
+  <style id="cro-overrides">
+    /* ===== Paid-traffic conversion layer: call-first hero + form section #2 ===== */
+    a.hero-call-num, a.btn-call, a.sticky-call-btn, a.hero-scroll { text-decoration: none; }
+
+    /* Hero visible by default so the CALL never waits on JS */
+    .hero-sub, .hero-ctas { opacity: 1; transform: none; }
+    .hero-headline .line-inner { transform: translateY(0); animation: heroLineUp 0.9s var(--ease) both; }
+    .hero-headline .line:nth-child(3) .line-inner { animation-delay: 0.12s; }
+    @keyframes heroLineUp { from { transform: translateY(110%); } to { transform: translateY(0); } }
+
+    /* BIG bold call block */
+    .hero-call { margin: 30px 0 20px; opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s var(--ease) 0.35s forwards; }
+    .hero-call-label { display: block; font-family: 'Special Elite', monospace; font-size: clamp(0.7rem, 1.3vw, 0.85rem); letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+    .hero-call-num { display: inline-flex; align-items: center; gap: 14px; background: var(--white); color: var(--black); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(1.7rem, 5.2vw, 2.9rem); letter-spacing: 0.01em; line-height: 1; padding: 16px 30px; border-radius: 16px; box-shadow: 0 14px 40px rgba(255,255,255,0.14); transition: transform 0.25s var(--ease-spring), box-shadow 0.25s; }
+    .hero-call-num:hover { transform: translateY(-2px); box-shadow: 0 18px 52px rgba(255,255,255,0.24); }
+    .hero-call-ico { width: 0.92em; height: 0.92em; flex: none; }
+
+    /* Demote secondary CTAs under the call */
+    .hero-ctas { gap: 12px; margin-bottom: 22px; }
+    .btn-secondary { font-size: 0.82rem; padding: 14px 26px; }
+
+    /* Above-the-fold trust strip */
+    .hero-trust { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: 'Special Elite', monospace; font-size: clamp(0.68rem, 1.2vw, 0.78rem); letter-spacing: 0.05em; color: rgba(255,255,255,0.72); max-width: 640px; opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s var(--ease) 0.5s forwards; }
+    .hero-trust-stars { color: #fff; letter-spacing: 1px; }
+    .hero-trust-dot { color: rgba(255,255,255,0.3); }
+
+    /* Big reusable CALL button (contact band + anywhere) */
+    .btn-call { display: inline-flex; align-items: center; justify-content: center; gap: 12px; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(1.05rem, 2.2vw, 1.4rem); text-transform: uppercase; letter-spacing: 0.03em; color: var(--black); background: var(--white); padding: 20px 42px; border-radius: 100px; transition: transform 0.3s var(--ease-spring), box-shadow 0.3s; }
+    .btn-call:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,255,255,0.25); }
+    .hero-scroll { text-decoration: none; }
+
+    /* ===== #quote conversion section (page section #2) ===== */
+    .conversion { padding: 64px 48px 72px; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .conversion-inner { max-width: 760px; margin: 0 auto; }
+    .conversion-header { text-align: center; margin-bottom: 32px; }
+    .conversion-intro { color: rgba(255,255,255,0.62); max-width: 560px; margin: 14px auto 0; line-height: 1.6; font-size: 1rem; }
+    .conversion-intro a { color: #fff; font-weight: 600; }
+    .conversion-trust { text-align: center; margin-top: 22px; font-family: 'Special Elite', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+    .conversion-trust span { color: #fff; }
+
+    /* Bottom contact call band */
+    .contact-cta-band { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; margin: 8px 0 6px; }
+
+    /* ===== Mobile sticky call bar (<=900px) ===== */
+    .sticky-call { display: none; }
+    @media (max-width: 900px) {
+      .sticky-call { display: flex; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 998; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(0,0,0,0.96); border-top: 1px solid rgba(255,255,255,0.14); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+      .sticky-call-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 54px; border-radius: 100px; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; font-size: 1rem; }
+      .sticky-call-primary { flex: 1 1 62%; background: var(--white); color: var(--black); }
+      .sticky-call-secondary { flex: 1 1 34%; color: var(--white); border: 1px solid rgba(255,255,255,0.4); font-size: 0.9rem; }
+      .sticky-call-ico { width: 20px; height: 20px; flex: none; }
+      body { padding-bottom: 84px; }
+    }
+
+    /* Full-width stacked hero CTAs + call on phones */
+    @media (max-width: 768px) {
+      .hero-call-num { display: flex; width: 100%; justify-content: center; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .hero-ctas .btn-outline { text-align: center; justify-content: center; }
+      .contact-cta-band { flex-direction: column; align-items: stretch; }
+      .contact-cta-band .btn-call, .contact-cta-band .btn-outline { text-align: center; justify-content: center; }
+      .conversion { padding: 48px 22px 56px; }
+    }
+
+    /* Reduced motion: kill entrance transforms/animations */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-call, .hero-trust, .hero-sub, .hero-ctas, .hero-badge { opacity: 1 !important; transform: none !important; animation: none !important; }
+      .hero-headline .line-inner { transform: none !important; animation: none !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -1863,25 +1933,65 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Based in League City, TX &middot; Fully Insured
+        Same-Day Service &middot; Free Quotes &middot; Fully Insured
       </div>
       <h1 class="hero-headline">
-        <span class="hero-kicker">Junk Removal &amp; Hauling in League City, TX</span>
+        <span class="hero-kicker">Same-Day Junk Removal in League City, TX</span>
         <span class="line"><span class="line-inner" id="heroLine1">We Haul.</span></span>
         <span class="line"><span class="line-inner" id="heroLine2">You Relax.</span></span>
       </h1>
       <p class="hero-sub" id="heroSub">
-        Fully insured junk removal, hauling, and cleanouts for homes and businesses across League City, Galveston County, and Harris County. No job too big or too small. We show up, load up, and haul it away, and your quote is always free.
+        Fully insured junk removal, hauling, and cleanouts for homes and businesses across League City, Galveston County, and Harris County. No job too big or too small, and your quote is always free.
       </p>
+
+      <div class="hero-call">
+        <span class="hero-call-label">Call or text &middot; same-day service</span>
+        <a href="tel:8324257749" class="hero-call-num" aria-label="Call H and L Junk Removal at 832 425 7749">
+          <svg class="hero-call-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2z" fill="currentColor"/></svg>
+          832-425-7749
+        </a>
+      </div>
+
       <div class="hero-ctas" id="heroCtas">
-        <a href="tel:8324257749" class="btn-primary">Call Now 832-425-7749</a>
-        <a href="#contact" class="btn-outline">Get a Free Quote</a>
+        <a href="#quote" class="btn-outline btn-secondary">Get a Free Quote</a>
+        <a href="sms:8324257749" class="btn-outline btn-secondary">Text a Photo</a>
+      </div>
+
+      <div class="hero-trust">
+        <span class="hero-trust-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>5.0 on Google (5 reviews)</span>
+        <span class="hero-trust-dot">&middot;</span>
+        <span>Fully Insured</span>
+        <span class="hero-trust-dot">&middot;</span>
+        <span>Same-Day Available</span>
+        <span class="hero-trust-dot">&middot;</span>
+        <span>League City &amp; the Bay Area</span>
       </div>
     </div>
 
-    <div class="hero-scroll" aria-hidden="true">
-      <span class="hero-scroll-label">SCROLL</span>
+    <a href="#quote" class="hero-scroll" aria-label="Jump to the free quote form">
+      <span class="hero-scroll-label">FREE QUOTE BELOW</span>
       <div class="hero-scroll-line"></div>
+    </a>
+  </section>
+
+  <!-- Quote form (section #2 for paid-traffic conversion) -->
+  <section class="conversion" id="quote">
+    <div class="conversion-inner">
+      <div class="conversion-header">
+        <span class="section-label reveal">Free Quote</span>
+        <h2 class="section-title reveal d1" style="color: var(--white);">Get Your Free Quote</h2>
+        <p class="conversion-intro reveal d1">Hi, tell us what you need hauled and we will get right back to you with a free, no-obligation quote. Prefer to talk? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
+      </div>
+      <div class="notion-form-wrap reveal d2" id="quoteFormWrap">
+        <div class="quote-facade" id="quoteFacade">
+          <p class="quote-facade-title">Request a Free Quote</p>
+          <p class="quote-facade-sub">Tell us what you need hauled and we will get right back to you. Takes under a minute.</p>
+          <button type="button" class="quote-load-btn" id="loadQuoteForm">Get My Free Quote</button>
+          <p class="quote-facade-alt">On a phone and the form will not open? <a href="https://neon-fragrance-aa2.notion.site/3887fc0332b58025823cfa90915fb7c0" target="_blank" rel="noopener">Open it in a new tab</a>, or just call or text <a href="tel:8324257749">832-425-7749</a>.</p>
+        </div>
+      </div>
+      <p class="conversion-trust reveal d2"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 on Google (5 reviews) &middot; Fully Insured &middot; Same-Day Available &middot; Free Quotes</p>
     </div>
   </section>
 
@@ -2252,18 +2362,15 @@
     <div class="contact-inner">
       <div class="contact-header">
         <span class="section-label reveal">Contact</span>
-        <h2 class="section-title reveal d1" style="color: var(--white);">Get in Touch</h2>
+        <h2 class="section-title reveal d1" style="color: var(--white);">Ready When You Are</h2>
       </div>
 
-      <p class="contact-intro reveal d1">Fill out the quick form below and we'll get right back to you with a free, no-obligation quote. Prefer to talk? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
+      <p class="contact-intro reveal d1">Hi, grab your free quote up top, or reach us direct any time. Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
 
-      <div class="notion-form-wrap reveal d2" id="quoteFormWrap">
-        <div class="quote-facade" id="quoteFacade">
-          <p class="quote-facade-title">Request a Free Quote</p>
-          <p class="quote-facade-sub">Tell us what you need hauled and we will get right back to you with a free, no-obligation quote.</p>
-          <button type="button" class="quote-load-btn" id="loadQuoteForm">Open the Free Quote Form</button>
-          <p class="quote-facade-alt">On a phone and the form will not open? <a href="https://neon-fragrance-aa2.notion.site/3887fc0332b58025823cfa90915fb7c0" target="_blank" rel="noopener">Open it in a new tab</a>, or just call or text <a href="tel:8324257749">832-425-7749</a>.</p>
-        </div>
+      <div class="contact-cta-band reveal d2">
+        <a href="tel:8324257749" class="btn-call">Tap to Call 832-425-7749</a>
+        <a href="#quote" class="btn-outline btn-secondary">Get a Free Quote</a>
+        <a href="sms:8324257749" class="btn-outline btn-secondary">Text a Photo</a>
       </div>
 
       <p class="contact-reassure reveal d2">Fully Insured &middot; Free Quotes &middot; Serving League City &amp; the Bay Area</p>
@@ -2300,6 +2407,30 @@
     </div>
   </footer>
 
+  <!-- Mobile sticky call bar (shown <=900px) -->
+  <div class="sticky-call" id="stickyCall" aria-label="Quick contact">
+    <a href="tel:8324257749" class="sticky-call-btn sticky-call-primary" aria-label="Call 832 425 7749">
+      <svg class="sticky-call-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2z" fill="currentColor"/></svg>
+      Call 832-425-7749
+    </a>
+    <a href="#quote" class="sticky-call-btn sticky-call-secondary">Free Quote</a>
+  </div>
+
+  <script>
+    /* Google Ads CALL conversion for tel: taps. Fill CALL_LABEL after creating the
+       "Calls to a number on your website" conversion action in Google Ads. Until then
+       this is a safe no-op (it will not fire to a nonexistent conversion). */
+    (function(){
+      var CALL_LABEL = ''; /* e.g. 'AbC-dEfGhIjK' (the part after AW-18264252114/) */
+      if (!CALL_LABEL) return;
+      document.addEventListener('click', function(e){
+        var a = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+        if (!a || typeof gtag !== 'function') return;
+        gtag('event', 'conversion', {'send_to': 'AW-18264252114/' + CALL_LABEL});
+      }, true);
+    })();
+  </script>
+
   <script>
     (function() {
       'use strict';
@@ -2307,12 +2438,19 @@
       /* =============================================
          PAGE LOADER
       ============================================= */
-      window.addEventListener('load', function() {
+      (function() {
         var loader = document.getElementById('pageLoader');
         if (!loader) return;
-        loader.classList.add('loaded');
-        setTimeout(function() { loader.style.display = 'none'; }, 400);
-      });
+        var hidden = false;
+        function hideLoader() {
+          if (hidden) return; hidden = true;
+          loader.classList.add('loaded');
+          setTimeout(function() { loader.style.display = 'none'; }, 400);
+        }
+        if (document.readyState === 'complete') { hideLoader(); }
+        else { window.addEventListener('load', hideLoader); }
+        setTimeout(hideLoader, 800);
+      })();
 
       /* =============================================
          SCROLL PROGRESS BAR
@@ -2360,10 +2498,11 @@
       var heroSub = document.getElementById('heroSub');
       var heroCtas = document.getElementById('heroCtas');
 
-      setTimeout(function() { if (line1) line1.classList.add('in'); }, 400);
-      setTimeout(function() { if (line2) line2.classList.add('in'); }, 600);
-      setTimeout(function() { if (heroSub) heroSub.classList.add('in'); }, 800);
-      setTimeout(function() { if (heroCtas) heroCtas.classList.add('in'); }, 1000);
+      /* Hero is visible by default (CSS keyframes); add .in immediately so nothing depends on a delay */
+      if (line1) line1.classList.add('in');
+      if (line2) line2.classList.add('in');
+      if (heroSub) heroSub.classList.add('in');
+      if (heroCtas) heroCtas.classList.add('in');
 
       /* Hero spotlight follow */
       var hero = document.getElementById('hero');
@@ -2458,8 +2597,13 @@
           iframe.src = 'https://neon-fragrance-aa2.notion.site/ebd/3887fc0332b58025823cfa90915fb7c0';
           iframe.title = 'Request a Free Quote from H&L Junk Removal';
           iframe.setAttribute('loading', 'eager');
+          iframe.addEventListener('load', function(){ try { iframe.focus(); } catch(e){} });
           if (facade && facade.parentNode) facade.parentNode.removeChild(facade);
-          if (wrap) wrap.appendChild(iframe);
+          if (wrap) {
+            wrap.appendChild(iframe);
+            wrap.setAttribute('role', 'status');
+            wrap.setAttribute('aria-live', 'polite');
+          }
         });
       }
 
