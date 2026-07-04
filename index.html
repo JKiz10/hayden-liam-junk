@@ -1859,6 +1859,11 @@
       .contact-cta-band { flex-direction: column; align-items: stretch; }
       .contact-cta-band .btn-call, .contact-cta-band .btn-outline { text-align: center; justify-content: center; }
       .conversion { padding: 48px 22px 56px; }
+      /* Mobile bento: show each work photo at its natural aspect so tall photos
+         are not cover-cropped into sky-heavy landscape slices */
+      .work-grid { grid-auto-rows: auto; }
+      .work-cell, .work-cell.feature, .work-cell.tall, .work-cell.wide { aspect-ratio: auto; height: auto; grid-row: auto; grid-column: auto; }
+      .work-cell img, .work-cell video { height: auto; }
     }
 
     /* Reduced motion: kill entrance transforms/animations */
