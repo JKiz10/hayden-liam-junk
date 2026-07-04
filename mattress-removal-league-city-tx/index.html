@@ -107,7 +107,7 @@
   <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#services">Services</a> &rsaquo; <span aria-current="page">Mattress Removal</span></nav>
     <header class="hero">
       <div class="container">
-        <div class="hero-badge"><span class="hero-badge-dot"></span> Serving League City, TX &middot; Fully Insured</div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span> Serving League City, TX &middot; Fully Insured &middot; <span class="hero-star">&#9733;</span> 5.0 Google</div>
         <h1><span class="hero-kicker">Mattress Removal in League City, TX</span> Old Mattress?<br />We Take the Whole Set.</h1>
         <p class="hero-sub">Fully insured mattress removal in League City and across Galveston County. Mattress, box spring, and frame, any size, carried out and hauled off. We do the lifting and the quote is free.</p>
         <div class="hero-ctas">
@@ -233,5 +233,23 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile sticky call bar (shown <=900px) -->
+  <div class="sticky-call" aria-label="Quick contact">
+    <a href="tel:8324257749" class="sticky-call-btn sticky-call-primary" aria-label="Call 832 425 7749"><svg class="sticky-call-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2z" fill="currentColor"/></svg> Call 832-425-7749</a>
+    <a href="/free-quote-junk-removal-league-city-tx/#quote" class="sticky-call-btn sticky-call-secondary">Free Quote</a>
+  </div>
+  <script>
+    /* Google Ads CALL conversion for tel: taps. Fill CALL_LABEL after creating the
+       "Calls to a number on your website" conversion action. Safe no-op until then. */
+    (function(){ var CALL_LABEL = "";
+      if (!CALL_LABEL) return;
+      document.addEventListener("click", function(e){
+        var a = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+        if (!a || typeof gtag !== "function") return;
+        gtag("event","conversion",{"send_to":"AW-18264252114/"+CALL_LABEL});
+      }, true);
+    })();
+  </script>
 </body>
 </html>
