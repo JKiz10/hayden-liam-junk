@@ -1167,10 +1167,9 @@
     .about-img-wrap img {
       width: 100%;
       height: 500px;
-      object-fit: contain;
-      padding: 32px;
+      object-fit: cover;
+      padding: 0;
       transition: transform 0.8s var(--ease);
-      filter: drop-shadow(0 2px 40px rgba(255,255,255,0.08));
     }
 
     .about-img-wrap:hover img { transform: scale(1.03); }
@@ -1572,7 +1571,7 @@
       .work-cell.wide { grid-column: span 2; }
       .areas-grid { grid-template-columns: repeat(2, 1fr); }
       .about-inner { grid-template-columns: 1fr; gap: 60px; }
-      .about-img-wrap img { height: 400px; padding: 24px; }
+      .about-img-wrap img { height: 340px; padding: 0; }
     }
 
     @media (max-width: 768px) {
@@ -1720,6 +1719,11 @@
           "https://www.facebook.com/profile.php?id=61589177706129",
           "https://g.page/r/CUoEnjQdISJpEBM"
         ],
+        "founder": [
+          { "@type": "Person", "name": "Hayden Pyle" },
+          { "@type": "Person", "name": "Liam Foster" },
+          { "@type": "Person", "name": "Javan Kizzee" }
+        ],
         "hasMap": "https://g.page/r/CUoEnjQdISJpEBM",
         "additionalProperty": {
           "@type": "PropertyValue",
@@ -1760,6 +1764,7 @@
         "thumbnailUrl": "https://hljunkremovalandhauling.com/images/work/work-clip-poster.jpg",
         "contentUrl": "https://hljunkremovalandhauling.com/images/work/work-clip.mp4",
         "uploadDate": "2026-06-30",
+        "duration": "PT1.4S",
         "publisher": { "@id": "https://hljunkremovalandhauling.com/#business" }
       },
       {
@@ -1803,9 +1808,8 @@
 
     /* Hero visible by default so the CALL never waits on JS */
     .hero-sub, .hero-ctas { opacity: 1; transform: none; }
-    .hero-headline .line-inner { transform: translateY(0); animation: heroLineUp 0.9s var(--ease) both; }
-    .hero-headline .line:nth-child(3) .line-inner { animation-delay: 0.12s; }
-    @keyframes heroLineUp { from { transform: translateY(110%); } to { transform: translateY(0); } }
+    /* LCP fix: hero headline paints at final position immediately (no entrance animation on the largest text element) */
+    .hero-headline .line-inner { transform: translateY(0); animation: none; }
 
     /* BIG bold call block */
     .hero-call { margin: 30px 0 20px; opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s var(--ease) 0.35s forwards; }
@@ -2218,7 +2222,7 @@
       <div class="about-text-col">
         <span class="section-label reveal">About Us</span>
         <h2 class="section-title reveal d1" style="color: var(--white); margin-bottom: 32px;">Local. Reliable. Fully Insured.</h2>
-        <p class="about-body reveal d2">Hi, we are H&amp;L Junk Removal &amp; Hauling Solutions, LLC. We are a locally owned and operated team based in League City, proudly serving Galveston County and Harris County. We handle fast, responsible hauling for homes and businesses across the area, and we are fully insured on every job. Reach out any time and we will get you a free quote.</p>
+        <p class="about-body reveal d2">Hi, we are Hayden, Liam, and Javan, the three owners behind H&amp;L Junk Removal &amp; Hauling Solutions, LLC. We started H&amp;L right here in League City, and we still run the trucks and work the jobs ourselves, so when you call you are talking to the people who actually show up. We handle fast, responsible hauling for homes and businesses across Galveston County and Harris County, fully insured on every job. Reach out any time and we will get you a free quote.</p>
         <div class="about-stats">
           <div class="about-stat reveal d2">
             <div class="about-stat-value">Same Day</div>
@@ -2236,7 +2240,7 @@
       </div>
       <div class="about-img-col reveal-right d2">
         <div class="about-img-wrap">
-          <img src="logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" loading="lazy" />
+          <img src="images/work/work5.jpg" width="1100" height="825" alt="H&amp;L Junk Removal's truck and loaded dump trailer on a job in League City, TX" loading="lazy" />
         </div>
       </div>
     </div>
@@ -2460,22 +2464,28 @@
       /* =============================================
          SCROLL PROGRESS BAR
       ============================================= */
+      /* Scroll progress + nav shrink, rAF-throttled into one handler.
+         docHeight is cached (recomputed on resize/load) so we never force a
+         synchronous layout by reading scrollHeight on every scroll tick. */
       var progressBar = document.getElementById('scrollProgress');
-      function updateProgress() {
-        var scrollTop = window.scrollY;
-        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        var progress = docHeight > 0 ? scrollTop / docHeight : 0;
-        progressBar.style.transform = 'scaleX(' + progress + ')';
-      }
-      window.addEventListener('scroll', updateProgress, { passive: true });
-
-      /* =============================================
-         NAVIGATION
-      ============================================= */
       var nav = document.getElementById('mainNav');
+      var cachedDocHeight = document.documentElement.scrollHeight - window.innerHeight;
+      function recomputeDocHeight() { cachedDocHeight = document.documentElement.scrollHeight - window.innerHeight; }
+      window.addEventListener('resize', recomputeDocHeight, { passive: true });
+      window.addEventListener('load', recomputeDocHeight);
+
+      var scrollTicking = false;
+      function onScrollFrame() {
+        var scrollTop = window.scrollY;
+        var progress = cachedDocHeight > 0 ? scrollTop / cachedDocHeight : 0;
+        if (progressBar) progressBar.style.transform = 'scaleX(' + progress + ')';
+        if (nav) nav.classList.toggle('scrolled', scrollTop > 40);
+        scrollTicking = false;
+      }
       window.addEventListener('scroll', function() {
-        nav.classList.toggle('scrolled', window.scrollY > 40);
+        if (!scrollTicking) { scrollTicking = true; requestAnimationFrame(onScrollFrame); }
       }, { passive: true });
+      onScrollFrame();
 
       /* Hamburger */
       var hamburger = document.getElementById('hamburger');
@@ -2513,10 +2523,12 @@
       var hero = document.getElementById('hero');
       var spotlight = document.getElementById('heroSpotlight');
       if (hero && spotlight) {
+        var spotX = 0, spotY = 0, spotTicking = false;
+        function moveSpotlight() { spotlight.style.left = spotX + 'px'; spotlight.style.top = spotY + 'px'; spotTicking = false; }
         hero.addEventListener('mousemove', function(e) {
-          spotlight.style.left = e.clientX + 'px';
-          spotlight.style.top = e.clientY + 'px';
-        });
+          spotX = e.clientX; spotY = e.clientY;
+          if (!spotTicking) { spotTicking = true; requestAnimationFrame(moveSpotlight); }
+        }, { passive: true });
       }
 
       /* =============================================
@@ -2542,13 +2554,19 @@
          SERVICE CARD - Mouse glow effect
       ============================================= */
       document.querySelectorAll('.service-card').forEach(function(card) {
+        var cardTicking = false, cx = 0, cy = 0;
         card.addEventListener('mousemove', function(e) {
-          var rect = card.getBoundingClientRect();
-          var x = e.clientX - rect.left;
-          var y = e.clientY - rect.top;
-          card.style.setProperty('--mx', x + 'px');
-          card.style.setProperty('--my', y + 'px');
-        });
+          cx = e.clientX; cy = e.clientY;
+          if (!cardTicking) {
+            cardTicking = true;
+            requestAnimationFrame(function() {
+              var rect = card.getBoundingClientRect();
+              card.style.setProperty('--mx', (cx - rect.left) + 'px');
+              card.style.setProperty('--my', (cy - rect.top) + 'px');
+              cardTicking = false;
+            });
+          }
+        }, { passive: true });
       });
 
       /* =============================================
