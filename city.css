@@ -236,6 +236,15 @@ section { padding: var(--space-section) 0; }
 .review-cta .lead { max-width: 600px; margin: 0 auto; }
 .review-cta .hero-ctas { justify-content: center; margin-top: 26px; }
 
+/* ---------------- CONVERSION TRUST STRIPS ---------------- */
+.hero-trust { margin-top: 22px; font-size: 0.95rem; color: var(--gray-light); font-weight: 300; line-height: 1.7; }
+.hero-trust strong { color: var(--white); font-weight: 600; }
+.cta-trust { margin: 22px auto 0; max-width: 640px; font-size: 0.95rem; color: var(--gray-light); font-weight: 300; line-height: 1.7; }
+.cta-trust strong { color: var(--white); font-weight: 600; }
+.cta-form-link { margin-top: 14px; font-size: 0.9rem; color: var(--gray); font-weight: 300; }
+.cta-form-link a { color: var(--gray-light); text-decoration: underline; text-underline-offset: 2px; }
+.cta-form-link a:hover { color: var(--white); }
+
 /* ---------------- NEARBY LINKS ---------------- */
 .nearby { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .nearby a {
