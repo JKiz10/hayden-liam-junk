@@ -2550,6 +2550,18 @@
         reveals.forEach(function(el) { el.classList.add('in'); });
       }
 
+      /* Perf: only play the below-fold work clip (~1.3MB) while it is on screen */
+      var workVid = document.querySelector('video[src*="work-clip"]');
+      if (workVid && 'IntersectionObserver' in window) {
+        var vidObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) { var pr = workVid.play(); if (pr && pr.catch) pr.catch(function(){}); }
+            else { workVid.pause(); }
+          });
+        }, { threshold: 0.15 });
+        vidObserver.observe(workVid);
+      }
+
       /* =============================================
          SERVICE CARD - Mouse glow effect
       ============================================= */
