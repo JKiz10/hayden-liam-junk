@@ -1425,64 +1425,90 @@
       color: rgba(255,255,255,0.6);
     }
     .contact-intro a { color: var(--white); font-weight: 600; }
-    .notion-form-wrap {
-      max-width: 700px;
+    /* Native quote form (replaces the old Notion iframe embed) */
+    .quote-form-card {
+      max-width: 720px;
       margin: 0 auto;
-      background: #ffffff;
+      background: #fafafa;
       border-radius: 18px;
-      overflow: hidden;
       box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+      padding: 40px 34px 32px;
     }
-    .notion-form-wrap iframe {
-      width: 100%;
-      height: 920px;
-      border: 0;
-      display: block;
-    }
-    .quote-facade {
-      padding: 52px 28px;
-      text-align: center;
-    }
-    .quote-facade-title {
-      font-family: 'Oswald', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: #111;
-      margin: 0 0 12px;
-    }
-    .quote-facade-sub {
-      color: #555;
-      font-size: 0.95rem;
-      max-width: 440px;
-      margin: 0 auto 26px;
-      line-height: 1.55;
-    }
-    .quote-load-btn {
-      display: inline-block;
-      background: #111;
-      color: #fff;
+    .quote-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px; }
+    .qf-full { grid-column: 1 / -1; }
+    .qf-field { display: flex; flex-direction: column; gap: 7px; }
+    .qf-field label {
       font-family: 'Oswald', sans-serif;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-size: 0.95rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      padding: 16px 34px;
-      border: none;
+      color: #333;
+    }
+    .qf-field label .req { color: #111; }
+    .qf-field input, .qf-field select, .qf-field textarea {
+      width: 100%;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #111;
+      background: #fff;
+      border: 1.5px solid #d6d6d6;
       border-radius: 10px;
-      cursor: pointer;
+      padding: 13px 14px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      -webkit-appearance: none; appearance: none;
+    }
+    .qf-field textarea { min-height: 92px; resize: vertical; line-height: 1.5; }
+    .qf-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23111' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 15px center; padding-right: 38px; cursor: pointer;
+    }
+    .qf-field input::placeholder, .qf-field textarea::placeholder { color: #9a9a9a; }
+    .qf-field input:focus, .qf-field select:focus, .qf-field textarea:focus {
+      outline: none; border-color: #111; box-shadow: 0 0 0 3px rgba(0,0,0,0.09);
+    }
+    .qf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .qf-submit {
+      grid-column: 1 / -1;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 100%;
+      background: #111; color: #fff;
+      font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.08em;
+      font-size: 1rem; font-weight: 600;
+      padding: 17px 24px; border: none; border-radius: 12px;
+      cursor: pointer; margin-top: 6px;
       transition: transform 0.15s ease, background 0.15s ease;
     }
-    .quote-load-btn:hover { background: #000; transform: translateY(-2px); }
-    .quote-facade-alt {
-      margin: 22px auto 0;
-      font-size: 0.8rem;
-      color: #777;
-      max-width: 440px;
-      line-height: 1.5;
+    .qf-submit:hover { background: #000; transform: translateY(-2px); }
+    .qf-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
+    .qf-note {
+      grid-column: 1 / -1; text-align: center; margin-top: 4px;
+      font-size: 0.82rem; color: #555; line-height: 1.55;
     }
-    .quote-facade-alt a { color: #111; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .qf-note a { color: #111; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .qf-fineprint {
+      grid-column: 1 / -1; text-align: center; margin-top: 6px;
+      font-family: 'Special Elite', monospace; font-size: 0.66rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #888;
+    }
+    .qf-error {
+      grid-column: 1 / -1; text-align: center; color: #b00020; font-size: 0.85rem;
+      margin-top: 2px; display: none;
+    }
+    .qf-error a { color: #b00020; font-weight: 600; }
+    .quote-form-success { text-align: center; padding: 24px 12px; display: none; }
+    .quote-form-success .qf-check {
+      width: 62px; height: 62px; border-radius: 50%; background: #111; color: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.9rem; margin: 0 auto 18px;
+    }
+    .quote-form-success h3 {
+      font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.05em;
+      font-size: 1.5rem; font-weight: 600; color: #111; margin: 0 0 10px;
+    }
+    .quote-form-success p { color: #555; font-size: 0.95rem; line-height: 1.6; max-width: 430px; margin: 0 auto 8px; }
+    .quote-form-success a { color: #111; font-weight: 600; }
     .contact-reassure {
       text-align: center;
       margin-top: 28px;
@@ -1492,8 +1518,9 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.4);
     }
-    @media (max-width: 768px) {
-      .notion-form-wrap iframe { height: 1000px; }
+    @media (max-width: 620px) {
+      .quote-form-card { padding: 30px 20px 26px; }
+      .quote-form { grid-template-columns: 1fr; gap: 15px; }
     }
 
     /* =============================================
@@ -1993,12 +2020,83 @@
         <h2 class="section-title reveal d1" style="color: var(--white);">Get Your Free Quote</h2>
         <p class="conversion-intro reveal d1">Hi, tell us what you need hauled and we will get right back to you with a free, no-obligation quote. Prefer to talk? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
       </div>
-      <div class="notion-form-wrap reveal d2" id="quoteFormWrap">
-        <div class="quote-facade" id="quoteFacade">
-          <p class="quote-facade-title">Request a Free Quote</p>
-          <p class="quote-facade-sub">Tell us what you need hauled and we will get right back to you. Takes under a minute.</p>
-          <button type="button" class="quote-load-btn" id="loadQuoteForm">Get My Free Quote</button>
-          <p class="quote-facade-alt">On a phone and the form will not open? <a href="https://neon-fragrance-aa2.notion.site/3887fc0332b58025823cfa90915fb7c0" target="_blank" rel="noopener">Open it in a new tab</a>, or just call or text <a href="tel:8324257749">832-425-7749</a>.</p>
+      <div class="quote-form-card reveal d2" id="quoteFormWrap">
+        <form class="quote-form" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New Free Quote Request (H&amp;L Website)">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="qf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="qf-field">
+            <label for="qf-name">Name <span class="req">*</span></label>
+            <input id="qf-name" name="Name" type="text" required autocomplete="name" placeholder="Your name">
+          </div>
+          <div class="qf-field">
+            <label for="qf-phone">Phone <span class="req">*</span></label>
+            <input id="qf-phone" name="Phone" type="tel" required autocomplete="tel" placeholder="(832) 000-0000">
+          </div>
+          <div class="qf-field">
+            <label for="qf-email">Email</label>
+            <input id="qf-email" name="Email" type="email" autocomplete="email" placeholder="you@email.com (optional)">
+          </div>
+          <div class="qf-field">
+            <label for="qf-zip">Service Address / ZIP <span class="req">*</span></label>
+            <input id="qf-zip" name="Service Address / ZIP" type="text" required autocomplete="postal-code" placeholder="Street or ZIP where the junk is">
+          </div>
+          <div class="qf-field qf-full">
+            <label for="qf-service">What do you need removed? <span class="req">*</span></label>
+            <select id="qf-service" name="Service Needed" required>
+              <option value="" disabled selected>Choose a service</option>
+              <option>Full home / estate cleanout</option>
+              <option>Garage, attic or shed cleanout</option>
+              <option>Furniture removal</option>
+              <option>Appliance removal</option>
+              <option>Mattress removal</option>
+              <option>Construction / renovation debris</option>
+              <option>Yard / storm debris</option>
+              <option>Hot tub removal</option>
+              <option>Commercial / property manager</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="qf-field">
+            <label for="qf-amount">About how much?</label>
+            <select id="qf-amount" name="Approx. Amount">
+              <option value="" disabled selected>Estimate the load</option>
+              <option>A few items</option>
+              <option>About a quarter truckload</option>
+              <option>About half a truckload</option>
+              <option>A full truckload</option>
+              <option>More than one load</option>
+              <option>Not sure, I will send a photo</option>
+            </select>
+          </div>
+          <div class="qf-field">
+            <label for="qf-when">When do you need it?</label>
+            <select id="qf-when" name="Preferred Timing">
+              <option value="" disabled selected>Pick a timeframe</option>
+              <option>As soon as possible / same day</option>
+              <option>Within a few days</option>
+              <option>This week or next</option>
+              <option>Just planning ahead / flexible</option>
+            </select>
+          </div>
+          <div class="qf-field qf-full">
+            <label for="qf-details">Anything else?</label>
+            <textarea id="qf-details" name="Details" placeholder="Items, stairs, tight access, gate codes, anything that helps us quote it right."></textarea>
+          </div>
+
+          <button type="submit" class="qf-submit" id="qfSubmit">Get My Free Quote</button>
+
+          <p class="qf-note">Want the fastest, most accurate quote? <a href="sms:8324257749">Text a photo to 832-425-7749</a>, or just <a href="tel:8324257749">give us a call</a>.</p>
+          <p class="qf-error" id="qfError">Sorry, that did not go through. Please call or text <a href="tel:8324257749">832-425-7749</a> and we will take care of you.</p>
+          <p class="qf-fineprint">Fully Insured &middot; No Obligation &middot; We Reply Fast</p>
+        </form>
+        <div class="quote-form-success" id="quoteSuccess">
+          <div class="qf-check" aria-hidden="true">&#10003;</div>
+          <h3>Thanks, we got it!</h3>
+          <p>Hi, thanks for reaching out. We will get right back to you with your free quote, usually within a couple of hours during the day.</p>
+          <p>Need us sooner? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
         </div>
       </div>
       <p class="conversion-trust reveal d2"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 on Google (5 reviews) &middot; Fully Insured &middot; Same-Day Available &middot; Free Quotes</p>
@@ -2615,31 +2713,49 @@
       setupParallax();
       window.addEventListener('scroll', onParallaxScroll, { passive: true });
 
-      /* Contact form is the click-to-load Notion facade (#quoteFormWrap / #loadQuoteForm).
-         The old native-form handler was removed; the facade + new-tab link + phone are the paths. */
-
       /* =============================================
-         QUOTE FORM - click to load
-         (prevents the heavy Notion embed from auto-
-         loading on scroll and crashing mobile Safari)
+         QUOTE FORM - native submit via FormSubmit (AJAX)
+         Lightweight, no iframe (fixes the old mobile
+         Safari crash). Leads email to the business inbox.
       ============================================= */
-      var loadQuoteBtn = document.getElementById('loadQuoteForm');
-      if (loadQuoteBtn) {
-        loadQuoteBtn.addEventListener('click', function() {
-          if (typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18264252114/sPLOCNWoq8ocENK9iYVE'}); }
-          var wrap = document.getElementById('quoteFormWrap');
-          var facade = document.getElementById('quoteFacade');
-          var iframe = document.createElement('iframe');
-          iframe.src = 'https://neon-fragrance-aa2.notion.site/ebd/3887fc0332b58025823cfa90915fb7c0';
-          iframe.title = 'Request a Free Quote from H&L Junk Removal';
-          iframe.setAttribute('loading', 'eager');
-          iframe.addEventListener('load', function(){ try { iframe.focus(); } catch(e){} });
-          if (facade && facade.parentNode) facade.parentNode.removeChild(facade);
-          if (wrap) {
-            wrap.appendChild(iframe);
-            wrap.setAttribute('role', 'status');
-            wrap.setAttribute('aria-live', 'polite');
-          }
+      var quoteForm = document.getElementById('quoteForm');
+      if (quoteForm) {
+        quoteForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var honey = quoteForm.querySelector('input[name="_honey"]');
+          if (honey && honey.value) { return; } /* silently drop bots */
+          if (!quoteForm.checkValidity()) { quoteForm.reportValidity(); return; }
+          var btn = document.getElementById('qfSubmit');
+          var errEl = document.getElementById('qfError');
+          if (errEl) errEl.style.display = 'none';
+          var label = btn ? btn.textContent : '';
+          if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+
+          var data = {};
+          new FormData(quoteForm).forEach(function(v, k){ if (k !== '_honey') data[k] = v; });
+          var emailVal = (data['Email'] || '').trim();
+          if (emailVal) { data['_replyto'] = emailVal; }
+
+          fetch('https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(data)
+          })
+          .then(function(r){ return r.json(); })
+          .then(function(res){
+            if (res && (res.success === 'true' || res.success === true)) {
+              if (typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18264252114/sPLOCNWoq8ocENK9iYVE'}); }
+              quoteForm.style.display = 'none';
+              var ok = document.getElementById('quoteSuccess');
+              if (ok) { ok.style.display = 'block'; ok.setAttribute('role', 'status'); ok.scrollIntoView({behavior:'smooth', block:'center'}); }
+            } else {
+              throw new Error('submit failed');
+            }
+          })
+          .catch(function(){
+            if (btn) { btn.disabled = false; btn.textContent = label; }
+            if (errEl) errEl.style.display = 'block';
+          });
         });
       }
 
