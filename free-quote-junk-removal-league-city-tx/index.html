@@ -124,13 +124,60 @@
         <span class="section-label">Free Quote</span>
         <h2 class="section-title">Request Your Free Quote</h2>
         <p class="lead" style="margin-bottom:28px;">Tell us what needs to go and we will get right back to you with a free, no-obligation quote. Prefer to talk? Call or text <a href="tel:8324257749" style="color:var(--white);text-decoration:underline;">832-425-7749</a>.</p>
-        <div class="notion-form-wrap" id="quoteFormWrap">
-          <div class="quote-facade" id="quoteFacade">
-            <p class="quote-facade-title">Request a Free Quote</p>
-            <p class="quote-facade-sub">Tell us what you need hauled and we will get right back to you with a free, no-obligation quote.</p>
-            <button type="button" class="quote-load-btn" id="loadQuoteForm">Open the Free Quote Form</button>
-            <p class="quote-facade-alt">On a phone and the form will not open? <a href="https://neon-fragrance-aa2.notion.site/3887fc0332b58025823cfa90915fb7c0" target="_blank" rel="noopener">Open it in a new tab</a>, or just call or text <a href="tel:8324257749">832-425-7749</a>.</p>
+        <style>
+          .hlform{max-width:640px;margin:0 auto;text-align:left;}
+          .hlform-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+          .hlform-row{display:flex;gap:16px;flex-wrap:wrap;}
+          .hlform-row > label{flex:1 1 240px;}
+          .hlform label{display:block;margin-bottom:16px;font-family:'Special Elite',monospace;font-size:0.82rem;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.75);}
+          .hlform label span{color:#fff;margin-left:3px;}
+          .hlform input,.hlform select,.hlform textarea{width:100%;margin-top:7px;padding:13px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.22);border-radius:7px;color:#fff;font-family:inherit;font-size:1rem;box-sizing:border-box;}
+          .hlform input:focus,.hlform select:focus,.hlform textarea:focus{outline:none;border-color:#fff;background:rgba(255,255,255,0.09);}
+          .hlform select option{background:#111;color:#fff;}
+          .hlform-submit{margin-top:6px;width:100%;cursor:pointer;border:none;font-size:1.05rem;}
+          .hlform-alt{margin-top:16px;font-size:0.9rem;color:rgba(255,255,255,0.6);text-transform:none;letter-spacing:0;font-family:inherit;}
+          .hlform-alt a{color:#fff;}
+          .hlform-success{max-width:640px;margin:0 auto;text-align:center;padding:36px 24px;border:1px solid rgba(255,255,255,0.22);border-radius:10px;background:rgba(255,255,255,0.04);}
+          .hlform-success h3{font-size:1.5rem;margin:0 0 10px;}
+          .hlform-success a{color:#fff;}
+        </style>
+        <form class="hlform" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New Free Quote — hljunkremovalandhauling.com" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" class="hlform-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="hlform-row">
+            <label>Name<span>*</span><input type="text" name="Name" required autocomplete="name" /></label>
+            <label>Phone<span>*</span><input type="tel" name="Phone" required autocomplete="tel" /></label>
           </div>
+          <div class="hlform-row">
+            <label>Email<input type="email" name="Email" autocomplete="email" /></label>
+            <label>Service Address or ZIP<span>*</span><input type="text" name="Service Address / ZIP" required /></label>
+          </div>
+          <div class="hlform-row">
+            <label>Service Needed<select name="Service Needed">
+              <option>Junk Removal</option>
+              <option>Dumpster Rental (14-yd, $399 / 3 days)</option>
+              <option>Furniture / Appliance Removal</option>
+              <option>Estate / Garage Cleanout</option>
+              <option>Construction / Storm Debris</option>
+              <option>Commercial / Property Management</option>
+              <option>Not sure — need help</option>
+            </select></label>
+            <label>Preferred Timing<select name="Preferred Timing">
+              <option>As soon as possible</option>
+              <option>Within a few days</option>
+              <option>Within a couple weeks</option>
+              <option>Just getting a quote</option>
+            </select></label>
+          </div>
+          <label>Tell us what needs to go<textarea name="Details" rows="3"></textarea></label>
+          <button type="submit" class="btn-primary hlform-submit">Get My Free Quote</button>
+          <p class="hlform-alt">Prefer to talk? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
+        </form>
+        <div class="hlform-success" id="quoteSuccess" hidden>
+          <h3>Thanks, we got it!</h3>
+          <p>We will get right back to you with your free quote. Need it fast? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
         </div>
       </div>
     </section>
@@ -259,18 +306,26 @@
   </footer>
   <script>
     (function(){
-      var btn=document.getElementById('loadQuoteForm');
-      if(!btn)return;
-      btn.addEventListener('click',function(){
-        if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18264252114/sPLOCNWoq8ocENK9iYVE'});}
-        var wrap=document.getElementById('quoteFormWrap');
-        var facade=document.getElementById('quoteFacade');
-        var iframe=document.createElement('iframe');
-        iframe.src='https://neon-fragrance-aa2.notion.site/ebd/3887fc0332b58025823cfa90915fb7c0';
-        iframe.title='Request a Free Quote from H&L Junk Removal';
-        iframe.setAttribute('loading','eager');
-        if(facade&&facade.parentNode)facade.parentNode.removeChild(facade);
-        if(wrap)wrap.appendChild(iframe);
+      var form=document.getElementById('quoteForm');
+      if(!form)return;
+      form.addEventListener('submit',function(e){
+        e.preventDefault();
+        if(form.querySelector('input[name="_honey"]').value){return;} // bot
+        if(!form.checkValidity()){form.reportValidity();return;}
+        var btn=form.querySelector('.hlform-submit');
+        var label=btn?btn.textContent:''; if(btn){btn.disabled=true;btn.textContent='Sending…';}
+        fetch('https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com',{
+          method:'POST',
+          headers:{'Accept':'application/json'},
+          body:new FormData(form)
+        }).then(function(r){return r.json();}).then(function(){
+          if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18264252114/sPLOCNWoq8ocENK9iYVE'});}
+          var s=document.getElementById('quoteSuccess');
+          form.style.display='none'; if(s){s.hidden=false; s.scrollIntoView({behavior:'smooth',block:'center'});}
+        }).catch(function(){
+          if(btn){btn.disabled=false;btn.textContent=label;}
+          alert('Sorry, something went wrong. Please call or text 832-425-7749 and we will take care of you.');
+        });
       });
     })();
   </script>
