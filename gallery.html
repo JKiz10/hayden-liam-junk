@@ -44,8 +44,8 @@
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Special+Elite&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Special+Elite&display=swap" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
   <noscript><style>
     .page-loader { display: none !important; }
     .reveal, .reveal-scale, [class*="reveal"] { opacity: 1 !important; transform: none !important; }
@@ -221,7 +221,7 @@
 
     /* SECTION SHARED */
     .section-label {
-      font-family: 'Special Elite', monospace; font-size: 0.65rem; letter-spacing: 0.3em;
+      font-family: 'Oswald', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em;
       text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; display: block;
     }
     .section-title { font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.1; letter-spacing: -0.03em; }
@@ -257,7 +257,7 @@
     }
 
     .ba-item-label {
-      font-family: 'Special Elite', monospace;
+      font-family: 'Oswald', sans-serif;
       font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -344,7 +344,7 @@
       position: absolute;
       bottom: 16px;
       z-index: 2;
-      font-family: 'Special Elite', monospace;
+      font-family: 'Oswald', sans-serif;
       font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -418,7 +418,7 @@
     .footer-tagline { font-weight: 400; font-size: 0.75rem; color: var(--gray-light); text-align: right; letter-spacing: 0.05em; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.04); padding-top: 24px; }
     .footer-copy {
-      font-family: 'Special Elite', monospace; font-size: 0.6rem; color: var(--gray);
+      font-family: 'Oswald', sans-serif; font-size: 0.6rem; color: var(--gray);
       letter-spacing: 0.1em; text-align: center;
     }
 
@@ -481,8 +481,25 @@
     ]
   }
   </script>
+<style>
+/* ---- Dumpster announcement bar ---- */
+.hl-ann-bar{position:fixed;top:0;left:0;right:0;z-index:1200;display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;color:#000;height:40px;padding:0 16px;font-family:'Oswald',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;overflow:hidden;line-height:1;}
+.hl-ann-bar:hover{background:#ececec;}
+.hl-ann-tag{background:#000;color:#fff;padding:3px 8px;border-radius:3px;font-weight:700;letter-spacing:0.08em;}
+.hl-ann-go{text-decoration:underline;text-underline-offset:3px;}
+body:has(.hl-ann-bar){padding-top:40px;}
+body:has(.hl-ann-bar) .nav{top:40px;}
+@media(max-width:620px){.hl-ann-bar{font-size:0.64rem;gap:7px;letter-spacing:0.02em;}.hl-ann-mob-hide{display:none;}}
+</style>
 </head>
 <body>
+  <a href="/dumpster-rental-league-city-tx/" id="hlAnnBar" class="hl-ann-bar" aria-label="New: 14-yard dumpster rentals, 399 dollars for 3 days">
+    <span class="hl-ann-tag">New</span>
+    <span>14-Yard Dumpster Rentals</span>
+    <span class="hl-ann-mob-hide">&middot; Delivered &amp; Hauled</span>
+    <span>&middot; $399 / 3 Days</span>
+    <span class="hl-ann-go">See Details &rarr;</span>
+  </a>
 
   <a href="#gallery-main" class="skip-link">Skip to main content</a>
 

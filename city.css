@@ -1,7 +1,7 @@
 /* =========================================================
    H&L Junk Removal - City landing page styles
    Lean, JS-free, mobile-first. Matches the brand
-   (Oswald + Special Elite, black & white Texas aesthetic).
+   (Oswald, black & white Texas aesthetic).
    Shared by all /junk-removal-*-tx/ pages.
 ========================================================= */
 
@@ -75,7 +75,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 }
 .nav-link:hover { color: var(--white); }
 .nav-cta {
-  font-family: 'Special Elite', monospace;
+  font-family: 'Oswald', sans-serif;
   font-size: 0.9rem; letter-spacing: 0.02em;
   background: var(--white); color: var(--black);
   padding: 11px 20px; border-radius: 8px;
@@ -108,7 +108,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #ffffff; box-shadow: 0 0 10px rgba(255,255,255,0.5); }
 .hero-kicker {
   display: block;
-  font-family: 'Special Elite', monospace;
+  font-family: 'Oswald', sans-serif;
   font-size: clamp(0.85rem, 0.8rem + 0.3vw, 1rem);
   letter-spacing: 0.04em; color: var(--gray-light); margin-bottom: 14px;
 }
@@ -126,7 +126,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 
 .btn-primary, .btn-outline {
   display: inline-flex; align-items: center; justify-content: center;
-  font-family: 'Special Elite', monospace;
+  font-family: 'Oswald', sans-serif;
   font-size: 1rem; letter-spacing: 0.02em;
   padding: 15px 28px; border-radius: 10px;
   transition: transform 0.25s var(--ease), background 0.25s var(--ease), border-color 0.25s var(--ease);
@@ -140,7 +140,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 section { padding: var(--space-section) 0; }
 .section-label {
   display: block;
-  font-family: 'Special Elite', monospace;
+  font-family: 'Oswald', sans-serif;
   font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--gray); margin-bottom: 14px;
 }
@@ -187,7 +187,7 @@ section { padding: var(--space-section) 0; }
 }
 .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .trust-item h3 {
-  font-family: 'Special Elite', monospace;
+  font-family: 'Oswald', sans-serif;
   font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
 }
 .trust-item p { color: var(--gray); font-weight: 300; font-size: 0.96rem; }
@@ -215,7 +215,7 @@ section { padding: var(--space-section) 0; }
 }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
-  content: "+"; font-family: 'Special Elite', monospace;
+  content: "+"; font-family: 'Oswald', sans-serif;
   font-size: 1.5rem; color: var(--gray); transition: transform 0.3s var(--ease);
 }
 .faq details[open] summary::after { transform: rotate(45deg); color: var(--white); }
@@ -267,7 +267,7 @@ section { padding: var(--space-section) 0; }
   color: var(--gray); transition: color 0.25s var(--ease);
 }
 .footer-nav-link:hover { color: var(--white); }
-.footer-tagline { font-family: 'Special Elite', monospace; color: var(--gray-light); letter-spacing: 0.04em; }
+.footer-tagline { font-family: 'Oswald', sans-serif; color: var(--gray-light); letter-spacing: 0.04em; }
 .footer-bottom { padding-top: 26px; border-top: 1px solid rgba(255,255,255,0.06); }
 .footer-copy { color: var(--gray); font-size: 0.85rem; font-weight: 300; line-height: 1.7; }
 .footer-copy a:hover { color: var(--white); }
@@ -304,7 +304,7 @@ section { padding: var(--space-section) 0; }
 .article li { margin-bottom: 10px; line-height: 1.7; }
 .article a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
 .article a:hover { color: var(--off-white); }
-.article-meta { font-family: 'Special Elite', monospace; font-size: 0.8rem; letter-spacing: 0.08em; color: var(--gray); margin-bottom: 8px; }
+.article-meta { font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; color: var(--gray); margin-bottom: 8px; }
 
 .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 44px; }
 .blog-card {
@@ -314,7 +314,7 @@ section { padding: var(--space-section) 0; }
   transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease);
 }
 .blog-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.22); background: var(--dark3); }
-.blog-card .kicker { font-family: 'Special Elite', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 12px; display: block; }
+.blog-card .kicker { font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 12px; display: block; }
 .blog-card h2 { font-size: 1.22rem; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; line-height: 1.18; }
 .blog-card p { color: var(--gray); font-weight: 300; font-size: 0.97rem; }
 
@@ -331,7 +331,7 @@ section { padding: var(--space-section) 0; }
 /* ---------------- SERVICE / RELATED LINK BLOCK ---------------- */
 .svc-links { margin-top: 34px; }
 .svc-links-label {
-  font-family: 'Special Elite', monospace; font-size: 0.72rem; letter-spacing: 0.14em;
+  font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--gray); margin-bottom: 14px;
 }
 .svc-links-list { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -377,3 +377,13 @@ section { padding: var(--space-section) 0; }
   .sticky-call-ico { width: 20px; height: 20px; flex: none; }
   body { padding-bottom: 84px; }
 }
+
+
+/* ---- Dumpster announcement bar ---- */
+.hl-ann-bar{position:fixed;top:0;left:0;right:0;z-index:1200;display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;color:#000;height:40px;padding:0 16px;font-family:'Oswald',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;overflow:hidden;line-height:1;}
+.hl-ann-bar:hover{background:#ececec;}
+.hl-ann-tag{background:#000;color:#fff;padding:3px 8px;border-radius:3px;font-weight:700;letter-spacing:0.08em;}
+.hl-ann-go{text-decoration:underline;text-underline-offset:3px;}
+body:has(.hl-ann-bar){padding-top:40px;}
+body:has(.hl-ann-bar) .nav{top:40px;}
+@media(max-width:620px){.hl-ann-bar{font-size:0.64rem;gap:7px;letter-spacing:0.02em;}.hl-ann-mob-hide{display:none;}}
