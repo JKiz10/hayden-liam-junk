@@ -148,6 +148,15 @@
           .hlform-success h3{font-size:1.5rem;margin:0 0 10px;}
           .hlform-success a{color:#fff;}
         </style>
+        <style>
+.hlform label.hl-consent{display:flex;align-items:flex-start;gap:10px;text-align:left;cursor:pointer;text-transform:none;letter-spacing:normal;font-weight:400;margin:6px 0 16px;}
+.hlform label.hl-consent input[type="checkbox"]{-webkit-appearance:checkbox;appearance:checkbox;flex:0 0 auto;width:17px;min-width:17px;height:17px;margin:2px 0 0;padding:0;border:none;border-radius:0;background:none;box-shadow:none;cursor:pointer;accent-color:#fff;}
+.hlform label.hl-consent input[type="checkbox"]:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+.hlform label.hl-consent span{font-family:'Oswald',sans-serif;font-weight:300;font-size:0.72rem;line-height:1.55;letter-spacing:normal;text-transform:none;margin-left:0;color:#ccc;}
+.hlform label.hl-consent span strong{font-weight:600;color:#fff;}
+.hlform label.hl-consent a{color:#ccc;text-decoration:underline;text-underline-offset:2px;}
+.hlform label.hl-consent:hover span,.hlform label.hl-consent:hover a{color:#fff;}
+</style>
         <form class="hlform" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" novalidate>
           <input type="hidden" name="_subject" value="New Free Quote — hljunkremovalandhauling.com" />
           <input type="hidden" name="_template" value="table" />
@@ -179,9 +188,22 @@
             </select></label>
           </div>
           <label>Tell us what needs to go<textarea name="Details" rows="3"></textarea></label>
+          <input type="hidden" name="SMS Consent" id="smsConsentVal" value="No" />
+          <label class="hl-consent" for="smsConsent">
+            <input type="checkbox" id="smsConsent" />
+            <span><strong>Text me about my job.</strong> I agree to receive service text messages from H&amp;L Junk Removal &amp; Hauling at the number above, about my quote and my job. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy/">Privacy Policy</a> and <a href="/terms/">Terms</a>.</span>
+          </label>
+
           <button type="submit" class="btn-primary hlform-submit">Get My Free Quote</button>
           <p class="hlform-alt">Prefer to talk? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
         </form>
+        <script>
+  (function(){
+    var box = document.getElementById('smsConsent'), val = document.getElementById('smsConsentVal');
+    if (!box || !val) return;
+    box.addEventListener('change', function(){ val.value = box.checked ? 'Yes' : 'No'; });
+  })();
+  </script>
         <div class="hlform-success" id="quoteSuccess" hidden>
           <h3>Thanks, we got it!</h3>
           <p>We will get right back to you with your free quote. Need it fast? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
@@ -307,7 +329,7 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-copy" style="margin-bottom:10px;">H&amp;L Junk Removal &amp; Hauling Solutions, LLC &middot; League City, TX 77573 &middot; <a href="tel:8324257749">832-425-7749</a></p>
-        <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Galveston &amp; Harris County, TX. &middot; <a href="/privacy-policy/">Privacy Policy</a></p>
+        <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Galveston &amp; Harris County, TX. &middot; <a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/terms/">Terms</a></p>
       </div>
     </div>
   </footer>

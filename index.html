@@ -1782,7 +1782,7 @@
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Property Manager Junk Removal", "description": "Reliable tenant turnovers and property cleanouts for managers and apartment communities.", "url": "https://hljunkremovalandhauling.com/junk-removal-property-managers-league-city-tx/", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "Galveston County, TX" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Foreclosure & REO Cleanout", "description": "Fast, fully insured foreclosure, REO, and listing cleanouts so the property is show-ready.", "url": "https://hljunkremovalandhauling.com/foreclosure-reo-cleanout-league-city-tx/", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "Galveston County, TX" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Storage Facility Cleanouts", "description": "Single-unit and full-facility cleanouts for storage operators across the Bay Area.", "url": "https://hljunkremovalandhauling.com/storage-facility-cleanouts-league-city-tx/", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "Galveston County, TX" } },
-            { "@type": "Offer", "priceCurrency": "USD", "price": "399", "itemOffered": { "@type": "Service", "name": "Dumpster Rental (14-yd Roll-Off)", "description": "14-yard roll-off dumpster rental, flat $399 for a 3-day rental in League City and the Bay Area. Delivery and haul-off included, fully insured.", "url": "https://hljunkremovalandhauling.com/dumpster-rental-league-city-tx/", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "Galveston County, TX" } }
+            { "@type": "Offer", "priceCurrency": "USD", "price": "399", "itemOffered": { "@type": "Service", "name": "Dumpster Rental (14-yd Roll-Off)", "description": "14-yard roll-off dumpster rental in League City and the Bay Area. $399 for a 3-day rental or $475 for a full 7 days. Delivery and haul-off included, fully insured.", "url": "https://hljunkremovalandhauling.com/dumpster-rental-league-city-tx/", "provider": { "@id": "https://hljunkremovalandhauling.com/#business" }, "areaServed": "Galveston County, TX" } }
           ]
         }
       },
@@ -2054,7 +2054,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       <div class="da-text">
         <span class="da-kicker">New From H&amp;L &middot; Now Renting</span>
         <h2 id="da-h" class="da-title">Dumpster Rentals<br>Have Landed</h2>
-        <p class="da-price"><strong>$399</strong> flat for a 3-day rental</p>
+        <p class="da-price"><strong>$399</strong> / 3 days &nbsp;&middot;&nbsp; <strong>$475</strong> / 7 days</p>
         <p class="da-sub">14-Yard Roll-Off &middot; Fill It To The Top &middot; Delivered &amp; Hauled &middot; Fully Insured</p>
         <div class="da-ctas">
           <a href="/dumpster-rental-league-city-tx/" class="da-btn">See Dumpster Rentals</a>
@@ -2076,6 +2076,15 @@ body:has(.hl-ann-bar) .nav{top:40px;}
         <p class="conversion-intro reveal d1">Hi, tell us what you need hauled and we will get right back to you with a free, no-obligation quote. Prefer to talk? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
       </div>
       <div class="quote-form-card reveal d2" id="quoteFormWrap">
+        <style>
+.quote-form label.hl-consent{display:flex;align-items:flex-start;gap:10px;text-align:left;cursor:pointer;text-transform:none;letter-spacing:normal;font-weight:400;margin:2px 0 2px;}
+.quote-form label.hl-consent input[type="checkbox"]{-webkit-appearance:checkbox;appearance:checkbox;flex:0 0 auto;width:17px;min-width:17px;height:17px;margin:2px 0 0;padding:0;border:none;border-radius:0;background:none;box-shadow:none;cursor:pointer;accent-color:#111;}
+.quote-form label.hl-consent input[type="checkbox"]:focus-visible{outline:2px solid #111;outline-offset:2px;}
+.quote-form label.hl-consent span{font-family:'Oswald',sans-serif;font-weight:300;font-size:0.72rem;line-height:1.55;letter-spacing:normal;text-transform:none;margin-left:0;color:#555;}
+.quote-form label.hl-consent span strong{font-weight:600;color:#111;}
+.quote-form label.hl-consent a{color:#555;text-decoration:underline;text-underline-offset:2px;}
+.quote-form label.hl-consent:hover span,.quote-form label.hl-consent:hover a{color:#111;}
+</style>
         <form class="quote-form" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" novalidate>
           <input type="hidden" name="_subject" value="New Free Quote Request (H&amp;L Website)">
           <input type="hidden" name="_template" value="table">
@@ -2141,12 +2150,27 @@ body:has(.hl-ann-bar) .nav{top:40px;}
             <textarea id="qf-details" name="Details" placeholder="Items, stairs, tight access, gate codes, anything that helps us quote it right."></textarea>
           </div>
 
+          <div class="qf-field qf-full">
+          <input type="hidden" name="SMS Consent" id="smsConsentVal" value="No" />
+          <label class="hl-consent" for="smsConsent">
+            <input type="checkbox" id="smsConsent" />
+            <span><strong>Text me about my job.</strong> I agree to receive service text messages from H&amp;L Junk Removal &amp; Hauling at the number above, about my quote and my job. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy/">Privacy Policy</a> and <a href="/terms/">Terms</a>.</span>
+          </label>
+          </div>
+
           <button type="submit" class="qf-submit" id="qfSubmit">Get My Free Quote</button>
 
           <p class="qf-note">Want the fastest, most accurate quote? <a href="sms:8324257749">Text a photo to 832-425-7749</a>, or just <a href="tel:8324257749">give us a call</a>.</p>
           <p class="qf-error" id="qfError">Sorry, that did not go through. Please call or text <a href="tel:8324257749">832-425-7749</a> and we will take care of you.</p>
           <p class="qf-fineprint">Fully Insured &middot; No Obligation &middot; We Reply Fast</p>
         </form>
+        <script>
+  (function(){
+    var box = document.getElementById('smsConsent'), val = document.getElementById('smsConsentVal');
+    if (!box || !val) return;
+    box.addEventListener('change', function(){ val.value = box.checked ? 'Yes' : 'No'; });
+  })();
+  </script>
         <div class="quote-form-success" id="quoteSuccess">
           <div class="qf-check" aria-hidden="true">&#10003;</div>
           <h3>Thanks, we got it!</h3>
@@ -2567,7 +2591,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
     </div>
     <div class="footer-bottom">
       <p class="footer-copy" style="margin-bottom:10px;">H&amp;L Junk Removal &amp; Hauling Solutions, LLC &middot; League City, TX 77573 &middot; <a href="tel:8324257749" style="color:inherit;">832-425-7749</a></p>
-      <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Galveston &amp; Harris County, TX. All rights reserved. &middot; <a href="/privacy-policy/">Privacy Policy</a></p>
+      <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Galveston &amp; Harris County, TX. All rights reserved. &middot; <a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/terms/">Terms</a></p>
     </div>
   </footer>
 
