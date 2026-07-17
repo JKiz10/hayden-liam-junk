@@ -371,13 +371,17 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(data)
-        }).then(function(r){ return r.json(); }).then(function(){
-          if (typeof gtag === 'function') {
-            gtag('event','conversion',{'send_to':'AW-18264252114/sPLOCNWoq8ocENK9iYVE'});
+        }).then(function(r){ return r.json(); }).then(function(res){
+          if (res && (res.success === 'true' || res.success === true)) {
+            if (typeof gtag === 'function') {
+              gtag('event','conversion',{'send_to':'AW-18264252114/sPLOCNWoq8ocENK9iYVE'});
+            }
+            var s = document.getElementById('bookSuccess');
+            form.style.display = 'none';
+            if (s) { s.hidden = false; s.scrollIntoView({behavior:'smooth', block:'center'}); }
+          } else {
+            throw new Error('submit failed');
           }
-          var s = document.getElementById('bookSuccess');
-          form.style.display = 'none';
-          if (s) { s.hidden = false; s.scrollIntoView({behavior:'smooth', block:'center'}); }
         }).catch(function(){
           if (btn) { btn.disabled = false; btn.textContent = label; }
           if (err) err.style.display = 'block';
