@@ -48,10 +48,11 @@
         "@type": "Service",
         "serviceType": "Roll-Off Dumpster Rental",
         "name": "Book a 14-Yard Roll-Off Dumpster in League City, TX",
-        "description": "Reserve a 14-yard roll-off dumpster online in League City, TX and the Bay Area. $399 for a 3-day rental or $475 for a 7-day rental. Delivery and haul-off included, fully insured.",
+        "description": "Reserve a 14-yard roll-off dumpster online in League City, TX and the Bay Area. $399 for a 3-day rental, $475 for a 7-day rental, or a $350 weekend special (Saturday morning to Sunday night). Delivery and haul-off included, fully insured.",
         "offers": [
           { "@type": "Offer", "priceCurrency": "USD", "price": "399", "name": "3-Day Rental", "description": "14-yard roll-off dumpster rental, $399 for a 3-day rental. Delivery and haul-off included, fully insured.", "availability": "https://schema.org/InStock" },
-          { "@type": "Offer", "priceCurrency": "USD", "price": "475", "name": "7-Day Rental", "description": "14-yard roll-off dumpster rental, $475 for a 7-day rental. Delivery and haul-off included, fully insured.", "availability": "https://schema.org/InStock" }
+          { "@type": "Offer", "priceCurrency": "USD", "price": "475", "name": "7-Day Rental", "description": "14-yard roll-off dumpster rental, $475 for a 7-day rental. Delivery and haul-off included, fully insured.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "priceCurrency": "USD", "price": "350", "name": "Weekend Special", "description": "14-yard roll-off dumpster rental, $350 weekend special. We drop off Saturday morning and pick up by Sunday night. Delivery and haul-off included, fully insured.", "availability": "https://schema.org/InStock" }
         ],
         "provider": {
           "@type": "HomeAndConstructionBusiness",
@@ -89,6 +90,7 @@
   .bk-tiers{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
   @media(max-width:560px){.bk-tiers{grid-template-columns:1fr;}}
   .bk-tier{position:relative;}
+  .bk-tier--weekend{grid-column:1/-1;}
   .bk-tier input{position:absolute;opacity:0;width:1px;height:1px;}
   /* direct child only: a bare `.bk-tier span` also borders the nested day/price/note spans */
   .bk-tier > span{display:block;padding:20px 18px;border:1.5px solid rgba(255,255,255,0.22);border-radius:10px;cursor:pointer;transition:border-color .18s ease,background .18s ease,transform .18s ease;}
@@ -182,6 +184,14 @@
                   <span class="bk-tier-days">7 Days</span>
                   <span class="bk-tier-price">$475</span>
                   <span class="bk-tier-note">Delivery, a full week, and haul-off included.</span>
+                </span>
+              </label>
+              <label class="bk-tier bk-tier--weekend">
+                <input type="radio" name="Rental" value="Weekend Special - $350" />
+                <span>
+                  <span class="bk-tier-days">&#9733; Weekend Special</span>
+                  <span class="bk-tier-price">$350</span>
+                  <span class="bk-tier-note">Drop-off Saturday morning, pickup by Sunday night. Delivery and haul-off included.</span>
                 </span>
               </label>
             </div>
