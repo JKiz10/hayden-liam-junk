@@ -1,0 +1,38 @@
+name: Link check
+
+# Catches broken internal links and dead ends on every push, plus a weekly sweep.
+#
+# This does NOT touch the live site. GitHub Pages deploys via its own separate
+# "pages build and deployment" run, which this workflow has no control over.
+# The worst this can do is show a red X and email Javan. It cannot take the site down.
+#
+# --root-dir is REQUIRED: without it, every root-relative link (/city.css, /book/,
+# /logo.PNG ...) is reported as an error -- ~1,700 false failures on this site.
+# --index-files makes a folder without an index.html an error, which is exactly the
+# folder-per-page failure mode here (a folder with no index.html is a live 404).
+# --offline checks only local files, so a hiccup at Google Fonts or Instagram can
+# never turn this red. Broken internal links are the thing we actually care about.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 14 * * 1'
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Check internal links
+        uses: lycheeverse/lychee-action@v2.9.0
+        with:
+          args: >-
+            --no-progress
+            --root-dir "$GITHUB_WORKSPACE"
+            --index-files index.html
+            --offline
+            './**/*.html'
+          fail: true

@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+._*
+
+# Editor / tooling
+.claude/
+.vscode/
+*.swp
+
+# Local-only source images (originals live in ~/Downloads/H&L Junk Removal/)
+*.HEIC
+*.heic
