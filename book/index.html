@@ -48,11 +48,12 @@
         "@type": "Service",
         "serviceType": "Roll-Off Dumpster Rental",
         "name": "Book a 14-Yard Roll-Off Dumpster in League City, TX",
-        "description": "Reserve a 14-yard roll-off dumpster online in League City, TX and the Bay Area. $399 for a 3-day rental, $475 for a 7-day rental, or a $350 weekend special (Saturday morning to Sunday night). Delivery and haul-off included, fully insured.",
+        "description": "Reserve a 14-yard roll-off dumpster online in League City, TX and the Bay Area. $365 for a 1-day rental, $399 for a 3-day rental, $475 for a 7-day rental, or a $365 weekend special (Saturday morning to Sunday night). Delivery and haul-off included, fully insured.",
         "offers": [
+          { "@type": "Offer", "priceCurrency": "USD", "price": "365", "name": "1-Day Rental", "description": "14-yard roll-off dumpster rental, $365 for a 1-day rental. We drop it off and pick it up the next day. Delivery and haul-off included, fully insured.", "availability": "https://schema.org/InStock" },
           { "@type": "Offer", "priceCurrency": "USD", "price": "399", "name": "3-Day Rental", "description": "14-yard roll-off dumpster rental, $399 for a 3-day rental. Delivery and haul-off included, fully insured.", "availability": "https://schema.org/InStock" },
           { "@type": "Offer", "priceCurrency": "USD", "price": "475", "name": "7-Day Rental", "description": "14-yard roll-off dumpster rental, $475 for a 7-day rental. Delivery and haul-off included, fully insured.", "availability": "https://schema.org/InStock" },
-          { "@type": "Offer", "priceCurrency": "USD", "price": "350", "name": "Weekend Special", "description": "14-yard roll-off dumpster rental, $350 weekend special. We drop off Saturday morning and pick up by Sunday night. Delivery and haul-off included, fully insured.", "availability": "https://schema.org/InStock" }
+          { "@type": "Offer", "priceCurrency": "USD", "price": "365", "name": "Weekend Special", "description": "14-yard roll-off dumpster rental, $365 weekend special. We drop off Saturday morning and pick up by Sunday night. Delivery and haul-off included, fully insured.", "availability": "https://schema.org/InStock" }
         ],
         "provider": {
           "@type": "HomeAndConstructionBusiness",
@@ -171,7 +172,15 @@
             <legend class="bk-legend">1. Pick your rental</legend>
             <div class="bk-tiers">
               <label class="bk-tier">
-                <input type="radio" name="Rental" value="3 Days - $399" required />
+                <input type="radio" name="Rental" value="1 Day - $365" required />
+                <span>
+                  <span class="bk-tier-days">1 Day</span>
+                  <span class="bk-tier-price">$365</span>
+                  <span class="bk-tier-note">Drop-off and next-day pickup. Delivery and haul-off included.</span>
+                </span>
+              </label>
+              <label class="bk-tier">
+                <input type="radio" name="Rental" value="3 Days - $399" />
                 <span>
                   <span class="bk-tier-days">3 Days</span>
                   <span class="bk-tier-price">$399</span>
@@ -187,10 +196,10 @@
                 </span>
               </label>
               <label class="bk-tier bk-tier--weekend">
-                <input type="radio" name="Rental" value="Weekend Special - $350" />
+                <input type="radio" name="Rental" value="Weekend Special - $365" />
                 <span>
                   <span class="bk-tier-days">&#9733; Weekend Special</span>
-                  <span class="bk-tier-price">$350</span>
+                  <span class="bk-tier-price">$365</span>
                   <span class="bk-tier-note">Drop-off Saturday morning, pickup by Sunday night. Delivery and haul-off included.</span>
                 </span>
               </label>
