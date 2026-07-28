@@ -124,6 +124,48 @@
   .bk-check a{color:#ccc;text-decoration:underline;text-underline-offset:2px;}
   .bk-check:hover span,.bk-check:hover a{color:#fff;}
 
+  /* availability calendar (shown only when the live endpoint is reachable) */
+  .bk-avail{margin:0 0 22px;}
+  .bk-size{margin:0 0 18px;}
+  .bk-size-label{display:block;font-family:'Oswald',sans-serif;font-size:0.82rem;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin:0 0 8px;}
+  .bk-size-sel{display:flex;gap:10px;flex-wrap:wrap;}
+  .bk-size-btn{font-family:'Oswald',sans-serif;font-weight:500;font-size:0.9rem;letter-spacing:0.02em;color:#ccc;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.22);border-radius:7px;padding:10px 16px;cursor:pointer;transition:border-color .15s ease,background .15s ease,color .15s ease;}
+  .bk-size-btn[aria-pressed="true"]{border-color:#fff;background:rgba(255,255,255,0.12);color:#fff;}
+  .bk-cal{border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:16px 16px 12px;background:rgba(255,255,255,0.03);}
+  .bk-cal-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px;}
+  .bk-cal-title{font-family:'Oswald',sans-serif;font-weight:600;font-size:1rem;letter-spacing:0.04em;text-transform:uppercase;color:#fff;}
+  .bk-cal-nav{width:38px;height:38px;border:1px solid rgba(255,255,255,0.22);border-radius:7px;background:transparent;color:#fff;font-size:1.2rem;line-height:1;cursor:pointer;transition:background .15s ease,border-color .15s ease;}
+  .bk-cal-nav:hover:not(:disabled){background:rgba(255,255,255,0.1);border-color:#fff;}
+  .bk-cal-nav:disabled{opacity:0.3;cursor:default;}
+  .bk-cal-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin:0 0 5px;}
+  .bk-cal-dow span{text-align:center;font-family:'Oswald',sans-serif;font-weight:500;font-size:0.64rem;letter-spacing:0.08em;text-transform:uppercase;color:#888;}
+  .bk-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}
+  .bk-day{position:relative;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-family:'Oswald',sans-serif;font-weight:400;font-size:0.92rem;color:#eee;background:rgba(255,255,255,0.04);border:1px solid transparent;border-radius:7px;cursor:pointer;padding:0;transition:background .12s ease,border-color .12s ease,color .12s ease,transform .12s ease;}
+  .bk-day:hover:not(:disabled){background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.5);transform:translateY(-1px);}
+  .bk-day--empty{background:transparent;cursor:default;}
+  .bk-day:disabled{cursor:default;}
+  .bk-day--out{color:#5a5a5a;background:transparent;cursor:default;}
+  .bk-day--full{color:#6a6a6a;background:rgba(255,255,255,0.02);cursor:default;}
+  .bk-day--full .bk-day-num{text-decoration:line-through;text-decoration-thickness:1px;}
+  .bk-day--limited{color:#fff;}
+  .bk-day--open{color:#fff;}
+  .bk-day[aria-pressed="true"]{background:#fff;color:#000;border-color:#fff;}
+  .bk-day-num{line-height:1;}
+  .bk-day-tag{font-family:'Oswald',sans-serif;font-weight:400;font-size:0.5rem;letter-spacing:0.03em;text-transform:uppercase;line-height:1;}
+  .bk-day--open .bk-day-dot,.bk-day--limited .bk-day-dot,.bk-day--full .bk-day-dot{width:5px;height:5px;border-radius:50%;position:absolute;top:6px;right:6px;}
+  .bk-day--open .bk-day-dot{background:#5fae7e;}
+  .bk-day--limited .bk-day-dot{background:#d3a63e;}
+  .bk-day--full .bk-day-dot{background:#666;}
+  .bk-day[aria-pressed="true"] .bk-day-dot{display:none;}
+  .bk-cal-legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:12px 0 2px;}
+  .bk-cal-legend span{display:inline-flex;align-items:center;gap:6px;font-family:'Oswald',sans-serif;font-weight:300;font-size:0.68rem;letter-spacing:0.02em;text-transform:uppercase;color:#999;}
+  .bk-cal-legend i{width:8px;height:8px;border-radius:50%;display:inline-block;}
+  .bk-dot--open{background:#5fae7e;}
+  .bk-dot--limited{background:#d3a63e;}
+  .bk-dot--full{background:#666;}
+  .bk-cal-hint{font-family:'Oswald',sans-serif;font-weight:300;font-size:0.72rem;line-height:1.5;color:#888;text-transform:none;letter-spacing:0;margin:10px 0 0;text-align:center;}
+  .bk-cal-hint strong{color:#fff;font-weight:600;}
+
   .bk-submit{margin-top:8px;width:100%;cursor:pointer;border:none;font-size:1.05rem;}
   .bk-alt{margin-top:16px;font-size:0.9rem;color:rgba(255,255,255,0.6);text-transform:none;letter-spacing:0;font-family:inherit;text-align:center;}
   .bk-error{display:none;margin-top:14px;padding:12px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:7px;font-family:'Oswald',sans-serif;font-weight:300;font-size:0.85rem;color:#fff;}
@@ -209,10 +251,39 @@
 
           <fieldset class="bk-step">
             <legend class="bk-legend">2. When and where</legend>
+
+            <input type="hidden" name="Dumpster" id="bkSizeVal" value="14-Yard Roll-Off" />
+            <input type="hidden" id="bkSizeId" value="14yd" />
+
+            <!-- Live availability calendar. Stays hidden unless the booking
+                 endpoint is reachable; until then the date field below is the
+                 picker, exactly as before. -->
+            <div class="bk-avail" id="bkAvail" hidden>
+              <div class="bk-size" id="bkSizeWrap" hidden>
+                <span class="bk-size-label">Which dumpster</span>
+                <div class="bk-size-sel" id="bkSizeSel" role="group" aria-label="Choose a dumpster"></div>
+              </div>
+              <div class="bk-cal" role="group" aria-label="Choose an available delivery date">
+                <div class="bk-cal-head">
+                  <button type="button" class="bk-cal-nav" id="bkPrev" aria-label="Previous month">&#8249;</button>
+                  <span class="bk-cal-title" id="bkMonth" aria-live="polite"></span>
+                  <button type="button" class="bk-cal-nav" id="bkNext" aria-label="Next month">&#8250;</button>
+                </div>
+                <div class="bk-cal-dow" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+                <div class="bk-cal-grid" id="bkGrid" role="grid"></div>
+                <div class="bk-cal-legend">
+                  <span><i class="bk-dot--open"></i> Open</span>
+                  <span><i class="bk-dot--limited"></i> Almost full</span>
+                  <span><i class="bk-dot--full"></i> Booked</span>
+                </div>
+                <p class="bk-cal-hint" id="bkCalHint">Pick your rental above, then tap an open day. <strong>Booked</strong> days are taken. We still text you back to confirm.</p>
+              </div>
+            </div>
+
             <div class="bk-row">
               <label for="bk-date">Preferred delivery date<span class="req">*</span>
                 <input type="date" id="bk-date" name="Preferred Delivery Date" required />
-                <span class="bk-hint">We will confirm this by text. If the day is already taken we will offer you the closest one.</span>
+                <span class="bk-hint" id="bkDateHint">We will confirm this by text. If the day is already taken we will offer you the closest one.</span>
               </label>
               <label for="bk-addr">Delivery address<span class="req">*</span>
                 <input type="text" id="bk-addr" name="Delivery Address" required autocomplete="street-address" placeholder="Street, city, ZIP" />
@@ -340,6 +411,11 @@
     <a href="/dumpster-rental-league-city-tx/" class="sticky-call-btn sticky-call-secondary">Dumpsters</a>
   </div>
 
+  <!-- Booking backend endpoint. Empty string = the page works as a plain
+       request form (email only), exactly as before. After you deploy the Google
+       Sheet + Apps Script (see 12 Online Booking Calendar/SETUP-GUIDE.md), paste
+       the web app /exec URL between the quotes below to turn on live availability. -->
+  <script>window.HL_BOOKING_ENDPOINT = "";</script>
   <script>
     (function(){
       var form = document.getElementById('bookForm');
@@ -369,6 +445,150 @@
       mirror('smsConsent', 'smsConsentVal');
       mirror('cancelAck', 'cancelAckVal');
 
+      /* ======================================================================
+         LIVE AVAILABILITY CALENDAR
+         Turns on ONLY if a booking endpoint is configured AND reachable. Until
+         then the page behaves exactly like a plain request form, so a missing
+         or down backend can never break booking. Endpoint is set once, at the
+         bottom of this file, after the Google Sheet is deployed.
+         ====================================================================== */
+      var ENDPOINT = (window.HL_BOOKING_ENDPOINT || '').trim();
+      var TERM_DAYS = { '1 Day': 1, 'Weekend Special': 2, '3 Days': 3, '7 Days': 7 };
+      var DEFAULT_BUFFER = 1;
+      var endpointLive = false;
+      var avail = null;
+      var state = { sizeId: '14yd', month: null, selected: '' };
+      var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+      var elAvail = document.getElementById('bkAvail');
+      var elGrid = document.getElementById('bkGrid');
+      var elMonth = document.getElementById('bkMonth');
+      var elPrev = document.getElementById('bkPrev');
+      var elNext = document.getElementById('bkNext');
+      var elSizeWrap = document.getElementById('bkSizeWrap');
+      var elSizeSel = document.getElementById('bkSizeSel');
+      var elSizeVal = document.getElementById('bkSizeVal');
+      var elSizeId = document.getElementById('bkSizeId');
+      var elDateHint = document.getElementById('bkDateHint');
+
+      function tomorrowKey(){ var d = new Date(); d.setDate(d.getDate()+1); return localDate(d); }
+      function todayKey(){ return localDate(new Date()); }
+      function addKey(key, n){ var p = key.split('-'); var d = new Date(+p[0], +p[1]-1, +p[2], 12,0,0); d.setDate(d.getDate()+n); return localDate(d); }
+      function horizonMaxKey(){ var base = (avail && avail.today) ? avail.today : todayKey(); return addKey(base, (avail && avail.horizonDays) ? avail.horizonDays : 120); }
+
+      function sizeObj(){ if(!avail) return null; for(var i=0;i<avail.sizes.length;i++){ if(avail.sizes[i].id===state.sizeId) return avail.sizes[i]; } return avail.sizes[0]; }
+      function remainingOn(key){ var s = sizeObj(); if(!s) return 99; var d = s.days[key]; return d ? d.remaining : s.qty; }
+      function currentTermKey(){ var r = form.querySelector('input[name="Rental"]:checked'); return r ? r.value.split(' - ')[0] : ''; }
+      function occupiedDays(termKey){ var s = sizeObj(); var buf = s && s.buffer!=null ? s.buffer : DEFAULT_BUFFER; return (TERM_DAYS[termKey]||1) + buf; }
+      function spanMinRemaining(key){ var t = currentTermKey(); if(!t) return remainingOn(key); var n = occupiedDays(t), min = 99; for(var i=0;i<n;i++){ var r = remainingOn(addKey(key,i)); if(r<min) min=r; } return min; }
+      function spanBookable(startKey, termKey){ var n = (TERM_DAYS[termKey]||1) + (sizeObj() && sizeObj().buffer!=null ? sizeObj().buffer : DEFAULT_BUFFER); for(var i=0;i<n;i++){ if(remainingOn(addKey(startKey,i)) <= 0) return false; } return true; }
+      function startStatus(key){ var r = spanMinRemaining(key); return r<=0 ? 'full' : (r<=1 ? 'limited' : 'open'); }
+
+      function buildSizes(){
+        elSizeSel.innerHTML = '';
+        avail.sizes.forEach(function(s){
+          var b = document.createElement('button');
+          b.type='button'; b.className='bk-size-btn'; b.textContent = s.label;
+          b.setAttribute('aria-pressed', s.id===state.sizeId ? 'true' : 'false');
+          b.addEventListener('click', function(){
+            state.sizeId = s.id; elSizeVal.value = s.label; elSizeId.value = s.id;
+            Array.prototype.forEach.call(elSizeSel.children, function(c){ c.setAttribute('aria-pressed','false'); });
+            b.setAttribute('aria-pressed','true'); render();
+          });
+          elSizeSel.appendChild(b);
+        });
+        elSizeWrap.hidden = avail.sizes.length <= 1;
+        var s0 = sizeObj(); if(s0){ elSizeVal.value = s0.label; elSizeId.value = s0.id; }
+      }
+
+      function selectDay(key){ state.selected = key; var de = document.getElementById('bk-date'); if(de) de.value = key; render(); }
+
+      function render(){
+        if(!avail) return;
+        var y = state.month.getFullYear(), m = state.month.getMonth();
+        elMonth.textContent = MONTHS[m] + ' ' + y;
+        var minKey = tomorrowKey(), maxKey = horizonMaxKey();
+        var nowFirst = new Date(); nowFirst.setDate(1);
+        elPrev.disabled = (y < nowFirst.getFullYear()) || (y===nowFirst.getFullYear() && m <= nowFirst.getMonth());
+        var mp = maxKey.split('-'), maxY = +mp[0], maxM = +mp[1]-1;
+        elNext.disabled = (y > maxY) || (y===maxY && m >= maxM);
+
+        elGrid.innerHTML = '';
+        var startDow = new Date(y, m, 1).getDay();
+        var daysInMonth = new Date(y, m+1, 0).getDate();
+        for(var i=0;i<startDow;i++){ var e=document.createElement('div'); e.className='bk-day bk-day--empty'; e.setAttribute('aria-hidden','true'); elGrid.appendChild(e); }
+        for(var day=1; day<=daysInMonth; day++){
+          var key = y + '-' + String(m+1).padStart(2,'0') + '-' + String(day).padStart(2,'0');
+          var btn = document.createElement('button');
+          btn.type='button'; btn.className='bk-day'; btn.setAttribute('role','gridcell');
+          var num = document.createElement('span'); num.className='bk-day-num'; num.textContent = day; btn.appendChild(num);
+          var dot = document.createElement('span'); dot.className='bk-day-dot'; btn.appendChild(dot);
+          if(key < minKey || key > maxKey){
+            btn.classList.add('bk-day--out'); btn.disabled = true; btn.setAttribute('aria-label', key + ' unavailable');
+          } else {
+            var st = startStatus(key);
+            btn.classList.add('bk-day--' + st);
+            if(st === 'full'){ btn.disabled = true; btn.setAttribute('aria-label', key + ' booked'); }
+            else {
+              if(st === 'limited'){ var tag=document.createElement('span'); tag.className='bk-day-tag'; tag.textContent = spanMinRemaining(key) + ' left'; btn.appendChild(tag); }
+              btn.setAttribute('aria-pressed', key===state.selected ? 'true' : 'false');
+              btn.setAttribute('aria-label', key + ' available');
+              (function(k){ btn.addEventListener('click', function(){ selectDay(k); }); })(key);
+            }
+          }
+          elGrid.appendChild(btn);
+        }
+      }
+
+      function afterLoad(data){
+        if(!data || !data.ok || !data.sizes || !data.sizes.length) return; // stay in fallback mode
+        avail = data; state.sizeId = data.sizes[0].id;
+        state.month = new Date(); state.month.setDate(1);
+        endpointLive = true;
+        buildSizes(); render();
+        elAvail.hidden = false;
+        if(elDateHint) elDateHint.textContent = 'Tap an open day on the calendar above, or type a date here. We confirm every booking by text.';
+      }
+
+      if(elPrev) elPrev.addEventListener('click', function(){ if(elPrev.disabled) return; state.month = new Date(state.month.getFullYear(), state.month.getMonth()-1, 1); render(); });
+      if(elNext) elNext.addEventListener('click', function(){ if(elNext.disabled) return; state.month = new Date(state.month.getFullYear(), state.month.getMonth()+1, 1); render(); });
+      Array.prototype.forEach.call(form.querySelectorAll('input[name="Rental"]'), function(r){ r.addEventListener('change', function(){ if(endpointLive) render(); }); });
+
+      /* Load availability: local mock (for testing) or JSONP from the endpoint. */
+      if(window.HL_MOCK_AVAILABILITY){
+        afterLoad(window.HL_MOCK_AVAILABILITY);
+      } else if(ENDPOINT){
+        var cbName = '__hlAvail' + new Date().getTime();
+        var sc = document.createElement('script'); var done = false;
+        var to = setTimeout(function(){ if(!done){ done=true; cleanup(); } }, 8000);
+        function cleanup(){ try{ delete window[cbName]; }catch(e){ window[cbName]=undefined; } if(sc.parentNode) sc.parentNode.removeChild(sc); }
+        window[cbName] = function(d){ if(done) return; done=true; clearTimeout(to); cleanup(); afterLoad(d); };
+        sc.onerror = function(){ if(!done){ done=true; clearTimeout(to); cleanup(); } };
+        sc.src = ENDPOINT + (ENDPOINT.indexOf('?')>-1 ? '&' : '?') + 'action=availability&callback=' + cbName;
+        document.head.appendChild(sc);
+      }
+
+      function markSuccess(){
+        if(typeof gtag === 'function'){ gtag('event','conversion',{'send_to':'AW-18264252114/sPLOCNWoq8ocENK9iYVE'}); }
+        var s = document.getElementById('bookSuccess');
+        form.style.display = 'none';
+        if(s){ s.hidden = false; s.scrollIntoView({behavior:'smooth', block:'center'}); }
+      }
+
+      function sendViaFormSubmit(fd, btn, err, label){
+        var data = {}; Object.keys(fd).forEach(function(k){ data[k] = fd[k]; });
+        var email = (data['Email'] || '').trim(); if(email) data['_replyto'] = email;
+        fetch('https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data)
+        }).then(function(r){ return r.json(); }).then(function(res){
+          if(res && (res.success === 'true' || res.success === true)){ markSuccess(); }
+          else { throw new Error('submit failed'); }
+        }).catch(function(){
+          if(btn){ btn.disabled = false; btn.textContent = label; }
+          if(err){ err.textContent = 'Sorry, that did not go through. Please call or text 832-425-7749 and we will get you booked.'; err.style.display = 'block'; }
+        });
+      }
+
       form.addEventListener('submit', function(e){
         e.preventDefault();
         var honey = form.querySelector('input[name="_honey"]');
@@ -377,34 +597,48 @@
 
         var btn = document.getElementById('bkSubmit');
         var err = document.getElementById('bkError');
-        if (err) err.style.display = 'none';
+        if (err) { err.style.display = 'none'; }
         var label = btn ? btn.textContent : '';
+
+        var fd = {};
+        new FormData(form).forEach(function(v, k){ if (k !== '_honey') fd[k] = v; });
+        var startKey = fd['Preferred Delivery Date'] || '';
+        var termKey = (fd['Rental'] || '').split(' - ')[0];
+
+        /* When live availability is on, refuse a rental span that runs into a
+           booked day (the backend re-checks this too). */
+        if (endpointLive && avail && startKey && termKey && !spanBookable(startKey, termKey)) {
+          if (err) {
+            err.textContent = 'That rental would run into a day we are already booked. Pick another start day on the calendar, or choose a shorter rental. You can also call or text 832-425-7749.';
+            err.style.display = 'block';
+            err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          return;
+        }
+
         if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
-        var data = {};
-        new FormData(form).forEach(function(v, k){ if (k !== '_honey') data[k] = v; });
-        var email = (data['Email'] || '').trim();
-        if (email) { data['_replyto'] = email; }
+        if (endpointLive) {
+          /* Record the booking in the Google Sheet + email H&L. Sent as a simple
+             text/plain request so no CORS preflight is needed; the response is
+             opaque (no-cors), so a resolved request shows success and a network
+             failure falls back to the email path, never silently losing a booking. */
+          var payload = {
+            sizeId: (document.getElementById('bkSizeId') || {}).value || '14yd',
+            term: termKey, start: startKey,
+            name: fd['Name'] || '', phone: fd['Phone'] || '', email: fd['Email'] || '',
+            address: fd['Delivery Address'] || '', loading: fd['What Are You Loading'] || '',
+            details: fd['Details'] || '', smsConsent: fd['SMS Consent'] || 'No',
+            cancelAck: fd['Cancellation Policy Accepted'] || 'No'
+          };
+          fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) })
+            .then(function(){ markSuccess(); })
+            .catch(function(){ sendViaFormSubmit(fd, btn, err, label); });
+          return;
+        }
 
-        fetch('https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(data)
-        }).then(function(r){ return r.json(); }).then(function(res){
-          if (res && (res.success === 'true' || res.success === true)) {
-            if (typeof gtag === 'function') {
-              gtag('event','conversion',{'send_to':'AW-18264252114/sPLOCNWoq8ocENK9iYVE'});
-            }
-            var s = document.getElementById('bookSuccess');
-            form.style.display = 'none';
-            if (s) { s.hidden = false; s.scrollIntoView({behavior:'smooth', block:'center'}); }
-          } else {
-            throw new Error('submit failed');
-          }
-        }).catch(function(){
-          if (btn) { btn.disabled = false; btn.textContent = label; }
-          if (err) err.style.display = 'block';
-        });
+        /* No endpoint configured yet: email via FormSubmit, exactly as before. */
+        sendViaFormSubmit(fd, btn, err, label);
       });
     })();
   </script>
