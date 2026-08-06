@@ -10,6 +10,10 @@
     gtag('js', new Date());
     gtag('config', 'AW-18264252114');
     gtag('config', 'G-GYJ54HB3FE');
+    /* Google Ads call tracking. Swaps the displayed number for a Google forwarding
+       number on Google Ads visits so real calls (60s+) are counted against the
+       "Call (8324257749)" action. Silent no-op for everyone else. */
+    gtag('config', 'AW-18264252114/boQkCKjlqMscENK9iYVE', {'phone_conversion_number': '832-425-7749'});
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Page Not Found | H&amp;L Junk Removal &amp; Hauling</title>
@@ -86,14 +90,17 @@
     <a href="/free-quote-junk-removal-league-city-tx/#quote" class="sticky-call-btn sticky-call-secondary">Free Quote</a>
   </div>
   <script>
-    /* Google Ads CALL conversion for tel: taps. Fill CALL_LABEL after creating the
-       "Calls to a number on your website" conversion action. Safe no-op until then. */
-    (function(){ var CALL_LABEL = "boQkCKjlqMscENK9iYVE";
-      if (!CALL_LABEL) return;
-      document.addEventListener("click", function(e){
+    /* Tap-to-call volume for GA4, across ALL traffic. This is analytics only -- the
+       Google Ads conversion is counted by the phone snippet in <head>, which measures
+       real connected calls rather than taps. */
+    (function(){
+      document.addEventListener('click', function(e){
         var a = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
-        if (!a || typeof gtag !== "function") return;
-        gtag("event","conversion",{"send_to":"AW-18264252114/"+CALL_LABEL});
+        if (!a || typeof gtag !== 'function') return;
+        gtag('event', 'click_to_call', {
+          'send_to': 'G-GYJ54HB3FE',
+          'link_url': a.getAttribute('href')
+        });
       }, true);
     })();
   </script>
