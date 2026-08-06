@@ -1,0 +1,212 @@
+/* =========================================================
+   H&L - Large Project / Contractor page styles
+   Layers ON TOP of city.css. Load city.css first.
+
+   Design intent: read as a commercial contractor, not a
+   consumer junk hauler. Spec sheets, numbered project
+   phases, credential strips, hairline rules. Monochrome
+   only, per brand. Hierarchy comes from scale + weight +
+   rule, never from color.
+========================================================= */
+
+:root {
+  --rule: rgba(255,255,255,0.12);
+  --rule-strong: rgba(255,255,255,0.28);
+  --panel: #0d0d0d;
+  --panel-2: #141414;
+}
+
+/* ---------------- PROJECT HERO ----------------
+   Heavier than the consumer hero. Bigger kicker,
+   tighter leading, a rule instead of a pill badge. */
+.hero-proj { padding-top: clamp(3rem, 2rem + 6vw, 6rem); }
+
+.proj-eyebrow {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gray); margin-bottom: 26px;
+}
+.proj-eyebrow::after {
+  content: ""; flex: 1; height: 1px; background: var(--rule);
+}
+
+.hero-proj h1 {
+  font-size: clamp(2.1rem, 1.3rem + 4vw, 4rem);
+  font-weight: 600; line-height: 1.04; letter-spacing: -0.015em;
+  text-transform: uppercase; margin-bottom: 24px;
+}
+.hero-proj h1 .hero-kicker {
+  display: block; font-size: clamp(0.78rem, 0.7rem + 0.4vw, 0.95rem);
+  font-weight: 400; letter-spacing: 0.2em; color: var(--gray-light);
+  text-transform: uppercase; margin-bottom: 18px;
+}
+.hero-proj .hero-sub {
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.16rem);
+  color: var(--gray-light); font-weight: 300;
+  max-width: 62ch; margin-bottom: 34px;
+}
+
+/* ---------------- CREDENTIAL STRIP ----------------
+   The single strongest B2B trust signal on the page.
+   Sits directly under the hero CTAs. */
+.cred-strip {
+  display: grid; gap: 1px; background: var(--rule);
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  overflow: hidden; margin-top: 40px;
+  /* Explicit counts, not auto-fit. These grids paint their gaps via the
+     background, so an empty auto-fit track renders as a visible gray cell. */
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 900px) { .cred-strip { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .cred-strip { grid-template-columns: 1fr; } }
+.cred-item { background: var(--panel); padding: 22px 20px; }
+.cred-item dt {
+  font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gray); margin-bottom: 8px;
+}
+.cred-item dd {
+  font-size: 0.98rem; font-weight: 500; color: var(--white); line-height: 1.35;
+}
+
+/* ---------------- SPEC SHEET ----------------
+   Capability table. Reads like a submittal, on purpose. */
+.spec {
+  border-top: 2px solid var(--rule-strong);
+  margin-top: 8px;
+}
+.spec-row {
+  display: grid; grid-template-columns: minmax(150px, 240px) 1fr;
+  gap: 10px 32px; padding: 20px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.spec-row dt {
+  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gray); padding-top: 3px;
+}
+.spec-row dd { font-size: 1rem; color: var(--gray-light); font-weight: 300; }
+.spec-row dd strong { color: var(--white); font-weight: 500; }
+@media (max-width: 640px) {
+  .spec-row { grid-template-columns: 1fr; gap: 6px; padding: 16px 0; }
+}
+
+/* ---------------- PROJECT PHASES ----------------
+   Numbered like a schedule of work. Big numerals carry
+   the hierarchy; the rule carries the sequence. */
+.phases { counter-reset: phase; margin-top: 10px; }
+.phase {
+  counter-increment: phase;
+  display: grid; grid-template-columns: 92px 1fr; gap: 28px;
+  padding: 30px 0; border-top: 1px solid var(--rule);
+  align-items: start;
+}
+.phase:last-child { border-bottom: 1px solid var(--rule); }
+.phase::before {
+  content: "0" counter(phase);
+  font-size: clamp(2rem, 1.4rem + 2vw, 3rem); font-weight: 600;
+  line-height: 0.85; color: transparent;
+  -webkit-text-stroke: 1px var(--rule-strong);
+  letter-spacing: -0.03em;
+}
+.phase h3 {
+  font-size: 1.1rem; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.06em; margin-bottom: 10px;
+}
+.phase p { color: var(--gray-light); font-weight: 300; max-width: 68ch; }
+@media (max-width: 640px) {
+  .phase { grid-template-columns: 58px 1fr; gap: 18px; padding: 24px 0; }
+}
+
+/* ---------------- CLIENT TYPES ---------------- */
+.clients {
+  display: grid; gap: 1px; background: var(--rule);
+  border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden;
+  /* 8 items -> 4x2 / 2x4 / 1x8. Explicit for the same reason as .cred-strip. */
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 900px) { .clients { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .clients { grid-template-columns: 1fr; } }
+.client {
+  background: var(--panel); padding: 26px 22px;
+  transition: background 0.3s var(--ease);
+}
+.client:hover { background: var(--panel-2); }
+.client h3 {
+  font-size: 0.95rem; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.07em; margin-bottom: 8px;
+}
+.client p { font-size: 0.88rem; color: var(--gray); font-weight: 300; line-height: 1.5; }
+
+/* ---------------- SCOPE CALLOUT ---------------- */
+.scope-note {
+  border-left: 3px solid var(--white);
+  background: var(--panel);
+  padding: 26px 28px; border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 34px 0;
+}
+.scope-note p { color: var(--gray-light); font-weight: 300; }
+.scope-note p + p { margin-top: 12px; }
+.scope-note strong { color: var(--white); font-weight: 500; }
+
+/* ---------------- SCOPE / INCLUDED LIST ---------------- */
+.incl { list-style: none; display: grid; gap: 12px; margin-top: 20px; }
+.incl li {
+  display: grid; grid-template-columns: 22px 1fr; gap: 14px;
+  color: var(--gray-light); font-weight: 300; align-items: start;
+}
+.incl li::before {
+  content: ""; width: 9px; height: 9px; margin-top: 8px;
+  border: 1px solid var(--white); transform: rotate(45deg);
+}
+.incl li strong { color: var(--white); font-weight: 500; }
+
+/* ---------------- SECTOR / CAPABILITY GRID ---------------- */
+.sectors {
+  /* 6 items -> clean 3x2. Bordered cards, so gaps are transparent and an
+     odd trailing cell would just look unbalanced rather than broken. */
+  display: grid; gap: 20px; margin-top: 12px;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 900px) { .sectors { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .sectors { grid-template-columns: 1fr; } }
+.sector {
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  padding: 26px 24px; background: var(--panel);
+}
+.sector-num {
+  display: block; font-size: 0.66rem; letter-spacing: 0.2em;
+  color: var(--gray); margin-bottom: 14px;
+}
+.sector h3 {
+  font-size: 1.02rem; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.05em; margin-bottom: 10px;
+}
+.sector p { font-size: 0.9rem; color: var(--gray); font-weight: 300; line-height: 1.6; }
+
+/* ---------------- HUB: SERVICE INDEX ---------------- */
+.svc-index { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+.svc-index a {
+  display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;
+  background: var(--panel); padding: 28px 26px;
+  transition: background 0.3s var(--ease);
+}
+.svc-index a:hover { background: var(--panel-2); }
+.svc-index h3 {
+  font-size: 1.12rem; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.05em; margin-bottom: 7px;
+}
+.svc-index p { font-size: 0.9rem; color: var(--gray); font-weight: 300; max-width: 70ch; }
+.svc-index-go { font-size: 1.3rem; color: var(--gray); transition: transform 0.3s var(--ease), color 0.3s var(--ease); }
+.svc-index a:hover .svc-index-go { color: var(--white); transform: translateX(5px); }
+@media (max-width: 560px) { .svc-index a { padding: 22px 20px; } .svc-index-go { display: none; } }
+
+/* ---------------- REGION LINE ---------------- */
+.region {
+  font-size: 0.9rem; color: var(--gray); font-weight: 300;
+  line-height: 1.9; margin-top: 20px;
+}
+.region strong { color: var(--gray-light); font-weight: 400; }
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-index a, .svc-index-go, .client { transition: none; }
+}
