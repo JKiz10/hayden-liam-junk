@@ -75,7 +75,7 @@ grep -ro '8324257749' --include='*.html' . | wc -l
 These are not style preferences, they are business rules. Breaking them costs money or creates legal exposure.
 
 - **Junk removal is never priced on the site.** Free quotes only. No "starting at," no ranges.
-- **Dumpster rental IS priced**, because it is a fixed product: **$399 for 3 days, $475 for 7 days.** Extra days $100/day past the term booked.
+- **Dumpster rental IS priced**, because it is a fixed product: **$399 for 3 days, $525 for 7 days.** Extra days $100/day past the term booked.
 - **Never advertise the $100/day extra-day fee.** You do not headline a penalty.
 - Say **"fully insured."** Never say "licensed."
 - **Oswald is the only font.** Special Elite was removed sitewide and must not come back.
