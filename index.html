@@ -1692,6 +1692,21 @@
         "alternateName": "H&L Junk Removal & Hauling",
         "url": "https://hljunkremovalandhauling.com/",
         "telephone": "+18324257749",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "16",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "00:00",
+            "closes": "23:59"
+          }
+        ],
         "image": [
           "https://hljunkremovalandhauling.com/og-image.jpg",
           "https://hljunkremovalandhauling.com/images/work/work5.jpg",
@@ -2018,7 +2033,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
 
       <div class="hero-trust">
         <span class="hero-trust-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-        <span>5.0 on Google (5 reviews)</span>
+        <span>5.0 on Google (16 reviews)</span>
         <span class="hero-trust-dot">&middot;</span>
         <span>Fully Insured</span>
         <span class="hero-trust-dot">&middot;</span>
@@ -2050,7 +2065,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
   .da-btn-ghost{background:transparent;color:#000;border:1.5px solid #000;}
   .da-btn-ghost:hover{background:#000;color:#fff;}
   .da-media{flex:0 1 320px;display:flex;justify-content:center;}
-  .da-media video{width:100%;max-width:320px;border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,0.4);}
+  .da-media video{width:100%;max-width:320px;height:auto;aspect-ratio:320/569;border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,0.4);}
   @media(max-width:760px){.da-inner{flex-direction:column-reverse;text-align:center;}.da-ctas{justify-content:center;}.da-media video{max-width:230px;}}
   </style>
   <section class="dumpster-announce" aria-labelledby="da-h">
@@ -2067,7 +2082,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
         </div>
       </div>
       <div class="da-media">
-        <video src="/images/work/dumpster-clip.mp4" poster="/images/work/dumpster-clip-poster.jpg" muted loop autoplay playsinline preload="metadata" aria-label="H&amp;L 14-yard roll-off dumpster on the trailer"></video>
+        <video src="/images/work/dumpster-clip.mp4" poster="/images/work/dumpster-clip-poster.jpg" width="320" height="569" muted loop autoplay playsinline preload="metadata" aria-label="H&amp;L 14-yard roll-off dumpster on the trailer"></video>
       </div>
     </div>
   </section>
@@ -2183,7 +2198,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
           <p>Need us sooner? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
         </div>
       </div>
-      <p class="conversion-trust reveal d2"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 on Google (5 reviews) &middot; Fully Insured &middot; Same-Day Available &middot; Free Quotes</p>
+      <p class="conversion-trust reveal d2"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 on Google (16 reviews) &middot; Fully Insured &middot; Same-Day Available &middot; Free Quotes</p>
     </div>
   </section>
 
@@ -2342,7 +2357,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
         </div>
         <div class="work-cell tall">
           <span class="work-badge"><span class="work-badge-dot"></span>On the job</span>
-          <video src="images/work/work-clip.mp4?v=2" poster="images/work/work-clip-poster.jpg?v=2" autoplay muted loop playsinline preload="metadata" aria-label="H&amp;L dump trailer unloading a full load of junk on a job in League City, TX"></video>
+          <video src="images/work/work-clip.mp4?v=2" poster="images/work/work-clip-poster.jpg?v=2" width="1080" height="1920" autoplay muted loop playsinline preload="metadata" aria-label="H&amp;L dump trailer unloading a full load of junk on a job in League City, TX"></video>
         </div>
         <div class="work-cell wide">
           <picture><source srcset="images/work/work5.webp" type="image/webp" /><img src="images/work/work5.jpg" alt="H&amp;L dump trailer parked at a suburban home" width="1600" height="1200" loading="lazy" /></picture>
@@ -2747,16 +2762,18 @@ body:has(.hl-ann-bar) .nav{top:40px;}
         reveals.forEach(function(el) { el.classList.add('in'); });
       }
 
-      /* Perf: only play the below-fold work clip (~1.3MB) while it is on screen */
-      var workVid = document.querySelector('video[src*="work-clip"]');
-      if (workVid && 'IntersectionObserver' in window) {
-        var vidObserver = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) { var pr = workVid.play(); if (pr && pr.catch) pr.catch(function(){}); }
-            else { workVid.pause(); }
-          });
-        }, { threshold: 0.15 });
-        vidObserver.observe(workVid);
+      /* Perf: only play below-fold clips while on screen (dumpster 1.8MB, work 3.7MB) */
+      /* Both clips sit below the fold, so neither should burn bandwidth until seen. */
+      if ('IntersectionObserver' in window) {
+        document.querySelectorAll('video[src*="work-clip"], video[src*="dumpster-clip"]').forEach(function(vid) {
+          var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) { var pr = vid.play(); if (pr && pr.catch) pr.catch(function(){}); }
+              else { vid.pause(); }
+            });
+          }, { threshold: 0.15 });
+          obs.observe(vid);
+        });
       }
 
       /* =============================================
