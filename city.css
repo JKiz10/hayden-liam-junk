@@ -387,3 +387,95 @@ section { padding: var(--space-section) 0; }
 body:has(.hl-ann-bar){padding-top:40px;}
 body:has(.hl-ann-bar) .nav{top:40px;}
 @media(max-width:620px){.hl-ann-bar{font-size:0.64rem;gap:7px;letter-spacing:0.02em;}.hl-ann-mob-hide{display:none;}}
+
+/* ---------------- LEGACY PAGE CLASSES ----------------
+   Eight dumpster city pages (alvin, friendswood, galveston, kemah,
+   la-marque, santa-fe, seabrook, webster) plus three league-city-era
+   pages were built against class names that were never added to this
+   stylesheet. The worst of it: .hero-inner had no positioning, so the
+   absolutely positioned .hero::before gradient painted straight over
+   the headline and the whole hero rendered blank.
+   These map the legacy names onto the same treatment their modern
+   equivalents (.container, .faq, .hood-list) already get. */
+
+.hero-inner,
+.wrap {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* THE FIX: lift hero content above the .hero::before overlay */
+.hero .hero-inner,
+.hero .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.faq-list {
+  max-width: 820px;
+  margin-top: 36px;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 0;
+}
+
+.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.faq-item > summary::-webkit-details-marker { display: none; }
+
+.faq-item > summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--gray-light);
+  flex: 0 0 auto;
+}
+
+.faq-item[open] > summary::after { content: "\2013"; }
+
+.faq-item > p {
+  color: var(--gray-light);
+  font-weight: 300;
+  line-height: 1.7;
+  padding-bottom: 20px;
+  margin: 0;
+}
+
+.area-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 0;
+}
+
+.area-list li {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: var(--gray-light);
+}
+
+.price-tag {
+  margin-top: 18px;
+  font-size: 1rem;
+  color: var(--gray-light);
+  line-height: 1.9;
+}
