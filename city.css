@@ -597,3 +597,30 @@ body:has(.hl-ann-bar) .nav{top:40px;}
 .qbook-price-lead em { font-style: normal; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(0,0,0,0.6); margin-left: 4px; }
 .qbook-price-rest { font-size: 0.95rem; color: rgba(0,0,0,0.66); }
 .qbook-price-note { flex: 1 1 100%; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(0,0,0,0.5); }
+
+/* ---------------- CONTENT LINK VISIBILITY ----------------
+   city.css sets `a { color: inherit; text-decoration: none }` globally,
+   which is right for nav, chips and buttons but made every inline link
+   inside body copy indistinguishable from plain text. That is a WCAG
+   1.4.1 failure: nothing but the cursor told you a link was there.
+   Underline inherits currentColor so it works on the dark page and on
+   the white quick-book card alike. */
+
+main p a:not([class]),
+main li a:not([class]),
+.prose a:not([class]),
+.areas-note a:not([class]),
+.qbook-fine a,
+.qbook-done a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+main p a:not([class]):hover,
+main li a:not([class]):hover,
+.prose a:not([class]):hover,
+.areas-note a:not([class]):hover,
+.qbook-fine a:hover {
+  text-decoration-thickness: 2px;
+}
