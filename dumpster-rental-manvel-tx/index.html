@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
-  <link rel="stylesheet" href="/city.css?v=3" />
+  <link rel="stylesheet" href="/city.css?v=4" />
 
   <script type="application/ld+json">
   {
@@ -140,6 +140,71 @@
         </div>
       </div>
     </header>
+
+  <section class="qbook" id="quick-book" aria-labelledby="qbookH">
+    <div class="container">
+      <div class="qbook-card">
+        <div class="qbook-top">
+          <span class="qbook-flag">Fastest way to book</span>
+          <h2 id="qbookH">Get a 14-Yard Dropped in Manvel</h2>
+          <p class="qbook-sub">Fill this in and we will reach out to lock your slot. Takes under a minute. You pay after the job, not before.</p>
+          <div class="qbook-price">
+            <span class="qbook-price-lead"><strong>$365</strong> <em>1 day</em></span>
+            <span class="qbook-price-rest">$365 weekend &middot; $399 / 3 days &middot; $525 / 7 days</span>
+            <span class="qbook-price-note">Delivered and hauled. No hidden fees.</span>
+          </div>
+        </div>
+        <form class="qbook-form" id="qbFormManvel" novalidate>
+          <input type="hidden" name="_subject" value="DUMPSTER REQUEST (Manvel) - hljunkremovalandhauling.com" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="City" value="Manvel, TX" />
+          <input type="hidden" name="Page" value="/dumpster-rental-manvel-tx/" />
+          <input type="hidden" name="Google Click ID" id="qbGclidManvel" value="" />
+          <input type="hidden" name="Text Me Updates" id="qbSmsValManvel" value="No" />
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="qb-honey" />
+
+          <div class="qbook-row">
+            <label class="qb-field"><span>Your name</span>
+              <input type="text" name="Name" required autocomplete="name" placeholder="First and last" />
+            </label>
+            <label class="qb-field"><span>Phone</span>
+              <input type="tel" name="Phone" required autocomplete="tel" placeholder="832-000-0000" />
+            </label>
+          </div>
+          <label class="qb-field"><span>Where is it going?</span>
+            <input type="text" name="Delivery Address" required autocomplete="street-address" placeholder="Street address in Manvel" />
+          </label>
+          <div class="qbook-row">
+            <label class="qb-field"><span>Drop date</span>
+              <input type="date" name="Preferred Delivery Date" required />
+            </label>
+            <label class="qb-field"><span>How long?</span>
+              <select name="Rental" required>
+                <option value="1 Day - $365">1 day, $365</option>
+                <option value="Weekend Special - $365">Weekend, $365</option>
+                <option value="3 Days - $399">3 days, $399</option>
+                <option value="7 Days - $525">7 days, $525</option>
+                <option value="Not sure yet">Not sure yet, help me pick</option>
+              </select>
+            </label>
+          </div>
+          <label class="qb-check">
+            <input type="checkbox" id="qbSmsManvel" />
+            <span>Text me updates about this delivery. Message and data rates may apply.</span>
+          </label>
+          <button type="submit" class="qbook-btn" id="qbBtnManvel">Request My Dumpster</button>
+          <p class="qbook-err" id="qbErrManvel" role="alert"></p>
+          <p class="qbook-fine">Phone works too: <a href="tel:8324257749">832-425-7749</a>. You can also <a href="/book/">pick from open dates</a> on the booking page.</p>
+        </form>
+        <div class="qbook-done" id="qbDoneManvel" hidden>
+          <h3>Got it. You are on our list.</h3>
+          <p>Expect a call or text from us to nail down the Manvel date. Same-day need? <a href="tel:8324257749">832-425-7749</a> gets you there quicker.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
     <!-- PLACEMENT -->
     <section class="band">
@@ -342,5 +407,43 @@
       }, true);
     })();
   </script>
+
+  <script>
+  (function(){
+    var form = document.getElementById('qbFormManvel');
+    if(!form) return;
+    try{ var g = new URLSearchParams(location.search).get('gclid'); if(g){ document.getElementById('qbGclidManvel').value = g; } }catch(e){}
+    var sms = document.getElementById('qbSmsManvel');
+    if(sms){ sms.addEventListener('change', function(){ document.getElementById('qbSmsValManvel').value = sms.checked ? 'Yes' : 'No'; }); }
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var honey = form.querySelector('input[name="_honey"]');
+      if(honey && honey.value){ return; }
+      if(!form.checkValidity()){ form.reportValidity(); return; }
+      var btn = document.getElementById('qbBtnManvel');
+      var err = document.getElementById('qbErrManvel');
+      err.style.display = 'none';
+      var label = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending...';
+      var data = {};
+      new FormData(form).forEach(function(v,k){ if(k !== '_honey') data[k] = v; });
+      fetch('https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com', {
+        method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(data)
+      }).then(function(r){ return r.json(); }).then(function(res){
+        if(res && (res.success === 'true' || res.success === true)){
+          if(typeof gtag === 'function'){ gtag('event','conversion',{'send_to':'AW-18264252114/sPLOCNWoq8ocENK9iYVE'}); }
+          form.style.display = 'none';
+          var d = document.getElementById('qbDoneManvel');
+          d.hidden = false; d.scrollIntoView({behavior:'smooth', block:'center'});
+        } else { throw new Error('submit failed'); }
+      }).catch(function(){
+        btn.disabled = false; btn.textContent = label;
+        err.textContent = 'That did not go through. Please call or text 832-425-7749 and we will get you booked.';
+        err.style.display = 'block';
+      });
+    });
+  })();
+  </script>
+
 </body>
 </html>
