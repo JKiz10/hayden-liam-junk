@@ -624,3 +624,19 @@ main li a:not([class]):hover,
 .qbook-fine a:hover {
   text-decoration-thickness: 2px;
 }
+
+/* ---------------- INTERNAL LINKING ----------------
+   .nearby-wrap wraps a nearby block on pages that never had one.
+   .nearby-lead is the sentence above the city chips that points at the
+   other service in the same town and at the decision guide. */
+
+.nearby-wrap { padding: 0 0 clamp(2.5rem, 2rem + 3vw, 4.5rem); }
+
+.nearby-lead {
+  max-width: 720px;
+  margin: 0 0 18px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--gray-light);
+  font-weight: 300;
+}
