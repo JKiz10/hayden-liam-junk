@@ -121,6 +121,10 @@
         <p class="hero-kicker">14-Yard &amp; 20-Yard Roll-Off Dumpsters</p>
         <h1>Shop Your Dumpster Online.</h1>
         <p class="hero-sub">Pick your size and your dates, then pay securely online. We will text you back to lock in your drop-off time.</p>
+        <div class="hero-ctas">
+          <a href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="btn-primary js-shop-online" target="_blank" rel="noopener">Shop Online</a>
+          <a href="tel:8324257749" class="btn-outline">Call or Text 832-425-7749</a>
+        </div>
         <p class="hero-trust"><strong>Fully insured</strong> &middot; 5.0&#9733; on Google &middot; Delivered &amp; hauled &middot; Fill it to the top</p>
       </div>
     </header>
@@ -131,7 +135,7 @@
           <h2>Shop 14-Yard &amp; 20-Yard Roll-Offs</h2>
           <p>Pick your size and your dates in our online storefront and pay securely. We will text you to confirm your drop-off time.</p>
           <div class="hero-ctas">
-            <a href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="btn-primary" id="shopOnlineBtn" target="_blank" rel="noopener">Shop Online</a>
+            <a href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="btn-primary js-shop-online" id="shopOnlineBtn" target="_blank" rel="noopener">Shop Online</a>
             <a href="tel:8324257749" class="btn-outline">Call or Text 832-425-7749</a>
           </div>
           <p class="shop-trust"><strong>Fully insured</strong> &middot; 5.0&#9733; on Google &middot; Secure online checkout</p>
@@ -205,14 +209,19 @@
        would misrepresent a click-through as a completed booking. -->
   <script>
     (function(){
-      var btn = document.getElementById('shopOnlineBtn');
-      if (!btn || typeof gtag !== 'function') return;
-      btn.addEventListener('click', function(){
-        gtag('event', 'begin_checkout', {
-          'send_to': 'G-GYJ54HB3FE',
-          'link_url': btn.getAttribute('href')
-        });
-      });
+      /* Two entry points now (hero + panel), so bind them all by class. */
+      if (typeof gtag !== 'function') return;
+      Array.prototype.forEach.call(
+        document.querySelectorAll('a.js-shop-online'),
+        function(btn){
+          btn.addEventListener('click', function(){
+            gtag('event', 'begin_checkout', {
+              'send_to': 'G-GYJ54HB3FE',
+              'link_url': btn.getAttribute('href')
+            });
+          });
+        }
+      );
     })();
   </script>
   <script>
