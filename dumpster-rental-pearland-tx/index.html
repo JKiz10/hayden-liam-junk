@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
-  <link rel="stylesheet" href="/city.css?v=5" />
+  <link rel="stylesheet" href="/city.css?v=6" />
 
   <script type="application/ld+json">
   {
@@ -130,7 +130,11 @@
       <div class="container">
         <div class="hero-badge"><span class="hero-badge-dot"></span> Pearland Home Base &middot; Fully Insured &middot; <span class="hero-star">&#9733;</span> 5.0 Google</div>
         <h1><span class="hero-kicker">14 &amp; 20-Yard Roll-Off Dumpster Rental in Pearland, TX</span> Our Trailers<br />Sleep in Pearland.</h1>
-        <p class="hero-sub">Pearland is not the far edge of our map. It is the yard. Both roll-off trailers live here, which makes getting a can into a Pearland driveway the easiest job on our schedule. And because both of our cans are the short kind, they sit on your concrete instead of out in the street where the whole street has to look at it.</p>
+        <p class="hero-sub">Pearland is not the far edge of our map. It is the yard. Both roll-off trailers live here, which makes getting a can into a Pearland driveway the easiest job on our schedule. And because both of our cans are the short kind, they sit on your concrete instead of out in the street where the whole street has to look at it. The 20-yard is the one most Pearland jobs want, from $500.</p>
+        <div class="hero-ctas">
+          <a target="_blank" rel="noopener" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="btn-mega js-shop-online"><span class="btn-mega-main">Shop Dumpsters Online</span><span class="btn-mega-note">Book in less than 5 minutes</span></a>
+          <a href="tel:8324257749" class="btn-outline">Call or Text 832-425-7749</a>
+        </div>
 
         <p style="margin:0 0 8px;font-family:'Oswald',sans-serif;font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.58);">14-Yard Roll-Off</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:8px 0 16px;max-width:620px;">
@@ -153,11 +157,6 @@
         </div>
         <p style="margin:0 0 10px;font-family:'Oswald',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.8);letter-spacing:0.03em;max-width:620px;">Need more room? The <strong style="color:#fff;">20-yard</strong> is <strong style="color:#fff;">$500</strong> / 1 day &middot; <strong style="color:#fff;">$550</strong> / 3 days &middot; <strong style="color:#fff;">$650</strong> / 7 days. Same 14 ft footprint, taller sides.</p>
         <p style="margin:0 0 22px;font-size:0.9rem;color:rgba(255,255,255,0.7);letter-spacing:0.03em;max-width:620px;">Every one of those is the whole number. Trailer out, rental time, haul-off, all of it, on a fully insured roll-off, whichever size you take.</p>
-
-        <div class="hero-ctas">
-          <a target="_blank" rel="noopener" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="btn-primary js-shop-online">Book Online</a>
-          <a href="tel:8324257749" class="btn-outline">Call or Text 832-425-7749</a>
-        </div>
       </div>
     </header>
 
@@ -533,5 +532,28 @@
   })();
   </script>
 
+
+  <!-- Shop Online click tracking. Fires a GA4 event as the visitor hands off to
+       the Bin Boss storefront, which owns checkout. This measures the hand-off,
+       not a completed booking, so no Ads conversion label is fired here. -->
+  <script>
+    (function(){
+      if (typeof gtag !== 'function') return;
+      Array.prototype.forEach.call(
+        document.querySelectorAll('a.js-shop-online'),
+        function(btn){
+          btn.addEventListener('click', function(){
+            gtag('event', 'begin_checkout', {
+              'send_to': 'G-GYJ54HB3FE',
+              'link_url': btn.getAttribute('href')
+            });
+          });
+        }
+      );
+    })();
+  </script>
+
+  <!-- Always-visible route into the storefront (desktop; mobile uses the sticky bar). -->
+  <a href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="shop-fab js-shop-online" target="_blank" rel="noopener" aria-label="Shop dumpsters online. Book in less than 5 minutes."><svg class="shop-fab-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h14.2l-1.9 7.6a2 2 0 0 1-1.9 1.5H8.4a2 2 0 0 1-2-1.6L4.6 4H2V2h4.2l.6 3z" fill="currentColor"/></svg><span>Shop Dumpsters Online<span class="shop-fab-sub">Book in less than 5 minutes</span></span></a>
 </body>
 </html>
