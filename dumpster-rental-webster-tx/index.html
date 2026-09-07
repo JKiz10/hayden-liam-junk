@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
-  <link rel="stylesheet" href="/city.css?v=5" />
+  <link rel="stylesheet" href="/city.css?v=6" />
 
   <script type="application/ld+json">
 {
@@ -230,12 +230,12 @@
 <header class="hero">
   <div class="hero-inner">
     <h1><span class="hero-kicker">14 &amp; 20-Yard Roll-Off Dumpster Rental in Webster, TX</span> Rent a Dumpster,<br />Fill It on Your Time.</h1>
-    <p class="hero-sub">Fourteen-yard roll-off dumpsters for apartment turnovers, office cleanouts, and yard projects across Webster. We drop it, you load it on your own schedule, and we haul it away. Fully insured. $365 for a single day, $399 for 3 days, or $525 for a full week.</p>
-    <p class="price-tag" style="display:inline-block;margin:6px 0 22px;padding:12px 20px;border:1px solid rgba(255,255,255,0.28);border-radius:8px;font-family:'Oswald',sans-serif;font-size:1.02rem;letter-spacing:0.03em;line-height:1.5;"><span style="font-size:0.74rem;color:rgba(255,255,255,0.58);letter-spacing:0.12em;text-transform:uppercase;">14-Yard</span> <strong style="color:#fff;font-size:1.2em;">$365</strong> / 1 day &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$399</strong> / 3 days &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$525</strong> / 7 days<br /><span style="font-size:0.74rem;color:rgba(255,255,255,0.58);letter-spacing:0.12em;text-transform:uppercase;">20-Yard</span> <strong style="color:#fff;">$500</strong> / 1 day &nbsp;&middot;&nbsp; <strong style="color:#fff;">$550</strong> / 3 days &nbsp;&middot;&nbsp; <strong style="color:#fff;">$650</strong> / 7 days<br /><span style="font-size:0.82rem;color:rgba(255,255,255,0.66);letter-spacing:0.06em;">same 14 ft footprint &middot; delivered &amp; hauled &middot; fully insured</span></p>
+    <p class="hero-sub">Fourteen and twenty-yard roll-off dumpsters for apartment turnovers, office cleanouts, and yard projects across Webster. We drop it, you load it on your own schedule, and we haul it away. Fully insured. The 14-yard starts at $365. Turning over a full apartment or clearing an office? The 20-yard starts at $500 and fits the same space.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="tel:8324257749">Call or Text 832-425-7749</a>
-      <a target="_blank" rel="noopener" class="btn btn-outline js-shop-online" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc">Book Online</a>
+      <a target="_blank" rel="noopener" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="btn-mega js-shop-online"><span class="btn-mega-main">Shop Dumpsters Online</span><span class="btn-mega-note">Book in less than 5 minutes</span></a>
     </div>
+    <p class="price-tag" style="display:inline-block;margin:6px 0 22px;padding:12px 20px;border:1px solid rgba(255,255,255,0.28);border-radius:8px;font-family:'Oswald',sans-serif;font-size:1.02rem;letter-spacing:0.03em;line-height:1.5;"><span style="font-size:0.74rem;color:rgba(255,255,255,0.58);letter-spacing:0.12em;text-transform:uppercase;">14-Yard</span> <strong style="color:#fff;font-size:1.2em;">$365</strong> / 1 day &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$399</strong> / 3 days &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$525</strong> / 7 days<br /><span style="font-size:0.74rem;color:rgba(255,255,255,0.58);letter-spacing:0.12em;text-transform:uppercase;">20-Yard &middot; Most Room</span> <strong style="color:#fff;font-size:1.2em;">$500</strong> / 1 day &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$550</strong> / 3 days &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$650</strong> / 7 days<br /><span style="font-size:0.82rem;color:rgba(255,255,255,0.66);letter-spacing:0.06em;">same 14 ft footprint &middot; delivered &amp; hauled &middot; fully insured</span></p>
   </div>
 </header>
 
@@ -506,5 +506,28 @@
   })();
   </script>
 
+
+  <!-- Shop Online click tracking. Fires a GA4 event as the visitor hands off to
+       the Bin Boss storefront, which owns checkout. This measures the hand-off,
+       not a completed booking, so no Ads conversion label is fired here. -->
+  <script>
+    (function(){
+      if (typeof gtag !== 'function') return;
+      Array.prototype.forEach.call(
+        document.querySelectorAll('a.js-shop-online'),
+        function(btn){
+          btn.addEventListener('click', function(){
+            gtag('event', 'begin_checkout', {
+              'send_to': 'G-GYJ54HB3FE',
+              'link_url': btn.getAttribute('href')
+            });
+          });
+        }
+      );
+    })();
+  </script>
+
+  <!-- Always-visible route into the storefront (desktop; mobile uses the sticky bar). -->
+  <a href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="shop-fab js-shop-online" target="_blank" rel="noopener" aria-label="Shop dumpsters online. Book in less than 5 minutes."><svg class="shop-fab-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h14.2l-1.9 7.6a2 2 0 0 1-1.9 1.5H8.4a2 2 0 0 1-2-1.6L4.6 4H2V2h4.2l.6 3z" fill="currentColor"/></svg><span>Shop Dumpsters Online<span class="shop-fab-sub">Book in less than 5 minutes</span></span></a>
 </body>
 </html>

@@ -640,3 +640,62 @@ main li a:not([class]):hover,
   color: var(--gray-light);
   font-weight: 300;
 }
+
+
+/* ---------------- MEGA SHOP CTA ----------------
+   The one action that matters on a dumpster page is getting the visitor
+   into the storefront. This is deliberately the largest element in the
+   hero, and it carries the speed promise inside the button itself so the
+   promise cannot get separated from the click. */
+.btn-mega {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  flex: 1 1 100%; max-width: 520px; gap: 5px;
+  padding: 22px 30px; border-radius: 16px;
+  background: var(--white); color: var(--black); text-align: center;
+  box-shadow: 0 16px 42px rgba(0,0,0,0.5);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.btn-mega:hover { transform: translateY(-4px); box-shadow: 0 24px 58px rgba(0,0,0,0.62); }
+.btn-mega:focus-visible { outline: 3px solid var(--white); outline-offset: 4px; }
+.btn-mega-main {
+  font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.03em; line-height: 1.04;
+  font-size: clamp(1.45rem, 1.05rem + 1.8vw, 2.15rem);
+}
+.btn-mega-note {
+  font-family: 'Oswald', sans-serif; font-weight: 400; line-height: 1.3;
+  font-size: clamp(0.92rem, 0.88rem + 0.25vw, 1.05rem);
+  color: var(--gray-dark); letter-spacing: 0.02em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-mega { transition: none; }
+  .btn-mega:hover { transform: none; }
+}
+
+/* ---- Always-visible shop button ----
+   One obvious way into the storefront from any page, at any scroll position.
+   Desktop only: at <=900px the sticky bottom bar already fills this role and
+   two floating elements would fight for the same corner. */
+.shop-fab { display: none; }
+@media (min-width: 901px) {
+  .shop-fab {
+    display: inline-flex; align-items: center; gap: 12px;
+    position: fixed; right: 24px; bottom: 24px; z-index: 999;
+    padding: 15px 26px; border-radius: 100px;
+    background: var(--white); color: var(--black);
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.03em; font-size: 1.02rem;
+    line-height: 1.15;
+    box-shadow: 0 14px 38px rgba(0,0,0,0.55);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  }
+  .shop-fab:hover { transform: translateY(-3px); box-shadow: 0 20px 48px rgba(0,0,0,0.66); }
+  .shop-fab:focus-visible { outline: 3px solid var(--white); outline-offset: 4px; }
+  .shop-fab-ico { width: 22px; height: 22px; flex: none; }
+  .shop-fab-sub { display: block; font-size: 0.74rem; font-weight: 400;
+                  text-transform: none; letter-spacing: 0.01em; color: var(--gray-mid); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shop-fab { transition: none; }
+  .shop-fab:hover { transform: none; }
+}
