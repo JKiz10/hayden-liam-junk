@@ -391,21 +391,66 @@
   <!-- Always-visible route into the storefront (desktop; mobile uses the sticky bar). -->
   <a href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="shop-fab js-shop-online" target="_blank" rel="noopener" aria-label="Shop dumpsters online. Book in less than 5 minutes."><svg class="shop-fab-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h14.2l-1.9 7.6a2 2 0 0 1-1.9 1.5H8.4a2 2 0 0 1-2-1.6L4.6 4H2V2h4.2l.6 3z" fill="currentColor"/></svg><span>Shop Dumpsters Online<span class="shop-fab-sub">Book in less than 5 minutes</span></span></a>
 
-  <!-- Shop Online click tracking. Fires a GA4 event as the visitor hands off to
-       the Bin Boss storefront, which owns checkout. This measures the hand-off,
-       not a completed booking, so no Ads conversion label is fired here. -->
+  <!-- Shop Online handoff: attribution + GA4 event.
+       Bin Boss owns checkout on its own domain, so a completed booking can never
+       fire a tag here. What we can do is label the handoff: persist Google's click
+       id for the visit and stamp it onto the storefront URL, so a Bin Boss order
+       can be reconciled back to the ad click and the page that sent it. Still no
+       Ads conversion label -- a handoff is not a booking. -->
   <script>
     (function(){
-      if (typeof gtag !== 'function') return;
+      var STORE_KEY = 'hl_click_id';
+
+      function readStored(){
+        try { return sessionStorage.getItem(STORE_KEY) || ''; } catch (e) { return ''; }
+      }
+      function writeStored(v){
+        try { sessionStorage.setItem(STORE_KEY, v); } catch (e) {}
+      }
+
+      /* Auto-tagging drops the click id on the first page of the visit. Persist it
+         so it survives a hop to a city page before the visitor hands off. */
+      var params = new URLSearchParams(window.location.search);
+      var clickKey = '', clickId = '';
+      ['gclid', 'gbraid', 'wbraid'].forEach(function(k){
+        if (!clickId && params.get(k)) { clickKey = k; clickId = params.get(k); }
+      });
+      if (clickId) {
+        writeStored(clickKey + '=' + clickId);
+      } else {
+        var stored = readStored();
+        if (stored) {
+          clickKey = stored.slice(0, stored.indexOf('='));
+          clickId = stored.slice(stored.indexOf('=') + 1);
+        }
+      }
+
+      /* Which page handed the visitor off. Lets a Bin Boss order be traced to a
+         landing page without needing anything installed on their domain. */
+      var slug = window.location.pathname.replace(/^\/|\/$/g, '') || 'home';
+
       Array.prototype.forEach.call(
         document.querySelectorAll('a.js-shop-online'),
         function(btn){
-          btn.addEventListener('click', function(){
-            gtag('event', 'begin_checkout', {
-              'send_to': 'G-GYJ54HB3FE',
-              'link_url': btn.getAttribute('href')
+          var href = btn.getAttribute('href');
+          if (!href || href.indexOf('mybinboss.com') === -1) return;
+          if (href.indexOf('utm_source=') !== -1) return;
+
+          var sep = href.indexOf('?') === -1 ? '?' : '&';
+          var extra = clickId
+            ? sep + clickKey + '=' + encodeURIComponent(clickId) + '&utm_source=google&utm_medium=cpc'
+            : sep + 'utm_source=website&utm_medium=referral';
+          extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
+          btn.setAttribute('href', href + extra);
+
+          if (typeof gtag === 'function') {
+            btn.addEventListener('click', function(){
+              gtag('event', 'begin_checkout', {
+                'send_to': 'G-GYJ54HB3FE',
+                'link_url': btn.getAttribute('href')
+              });
             });
-          });
+          }
         }
       );
     })();
