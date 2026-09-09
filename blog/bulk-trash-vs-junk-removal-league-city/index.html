@@ -233,11 +233,11 @@
     (function(){
       var STORE_KEY = 'hl_click_id';
 
-      function readStored(){
-        try { return sessionStorage.getItem(STORE_KEY) || ''; } catch (e) { return ''; }
+      function readStored(k){
+        try { return sessionStorage.getItem(k) || ''; } catch (e) { return ''; }
       }
-      function writeStored(v){
-        try { sessionStorage.setItem(STORE_KEY, v); } catch (e) {}
+      function writeStored(k, v){
+        try { sessionStorage.setItem(k, v); } catch (e) {}
       }
 
       /* Auto-tagging drops the click id on the first page of the visit. Persist it
@@ -247,14 +247,28 @@
       ['gclid', 'gbraid', 'wbraid'].forEach(function(k){
         if (!clickId && params.get(k)) { clickKey = k; clickId = params.get(k); }
       });
+
+      /* Free channels tag themselves with utm_source (GBP posts, Marketplace,
+         Nextdoor). Carry that through too, or every non-paid visit collapses
+         into one undifferentiated 'website' bucket at the storefront. */
+      var srcKey = 'hl_src';
+      var src = params.get('utm_source') || '';
+      var med = params.get('utm_medium') || '';
+
       if (clickId) {
-        writeStored(clickKey + '=' + clickId);
+        writeStored(STORE_KEY, clickKey + '=' + clickId);
       } else {
-        var stored = readStored();
+        var stored = readStored(STORE_KEY);
         if (stored) {
           clickKey = stored.slice(0, stored.indexOf('='));
           clickId = stored.slice(stored.indexOf('=') + 1);
         }
+      }
+      if (src) {
+        writeStored(srcKey, src + '|' + med);
+      } else {
+        var s2 = readStored(srcKey);
+        if (s2) { src = s2.slice(0, s2.indexOf('|')); med = s2.slice(s2.indexOf('|') + 1); }
       }
 
       /* Which page handed the visitor off. Lets a Bin Boss order be traced to a
@@ -269,9 +283,16 @@
           if (href.indexOf('utm_source=') !== -1) return;
 
           var sep = href.indexOf('?') === -1 ? '?' : '&';
-          var extra = clickId
-            ? sep + clickKey + '=' + encodeURIComponent(clickId) + '&utm_source=google&utm_medium=cpc'
-            : sep + 'utm_source=website&utm_medium=referral';
+          var extra;
+          if (clickId) {
+            extra = sep + clickKey + '=' + encodeURIComponent(clickId) +
+                    '&utm_source=google&utm_medium=cpc';
+          } else if (src) {
+            extra = sep + 'utm_source=' + encodeURIComponent(src) +
+                    '&utm_medium=' + encodeURIComponent(med || 'referral');
+          } else {
+            extra = sep + 'utm_source=website&utm_medium=referral';
+          }
           extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
           btn.setAttribute('href', href + extra);
 
