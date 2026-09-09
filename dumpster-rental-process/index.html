@@ -10,10 +10,42 @@
     gtag('js', new Date());
     gtag('config', 'AW-18264252114');
     gtag('config', 'G-GYJ54HB3FE');
-    /* Google Ads call tracking. Swaps the displayed number for a Google forwarding
-       number on Google Ads visits so real calls (60s+) are counted against the
-       "Call (8324257749)" action. Silent no-op for everyone else. */
-    gtag('config', 'AW-18264252114/boQkCKjlqMscENK9iYVE', {'phone_conversion_number': '832-425-7749'});
+    /* Google Ads call tracking, split by product line.
+       Each campaign stamps its own ?src= on the landing URL. We persist that for
+       the visit and fire the matching call conversion label, so a call from a
+       20-yard search is counted separately from a 14-yard or a junk-removal one.
+
+       Exactly ONE label fires per page load. Two forwarding-number configs would
+       compete to swap the same displayed number, and the working call tracking is
+       the only reliable conversion signal on this site -- not worth risking.
+
+       With no ?src= (organic, direct, untagged campaigns) this falls back to the
+       original account-wide label, so behaviour is unchanged until the campaigns
+       are actually tagged. */
+    (function(){
+      var LABELS = {
+        '14yd': 'AW-18264252114/uyJWCMfOmvIcENK9iYVE',
+        '20yd': 'AW-18264252114/7PfICJjQvPIcENK9iYVE',
+        'junk': 'AW-18264252114/yh6aCImtuvIcENK9iYVE'
+      };
+      var FALLBACK = 'AW-18264252114/boQkCKjlqMscENK9iYVE';
+      var KEY = 'hl_line';
+
+      function readLine(){
+        try { return sessionStorage.getItem(KEY) || ''; } catch (e) { return ''; }
+      }
+      function writeLine(v){
+        try { sessionStorage.setItem(KEY, v); } catch (e) {}
+      }
+
+      var line = '';
+      try { line = new URLSearchParams(window.location.search).get('src') || ''; }
+      catch (e) {}
+
+      if (LABELS[line]) { writeLine(line); } else { line = readLine(); }
+
+      gtag('config', LABELS[line] || FALLBACK, {'phone_conversion_number': '832-425-7749'});
+    })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How Our Dumpster Rental Works | H&amp;L | League City, TX</title>
