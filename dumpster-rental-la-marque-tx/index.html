@@ -419,7 +419,6 @@
           <a href="/dumpster-rental-santa-fe-tx/">Santa Fe</a>
           <a href="/dumpster-rental-dickinson-tx/">Dickinson</a>
           <a href="/dumpster-rental-kemah-tx/">Kemah</a>
-          <a href="/dumpster-rental-galveston-tx/">Galveston</a>
           <a href="/dumpster-rental-league-city-tx/">League City</a>
           <a href="/dumpster-rental-seabrook-tx/">Seabrook</a>
           <a href="/dumpster-rental-webster-tx/">Webster</a>
@@ -545,14 +544,18 @@
           extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
           btn.setAttribute('href', href + extra);
 
-          if (typeof gtag === 'function') {
-            btn.addEventListener('click', function(){
+          btn.addEventListener('click', function(){
+            /* Prove this visitor really did hand off to the storefront.
+               /booking-confirmed/ counts an order ONLY when this is present, so a
+               bookmark, a refresh or a stray direct hit records nothing. */
+            writeStored('hl_checkout', String(Date.now()));
+            if (typeof gtag === 'function') {
               gtag('event', 'begin_checkout', {
                 'send_to': 'G-GYJ54HB3FE',
                 'link_url': btn.getAttribute('href')
               });
-            });
-          }
+            }
+          });
         }
       );
     })();

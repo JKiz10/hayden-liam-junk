@@ -607,7 +607,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
     <div class="reveal-scale d1">
       <p class="ba-item-label">Job 01</p>
       <div class="ba-slider" data-ba-slider>
-        <picture><source srcset="images/before1.webp" type="image/webp" /><img class="ba-before" src="images/before1.jpg" alt="Before junk removal, Job 1" width="1050" height="1400" loading="lazy" /></picture>
+        <picture><source srcset="images/before1.webp" type="image/webp" /><img class="ba-before" src="images/before1.jpg" alt="Before junk removal, Job 1" width="1050" height="1400" loading="eager" fetchpriority="high" /></picture>
         <picture><source srcset="images/after1.webp" type="image/webp" /><img class="ba-after" src="images/after1.jpg" alt="After junk removal, Job 1" width="1050" height="1400" loading="lazy" /></picture>
         <div class="ba-divider"></div>
         <div class="ba-handle" aria-label="Drag to compare before and after">
@@ -950,14 +950,18 @@ body:has(.hl-ann-bar) .nav{top:40px;}
           extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
           btn.setAttribute('href', href + extra);
 
-          if (typeof gtag === 'function') {
-            btn.addEventListener('click', function(){
+          btn.addEventListener('click', function(){
+            /* Prove this visitor really did hand off to the storefront.
+               /booking-confirmed/ counts an order ONLY when this is present, so a
+               bookmark, a refresh or a stray direct hit records nothing. */
+            writeStored('hl_checkout', String(Date.now()));
+            if (typeof gtag === 'function') {
               gtag('event', 'begin_checkout', {
                 'send_to': 'G-GYJ54HB3FE',
                 'link_url': btn.getAttribute('href')
               });
-            });
-          }
+            }
+          });
         }
       );
     })();

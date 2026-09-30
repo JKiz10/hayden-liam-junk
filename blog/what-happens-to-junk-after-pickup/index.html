@@ -106,7 +106,7 @@
           { "@type": "Question", "name": "Does H&L actually donate and recycle, or does it all go to the dump?", "acceptedAnswer": { "@type": "Answer", "text": "Hi, we genuinely sort it. Usable furniture and household goods go to local donation partners, metal and appliances go to recycling, electronics go to e-waste handling, and green waste is processed separately. Only what truly cannot be reused or recycled goes to responsible disposal. The landfill is our last option, not our default." } },
           { "@type": "Question", "name": "Can you take my old refrigerator or freezer with Freon in it?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Refrigerators, freezers, and some AC units contain refrigerant that has to be handled properly, and we know how to deal with it. You do not have to prep anything or worry about the rules. Just point at the appliance and we will take care of it. Call or text 832-425-7749 for a free quote." } },
           { "@type": "Question", "name": "Will you haul away mattresses and old furniture?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Mattresses are excluded from a lot of normal municipal disposal, so they need dedicated handling, and we take care of that. Furniture in usable shape we try to donate, and anything too worn gets recycled or disposed of responsibly. You do not have to sort out what qualifies. We do that part." } },
-          { "@type": "Question", "name": "What areas around League City do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "We are based in League City, TX and serve Galveston County plus south Harris County, including Clear Lake, Friendswood, Webster, Dickinson, Texas City, Galveston, Seabrook, Kemah, Nassau Bay, Pearland, and La Marque. We are fully insured and every quote is free. Reach us at 832-425-7749." } }
+          { "@type": "Question", "name": "What areas around League City do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "We are based in League City, TX and serve Galveston County plus south Harris County, including Clear Lake, Friendswood, Webster, Dickinson, Texas City, Seabrook, Kemah, Nassau Bay, Pearland, and La Marque. We are fully insured and every quote is free. Reach us at 832-425-7749." } }
         ]
       }
     ]
@@ -164,7 +164,7 @@
           <h2>What Actually Ends Up at the Landfill</h2>
           <p>We will be honest with you. Not everything can be saved. Some items are too broken, too dirty, or made of materials that cannot be reused or recycled. Those things do go to responsible disposal, because that is where they belong.</p><p>The point is that the landfill is the last option, not the default. We start by asking what can be donated, what can be recycled, and what can be processed separately, and only then does the rest go to disposal. That order is the whole difference between hauling junk and actually handling it responsibly.</p>
           <h2>Book a Free Quote With H&L</h2>
-          <p>Hi, if you have a garage, a rental, an office, or a yard full of stuff and you want it gone the responsible way, we can help. H&L Junk Removal and Hauling Solutions serves League City and the surrounding Galveston County and south Harris County communities, including Clear Lake, Friendswood, Webster, Dickinson, Texas City, Galveston, Seabrook, Kemah, Nassau Bay, Pearland, and La Marque.</p><p>We are fully insured, our Google reviews sit at a solid 5.0, and three owners do the actual labor, so you get people who care about the job. Call or text us at 832-425-7749 for a free quote. No pressure, no surprise anything, just an honest answer on getting your junk hauled and handled the right way.</p>
+          <p>Hi, if you have a garage, a rental, an office, or a yard full of stuff and you want it gone the responsible way, we can help. H&L Junk Removal and Hauling Solutions serves League City and the surrounding Galveston County and south Harris County communities, including Clear Lake, Friendswood, Webster, Dickinson, Texas City, Seabrook, Kemah, Nassau Bay, Pearland, and La Marque.</p><p>We are fully insured, our Google reviews sit at a solid 5.0, and three owners do the actual labor, so you get people who care about the job. Call or text us at 832-425-7749 for a free quote. No pressure, no surprise anything, just an honest answer on getting your junk hauled and handled the right way.</p>
         </article>
       </div>
     </section>
@@ -188,7 +188,7 @@
           </details>
           <details>
             <summary>What areas around League City do you serve?</summary>
-            <p>We are based in League City, TX and serve Galveston County plus south Harris County, including Clear Lake, Friendswood, Webster, Dickinson, Texas City, Galveston, Seabrook, Kemah, Nassau Bay, Pearland, and La Marque. We are fully insured and every quote is free. Reach us at 832-425-7749.</p>
+            <p>We are based in League City, TX and serve Galveston County plus south Harris County, including Clear Lake, Friendswood, Webster, Dickinson, Texas City, Seabrook, Kemah, Nassau Bay, Pearland, and La Marque. We are fully insured and every quote is free. Reach us at 832-425-7749.</p>
           </details>
         </div>
       </div>
@@ -330,14 +330,18 @@
           extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
           btn.setAttribute('href', href + extra);
 
-          if (typeof gtag === 'function') {
-            btn.addEventListener('click', function(){
+          btn.addEventListener('click', function(){
+            /* Prove this visitor really did hand off to the storefront.
+               /booking-confirmed/ counts an order ONLY when this is present, so a
+               bookmark, a refresh or a stray direct hit records nothing. */
+            writeStored('hl_checkout', String(Date.now()));
+            if (typeof gtag === 'function') {
               gtag('event', 'begin_checkout', {
                 'send_to': 'G-GYJ54HB3FE',
                 'link_url': btn.getAttribute('href')
               });
-            });
-          }
+            }
+          });
         }
       );
     })();
