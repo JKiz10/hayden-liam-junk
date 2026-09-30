@@ -724,3 +724,11 @@ main li a:not([class]):hover,
   .qbook-shop { transition: none; }
   .qbook-shop:hover { transform: none; }
 }
+
+/* ---- Size-comparison figure (both cans, crew member for scale) ---- */
+.size-compare { margin: 0 auto; max-width: 1140px; }
+.size-compare img { display: block; width: 100%; height: auto; border-radius: 14px;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.5); }
+.size-compare figcaption { margin-top: 14px; font-size: 0.95rem; line-height: 1.6;
+  color: rgba(255,255,255,0.68); max-width: 760px; }
+.size-compare figcaption strong { color: var(--white); font-weight: 600; }
