@@ -77,7 +77,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
-  <link rel="stylesheet" href="/city.css?v=7" />
+  <link rel="stylesheet" href="/city.css?v=8" />
 
   <script type="application/ld+json">
 {
@@ -270,6 +270,29 @@
     <p class="price-tag" style="display:inline-block;margin:6px 0 22px;padding:12px 20px;border:1px solid rgba(255,255,255,0.28);border-radius:8px;font-family:'Oswald',sans-serif;font-size:1.02rem;letter-spacing:0.03em;line-height:1.5;"><span style="font-size:0.74rem;color:rgba(255,255,255,0.58);letter-spacing:0.12em;text-transform:uppercase;">14-Yard</span> <strong style="color:#fff;font-size:1.2em;">$365</strong> / 1 day &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$399</strong> / 3 days &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$525</strong> / 7 days<br /><span style="font-size:0.74rem;color:rgba(255,255,255,0.58);letter-spacing:0.12em;text-transform:uppercase;">20-Yard &middot; Most Room</span> <strong style="color:#fff;font-size:1.2em;">$500</strong> / 1 day &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$550</strong> / 3 days &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$650</strong> / 7 days<br /><span style="font-size:0.82rem;color:rgba(255,255,255,0.66);letter-spacing:0.06em;">same 14 ft footprint &middot; delivered &amp; hauled &middot; fully insured</span></p>
   </div>
 </header>
+
+    <!-- Size comparison. Lazy here, unlike /book/: the hero text is the LCP on a
+         city page, so this must not sit on the critical path. -->
+    <section style="padding-top:0;">
+      <div class="container">
+        <figure class="size-compare">
+          <picture>
+            <source type="image/webp"
+                    srcset="/images/work/hl-two-sizes-city-1024.webp 1024w,
+                            /images/work/hl-two-sizes-city-1600.webp 1600w"
+                    sizes="(max-width: 1180px) 100vw, 1140px" />
+            <img src="/images/work/hl-two-sizes-city-1600.jpg"
+                 srcset="/images/work/hl-two-sizes-city-1024.jpg 1024w,
+                         /images/work/hl-two-sizes-city-1600.jpg 1600w"
+                 sizes="(max-width: 1180px) 100vw, 1140px"
+                 width="2560" height="1440" loading="lazy" decoding="async"
+                 alt="14-yard and 20-yard roll-off dumpsters with a 6 ft crew member for scale, Friendswood TX" />
+          </picture>
+          <figcaption>Both sizes, one footprint. The crew member standing there is <strong>6 ft tall</strong>, which is the quickest way to judge what will fit a Friendswood drive.</figcaption>
+        </figure>
+      </div>
+    </section>
+
 
   <section class="qbook" id="quick-book" aria-labelledby="qbookH">
     <div class="container">
