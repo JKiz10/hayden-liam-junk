@@ -126,6 +126,13 @@
   .shop-panel p{color:rgba(255,255,255,0.75);margin-bottom:26px;}
   .shop-panel .hero-ctas{justify-content:center;}
   .shop-trust{margin-top:20px;font-size:0.9rem;color:rgba(255,255,255,0.6);}
+  /* ---- Size comparison figure ---- */
+  .size-compare{margin:0 auto;max-width:1140px;}
+  .size-compare img{display:block;width:100%;height:auto;border-radius:14px;
+    box-shadow:0 18px 44px rgba(0,0,0,0.5);}
+  .size-compare figcaption{margin-top:14px;font-size:0.95rem;line-height:1.6;
+    color:rgba(255,255,255,0.68);max-width:760px;}
+  .size-compare figcaption strong{color:var(--white);font-weight:600;}
   </style>
 </head>
 <body>
@@ -160,6 +167,32 @@
         <p class="hero-trust"><strong>Fully insured</strong> &middot; 5.0&#9733; on Google &middot; Delivered &amp; hauled &middot; Fill it to the top</p>
       </div>
     </header>
+
+    <!-- Size comparison. Both cans, shot together, with a crew member for scale.
+         Eager + high priority: it sits directly under the hero on the Ads landing
+         page, so it is very likely the LCP element. srcset keeps a phone on the
+         105 KB variant. -->
+    <section style="padding-top:0;">
+      <div class="container">
+        <figure class="size-compare">
+          <picture>
+            <source type="image/webp"
+                    srcset="/images/work/hl-two-sizes-1024.webp 1024w,
+                            /images/work/hl-two-sizes-1600.webp 1600w"
+                    sizes="(max-width: 1180px) 100vw, 1140px" />
+            <img src="/images/work/hl-two-sizes-1600.jpg"
+                 srcset="/images/work/hl-two-sizes-1024.jpg 1024w,
+                         /images/work/hl-two-sizes-1600.jpg 1600w"
+                 sizes="(max-width: 1180px) 100vw, 1140px"
+                 width="2560" height="1440" loading="eager" fetchpriority="high" decoding="async"
+                 alt="H&amp;L 14-yard and 20-yard roll-off dumpsters side by side at the Pearland yard, with a crew member who is 6 ft tall standing beside them for scale" />
+          </picture>
+          <figcaption>Both cans, same driveway. The crew member standing beside them is
+          <strong>6 ft tall</strong>, so you can judge the size for yourself. The 20-yard on the
+          right has taller walls but takes up no more room than the 14-yard.</figcaption>
+        </figure>
+      </div>
+    </section>
 
     <section>
       <div class="container">
