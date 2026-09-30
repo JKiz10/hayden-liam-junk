@@ -313,7 +313,7 @@
     <section>
   <div class="wrap">
     <h2 class="section-title">More Cities We Drop Roll-Offs In</h2>
-    <p>We also drop roll-offs in <a href="/dumpster-rental-webster-tx/">Webster</a>, <a href="/dumpster-rental-seabrook-tx/">Seabrook</a>, <a href="/dumpster-rental-kemah-tx/">Kemah</a>, <a href="/dumpster-rental-friendswood-tx/">Friendswood</a>, <a href="/dumpster-rental-galveston-tx/">Galveston</a>, <a href="/dumpster-rental-alvin-tx/">Alvin</a>, <a href="/dumpster-rental-santa-fe-tx/">Santa Fe</a>, <a href="/dumpster-rental-la-marque-tx/">La Marque</a>. Not sure we reach you? Call or text 832-425-7749 and we will tell you straight.</p>
+    <p>We also drop roll-offs in <a href="/dumpster-rental-webster-tx/">Webster</a>, <a href="/dumpster-rental-seabrook-tx/">Seabrook</a>, <a href="/dumpster-rental-kemah-tx/">Kemah</a>, <a href="/dumpster-rental-friendswood-tx/">Friendswood</a>, <a href="/dumpster-rental-alvin-tx/">Alvin</a>, <a href="/dumpster-rental-santa-fe-tx/">Santa Fe</a>, <a href="/dumpster-rental-la-marque-tx/">La Marque</a>. Not sure we reach you? Call or text 832-425-7749 and we will tell you straight.</p>
   </div>
 </section>
 
@@ -479,14 +479,18 @@
           extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
           btn.setAttribute('href', href + extra);
 
-          if (typeof gtag === 'function') {
-            btn.addEventListener('click', function(){
+          btn.addEventListener('click', function(){
+            /* Prove this visitor really did hand off to the storefront.
+               /booking-confirmed/ counts an order ONLY when this is present, so a
+               bookmark, a refresh or a stray direct hit records nothing. */
+            writeStored('hl_checkout', String(Date.now()));
+            if (typeof gtag === 'function') {
               gtag('event', 'begin_checkout', {
                 'send_to': 'G-GYJ54HB3FE',
                 'link_url': btn.getAttribute('href')
               });
-            });
-          }
+            }
+          });
         }
       );
     })();

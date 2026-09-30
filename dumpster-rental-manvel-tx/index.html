@@ -226,7 +226,7 @@
         <span class="section-label">The Real Thing</span>
         <h2 class="section-title">This Is the Can You Get</h2>
         <p class="lead">No stock photo. This is our 14-yard roll-off, loaded up and headed out to a job.</p>
-        <video src="/images/work/dumpster-clip.mp4" poster="/images/work/dumpster-clip-poster.jpg" muted loop autoplay playsinline preload="metadata" aria-label="H&amp;L 14-yard roll-off dumpster on the trailer, ready to deliver to a Manvel, TX job" style="width:100%;max-width:400px;border-radius:14px;margin:22px auto 0;box-shadow:0 12px 40px rgba(0,0,0,0.5);"></video>
+        <video src="/images/work/dumpster-clip.mp4" poster="/images/work/dumpster-clip-poster.jpg" muted loop playsinline preload="none" aria-label="H&amp;L 14-yard roll-off dumpster on the trailer, ready to deliver to a Manvel, TX job" style="width:100%;max-width:400px;border-radius:14px;margin:22px auto 0;box-shadow:0 12px 40px rgba(0,0,0,0.5);"></video>
       </div>
     </section>
 
@@ -530,14 +530,18 @@
           extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
           btn.setAttribute('href', href + extra);
 
-          if (typeof gtag === 'function') {
-            btn.addEventListener('click', function(){
+          btn.addEventListener('click', function(){
+            /* Prove this visitor really did hand off to the storefront.
+               /booking-confirmed/ counts an order ONLY when this is present, so a
+               bookmark, a refresh or a stray direct hit records nothing. */
+            writeStored('hl_checkout', String(Date.now()));
+            if (typeof gtag === 'function') {
               gtag('event', 'begin_checkout', {
                 'send_to': 'G-GYJ54HB3FE',
                 'link_url': btn.getAttribute('href')
               });
-            });
-          }
+            }
+          });
         }
       );
     })();

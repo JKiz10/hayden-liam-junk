@@ -508,14 +508,18 @@
           extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
           btn.setAttribute('href', href + extra);
 
-          if (typeof gtag === 'function') {
-            btn.addEventListener('click', function(){
+          btn.addEventListener('click', function(){
+            /* Prove this visitor really did hand off to the storefront.
+               /booking-confirmed/ counts an order ONLY when this is present, so a
+               bookmark, a refresh or a stray direct hit records nothing. */
+            writeStored('hl_checkout', String(Date.now()));
+            if (typeof gtag === 'function') {
               gtag('event', 'begin_checkout', {
                 'send_to': 'G-GYJ54HB3FE',
                 'link_url': btn.getAttribute('href')
               });
-            });
-          }
+            }
+          });
         }
       );
     })();

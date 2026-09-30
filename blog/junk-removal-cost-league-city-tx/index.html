@@ -164,7 +164,7 @@
           <h2>How the free quote process works</h2>
           <p>Getting a price from H&L is easy and there is never a charge to ask. Here is how it goes:</p><ul><li><strong>Reach out.</strong> Call or text us at 832-425-7749 and tell us what you need gone.</li><li><strong>Share the details.</strong> Send a few photos or describe the pile. That is often all we need.</li><li><strong>Get your honest quote.</strong> We give you a clear price up front, before any work starts.</li><li><strong>You decide.</strong> If it works for you, we schedule it. If not, no hard feelings.</li></ul><p>On the day of the job, we show up and load everything. You point, we haul. Because we are <strong>fully insured</strong>, you and your property are protected the whole time.</p>
           <h2>Why choose a local, fully insured crew</h2>
-          <p>Plenty of folks with a truck will offer to haul your junk. Not all of them carry insurance, and that gap can land on you if something goes wrong on your property.</p><p>H&L is <strong>fully insured</strong> and based right here in League City. We serve League City, Clear Lake, Friendswood, Webster, Dickinson, Texas City, Galveston, Seabrook, Kemah, Nassau Bay, Pearland, La Marque, and the surrounding areas. We know this community, and our Google reviews reflect it. When Hurricane Beryl left debris across the county, neighbors leaned on local crews like ours to clean up. We take that trust seriously.</p><p>Property managers, apartments, HOAs, realtors, and estate-sale companies count on us for reliable cleanouts too. If you need junk gone, we are ready.</p>
+          <p>Plenty of folks with a truck will offer to haul your junk. Not all of them carry insurance, and that gap can land on you if something goes wrong on your property.</p><p>H&L is <strong>fully insured</strong> and based right here in League City. We serve League City, Clear Lake, Friendswood, Webster, Dickinson, Texas City, Seabrook, Kemah, Nassau Bay, Pearland, La Marque, and the surrounding areas. We know this community, and our Google reviews reflect it. When Hurricane Beryl left debris across the county, neighbors leaned on local crews like ours to clean up. We take that trust seriously.</p><p>Property managers, apartments, HOAs, realtors, and estate-sale companies count on us for reliable cleanouts too. If you need junk gone, we are ready.</p>
         </article>
       </div>
     </section>
@@ -330,14 +330,18 @@
           extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
           btn.setAttribute('href', href + extra);
 
-          if (typeof gtag === 'function') {
-            btn.addEventListener('click', function(){
+          btn.addEventListener('click', function(){
+            /* Prove this visitor really did hand off to the storefront.
+               /booking-confirmed/ counts an order ONLY when this is present, so a
+               bookmark, a refresh or a stray direct hit records nothing. */
+            writeStored('hl_checkout', String(Date.now()));
+            if (typeof gtag === 'function') {
               gtag('event', 'begin_checkout', {
                 'send_to': 'G-GYJ54HB3FE',
                 'link_url': btn.getAttribute('href')
               });
-            });
-          }
+            }
+          });
         }
       );
     })();

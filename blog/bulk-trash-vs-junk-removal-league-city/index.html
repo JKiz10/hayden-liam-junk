@@ -106,7 +106,7 @@
           { "@type": "Question", "name": "Is bulk trash pickup free in League City?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. AmeriWaste heavy trash is included with your City of League City service and runs on both of your regular collection days. You just have to haul everything to the curb yourself and follow their size and item rules. When items are too heavy, restricted, or inside the home, a full-service crew like H&L handles what curbside cannot. Text 832-425-7749 for a free quote." } },
           { "@type": "Question", "name": "Will League City bulk trash take my old refrigerator or mattress?", "acceptedAnswer": { "@type": "Answer", "text": "Not without extra steps. Refrigerators and cooling appliances need their Freon drained by a licensed HVAC tech or plumber, tagged with the license number, before AmeriWaste will collect them, and mattresses are excluded from normal municipal disposal. H&L is fully insured and takes both, along with the lifting. Call or text 832-425-7749 for a free quote." } },
           { "@type": "Question", "name": "What is the difference between bulk trash and junk removal?", "acceptedAnswer": { "@type": "Answer", "text": "Bulk trash is a free curbside service where you do the hauling and wait for your scheduled day, with real limits on what qualifies. Junk removal is full-service. We come inside, do the lifting, work on your timeline, and take restricted items curbside will not. Bulk trash suits light, curb-legal loads. Junk removal handles the rest." } },
-          { "@type": "Question", "name": "Do you serve areas outside League City?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. H&L covers Galveston County and south Harris County, including Clear Lake, Friendswood, Webster, Dickinson, Texas City, Galveston, Seabrook, Kemah, Nassau Bay, Pearland, and La Marque. We are fully insured and offer free quotes. Call or text 832-425-7749 and we will let you know if your address is in our area." } }
+          { "@type": "Question", "name": "Do you serve areas outside League City?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. H&L covers Galveston County and south Harris County, including Clear Lake, Friendswood, Webster, Dickinson, Texas City, Seabrook, Kemah, Nassau Bay, Pearland, and La Marque. We are fully insured and offer free quotes. Call or text 832-425-7749 and we will let you know if your address is in our area." } }
         ]
       }
     ]
@@ -162,7 +162,7 @@
           <h2>Who This Matters Most For</h2>
           <p>For homeowners, either path can work depending on the load. For the folks we work with most, junk removal is usually the only path that actually fits the job:</p><ul><li><strong>Property managers and apartments</strong> turning units on tight timelines between tenants.</li><li><strong>HOAs</strong> clearing common areas and post-storm debris after events like Hurricane Beryl.</li><li><strong>REO, foreclosure, and realtors</strong> who need a property emptied and photo-ready fast.</li><li><strong>Storage facilities and estate-sale companies</strong> clearing out what is left behind.</li><li><strong>Contractors</strong> with remodel debris that AmeriWaste is not required to take.</li></ul><p>These jobs almost never fit inside curbside rules, and the timing rarely lines up with a zone day. That is exactly the gap H&L fills across League City and Galveston County.</p>
           <h2>Get a Free Quote</h2>
-          <p>Not sure which side of the line your pile falls on? Send us a quick text with a photo and we will tell you straight. If bulk trash covers it, we will say so. If it does not, we will get you a free quote on the spot.</p><p>H&L Junk Removal and Hauling Solutions is local, fully insured, and 5.0 stars on Google. Call or text us at <strong>832-425-7749</strong> for a free quote anywhere in League City, Clear Lake, Friendswood, Galveston, and across Galveston County. No pressure, no runaround, just a real answer.</p>
+          <p>Not sure which side of the line your pile falls on? Send us a quick text with a photo and we will tell you straight. If bulk trash covers it, we will say so. If it does not, we will get you a free quote on the spot.</p><p>H&L Junk Removal and Hauling Solutions is local, fully insured, and 5.0 stars on Google. Call or text us at <strong>832-425-7749</strong> for a free quote anywhere in League City, Clear Lake, Friendswood, and across Galveston County. No pressure, no runaround, just a real answer.</p>
         </article>
       </div>
     </section>
@@ -186,7 +186,7 @@
           </details>
           <details>
             <summary>Do you serve areas outside League City?</summary>
-            <p>Yes. H&L covers Galveston County and south Harris County, including Clear Lake, Friendswood, Webster, Dickinson, Texas City, Galveston, Seabrook, Kemah, Nassau Bay, Pearland, and La Marque. We are fully insured and offer free quotes. Call or text 832-425-7749 and we will let you know if your address is in our area.</p>
+            <p>Yes. H&L covers Galveston County and south Harris County, including Clear Lake, Friendswood, Webster, Dickinson, Texas City, Seabrook, Kemah, Nassau Bay, Pearland, and La Marque. We are fully insured and offer free quotes. Call or text 832-425-7749 and we will let you know if your address is in our area.</p>
           </details>
         </div>
       </div>
@@ -328,14 +328,18 @@
           extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
           btn.setAttribute('href', href + extra);
 
-          if (typeof gtag === 'function') {
-            btn.addEventListener('click', function(){
+          btn.addEventListener('click', function(){
+            /* Prove this visitor really did hand off to the storefront.
+               /booking-confirmed/ counts an order ONLY when this is present, so a
+               bookmark, a refresh or a stray direct hit records nothing. */
+            writeStored('hl_checkout', String(Date.now()));
+            if (typeof gtag === 'function') {
               gtag('event', 'begin_checkout', {
                 'send_to': 'G-GYJ54HB3FE',
                 'link_url': btn.getAttribute('href')
               });
-            });
-          }
+            }
+          });
         }
       );
     })();
