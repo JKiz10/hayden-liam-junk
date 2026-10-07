@@ -145,7 +145,85 @@
   .price-row dd{margin:0;font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:600;color:#fff;}
   .price-card-note{margin:10px 0 0;font-size:0.9rem;line-height:1.5;color:rgba(255,255,255,0.7);}
   .price-whole{margin:16px 0 22px;max-width:760px;font-size:0.95rem;line-height:1.6;color:rgba(255,255,255,0.8);}
+  /* ---- No-Scale Rate panel + spelled-out click ---- */
+  .nofee-sub{font-family:'Oswald',sans-serif;font-size:1.15rem;letter-spacing:0.04em;text-transform:uppercase;color:#fff;margin:30px 0 10px;}
+  .book-steps{margin:18px 0 0;padding-left:1.3em;max-width:640px;font-size:0.95rem;line-height:1.6;color:rgba(255,255,255,0.8);}
+  .book-steps li{margin:4px 0;}
+  .book-steps strong{color:#fff;font-weight:600;}
+  .shop-panel .book-steps{text-align:left;margin:20px auto 0;}
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the price on this page really the whole price?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The 14-yard is $365 for a day or the weekend, $399 for three days, and $525 for a week. The 20-yard is $500, $550, or $650. Drop-off, your rental days, and haul-off are all inside that number. We do not own a scale, because our landfill bills us by the yard, so there is no weight or tonnage fee. The only other charges that can apply are $20 for each extra day and $50 if you cancel inside 24 hours, and both are written out in our rental terms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will it show up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick your day in the storefront and we text you to confirm the day and drop-off time. Both trailers are kept at our Pearland yard, so same-day and next-day are often open nearby. If your day is already taken, we tell you straight away and work out the closest open day with you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will it damage my driveway?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We lay boards down before the dumpster touches your concrete, and we are fully insured. Both sizes take the same spot, about 14 ft long and 7 ft wide, so a standard two-car driveway holds either one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which size do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both sizes take the same 14 by 7 ft spot; the 20-yard just has taller sides. One room of remodel debris or a garage cleanout usually fits the 14-yard. A whole-house clear-out, flooring from several rooms, or a job where you are already worried about running out calls for the 20-yard. If you are between sizes, take the 20: running out halfway costs more than the difference. Text us a photo and we will tell you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I put shingles, concrete, or dirt in it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and heavy loads are where the No-Scale Rate saves you the most, because that is what gets hit with per-ton fees elsewhere. Heavy material reaches a safe towing weight before the dumpster looks full, so text us before you load it and we will tell you where to stop. That limit is about safety. It does not change your price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my project runs long?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Text us before your pickup day. Extra days are $20 each when the dumpster is not already booked for the next driveway, but it often is, so book the rental length the job really needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I need to cancel or move my date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Moving your date is free with more than 24 hours of notice. If you cancel inside 24 hours of a confirmed drop-off, $50 is kept and the rest comes back. It is all in our rental terms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who are you?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three local owners running out of a yard in Pearland. The people you text are the people who drop off and pick up your dumpster. We are fully insured and rated 4.9 stars from 27 Google reviews."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -223,6 +301,12 @@
           <a href="tel:8324257749" class="btn-outline">Call or Text 832-425-7749</a>
         </div>
         <p class="hero-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google (27 reviews) &middot; Delivered &amp; hauled &middot; Fill it to the top</p>
+        <ol class="book-steps" aria-label="What happens when you click">
+          <li><strong>Enter your name, email, and phone.</strong> The storefront opens in a new tab and asks for these first.</li>
+          <li><strong>Pick your size and dates.</strong> Your total shows before you pay anything.</li>
+          <li><strong>Pay securely by card.</strong></li>
+          <li><strong>We text you</strong> to lock in your drop-off time, then set it on boards on your driveway.</li>
+        </ol>
       </div>
     </header>
 
@@ -230,16 +314,20 @@
     <div class="wrap">
       <span class="section-label">No Surprise Bill</span>
       <h2 class="nofee-hook" id="nofeeH">We do not own a <strong>scale</strong>.</h2>
-      <p class="lead">Most roll-off companies around Houston quote a low number that quietly carries a weight allowance, usually about 3 tons, then bill $75 to $95 for every ton you go over it. Our landfill charges us by the yard instead of by the ton, so we have nothing to pass along to you. Fill it to the rail and the price does not move. Whichever size and term you pick in the storefront, that is the number. There is no weight fee waiting for you at the end of it.</p>
 
+      <h3 class="nofee-sub">Why roll-off bills jump after the dumpster is gone</h3>
+      <p class="lead">Most roll-off companies around Houston pay their landfill by the ton, so they have to weigh what you throw away. The price you see online carries a weight allowance, usually about 3 tons, and every ton over it runs $75 to $95. Nobody can weigh a pile of drywall and shingles standing in their own driveway, so you load it, they haul it, and the overage bill shows up after the dumpster is gone.</p>
+
+      <h3 class="nofee-sub">Why ours can&rsquo;t</h3>
+      <p class="lead">Our landfill bills us by the cubic yard, not by the ton. A full dumpster costs us the same whether it holds couch cushions or roof shingles, so there is no weight cost for us to pass on: no scale, no weigh ticket, and no line for it on your bill. Fill it level with the top rail and the price you booked is the price.</p>
+
+      <h3 class="nofee-sub">We call it the No-Scale Rate.</h3>
       <div class="nofee-ledger">
         <div class="nofee-col">
           <span class="nofee-tag">How most roll-off companies bill</span>
           <p class="nofee-line"><span>Advertised rate</span><span class="nofee-amt">looks like the whole price</span></p>
           <p class="nofee-line"><span>Weight allowance</span><span class="nofee-amt">about 3 tons</span></p>
           <p class="nofee-line"><span>Every ton over that</span><span class="nofee-amt">+$75 to $95</span></p>
-          <p class="nofee-line"><span>Fuel surcharge</span><span class="nofee-amt">+ varies</span></p>
-          <p class="nofee-line"><span>Delivery fee</span><span class="nofee-amt">+ varies</span></p>
           <p class="nofee-foot">You find out the real number after the can is gone.</p>
         </div>
         <div class="nofee-col nofee-col--ours">
@@ -253,6 +341,9 @@
         </div>
       </div>
 
+      <h3 class="nofee-sub">Who it helps most, straight up</h3>
+      <p>If you are tossing light stuff, like furniture, boxes, or a garage cleanout, you will rarely hit anyone&rsquo;s weight allowance, and a company with a lower sticker price may cost you less. The No-Scale Rate pays off on heavy work: roof tear-offs, tile and flooring, broken concrete, and remodel debris. That is where per-ton charges stack up.</p>
+      <p class="nofee-heavy"><strong>Heavy material still has a safe towing limit.</strong> Concrete, brick, dirt, rock, and shingles reach it before the dumpster looks full, so call or text before you load them and we will tell you where to stop. That limit is about safety. It does not change your price.</p>
 
       <div class="nofee-full">
         <h3>Every charge we have, start to finish</h3>
@@ -262,8 +353,6 @@
         </ul>
         <p class="nofee-note">Those two are the whole list, and they are printed here on purpose. A company that hides its fees does not get to say it has none. Both are written out in plain English in our <a href="/terms/">rental terms</a>.</p>
       </div>
-
-      <p class="nofee-heavy"><strong>One straight answer about heavy material.</strong> Concrete, brick, dirt, rock, and shingles hit a safe towing weight before the can is full, so call or text before you start loading those and we will tell you where to stop filling. That is usually concrete or a roof tear-off. That is a safety limit rather than a fee, and it does not change your price.</p>
     </div>
   </section>
 
@@ -279,6 +368,12 @@
             <a href="tel:8324257749" class="btn-outline">Call or Text 832-425-7749</a>
           </div>
           <p class="shop-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google (27 reviews) &middot; Secure online checkout</p>
+            <ol class="book-steps" aria-label="What happens when you click">
+          <li><strong>Enter your name, email, and phone.</strong> The storefront opens in a new tab and asks for these first.</li>
+          <li><strong>Pick your size and dates.</strong> Your total shows before you pay anything.</li>
+          <li><strong>Pay securely by card.</strong></li>
+          <li><strong>We text you</strong> to lock in your drop-off time, then set it on boards on your driveway.</li>
+            </ol>
         </div>
       </div>
     </section>
@@ -289,13 +384,55 @@
         <h2 class="section-title">A Few Things Worth Knowing</h2>
         <div class="svc-grid">
           <div class="svc-card"><h3>Pay Securely Online</h3><p>Pick your size and dates in our online storefront and pay by card at checkout. No calling around, no waiting on a callback.</p></div>
-          <div class="svc-card"><h3>Fill It To The Top</h3><p>No weight limit and no tonnage fee on either size. The only rule is to keep everything level with the top rail, nothing heaped over the sides, so we can haul it safely.</p></div>
+          <div class="svc-card"><h3>Fill It To The Top</h3><p>No weight fee and no tonnage fee on either size. The only rule is to keep everything level with the top rail, nothing heaped over the sides, so we can haul it safely.</p></div>
           <div class="svc-card"><h3>Going Bigger Costs You No Driveway</h3><p>The 14-yard and the 20-yard are both 14 ft long and about 7 ft wide. The 20-yard just has taller sides, so it holds more without taking a foot more room. If you are between sizes, take the 20-yard. Running out of can halfway through a job is the expensive mistake, not the $135 difference.</p></div>
           <div class="svc-card"><h3>Some Things Cannot Go In</h3><p>Tires, batteries, Freon appliances, chemicals, and paint are banned from Texas landfills. <a href="/dumpster-rental-league-city-tx/#prohibited">See the full list</a> before you load.</p></div>
         </div>
         <div class="prose" style="margin-top:34px;">
           <p>Not sure a dumpster is even the right call? If you would rather we did the lifting and hauling, that is our <a href="/">full-service junk removal</a>, and it is quoted per job. Still deciding? Read <a href="/blog/dumpster-rental-vs-junk-removal-league-city/">dumpster rental vs junk removal</a>, or see <a href="/dumpster-rental-process/">how our dumpster rental works</a> start to finish.</p>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="section-label">Ask Us First</span>
+        <h2 class="section-title">Before You Book: Straight Answers</h2>
+        <div class="faq">
+          <details open>
+            <summary>Is the price on this page really the whole price?</summary>
+            <p>Yes. The 14-yard is $365 for a day or the weekend, $399 for three days, and $525 for a week. The 20-yard is $500, $550, or $650. Drop-off, your rental days, and haul-off are all inside that number. We do not own a scale, because our landfill bills us by the yard, so there is no weight or tonnage fee. The only other charges that can apply are $20 for each extra day and $50 if you cancel inside 24 hours, and both are written out in our rental terms.</p>
+          </details>
+          <details>
+            <summary>When will it show up?</summary>
+            <p>Pick your day in the storefront and we text you to confirm the day and drop-off time. Both trailers are kept at our Pearland yard, so same-day and next-day are often open nearby. If your day is already taken, we tell you straight away and work out the closest open day with you.</p>
+          </details>
+          <details>
+            <summary>Will it damage my driveway?</summary>
+            <p>We lay boards down before the dumpster touches your concrete, and we are fully insured. Both sizes take the same spot, about 14 ft long and 7 ft wide, so a standard two-car driveway holds either one.</p>
+          </details>
+          <details>
+            <summary>Which size do I need?</summary>
+            <p>Both sizes take the same 14 by 7 ft spot; the 20-yard just has taller sides. One room of remodel debris or a garage cleanout usually fits the 14-yard. A whole-house clear-out, flooring from several rooms, or a job where you are already worried about running out calls for the 20-yard. If you are between sizes, take the 20: running out halfway costs more than the difference. Text us a photo and we will tell you.</p>
+          </details>
+          <details>
+            <summary>Can I put shingles, concrete, or dirt in it?</summary>
+            <p>Yes, and heavy loads are where the No-Scale Rate saves you the most, because that is what gets hit with per-ton fees elsewhere. Heavy material reaches a safe towing weight before the dumpster looks full, so text us before you load it and we will tell you where to stop. That limit is about safety. It does not change your price.</p>
+          </details>
+          <details>
+            <summary>What if my project runs long?</summary>
+            <p>Text us before your pickup day. Extra days are $20 each when the dumpster is not already booked for the next driveway, but it often is, so book the rental length the job really needs.</p>
+          </details>
+          <details>
+            <summary>What if I need to cancel or move my date?</summary>
+            <p>Moving your date is free with more than 24 hours of notice. If you cancel inside 24 hours of a confirmed drop-off, $50 is kept and the rest comes back. It is all in our rental terms.</p>
+          </details>
+          <details>
+            <summary>Who are you?</summary>
+            <p>Three local owners running out of a yard in Pearland. The people you text are the people who drop off and pick up your dumpster. We are fully insured and rated 4.9 stars from 27 Google reviews.</p>
+          </details>
+        </div>
+        <p style="margin-top:22px;">Rental terms in plain English: <a href="/terms/">read them here</a>.</p>
       </div>
     </section>
 
@@ -317,7 +454,7 @@
             <source srcset="/images/work/hl-2026-09-07-04.webp" type="image/webp" />
             <img src="/images/work/hl-2026-09-07-04.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="14-yard roll-off dumpster loaded level with the top rail with tear-out debris" style="display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px;" />
           </picture>
-          <figcaption style="margin-top:8px;font-size:0.84rem;color:rgba(255,255,255,0.62);line-height:1.45;">Fill it to the rail. No weight limit, no tonnage fee.</figcaption>
+          <figcaption style="margin-top:8px;font-size:0.84rem;color:rgba(255,255,255,0.62);line-height:1.45;">Fill it to the rail. No weight fee, no tonnage fee.</figcaption>
         </figure>
         <figure style="margin:0;">
           <picture>

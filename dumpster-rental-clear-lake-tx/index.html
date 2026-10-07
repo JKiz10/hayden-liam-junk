@@ -210,7 +210,7 @@
           <div class="qbook-price">
             <span class="qbook-price-lead"><strong>$365</strong> <em>1 day</em></span>
             <span class="qbook-price-rest">$365 weekend &middot; $399 / 3 days &middot; $525 / 7 days</span>
-            <span class="qbook-price-note">14-yard rates. The 20-yard is $500 / $550 / $650 for 1, 3, or 7 days. Delivered and hauled. No weight fee, no fuel surcharge, no hidden fees.</span>
+            <span class="qbook-price-note">14-yard rates. The 20-yard is $500 / $550 / $650 for 1, 3, or 7 days. Delivered and hauled. No weight fee, no fuel surcharge, no overage bill after pickup.</span>
           </div>
         </div>
         <a href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="qbook-shop js-shop-online" target="_blank" rel="noopener"><span class="qbook-shop-main">Shop Dumpsters Online</span><span class="qbook-shop-note">Book in less than 5 minutes</span></a>
@@ -225,14 +225,14 @@
       <h2 class="nofee-hook" id="nofeeH">We do not own a <strong>scale</strong>.</h2>
       <p class="lead">Most roll-off companies around Houston quote a low number that quietly carries a weight allowance, usually about 3 tons, then bill $75 to $95 for every ton you go over it. Our landfill charges us by the yard instead of by the ton, so we have nothing to pass along to you. Fill it to the rail and the price does not move. Dock boards, deck planks, and pulled fence panels come out wet and heavy around Clear Lake, and none of that changes what you pay.</p>
 
+      <p class="nofee-name"><strong>We call it the No-Scale Rate.</strong> The roll-off companies that charge by weight do it because their landfill bills them by the ton. Ours bills us by the yard, so a full dumpster costs us the same whether it is couch cushions or roof shingles.</p>
+
       <div class="nofee-ledger">
         <div class="nofee-col">
           <span class="nofee-tag">How most roll-off companies bill</span>
           <p class="nofee-line"><span>Advertised rate</span><span class="nofee-amt">looks like the whole price</span></p>
           <p class="nofee-line"><span>Weight allowance</span><span class="nofee-amt">about 3 tons</span></p>
           <p class="nofee-line"><span>Every ton over that</span><span class="nofee-amt">+$75 to $95</span></p>
-          <p class="nofee-line"><span>Fuel surcharge</span><span class="nofee-amt">+ varies</span></p>
-          <p class="nofee-line"><span>Delivery fee</span><span class="nofee-amt">+ varies</span></p>
           <p class="nofee-foot">You find out the real number after the can is gone.</p>
         </div>
         <div class="nofee-col nofee-col--ours">
@@ -590,5 +590,17 @@
 
   <!-- Always-visible route into the storefront (desktop; mobile uses the sticky bar). -->
   <a href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="shop-fab js-shop-online" target="_blank" rel="noopener" aria-label="Shop dumpsters online. Book in less than 5 minutes."><svg class="shop-fab-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h14.2l-1.9 7.6a2 2 0 0 1-1.9 1.5H8.4a2 2 0 0 1-2-1.6L4.6 4H2V2h4.2l.6 3z" fill="currentColor"/></svg><span>Shop Dumpsters Online<span class="shop-fab-sub">Book in less than 5 minutes</span></span></a>
+  <script>
+    /* Play the dumpster clip only while it is on screen (no autoplay download on load). */
+    document.querySelectorAll('video[src*="dumpster-clip"]').forEach(function (vid) {
+      if (!('IntersectionObserver' in window)) { vid.setAttribute('controls', ''); return; }
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { var p = vid.play(); if (p && p.catch) p.catch(function () { vid.setAttribute('controls', ''); }); }
+          else { vid.pause(); }
+        });
+      }, { threshold: 0.4 }).observe(vid);
+    });
+  </script>
 </body>
 </html>

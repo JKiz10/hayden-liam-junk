@@ -789,3 +789,7 @@ main li a:not([class]):hover,
 /* Review proof directly under Book buttons */
 .hero-ctas + p.cta-proof, .cta-proof { margin: 12px 0 0; font-size: 0.9rem; color: var(--gray-light); letter-spacing: 0.02em; }
 .cta-proof-star { color: #f5b301; }
+
+/* No-Scale Rate naming line in the No Surprise Bill panel */
+.nofee-name { margin: 18px 0 22px; max-width: 760px; font-size: 1rem; line-height: 1.65; color: var(--gray-light); }
+.nofee-name strong { color: var(--white); }
