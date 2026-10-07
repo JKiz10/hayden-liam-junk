@@ -74,7 +74,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
-  <link rel="stylesheet" href="/city.css?v=9" />
+  <link rel="stylesheet" href="/city.css?v=10" />
 
   <script type="application/ld+json">
   {
@@ -126,6 +126,25 @@
   .shop-panel p{color:rgba(255,255,255,0.75);margin-bottom:26px;}
   .shop-panel .hero-ctas{justify-content:center;}
   .shop-trust{margin-top:20px;font-size:0.9rem;color:rgba(255,255,255,0.6);}
+  /* ---- Cans + price grid, high in the hero ---- */
+  .book-show{margin:28px 0 0;}
+  .book-cans{margin:0 0 22px;}
+  @media (min-width:1000px){
+    .book-show{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start;}
+    .book-show .price-cards{grid-template-columns:1fr;}
+    .book-show .price-row{padding:5px 0;}
+    .book-show .price-row dd{font-size:1.3rem;}
+  }
+  .price-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1140px;}
+  .price-card{border:1px solid rgba(255,255,255,0.28);border-radius:12px;padding:18px 20px 16px;background:rgba(255,255,255,0.03);}
+  .price-card-title{font-family:'Oswald',sans-serif;font-size:1.35rem;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 10px;color:#fff;}
+  .price-card-tag{display:inline-block;margin-left:6px;font-size:0.72rem;letter-spacing:0.12em;color:rgba(255,255,255,0.6);vertical-align:middle;}
+  .price-rows{margin:0;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-top:1px solid rgba(255,255,255,0.12);}
+  .price-row dt{font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.65);}
+  .price-row dd{margin:0;font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:600;color:#fff;}
+  .price-card-note{margin:10px 0 0;font-size:0.9rem;line-height:1.5;color:rgba(255,255,255,0.7);}
+  .price-whole{margin:16px 0 22px;max-width:760px;font-size:0.95rem;line-height:1.6;color:rgba(255,255,255,0.8);}
   </style>
 </head>
 <body>
@@ -147,27 +166,18 @@
   <main id="main">
   <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/dumpster-rental-league-city-tx/">Dumpster Rental</a> &rsaquo; <span aria-current="page">Shop Online</span></nav>
 
-    <header class="hero">
+    <header class="hero book-hero">
       <div class="container">
-        <div class="hero-badge"><span class="hero-badge-dot"></span> Fully Insured &middot; League City, TX</div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span> Pearland Yard &middot; <span class="hero-star">&#9733;</span> 4.9 Google</div>
         <p class="hero-kicker">14-Yard &amp; 20-Yard Roll-Off Dumpsters</p>
         <h1>Shop Your Dumpster Online.</h1>
-        <p class="hero-sub">Pick your size and your dates, then pay securely online. We will text you back to lock in your drop-off time. The 14-yard starts at $365 and the 20-yard, our biggest can, starts at $500 and fits the very same driveway spot.</p>
-        <div class="hero-ctas">
-          <a target="_blank" rel="noopener" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="btn-mega js-shop-online"><span class="btn-mega-main">Shop Dumpsters Online</span><span class="btn-mega-note">Book in less than 5 minutes</span></a>
-          <a href="tel:8324257749" class="btn-outline">Call or Text 832-425-7749</a>
-        </div>
-        <p class="hero-trust"><strong>Fully insured</strong> &middot; 5.0&#9733; on Google &middot; Delivered &amp; hauled &middot; Fill it to the top</p>
-      </div>
-    </header>
+        <p class="hero-sub">Here are both of our dumpsters and every price we charge. Pick one, book it online, and we text you back to lock in your drop-off time.</p>
 
-    <!-- Size comparison. Both cans, shot together, with a crew member for scale.
-         Eager + high priority: it sits directly under the hero on the Ads landing
-         page, so it is very likely the LCP element. srcset keeps a phone on the
-         105 KB variant. -->
-    <section style="padding-top:0;">
-      <div class="container">
-        <figure class="size-compare">
+        <!-- Both cans, shot together, with a crew member for scale. Eager + high
+             priority: it is the first image on the Ads landing page and very likely
+             the LCP element. srcset keeps a phone on the 1024 variant. -->
+        <div class="book-show">
+        <figure class="size-compare book-cans">
           <picture>
             <source type="image/webp"
                     srcset="/images/work/hl-two-sizes-1024.webp 1024w,
@@ -178,14 +188,43 @@
                          /images/work/hl-two-sizes-1600.jpg 1600w"
                  sizes="(max-width: 1180px) 100vw, 1140px"
                  width="2560" height="1440" loading="eager" fetchpriority="high" decoding="async"
-                 alt="H&amp;L 14-yard and 20-yard roll-off dumpsters side by side at the Pearland yard, with a crew member who is 6 ft tall standing beside them for scale" />
+                 alt="H&amp;L orange 14-yard and black 20-yard roll-off dumpsters side by side at the Pearland yard, with a crew member who is 6 ft tall standing beside them for scale" />
           </picture>
-          <figcaption>Both cans, same driveway. The crew member standing beside them is
-          <strong>6 ft tall</strong>, so you can judge the size for yourself. The 20-yard on the
-          right has taller walls but takes up no more room than the 14-yard.</figcaption>
+          <figcaption>Our two dumpsters at the Pearland yard. <strong>Orange is the 14-yard, black is the 20-yard.</strong>
+          The crew member is 6 ft tall. Both take the same 14 ft of driveway; the 20-yard just has taller walls.</figcaption>
         </figure>
+
+        <div class="price-cards" aria-label="Dumpster prices">
+          <article class="price-card">
+            <h2 class="price-card-title">14-Yard <span class="price-card-tag">the orange one</span></h2>
+            <dl class="price-rows">
+              <div class="price-row"><dt>1 day</dt><dd>$365</dd></div>
+              <div class="price-row"><dt>Weekend</dt><dd>$365</dd></div>
+              <div class="price-row"><dt>3 days</dt><dd>$399</dd></div>
+              <div class="price-row"><dt>7 days</dt><dd>$525</dd></div>
+            </dl>
+            <p class="price-card-note">The everyday size. The weekend rate is Saturday morning to Sunday night.</p>
+          </article>
+          <article class="price-card">
+            <h2 class="price-card-title">20-Yard <span class="price-card-tag">the black one</span></h2>
+            <dl class="price-rows">
+              <div class="price-row"><dt>1 day</dt><dd>$500</dd></div>
+              <div class="price-row"><dt>3 days</dt><dd>$550</dd></div>
+              <div class="price-row"><dt>7 days</dt><dd>$650</dd></div>
+            </dl>
+            <p class="price-card-note">Same footprint as the 14-yard, taller sides, more room.</p>
+          </article>
+        </div>
+        </div>
+        <p class="price-whole">Every price above is the whole price: drop-off, your rental days, and haul-off. No weight fee. Extra days are $20 each if the schedule allows.</p>
+
+        <div class="hero-ctas">
+          <a target="_blank" rel="noopener" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="btn-mega js-shop-online"><span class="btn-mega-main">Shop Dumpsters Online</span><span class="btn-mega-note">Book in less than 5 minutes</span></a>
+          <a href="tel:8324257749" class="btn-outline">Call or Text 832-425-7749</a>
+        </div>
+        <p class="hero-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google (27 reviews) &middot; Delivered &amp; hauled &middot; Fill it to the top</p>
       </div>
-    </section>
+    </header>
 
   <section class="nofee" aria-labelledby="nofeeH">
     <div class="wrap">
@@ -239,7 +278,7 @@
             <a target="_blank" rel="noopener" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="btn-mega js-shop-online" id="shopOnlineBtn"><span class="btn-mega-main">Shop Dumpsters Online</span><span class="btn-mega-note">Book in less than 5 minutes</span></a>
             <a href="tel:8324257749" class="btn-outline">Call or Text 832-425-7749</a>
           </div>
-          <p class="shop-trust"><strong>Fully insured</strong> &middot; 5.0&#9733; on Google &middot; Secure online checkout</p>
+          <p class="shop-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google (27 reviews) &middot; Secure online checkout</p>
         </div>
       </div>
     </section>
@@ -299,7 +338,7 @@
           <a href="tel:8324257749" class="btn-primary">Call 832-425-7749</a>
           <a href="sms:8324257749" class="btn-outline">Text Us</a>
         </div>
-        <p class="cta-trust"><strong>Fully insured</strong> &middot; 5.0&#9733; on Google &middot; Delivered &amp; hauled &middot; Secure online checkout</p>
+        <p class="cta-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google &middot; Delivered &amp; hauled &middot; Secure online checkout</p>
         <p class="cta-form-link">Want the details first? <a href="/dumpster-rental-league-city-tx/">See dumpster rentals</a> or read our <a href="/terms/">rental terms</a>.</p>
       </div>
     </section>
