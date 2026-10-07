@@ -1902,6 +1902,68 @@
   }
   </script>
   <style id="cro-overrides">
+    
+/* ===== No Surprise Bill campaign ===== */
+.nofee { border-top: 1px solid var(--gray-dark); border-bottom: 1px solid var(--gray-dark); background: var(--dark); }
+.nofee-hook {
+  font-size: clamp(2rem, 1.2rem + 2.8vw, 3.25rem);
+  line-height: 1.04; letter-spacing: -0.025em; font-weight: 200;
+  color: var(--white); margin: 14px 0 20px; max-width: 18em;
+}
+.nofee-hook strong { font-weight: 600; }
+.nofee .lead { max-width: 64ch; }
+
+.nofee-ledger { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; margin: 44px 0 0; }
+.nofee-col {
+  border: 1px solid var(--gray-dark); border-radius: var(--radius);
+  padding: 26px 24px 22px; background: var(--dark2);
+}
+.nofee-col--ours { background: var(--white); border-color: var(--white); box-shadow: 0 18px 44px rgba(0,0,0,0.45); }
+.nofee-tag {
+  display: block; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gray); margin-bottom: 20px; font-weight: 500;
+}
+.nofee-col--ours .nofee-tag { color: var(--gray-mid); }
+.nofee-line {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 18px;
+  margin: 0; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 0.95rem; font-weight: 300; color: var(--gray-light);
+}
+.nofee-col--ours .nofee-line { border-bottom-color: rgba(0,0,0,0.08); color: #3a3a3a; }
+.nofee-amt { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--fee-bad); font-weight: 400; }
+.nofee-col--ours .nofee-amt { color: var(--fee-good); font-weight: 600; }
+.nofee-foot { margin: 20px 0 0; font-size: 0.9rem; font-weight: 300; line-height: 1.6; color: var(--gray); }
+.nofee-col--ours .nofee-foot { color: var(--gray-mid); }
+
+.nofee-full { margin: 40px 0 0; padding: 26px 28px; border: 1px solid var(--gray-dark); border-radius: var(--radius); background: var(--dark2); }
+.nofee-full h3 { margin: 0 0 16px; font-size: 1.1rem; font-weight: 500; color: var(--white); letter-spacing: -0.01em; }
+.nofee-full ul { margin: 0; padding: 0 0 0 1.1em; }
+.nofee-full li { margin: 0 0 10px; color: var(--gray-light); font-weight: 300; font-size: 0.97rem; line-height: 1.65; }
+.nofee-full li strong { color: var(--white); font-weight: 500; }
+.nofee-note { margin: 16px 0 0; font-size: 0.92rem; font-weight: 300; color: var(--gray); }
+.nofee-note a { color: var(--white); border-bottom: 1px solid var(--gray-mid); }
+.nofee-note--link { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--gray-dark); font-size: 0.95rem; line-height: 1.7; max-width: 70ch; }
+.nofee-heavy {
+  margin: 26px 0 0; padding: 18px 20px; border-left: 2px solid var(--gray-mid);
+  font-size: 0.95rem; font-weight: 300; line-height: 1.7; color: var(--gray-light); max-width: 72ch;
+}
+.nofee-heavy strong { color: var(--white); font-weight: 500; }
+
+@media (max-width: 600px) {
+  .nofee-full { padding: 22px 20px; }
+  .nofee-line { font-size: 0.9rem; gap: 12px; }
+}
+
+    /* No Surprise Bill: tokens and wrapper the homepage does not otherwise define */
+    .nofee { --radius: 14px; --fee-bad: #d9736a; --fee-good: #0a7d33; padding: 96px 48px; }
+    .nofee .wrap { max-width: 1200px; margin: 0 auto; }
+    .nofee .lead { color: var(--gray-light); font-weight: 300; font-size: 1.06rem; line-height: 1.75; }
+    .nofee .section-label {
+      display: block; font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gray); font-weight: 500;
+    }
+    @media (max-width: 760px) { .nofee { padding: 64px 22px; } }
+
     /* ===== Paid-traffic conversion layer: call-first hero + form section #2 ===== */
     a.hero-call-num, a.btn-call, a.sticky-call-btn, a.hero-scroll { text-decoration: none; }
 
@@ -2058,7 +2120,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Same-Day Service &middot; Free Quotes &middot; Fully Insured
+        Same-Day Service &middot; No Surprise Fees &middot; Fully Insured
       </div>
       <h1 class="hero-headline">
         <span class="hero-kicker">Same-Day Junk Removal in League City, TX</span>
@@ -2066,7 +2128,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
         <span class="line"><span class="line-inner" id="heroLine2">You Relax.</span></span>
       </h1>
       <p class="hero-sub" id="heroSub">
-        Fully insured junk removal, hauling, and cleanouts for homes and businesses across League City, Galveston County, and Harris County. No job too big or too small, and your quote is always free.
+        Fully insured junk removal, hauling, and cleanouts for homes and businesses across League City, Galveston County, and Harris County. No job too big or too small, your quote is always free, and the number we quote is the number you pay.
       </p>
 
       <div class="hero-call">
@@ -2100,6 +2162,49 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       <div class="hero-scroll-line"></div>
     </a>
   </section>
+
+  <section class="nofee" aria-labelledby="nofeeH">
+    <div class="wrap">
+      <span class="section-label">No Surprise Bill</span>
+      <h2 class="nofee-hook" id="nofeeH">The number we quote is the number you <strong>pay</strong>.</h2>
+      <p class="lead">This is the part of hauling that people have been burned on, so we will be plain about it. Our dumpster rates are flat, with no weight fee and no tonnage fee, because our landfill charges us by the yard instead of by the ton. Our junk removal is quoted on the job in front of us, and that quote holds. Nobody from H&amp;L reprices your work once the truck is in the driveway.</p>
+
+      <div class="nofee-ledger">
+        <div class="nofee-col">
+          <span class="nofee-tag">How most roll-off companies bill</span>
+          <p class="nofee-line"><span>Advertised rate</span><span class="nofee-amt">looks like the whole price</span></p>
+          <p class="nofee-line"><span>Weight allowance</span><span class="nofee-amt">about 3 tons</span></p>
+          <p class="nofee-line"><span>Every ton over that</span><span class="nofee-amt">+$75 to $95</span></p>
+          <p class="nofee-line"><span>Fuel surcharge</span><span class="nofee-amt">+ varies</span></p>
+          <p class="nofee-line"><span>Delivery fee</span><span class="nofee-amt">+ varies</span></p>
+          <p class="nofee-foot">You find out the real number after the can is gone.</p>
+        </div>
+        <div class="nofee-col nofee-col--ours">
+          <span class="nofee-tag">How we bill</span>
+          <p class="nofee-line"><span>The flat rate you booked</span><span class="nofee-amt">the whole price</span></p>
+          <p class="nofee-line"><span>Weight or tonnage fee</span><span class="nofee-amt">$0</span></p>
+          <p class="nofee-line"><span>Fuel surcharge</span><span class="nofee-amt">$0</span></p>
+          <p class="nofee-line"><span>Delivery fee</span><span class="nofee-amt">$0</span></p>
+          <p class="nofee-line"><span>Haul-off</span><span class="nofee-amt">included</span></p>
+          <p class="nofee-foot">You know the real number before we show up.</p>
+        </div>
+      </div>
+
+
+      <div class="nofee-full">
+        <h3>Every charge we have, start to finish</h3>
+        <ul>
+          <li><strong>Extra days.</strong> If your job runs long, call or text us. We will stretch the rental when the schedule allows, and extra days are $20 each on either size.</li>
+          <li><strong>Late cancellation.</strong> If you cancel inside 24 hours of a confirmed drop-off, $50 of what you paid is kept and the rest comes back.</li>
+        </ul>
+        <p class="nofee-note">Those two are the whole list, and they are printed here on purpose. A company that hides its fees does not get to say it has none. Both are written out in plain English in our <a href="/terms/">rental terms</a>.</p>
+      </div>
+
+      <p class="nofee-heavy"><strong>One straight answer about heavy material.</strong> Concrete, brick, dirt, rock, and shingles hit a safe towing weight before the can is full, so call or text before you start loading those and we will tell you where to stop filling. That is usually concrete or a roof tear-off. That is a safety limit rather than a fee, and it does not change your price.</p>
+    </div>
+  </section>
+
+
 
   <!-- BIG DUMPSTER ANNOUNCEMENT -->
   <style>
