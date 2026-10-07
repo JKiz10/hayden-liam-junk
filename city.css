@@ -785,3 +785,7 @@ main li a:not([class]):hover,
   .nofee-full { padding: 22px 20px; }
   .nofee-line { font-size: 0.9rem; gap: 12px; }
 }
+
+/* Review proof directly under Book buttons */
+.hero-ctas + p.cta-proof, .cta-proof { margin: 12px 0 0; font-size: 0.9rem; color: var(--gray-light); letter-spacing: 0.02em; }
+.cta-proof-star { color: #f5b301; }
