@@ -436,6 +436,38 @@
       padding: 140px 48px 100px;
     }
 
+    /* Full-bleed hero photo + shade so the headline stays readable */
+    .hero-photo { position: absolute; inset: 0; z-index: 0; }
+    .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+    .hero-shade {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.62) 42%, rgba(0,0,0,0.28) 100%),
+        linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 38%),
+        linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 22%);
+    }
+    /* Phones + tablets: the hero text is taller than the screen, so a full
+       background would bury the photo. Show it as a clear band across the top
+       two-thirds instead, fading to black where the headline starts. */
+    @media (max-width: 1023px) {
+      .hero-photo, .hero-shade { bottom: auto; height: 70vh; height: 70svh; }
+      .hero-photo img { object-position: 50% 38%; }
+      .hero-shade { background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.75) 80%, #000 100%); }
+      #hero.hero { justify-content: flex-start; padding-top: 52vh; padding-top: 52svh; }
+    }
+    /* Wide screens: photo sits on the right and fades into black, so the
+       headline lives on the dark side and Hayden + both cans stay clear. */
+    @media (min-width: 1024px) {
+      .hero-photo { left: 30%; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%); mask-image: linear-gradient(90deg, transparent 0%, #000 28%); }
+      .hero-photo img { object-position: 50% 45%; }
+      .hero-shade {
+        background:
+          linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.12) 75%, rgba(0,0,0,0.2) 100%),
+          linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 30%),
+          linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 22%);
+      }
+    }
+
     .hero-bg {
       position: absolute;
       inset: 0;
@@ -2047,6 +2079,8 @@ body:has(.hl-ann-bar){padding-top:40px;}
 body:has(.hl-ann-bar) .nav{top:40px;}
 @media(max-width:620px){.hl-ann-bar{font-size:0.64rem;gap:7px;letter-spacing:0.02em;}.hl-ann-mob-hide{display:none;}}
 </style>
+  <link rel="preload" as="image" media="(max-width: 767px)" imagesrcset="/images/work/hl-hero-yard-portrait-750.webp 750w, /images/work/hl-hero-yard-portrait-1125.webp 1125w" imagesizes="100vw" type="image/webp" fetchpriority="high" />
+  <link rel="preload" as="image" media="(min-width: 768px)" imagesrcset="/images/work/hl-hero-yard-960.webp 960w, /images/work/hl-hero-yard-1600.webp 1600w, /images/work/hl-hero-yard-1920.webp 1920w" imagesizes="100vw" type="image/webp" fetchpriority="high" />
 </head>
 <body>
   <a href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" id="hlAnnBar" class="hl-ann-bar js-shop-online" target="_blank" rel="noopener" aria-label="Shop 14 and 20 yard dumpsters online. Starting at 365 dollars. Book online in minutes.">
@@ -2113,6 +2147,25 @@ body:has(.hl-ann-bar) .nav{top:40px;}
 
   <!-- Hero -->
   <section class="hero" id="hero">
+    <!-- Full-bleed yard photo: Hayden between the orange 14-yard and black 20-yard.
+         Portrait crop on phones, landscape on wider screens. It is the LCP image,
+         so eager + high priority (and preloaded in <head>). -->
+    <picture class="hero-photo">
+      <source media="(max-width: 767px)" type="image/webp"
+              srcset="/images/work/hl-hero-yard-portrait-750.webp 750w, /images/work/hl-hero-yard-portrait-1125.webp 1125w"
+              sizes="100vw" />
+      <source media="(max-width: 767px)"
+              srcset="/images/work/hl-hero-yard-portrait-750.jpg 750w, /images/work/hl-hero-yard-portrait-1125.jpg 1125w"
+              sizes="100vw" />
+      <source type="image/webp"
+              srcset="/images/work/hl-hero-yard-960.webp 960w, /images/work/hl-hero-yard-1600.webp 1600w, /images/work/hl-hero-yard-1920.webp 1920w"
+              sizes="100vw" />
+      <img src="/images/work/hl-hero-yard-1600.jpg"
+           srcset="/images/work/hl-hero-yard-960.jpg 960w, /images/work/hl-hero-yard-1600.jpg 1600w, /images/work/hl-hero-yard-1920.jpg 1920w"
+           sizes="100vw" width="1600" height="1200" loading="eager" fetchpriority="high" decoding="async"
+           alt="H&amp;L co-owner Hayden standing between the orange 14-yard and black 20-yard roll-off dumpsters at the Pearland yard" />
+    </picture>
+    <div class="hero-shade" aria-hidden="true"></div>
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-spotlight" id="heroSpotlight" aria-hidden="true"></div>
