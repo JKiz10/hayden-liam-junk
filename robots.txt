@@ -42,3 +42,6 @@ User-agent: Bingbot
 Allow: /
 
 Sitemap: https://hljunkremovalandhauling.com/sitemap.xml
+
+# Plain-language summary for AI and answer engines
+# https://hljunkremovalandhauling.com/llms.txt
