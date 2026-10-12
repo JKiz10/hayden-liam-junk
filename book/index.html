@@ -136,7 +136,18 @@
     .book-show .price-row dd{font-size:1.3rem;}
   }
   .price-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1140px;}
-  .price-card{border:1px solid rgba(255,255,255,0.28);border-radius:12px;padding:18px 20px 16px;background:rgba(255,255,255,0.03);}
+  .price-card{position:relative;border:1px solid rgba(255,255,255,0.28);border-radius:12px;padding:18px 20px 16px;background:rgba(255,255,255,0.03);transition:transform 240ms cubic-bezier(0.16,1,0.3,1),border-color 240ms cubic-bezier(0.16,1,0.3,1),background 240ms cubic-bezier(0.16,1,0.3,1);}
+  .price-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.07);}
+  .price-card:focus-within{border-color:#fff;}
+  /* The price rows read as tappable and people tapped them, so the whole
+     card is the booking link now instead of dead text. */
+  .price-card-book{display:inline-flex;align-items:center;gap:7px;margin:14px 0 0;font-family:'Oswald',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.45);padding-bottom:3px;transition:border-color 240ms cubic-bezier(0.16,1,0.3,1);}
+  .price-card-book::after{content:"";position:absolute;inset:0;border-radius:12px;}
+  .price-card-book:hover{border-color:#fff;}
+  .price-card-book:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+  .price-card-arrow{transition:transform 240ms cubic-bezier(0.16,1,0.3,1);}
+  .price-card:hover .price-card-arrow{transform:translateX(4px);}
+  @media (prefers-reduced-motion: reduce){.price-card,.price-card-arrow{transition-duration:1ms;}.price-card:hover{transform:none;}.price-card:hover .price-card-arrow{transform:none;}}
   .price-card-title{font-family:'Oswald',sans-serif;font-size:1.35rem;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 10px;color:#fff;}
   .price-card-tag{display:inline-block;margin-left:6px;font-size:0.72rem;letter-spacing:0.12em;color:rgba(255,255,255,0.6);vertical-align:middle;}
   .price-rows{margin:0;}
@@ -295,6 +306,7 @@
               <div class="price-row"><dt>7 days</dt><dd>$525</dd></div>
             </dl>
             <p class="price-card-note">The everyday size. The weekend rate is Saturday morning to Sunday night.</p>
+            <a class="price-card-book js-shop-online" target="_blank" rel="noopener" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc">Book the 14-Yard<span class="price-card-arrow" aria-hidden="true">&#8594;</span></a>
           </article>
           <article class="price-card">
             <h2 class="price-card-title">20-Yard <span class="price-card-tag">the black one</span></h2>
@@ -304,6 +316,7 @@
               <div class="price-row"><dt>7 days</dt><dd>$650</dd></div>
             </dl>
             <p class="price-card-note">Same footprint as the 14-yard, taller sides, more room.</p>
+            <a class="price-card-book js-shop-online" target="_blank" rel="noopener" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc">Book the 20-Yard<span class="price-card-arrow" aria-hidden="true">&#8594;</span></a>
           </article>
         </div>
         </div>
