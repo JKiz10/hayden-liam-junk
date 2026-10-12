@@ -415,6 +415,9 @@
                /booking-confirmed/ counts an order ONLY when this is present, so a
                bookmark, a refresh or a stray direct hit records nothing. */
             writeStored('hl_checkout', String(Date.now()));
+            /* The storefront opens in a new tab, which never sees this tab's
+               sessionStorage, so share the marker through localStorage too. */
+            try { localStorage.setItem('hl_checkout', String(Date.now())); } catch (e) {}
             if (typeof gtag === 'function') {
               gtag('event', 'begin_checkout', {
                 'send_to': 'G-GYJ54HB3FE',

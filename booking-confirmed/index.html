@@ -126,17 +126,27 @@
          1. hl_checkout - written only when this browser actually clicked through to the
             storefront this session. A bookmark, a refresh or a direct hit fires nothing.
          2. hl_booked   - written after counting, so a refresh cannot double-count.
+       The storefront opens in a NEW tab (rel=noopener), and a new tab starts with an
+       empty sessionStorage, so the marker is also kept in localStorage, which every tab
+       shares. It expires after 3 hours so an old click can't count a later visit.
        The visitor lands back on our own domain, so the _gcl_aw cookie from the original
        ad click is still present and the conversion attributes to the right click. -->
   <script>
     (function(){
+      var HANDOFF_TTL_MS = 3 * 60 * 60 * 1000;
       function read(k){ try { return sessionStorage.getItem(k) || ''; } catch (e) { return ''; } }
       function write(k,v){ try { sessionStorage.setItem(k,v); } catch (e) {} }
+      function readShared(k){ try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
+      function writeShared(k,v){ try { localStorage.setItem(k,v); } catch (e) {} }
+      function clearShared(k){ try { localStorage.removeItem(k); } catch (e) {} }
 
-      var handoff = read('hl_checkout');
-      if (!handoff) return;          // never reached the storefront this session
-      if (read('hl_booked')) return; // already counted this order
+      var handoff = read('hl_checkout') || readShared('hl_checkout');
+      if (!handoff) return;          // never reached the storefront
+      if (Date.now() - Number(handoff) > HANDOFF_TTL_MS) { clearShared('hl_checkout'); return; }
+      if (read('hl_booked') || readShared('hl_booked') === handoff) return; // already counted this order
       write('hl_booked', '1');
+      writeShared('hl_booked', handoff);
+      clearShared('hl_checkout');
 
       if (typeof gtag !== 'function') return;
       gtag('event', 'conversion', {
