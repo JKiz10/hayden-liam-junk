@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18264252114"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18264252114');
+    gtag('config', 'G-GYJ54HB3FE');
+    /* Google Ads call tracking, split by product line.
+       Each campaign stamps its own ?src= on the landing URL. We persist that for
+       the visit and fire the matching call conversion label, so a call from a
+       20-yard search is counted separately from a 14-yard or a junk-removal one.
+
+       Exactly ONE label fires per page load. Two forwarding-number configs would
+       compete to swap the same displayed number, and the working call tracking is
+       the only reliable conversion signal on this site -- not worth risking.
+
+       With no ?src= (organic, direct, untagged campaigns) this falls back to the
+       original account-wide label, so behaviour is unchanged until the campaigns
+       are actually tagged. */
+    (function(){
+      var LABELS = {
+        '14yd': 'AW-18264252114/uyJWCMfOmvIcENK9iYVE',
+        '20yd': 'AW-18264252114/7PfICJjQvPIcENK9iYVE',
+        'junk': 'AW-18264252114/yh6aCImtuvIcENK9iYVE'
+      };
+      var FALLBACK = 'AW-18264252114/boQkCKjlqMscENK9iYVE';
+      var KEY = 'hl_line';
+
+      function readLine(){
+        try { return sessionStorage.getItem(KEY) || ''; } catch (e) { return ''; }
+      }
+      function writeLine(v){
+        try { sessionStorage.setItem(KEY, v); } catch (e) {}
+      }
+
+      var line = '';
+      try { line = new URLSearchParams(window.location.search).get('src') || ''; }
+      catch (e) {}
+
+      if (LABELS[line]) { writeLine(line); } else { line = readLine(); }
+
+      gtag('config', LABELS[line] || FALLBACK, {'phone_conversion_number': '832-425-7749'});
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Junk Removal &amp; Hauling | Text a Photo for a Free Quote | H&amp;L</title>
+  <meta name="description" content="Fully insured junk removal across the south Houston area: Pearland, Friendswood, League City, Pasadena, Clear Lake and more. Text a photo for a free quote: 832-425-7749." />
+  <link rel="canonical" href="https://hljunkremovalandhauling.com/junk-removal/" />
+  <!-- Paid-search landing page. Kept out of the index so it never competes with the
+       homepage for "junk removal". Ads landing-page checks ignore noindex. -->
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=3" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
+  <!-- The map is the first thing on screen, so fetch it before anything else. -->
+  <link rel="preload" as="image" type="image/webp" href="/images/service-area-map-720.webp" imagesrcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" imagesizes="(max-width: 900px) calc(100vw - 36px), 520px" fetchpriority="high" />
+  <link rel="stylesheet" href="/city.css?v=10" />
+  <style>
+    /* Junk ads landing page only. jl- prefix so nothing collides with city.css. */
+    .jl-hero { padding: clamp(1.6rem, 1rem + 3vw, 4.5rem) 0 clamp(2.5rem, 2rem + 3vw, 4.5rem); }
+    .jl-hero-grid {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+      grid-template-areas: "copy map";
+      gap: clamp(28px, 4vw, 64px); align-items: center;
+    }
+    .jl-copy { grid-area: copy; }
+    .jl-map { grid-area: map; margin: 0; }
+    .jl-hero h1 { font-size: clamp(2.1rem, 1.2rem + 4.2vw, 4.6rem); margin-bottom: 18px; }
+    .jl-hero .hero-sub { margin-bottom: 28px; }
+    .jl-map img {
+      display: block; width: 100%; height: auto; border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+    }
+    .jl-map figcaption {
+      margin-top: 12px; font-size: 0.92rem; line-height: 1.55;
+      font-weight: 300; color: var(--gray-light);
+    }
+    .jl-map figcaption a { color: var(--white); text-underline-offset: 2px; }
+    .jl-towns { margin-top: 6px; font-size: 0.82rem; color: var(--gray); font-weight: 300; line-height: 1.6; }
+
+    .jl-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; counter-reset: jl; }
+    .jl-steps li {
+      counter-increment: jl; position: relative;
+      background: var(--dark2); border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius); padding: 26px 24px 24px;
+    }
+    .jl-steps li::before {
+      content: counter(jl); display: block;
+      font-size: 2.6rem; font-weight: 700; line-height: 1; margin-bottom: 14px;
+      color: rgba(255,255,255,0.22);
+    }
+    .jl-steps h3 { font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 8px; }
+    .jl-steps p { color: var(--gray); font-weight: 300; font-size: 0.97rem; }
+
+    .jl-why { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 28px; margin-top: 28px; max-width: 820px; }
+    .jl-why li { padding-left: 22px; position: relative; color: var(--gray-light); font-weight: 300; }
+    .jl-why li::before { content: "\2605"; position: absolute; left: 0; top: 0; color: var(--white); font-size: 0.9rem; }
+    .jl-why strong { color: var(--white); font-weight: 600; }
+
+    .jl-alt { margin-top: 26px; font-size: 0.92rem; color: var(--gray); font-weight: 300; }
+    .jl-alt a { color: var(--gray-light); text-decoration: underline; text-underline-offset: 2px; }
+    .jl-alt a:hover { color: var(--white); }
+
+    @media (max-width: 900px) {
+      /* Phones: headline, then the map straight away, then the buttons.
+         The sticky bar keeps Call and Text on screen the whole time. */
+      .jl-hero-grid { grid-template-columns: 1fr; grid-template-areas: "copy" "map"; gap: 0; }
+      .jl-copy { display: contents; }
+      .jl-kicker, .jl-hero h1 { order: 1; }
+      .jl-map { order: 2; margin: 4px 0 26px; }
+      .jl-hero .hero-sub, .jl-hero .hero-ctas, .jl-hero .hero-trust { order: 3; }
+      .jl-hero-grid { display: flex; flex-direction: column; align-items: stretch; }
+      .jl-hero .hero-badge { display: none; }
+      .jl-steps { grid-template-columns: 1fr; }
+      .jl-why { grid-template-columns: 1fr; }
+    }
+  </style>
+  <!-- Microsoft Clarity: click heatmaps, scroll maps, session recordings -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yu33nwh893");
+  </script>
+  <script src="/text-quote.js?v=2" defer></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="nav" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="H&amp;L Junk Removal &amp; Hauling home">
+      <img src="/logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/#services" class="nav-link">Services</a>
+      <a href="/gallery.html" class="nav-link">Gallery</a>
+      <a href="/#faq" class="nav-link">FAQ</a>
+    </div>
+    <a href="tel:8324257749" class="nav-cta">832-425-7749</a>
+  </nav>
+
+  <main id="main">
+    <header class="hero jl-hero">
+      <div class="container">
+        <div class="jl-hero-grid">
+          <div class="jl-copy">
+            <div class="hero-badge"><span class="hero-badge-dot"></span> Fully Insured &middot; <span class="hero-star">&#9733;</span> 4.9 Google &middot; Locally Owned</div>
+            <span class="hero-kicker jl-kicker">Junk Removal &amp; Hauling</span>
+            <h1>Inside the Circle?<br />We&rsquo;ll Haul It.</h1>
+            <p class="hero-sub">Hi, we&rsquo;re H&amp;L. Text us a photo of what needs to go and we&rsquo;ll send back a free quote. We do all the loading, from the garage, the attic or the backyard, and haul it off the same trip.</p>
+            <div class="hero-ctas">
+              <a href="tel:8324257749" class="btn-primary">Call 832-425-7749</a>
+              <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A" class="btn-outline">Text a Photo for a Quote</a>
+            </div>
+            <p class="hero-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google (27 reviews) &middot; Free, no-obligation quotes &middot; Ask about same-day</p>
+          </div>
+
+          <figure class="jl-map">
+            <picture>
+              <source type="image/webp" srcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" sizes="(max-width: 900px) calc(100vw - 36px), 520px" />
+              <img src="/images/service-area-map-720.jpg" width="720" height="723" loading="eager" fetchpriority="high" decoding="async" alt="Map of H&amp;L's 20-mile service area, a circle around our yard covering Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston." />
+            </picture>
+            <figcaption>
+              We haul anywhere inside this circle. Not sure you&rsquo;re in? <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20is%20my%20address%20in%20your%20area%3F%20">Text us your address</a>.
+              <span class="jl-towns">Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </header>
+
+    <section aria-labelledby="haulH">
+      <div class="container">
+        <span class="section-label">What We Haul</span>
+        <h2 class="section-title" id="haulH">Full Loads, Cleanouts and the Heavy Stuff</h2>
+        <p class="lead">If you can point at it, we can usually take it. You don&rsquo;t move anything to the curb first.</p>
+        <div class="svc-grid">
+          <div class="svc-card"><h3>Garage &amp; Estate Cleanouts</h3><p>Garages, attics and whole houses cleared to bare floor, for families, executors and landlords.</p></div>
+          <div class="svc-card"><h3>Furniture &amp; Appliances</h3><p>Sectionals, recliners, fridges, washers and dryers. Upstairs or down, any condition.</p></div>
+          <div class="svc-card"><h3>Hot Tubs, Sheds &amp; Fences</h3><p>We take them apart on site and carry the pieces out. Nothing dragged across your yard.</p></div>
+          <div class="svc-card"><h3>Remodel &amp; Construction Debris</h3><p>Tile, cabinets, drywall, carpet and lumber cleared off your job site.</p></div>
+          <div class="svc-card"><h3>Yard &amp; Storm Debris</h3><p>Limbs, brush and blown-down fence panels after a Gulf storm comes through.</p></div>
+          <div class="svc-card"><h3>Move-Outs &amp; Turnovers</h3><p>Whatever the last tenant left behind, for landlords and property managers.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="howH">
+      <div class="container">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title" id="howH">Three Steps, No Lifting</h2>
+        <ol class="jl-steps">
+          <li><h3>Text a Photo</h3><p>Send a picture or two to 832-425-7749, or just tell us what it is. Calling works too.</p></li>
+          <li><h3>Get Your Price</h3><p>We tell you the price before anything goes on the trailer. That&rsquo;s the price you pay.</p></li>
+          <li><h3>We Load It &amp; Haul It</h3><p>You point, we lift. We sweep up after, and donate or recycle what we can.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section aria-labelledby="whyH">
+      <div class="container">
+        <span class="section-label">Why H&amp;L</span>
+        <h2 class="section-title" id="whyH">Local Crew, Straight Answers</h2>
+        <ul class="jl-why">
+          <li><strong>Fully insured</strong> on every job, homes and job sites.</li>
+          <li><strong>4.9 stars on Google</strong> from 27 reviews.</li>
+          <li><strong>Locally owned.</strong> Our trucks and trailers start every day from our Pearland yard.</li>
+          <li><strong>No surprises.</strong> You know the price before we load a thing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band cta-band" aria-labelledby="ctaH">
+      <div class="container">
+        <h2 id="ctaH">Ready When You Are</h2>
+        <p>Text a photo or give us a call. We&rsquo;ll tell you the price and when we can be there.</p>
+        <div class="hero-ctas">
+          <a href="tel:8324257749" class="btn-primary">Call 832-425-7749</a>
+          <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A" class="btn-outline">Text a Photo</a>
+        </div>
+        <p class="cta-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google &middot; You point, we lift</p>
+        <p class="cta-form-link">Prefer to type it out? <a href="/free-quote-junk-removal-league-city-tx/">Request a free quote online</a>.</p>
+        <p class="jl-alt">Would you rather load it yourself on your own schedule? <a href="/book/">See our 14 and 20-yard dumpsters</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="/" class="footer-logo"><img src="/logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" /></a>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/" class="footer-nav-link">Home</a>
+          <a href="/#services" class="footer-nav-link">Services</a>
+          <a href="/gallery.html" class="footer-nav-link">Gallery</a>
+          <a href="/blog/" class="footer-nav-link">Guides</a>
+          <a href="/#areas" class="footer-nav-link">Service Areas</a>
+          <a href="/#faq" class="footer-nav-link">FAQ</a>
+          <a href="/#contact" class="footer-nav-link">Contact</a>
+        </nav>
+        <p class="footer-tagline">Fast. Reliable. Local.</p>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy" style="margin-bottom:10px;">H&amp;L Junk Removal &amp; Hauling Solutions, LLC &middot; League City, TX 77573 &middot; <a href="tel:8324257749">832-425-7749</a></p>
+        <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Galveston &amp; Harris County, TX. &middot; <a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/terms/">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky bar (shown <=900px): Call and Text, the two junk lead paths. -->
+  <div class="sticky-call" aria-label="Quick contact">
+    <a href="tel:8324257749" class="sticky-call-btn sticky-call-primary" aria-label="Call 832 425 7749"><svg class="sticky-call-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2z" fill="currentColor"/></svg> Call 832-425-7749</a>
+    <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A" class="sticky-call-btn sticky-call-secondary">Text a Photo</a>
+  </div>
+  <script>
+    /* Tap-to-call volume for GA4, across ALL traffic. This is analytics only -- the
+       Google Ads conversion is counted by the phone snippet in <head>, which measures
+       real connected calls rather than taps. */
+    (function(){
+      document.addEventListener('click', function(e){
+        var a = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+        if (!a || typeof gtag !== 'function') return;
+        gtag('event', 'click_to_call', {
+          'send_to': 'G-GYJ54HB3FE',
+          'link_url': a.getAttribute('href')
+        });
+      }, true);
+    })();
+  </script>
+</body>
+</html>
