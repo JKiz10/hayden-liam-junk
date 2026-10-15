@@ -245,6 +245,12 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "yu33nwh893");
   </script>
+  <style>
+    /* Service area map, shared block on the city pages. */
+    .hl-area-map { margin: 28px 0 0; max-width: 560px; }
+    .hl-area-map img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.14); }
+    .hl-area .lead a { color: var(--white); text-underline-offset: 2px; }
+  </style>
 </head>
 
 <body>
@@ -282,6 +288,21 @@
     <p class="price-tag" style="display:inline-block;margin:6px 0 22px;padding:12px 20px;border:1px solid rgba(255,255,255,0.28);border-radius:8px;font-family:'Oswald',sans-serif;font-size:1.02rem;letter-spacing:0.03em;line-height:1.5;"><span style="font-size:0.74rem;color:rgba(255,255,255,0.58);letter-spacing:0.12em;text-transform:uppercase;">14-Yard</span> <strong style="color:#fff;font-size:1.2em;">$379.99</strong> / 1 day &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$419.99</strong> / 3 days &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$549.99</strong> / 7 days<br /><span style="font-size:0.74rem;color:rgba(255,255,255,0.58);letter-spacing:0.12em;text-transform:uppercase;">20-Yard &middot; Most Room</span> <strong style="color:#fff;font-size:1.2em;">$499.99</strong> / 1 day &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$549.99</strong> / 3 days &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$649.99</strong> / 7 days<br /><span style="font-size:0.82rem;color:rgba(255,255,255,0.66);letter-spacing:0.06em;">same 14 ft footprint &middot; delivered &amp; hauled &middot; fully insured</span></p>
   </div>
 </header>
+
+    <section class="hl-area" aria-labelledby="areaH">
+      <div class="container">
+        <span class="section-label">Where We Work</span>
+        <h2 class="section-title" id="areaH">Anywhere Inside the Circle</h2>
+        <p class="lead">We drop off and pick up dumpsters in Friendswood and anywhere else inside this circle, about 20 miles around our Pearland yard. Not sure you are in? <a href="sms:+18324257749?&amp;body=Hi%20H%26L%2C%20is%20my%20address%20in%20your%20area%3F%20">Text us your address</a>.</p>
+        <figure class="hl-area-map">
+          <picture>
+            <source type="image/webp" srcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" sizes="(max-width: 768px) calc(100vw - 36px), 560px" />
+            <img src="/images/service-area-map-720.jpg" width="720" height="723" loading="lazy" decoding="async" alt="Map of H&amp;L's 20-mile service area around our Pearland yard, covering Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook and Kemah." />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
 
     <!-- Size comparison. Lazy here, unlike /book/: the hero text is the LCP on a
          city page, so this must not sit on the critical path. -->
