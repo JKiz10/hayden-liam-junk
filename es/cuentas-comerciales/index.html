@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18264252114"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18264252114');
+    gtag('config', 'G-GYJ54HB3FE');
+    /* Google Ads call tracking, split by product line.
+       Each campaign stamps its own ?src= on the landing URL. We persist that for
+       the visit and fire the matching call conversion label, so a call from a
+       20-yard search is counted separately from a 14-yard or a junk-removal one.
+
+       Exactly ONE label fires per page load. Two forwarding-number configs would
+       compete to swap the same displayed number, and the working call tracking is
+       the only reliable conversion signal on this site -- not worth risking.
+
+       With no ?src= (organic, direct, untagged campaigns) this falls back to the
+       original account-wide label, so behaviour is unchanged until the campaigns
+       are actually tagged. */
+    (function(){
+      var LABELS = {
+        '14yd': 'AW-18264252114/uyJWCMfOmvIcENK9iYVE',
+        '20yd': 'AW-18264252114/7PfICJjQvPIcENK9iYVE',
+        'junk': 'AW-18264252114/yh6aCImtuvIcENK9iYVE'
+      };
+      var FALLBACK = 'AW-18264252114/boQkCKjlqMscENK9iYVE';
+      var KEY = 'hl_line';
+
+      function readLine(){
+        try { return sessionStorage.getItem(KEY) || ''; } catch (e) { return ''; }
+      }
+      function writeLine(v){
+        try { sessionStorage.setItem(KEY, v); } catch (e) {}
+      }
+
+      var line = '';
+      try { line = new URLSearchParams(window.location.search).get('src') || ''; }
+      catch (e) {}
+
+      if (LABELS[line]) { writeLine(line); } else { line = readLine(); }
+
+      gtag('config', LABELS[line] || FALLBACK, {'phone_conversion_number': '832-425-7749'});
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuentas Comerciales de Dumpster y Retiro de Basura | 5% de Descuento | H&amp;L</title>
+  <meta name="description" content="Abra una cuenta comercial con H&amp;L: 5% de descuento en cada renta de dumpster y prioridad en retiro de basura para negocios que rentan 12 dumpsters o más en 6 meses. Solicítela en 2 minutos." />
+  <link rel="canonical" href="https://hljunkremovalandhauling.com/es/cuentas-comerciales/" />
+  <link rel="alternate" hreflang="en" href="https://hljunkremovalandhauling.com/commercial-accounts/" />
+  <link rel="alternate" hreflang="es" href="https://hljunkremovalandhauling.com/es/cuentas-comerciales/" />
+  <link rel="alternate" hreflang="x-default" href="https://hljunkremovalandhauling.com/commercial-accounts/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="geo.region" content="US-TX" />
+  <meta name="geo.placename" content="Pearland, Texas" />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="H&amp;L Junk Removal &amp; Hauling" />
+  <meta property="og:title" content="Cuentas Comerciales de Dumpster y Retiro de Basura | 5% de Descuento | H&amp;L" />
+  <meta property="og:description" content="Abra una cuenta comercial con H&amp;L: 5% de descuento en cada renta de dumpster y prioridad en retiro de basura para negocios que rentan 12 dumpsters o más en 6 meses. Solicítela en 2 minutos." />
+  <meta property="og:url" content="https://hljunkremovalandhauling.com/es/cuentas-comerciales/" />
+  <meta property="og:image" content="https://hljunkremovalandhauling.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="es_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cuentas Comerciales de Dumpster y Retiro de Basura | 5% de Descuento | H&amp;L" />
+  <meta name="twitter:description" content="Abra una cuenta comercial con H&amp;L: 5% de descuento en cada renta de dumpster y prioridad en retiro de basura para negocios que rentan 12 dumpsters o más en 6 meses. Solicítela en 2 minutos." />
+  <meta name="twitter:image" content="https://hljunkremovalandhauling.com/og-image.jpg" />
+  <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=3" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="/city.css?v=11" />
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "serviceType": "Cuenta comercial de renta de dumpster y retiro de basura",
+        "name": "Cuentas comerciales de H&L",
+        "description": "Las cuentas comerciales reciben 5% de descuento en cada renta de dumpster roll-off y prioridad en la agenda de retiro de basura. Las cuentas mantienen la tarifa rentando al menos 12 dumpsters en cada periodo de 6 meses.",
+        "provider": {
+          "@type": "HomeAndConstructionBusiness",
+          "@id": "https://hljunkremovalandhauling.com/#business",
+          "name": "H&L Junk Removal & Hauling Solutions, LLC",
+          "telephone": "+18324257749",
+          "url": "https://hljunkremovalandhauling.com/",
+          "image": "https://hljunkremovalandhauling.com/og-image.jpg",
+          "address": { "@type": "PostalAddress", "addressLocality": "League City", "addressRegion": "TX", "postalCode": "77573", "addressCountry": "US" },
+          "sameAs": ["https://www.instagram.com/h.l_junk.removal/", "https://www.facebook.com/profile.php?id=61589177706129", "https://g.page/r/CUoEnjQdISJpEBM"]
+        },
+        "areaServed": { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 29.5304, "longitude": -95.2891 }, "geoRadius": "32187" },
+        "audience": { "@type": "BusinessAudience", "name": "Administradores de propiedades, contratistas, compañías de restauración, inversionistas y negocios de mini bodegas" },
+        "url": "https://hljunkremovalandhauling.com/es/cuentas-comerciales/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hljunkremovalandhauling.com/es/" },
+          { "@type": "ListItem", "position": 2, "name": "Cuentas comerciales", "item": "https://hljunkremovalandhauling.com/es/cuentas-comerciales/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Qué cuenta para los 12 dumpsters?", "acceptedAnswer": { "@type": "Answer", "text": "Cada renta de dumpster que reserve su cuenta, de cualquier tamaño y por cualquier tiempo. Uno de 14 yardas por 1 día cuenta igual que uno de 20 yardas por una semana." } },
+          { "@type": "Question", "name": "¿Qué pasa si rentamos menos de 12 en 6 meses?", "acceptedAnswer": { "@type": "Answer", "text": "Su cuenta regresa a los precios normales desde ese momento. Nunca le cobramos de vuelta el 5% de las rentas que ya tuvo." } },
+          { "@type": "Question", "name": "¿Cómo obtenemos el precio de cuenta al reservar?", "acceptedAnswer": { "@type": "Answer", "text": "Cuando su cuenta esté lista, recibe su propio código de descuento para reservar en línea, o puede mandarnos un texto en español al 832-425-7749 y se lo reservamos con la tarifa de cuenta." } },
+          { "@type": "Question", "name": "¿Qué significa prioridad en retiro de basura?", "acceptedAnswer": { "@type": "Answer", "text": "Los trabajos de retiro de basura de las cuentas pasan al frente de nuestra agenda, y la mayoría se hacen el mismo día que nos contacta. El mismo día no está garantizado, y le avisamos desde el principio si no se puede ese día." } },
+          { "@type": "Question", "name": "¿Nos pueden mandar un certificado de seguro?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. En H&L estamos totalmente asegurados. Guardamos un certificado de seguro en el archivo de su cuenta y podemos nombrar a su compañía o propiedad como asegurado adicional si su póliza lo requiere." } },
+          { "@type": "Question", "name": "¿Hay un contrato largo?", "acceptedAnswer": { "@type": "Answer", "text": "No. Es un acuerdo de cuenta de una página, y cualquiera de las dos partes puede cerrar la cuenta en cualquier momento por mensaje de texto o correo electrónico." } }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- Microsoft Clarity: click heatmaps, scroll maps, session recordings -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yu33nwh893");
+  </script>
+  <script>
+    /* The commercial application rides the same one-question-at-a-time
+       wizard as the junk quote. Declared before quote-wizard.js runs. */
+    window.HL_WIZARDS = [{
+      formId: 'commercialForm',
+      successId: 'cfSuccess',
+      errorId: 'cfError',
+      consentId: 'cfSmsConsent',
+      triggers: 'a[href="#apply"], .js-commercial-wizard',
+      openEvent: 'commercial_wizard_open',
+      steps: [
+        { id: 'cf-type',     q: '¿Qué tipo de negocio es?', hint: 'Elija la opción más parecida.', required: true },
+        { id: 'cf-volume',   q: '¿Cuántos dumpsters necesitará en los próximos 6 meses, más o menos?', hint: 'La tarifa de cuenta es para 12 o más. Un cálculo aproximado está bien.', required: true },
+        { id: 'cf-junk',     q: '¿También necesita retiro de basura?', hint: 'Los trabajos de cuentas comerciales pasan al frente de la agenda.', required: false },
+        { id: 'cf-business', q: '¿Cómo se llama el negocio?', hint: '', required: true },
+        { id: 'cf-area',     q: '¿Dónde están sus trabajos o propiedades?', hint: 'Ciudades, códigos postales o direcciones.', required: true },
+        { id: 'cf-name',     q: '¿Cuál es su nombre?', hint: 'Y su puesto, si gusta.', required: true },
+        { id: 'cf-phone',    q: '¿A qué número le escribimos?', hint: 'Le escribimos por mensaje de texto para abrir la cuenta.', required: true, consent: true },
+        { id: 'cf-email',    q: '¿A qué correo enviamos las facturas?', hint: 'El correo para las facturas y su código de descuento.', required: true },
+        { id: 'cf-details',  q: '¿Algo más que debamos saber?', hint: 'Opcional. Requisitos de COI, códigos de reja, quién más puede hacer pedidos.', required: false, last: true }
+      ],
+      text: {
+        count: 'Pregunta {n} de {total}',
+        next: 'Continuar',
+        submit: 'Enviar mi solicitud',
+        sending: 'Enviando...',
+        retry: 'Intentar de nuevo',
+        skip: 'Saltar esta',
+        back: 'Pregunta anterior',
+        close: 'Cerrar',
+        alt: '¿Prefiere hablarlo? <a href="sms:{phoneHref}">Mándenos un texto al {phone}</a>',
+        consent: 'Envíenme mensajes de texto sobre mi cuenta. Pueden aplicar tarifas de mensajes y datos. Responda STOP para cancelar.',
+        required: 'Conteste esta para poder abrir su cuenta.',
+        phoneShort: 'Ese número de teléfono parece muy corto.',
+        emailBad: 'Ese correo electrónico no parece correcto.',
+        doneTitle: 'Solicitud recibida',
+        doneText: 'Gracias. Le escribiremos pronto por mensaje de texto para abrir su cuenta y enviarle su código de descuento.',
+        doneSooner: '¿Preguntas? Mándenos un texto al <a href="sms:{phoneHref}">{phone}</a>.',
+        error: 'No se pudo enviar. Mándenos un texto al {phone} y abrimos su cuenta por ese medio.'
+      }
+    }];
+  </script>
+  <link rel="stylesheet" href="/quote-wizard.css?v=1">
+  <script src="/quote-wizard.js?v=2" defer></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <nav class="nav" aria-label="Navegación principal">
+    <a href="/es/" class="nav-logo" aria-label="Inicio de H&amp;L Junk Removal &amp; Hauling">
+      <img src="/logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
+    </a>
+        <div class="nav-links">
+      <a href="/es/" class="nav-link">Inicio</a>
+      <a href="/es/#services" class="nav-link">Servicios</a>
+      <a href="/gallery.html" class="nav-link">Galería</a>
+      <a href="/blog/" class="nav-link">Guías</a>
+      <a href="/es/#areas" class="nav-link">Zonas</a>
+      <a href="/es/#faq" class="nav-link">Preguntas</a>
+    </div>
+    <div class="nav-right"><a href="/commercial-accounts/" class="nav-lang" hreflang="en" lang="en" aria-label="View this page in English">English</a><a href="tel:8324257749" class="nav-cta">832-425-7749</a></div>
+  </nav>
+
+  <main id="main">
+  <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/es/">Inicio</a> &rsaquo; <span aria-current="page">Cuentas comerciales</span></nav>
+    <header class="hero">
+      <div class="container">
+        <div class="hero-badge"><span class="hero-badge-dot"></span> Cuentas comerciales &middot; Totalmente asegurados &middot; <span class="hero-star">&#9733;</span> 4.9 en Google</div>
+        <h1>Abra una cuenta comercial</h1>
+        <p class="hero-sub">5% de descuento en cada dumpster que le dejamos, y sus trabajos de retiro de basura pasan al frente de la fila. Hecha para negocios que rentan al menos 12 dumpsters en 6 meses.</p>
+        <div class="hero-ctas">
+          <a href="#apply" class="btn-primary js-commercial-wizard">Solicítela en 2 minutos</a>
+          <a href="sms:+18324257749?&body=Hola%20H%26L%2C%20quiero%20abrir%20una%20cuenta%20comercial." class="btn-outline">Mandar texto al 832-425-7749</a>
+        </div>
+        <p class="hero-trust">Por mensaje de texto le atendemos en español. Las llamadas se contestan en inglés.</p>
+        <p class="hero-trust"><strong>Totalmente asegurados</strong> &middot; 4.9&#9733; en Google (27 reseñas) &middot; COI a solicitud &middot; Pago con factura</p>
+      </div>
+    </header>
+
+    <!-- WHAT YOU GET -->
+    <section>
+      <div class="container">
+        <span class="section-label">Lo que recibe</span>
+        <h2 class="section-title">Dos beneficios que importan y otros que ayudan</h2>
+        <div class="trust-grid">
+          <div class="trust-item"><h3>5% de descuento en cada dumpster</h3><p>Todos los tamaños, todos los plazos de renta, siempre. Recibe su propio código de descuento para reservar en línea, o nos manda un texto y se lo reservamos con la tarifa de cuenta. La reserva en línea está en inglés. Si prefiere, mándenos un texto en español y le ayudamos a reservar.</p></div>
+          <div class="trust-item"><h3>Prioridad en retiro de basura</h3><p>Los trabajos de las cuentas pasan al frente de la agenda, y la mayoría se hacen el mismo día que nos contacta. El mismo día no está garantizado, y le avisamos desde el principio si no se puede ese día.</p></div>
+          <div class="trust-item"><h3>Primeros en saber de contenedores libres</h3><p>Cuando la agenda de dumpsters se llena, las cuentas se enteran de un contenedor libre antes que nadie.</p></div>
+          <div class="trust-item"><h3>Pago con factura</h3><p>Reserve por mensaje de texto sin tarjeta registrada. Recibe una factura después de cada trabajo. Aceptamos tarjeta, Zelle y cheque.</p></div>
+          <div class="trust-item"><h3>Certificado de seguro (COI)</h3><p>En H&amp;L estamos totalmente asegurados. Podemos nombrar a su compañía o propiedad como asegurado adicional si su póliza lo requiere.</p></div>
+          <div class="trust-item"><h3>Un solo número</h3><p>Todas las propiedades, todos los pedidos: mándenos un texto en español al 832-425-7749. Los dueños lo contestan.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCOUNT RATES -->
+    <section class="band">
+      <div class="container">
+        <span class="section-label">Tarifas de cuenta</span>
+        <h2 class="section-title">Los mismos precios fijos, 5% más bajos</h2>
+        <p class="lead">La entrega, el periodo de renta y la recogida están incluidos. Sin cargo por peso ni por tonelaje. Los dos contenedores miden 14 pies de largo y unos 7 pies de ancho, así que ocupan el mismo espacio en la entrada (driveway) o en el lote. El de 20 solo tiene paredes más altas.</p>
+        <style>
+          .acct-rates{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:26px;}
+          .acct-card{border:1px solid rgba(255,255,255,0.16);border-radius:12px;padding:22px 22px 14px;background:rgba(255,255,255,0.03);}
+          .acct-card h3{margin:0 0 12px;}
+          .acct-table{width:100%;border-collapse:collapse;font-size:0.98rem;}
+          .acct-table th{font-family:'Oswald',sans-serif;font-weight:500;font-size:0.76rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-align:right;padding:0 0 8px;}
+          .acct-table th:first-child{text-align:left;}
+          .acct-table td{padding:9px 0;border-top:1px solid rgba(255,255,255,0.1);text-align:right;color:rgba(255,255,255,0.7);}
+          .acct-table td:first-child{text-align:left;color:#fff;}
+          .acct-table td.acct{color:#fff;font-weight:600;}
+          .acct-table s{color:rgba(255,255,255,0.5);}
+          .acct-note{margin-top:14px;font-size:0.9rem;color:rgba(255,255,255,0.6);}
+        </style>
+        <div class="acct-rates">
+          <div class="acct-card">
+            <h3>Roll-off de 14 yardas</h3>
+            <table class="acct-table">
+              <thead><tr><th scope="col">Renta</th><th scope="col">Normal</th><th scope="col">Cuenta</th></tr></thead>
+              <tbody>
+                <tr><td>1 día</td><td><s>$379.99</s></td><td class="acct">$360.99</td></tr>
+                <tr><td>Fin de semana</td><td><s>$399.99</s></td><td class="acct">$379.99</td></tr>
+                <tr><td>3 días</td><td><s>$419.99</s></td><td class="acct">$398.99</td></tr>
+                <tr><td>7 días</td><td><s>$549.99</s></td><td class="acct">$522.49</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="acct-card">
+            <h3>Roll-off de 20 yardas</h3>
+            <table class="acct-table">
+              <thead><tr><th scope="col">Renta</th><th scope="col">Normal</th><th scope="col">Cuenta</th></tr></thead>
+              <tbody>
+                <tr><td>1 día</td><td><s>$499.99</s></td><td class="acct">$474.99</td></tr>
+                <tr><td>3 días</td><td><s>$549.99</s></td><td class="acct">$522.49</td></tr>
+                <tr><td>7 días</td><td><s>$649.99</s></td><td class="acct">$617.49</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="acct-note">La tarifa de fin de semana es entrega el sábado y recogida el domingo, solo en el de 14 yardas. Cada día extra cuesta $50 cuando el contenedor no está reservado para el siguiente trabajo. El retiro de basura y las limpiezas se cotizan por trabajo, por escrito, antes de empezar.</p>
+      </div>
+    </section>
+
+    <!-- THE ONE REQUIREMENT -->
+    <section>
+      <div class="container">
+        <span class="section-label">El único requisito</span>
+        <h2 class="section-title">12 dumpsters en 6 meses</h2>
+        <p class="lead">Eso es todo. Su primer periodo de 6 meses empieza el día que se abre su cuenta. Rente al menos 12 dumpsters en ese periodo, de cualquier tamaño y por cualquier tiempo, y el 5% sigue en los siguientes 6 meses.</p>
+        <p class="lead">Si una cuenta renta menos de 12, regresa a los precios normales desde ese momento. Nunca le cobramos de vuelta el descuento de las rentas que ya tuvo. Sin facturas sorpresa y sin letra pequeña.</p>
+        <p class="lead">¿Todavía no llega a 12? Mándenos un texto en español de todos modos. Cotizamos cada trabajo con claridad, con cuenta o sin ella.</p>
+      </div>
+    </section>
+
+    <!-- APPLY -->
+    <section id="apply" class="band">
+      <div class="container">
+        <span class="section-label">Solicitud</span>
+        <h2 class="section-title">Solicite una cuenta</h2>
+        <p class="lead" style="margin-bottom:28px;">Nueve preguntas rápidas. Leemos cada solicitud y nos comunicamos con usted para abrir su cuenta y darle su código de descuento. ¿Prefiere no llenar el formulario? Mándenos un texto en español al <a href="sms:+18324257749?&body=Hola%20H%26L%2C%20quiero%20abrir%20una%20cuenta%20comercial." style="color:var(--white);text-decoration:underline;">832-425-7749</a> o <a href="tel:8324257749" style="color:var(--white);text-decoration:underline;">llámenos</a>.</p>
+        <style>
+          .hlform{max-width:640px;margin:0 auto;text-align:left;}
+          .hlform-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+          .hlform-row{display:flex;gap:16px;flex-wrap:wrap;}
+          .hlform-row > label{flex:1 1 240px;}
+          .hlform label{display:block;margin-bottom:16px;font-family:'Oswald',sans-serif;font-size:0.82rem;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.75);}
+          .hlform label span{color:#fff;margin-left:3px;}
+          .hlform input,.hlform select,.hlform textarea{width:100%;margin-top:7px;padding:13px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.22);border-radius:7px;color:#fff;font-family:inherit;font-size:1rem;box-sizing:border-box;}
+          .hlform input:focus,.hlform select:focus,.hlform textarea:focus{outline:none;border-color:#fff;background:rgba(255,255,255,0.09);}
+          .hlform select option{background:#111;color:#fff;}
+          .hlform-submit{margin-top:6px;width:100%;cursor:pointer;border:none;font-size:1.05rem;}
+          .hlform-alt{margin-top:16px;font-size:0.9rem;color:rgba(255,255,255,0.6);text-transform:none;letter-spacing:0;font-family:inherit;}
+          .hlform-alt a{color:#fff;}
+          .hlform-success{max-width:640px;margin:0 auto;text-align:center;padding:36px 24px;border:1px solid rgba(255,255,255,0.22);border-radius:10px;background:rgba(255,255,255,0.04);}
+          .hlform-success h3{font-size:1.5rem;margin:0 0 10px;}
+          .hlform-success a{color:#fff;}
+        </style>
+        <style>
+.hlform label.hl-consent{display:flex;align-items:flex-start;gap:10px;text-align:left;cursor:pointer;text-transform:none;letter-spacing:normal;font-weight:400;margin:6px 0 16px;}
+.hlform label.hl-consent input[type="checkbox"]{-webkit-appearance:checkbox;appearance:checkbox;flex:0 0 auto;width:17px;min-width:17px;height:17px;margin:2px 0 0;padding:0;border:none;border-radius:0;background:none;box-shadow:none;cursor:pointer;accent-color:#fff;}
+.hlform label.hl-consent input[type="checkbox"]:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+.hlform label.hl-consent span{font-family:'Oswald',sans-serif;font-weight:300;font-size:0.72rem;line-height:1.55;letter-spacing:normal;text-transform:none;margin-left:0;color:#ccc;}
+.hlform label.hl-consent span strong{font-weight:600;color:#fff;}
+.hlform label.hl-consent a{color:#ccc;text-decoration:underline;text-underline-offset:2px;}
+.hlform label.hl-consent:hover span,.hlform label.hl-consent:hover a{color:#fff;}
+</style>
+        <style>
+          .hlform-error{max-width:640px;margin:0 auto 18px;padding:14px 16px;border:1px solid rgba(255,120,120,0.5);border-radius:8px;color:#fff;background:rgba(255,80,80,0.08);}
+          .hlform-error a{color:#fff;}
+        </style>
+        <p class="hlform-error" id="cfError" role="alert" hidden>No se pudo enviar. Mándenos un texto en español al <a href="sms:+18324257749?&body=Hola%20H%26L%2C%20quiero%20abrir%20una%20cuenta%20comercial.">832-425-7749</a> o <a href="tel:8324257749">llámenos</a>, y abrimos su cuenta por ese medio.</p>
+        <form class="hlform" id="commercialForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New Commercial Account Application (SPANISH speaker, reply by text): hljunkremovalandhauling.com" />
+          <input type="hidden" name="Language" value="Spanish. Reply by text in Spanish." />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="Form" value="Commercial account application" />
+          <input type="text" name="_honey" class="hlform-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="hlform-row">
+            <label for="cf-type">Tipo de negocio<span>*</span><select id="cf-type" name="Business Type" required>
+              <option value="" disabled selected>Elija una opción</option>
+              <option value="Property management / apartments">Administración de propiedades / apartamentos</option>
+              <option value="Contractor / remodeler">Contratista / remodelación</option>
+              <option value="Restoration / roofing">Restauración / techos</option>
+              <option value="Real estate investor / flipper">Inversionista de bienes raíces / compra-venta de casas</option>
+              <option value="Storage facility">Mini bodegas</option>
+              <option value="Other business">Otro negocio</option>
+            </select></label>
+            <label for="cf-volume">Dumpsters en los próximos 6 meses<span>*</span><select id="cf-volume" name="Dumpsters in Next 6 Months" required>
+              <option value="" disabled selected>Elija una opción</option>
+              <option value="12 to 20">De 12 a 20</option>
+              <option value="21 to 40">De 21 a 40</option>
+              <option value="More than 40">Más de 40</option>
+              <option value="Fewer than 12">Menos de 12</option>
+              <option value="Not sure yet">Todavía no sé</option>
+            </select></label>
+          </div>
+          <div class="hlform-row">
+            <label for="cf-junk">¿También retiro de basura?<select id="cf-junk" name="Junk Removal Needs">
+              <option value="" selected>Elija una opción</option>
+              <option value="Yes, regularly">Sí, seguido</option>
+              <option value="Now and then">De vez en cuando</option>
+              <option value="No, just dumpsters">No, solo dumpsters</option>
+            </select></label>
+            <label for="cf-business">Nombre del negocio<span>*</span><input type="text" id="cf-business" name="Business Name" required autocomplete="organization" /></label>
+          </div>
+          <label for="cf-area">Dónde están sus trabajos o propiedades<span>*</span><input type="text" id="cf-area" name="Job / Property Locations" required placeholder="Pearland, Friendswood, 77584..." /></label>
+          <div class="hlform-row">
+            <label for="cf-name">Su nombre y puesto<span>*</span><input type="text" id="cf-name" name="Name / Title" required autocomplete="name" /></label>
+            <label for="cf-phone">Teléfono<span>*</span><input type="tel" id="cf-phone" name="Phone" required autocomplete="tel" placeholder="(832) 000-0000" /></label>
+          </div>
+          <label for="cf-email">Correo para las facturas<span>*</span><input type="email" id="cf-email" name="Email" required autocomplete="email" /></label>
+          <label for="cf-details">Algo más<textarea id="cf-details" name="Details" rows="3" placeholder="Requisitos de COI, códigos de reja, quién más puede hacer pedidos"></textarea></label>
+          <input type="hidden" name="SMS Consent" id="cfSmsConsentVal" value="No" />
+          <label class="hl-consent" for="cfSmsConsent">
+            <input type="checkbox" id="cfSmsConsent" />
+            <span><strong>Envíenme mensajes de texto sobre mi cuenta.</strong> Acepto recibir mensajes de texto de servicio de H&amp;L Junk Removal &amp; Hauling al número de arriba, sobre mi cuenta y mis pedidos. La frecuencia de los mensajes varía. Pueden aplicar tarifas de mensajes y datos. Responda STOP para cancelar o HELP para pedir ayuda. Dar su consentimiento no es condición de compra. Consulte nuestra <a href="/privacy-policy/">Política de privacidad</a> (en inglés) y nuestros <a href="/terms/">Términos</a> (en inglés).</span>
+          </label>
+          <button type="submit" class="btn-primary hlform-submit">Enviar mi solicitud</button>
+          <p class="hlform-alt">¿Prefiere no llenar el formulario? Mándenos un texto en español al <a href="sms:+18324257749?&body=Hola%20H%26L%2C%20quiero%20abrir%20una%20cuenta%20comercial.">832-425-7749</a> o <a href="tel:8324257749">llámenos</a>.</p>
+        </form>
+        <div class="hlform-success" id="cfSuccess" hidden>
+          <h3>Solicitud recibida</h3>
+          <p>Gracias. Le escribiremos pronto para abrir su cuenta y enviarle su código de descuento. ¿Preguntas? Mándenos un texto en español al <a href="sms:+18324257749?&body=Hola%20H%26L%2C%20quiero%20abrir%20una%20cuenta%20comercial.">832-425-7749</a> o <a href="tel:8324257749">llámenos</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO IT IS FOR -->
+    <section>
+      <div class="container">
+        <span class="section-label">Para quién es</span>
+        <h2 class="section-title">Negocios que llenan contenedores cada mes</h2>
+        <div class="trust-grid">
+          <div class="trust-item"><h3>Apartamentos y administradores de propiedades</h3><p>Preparar unidades para el siguiente inquilino, muebles que dejan al mudarse, basura voluminosa alrededor del área de contenedores, y contenedores de 20 yardas para trabajos de preparación y renovación.</p></div>
+          <div class="trust-item"><h3>Contratistas y remodeladores</h3><p>Contenedores para demolición entregados el mismo día o al día siguiente cuando tenemos uno libre. El de 14 yardas para cuartos, el de 20 yardas para trabajos de casa completa.</p></div>
+          <div class="trust-item"><h3>Restauración y techos</h3><p>Trabajos por tormentas y daños de agua que no pueden esperar. En el de 20 yardas cabe un techo sin ocupar más entrada.</p></div>
+          <div class="trust-item"><h3>Inversionistas y compra-venta de casas</h3><p>Limpiezas antes de que empiece la cuadrilla y contenedores durante toda la remodelación.</p></div>
+          <div class="trust-item"><h3>Mini bodegas</h3><p>Limpieza de unidades abandonadas o con gravamen después de la subasta, o un contenedor en el sitio para un día de limpieza.</p></div>
+          <div class="trust-item"><h3>Con base en Pearland</h3><p>Nuestro patio está en Pearland, así que el sur de Houston, Friendswood, Manvel, Alvin, Missouri City y la zona de Clear Lake nos quedan cerca.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="band">
+      <div class="container">
+        <span class="section-label">Preguntas frecuentes</span>
+        <h2 class="section-title">Preguntas sobre cuentas comerciales</h2>
+        <div class="faq">
+          <details>
+            <summary>¿Qué cuenta para los 12 dumpsters?</summary>
+            <p>Cada renta de dumpster que reserve su cuenta, de cualquier tamaño y por cualquier tiempo. Uno de 14 yardas por 1 día cuenta igual que uno de 20 yardas por una semana.</p>
+          </details>
+          <details>
+            <summary>¿Qué pasa si rentamos menos de 12 en 6 meses?</summary>
+            <p>Su cuenta regresa a los precios normales desde ese momento. Nunca le cobramos de vuelta el 5% de las rentas que ya tuvo.</p>
+          </details>
+          <details>
+            <summary>¿Cómo obtenemos el precio de cuenta al reservar?</summary>
+            <p>Cuando su cuenta esté lista, recibe su propio código de descuento para reservar en línea, o puede mandarnos un texto en español al 832-425-7749 y se lo reservamos con la tarifa de cuenta.</p>
+          </details>
+          <details>
+            <summary>¿Qué significa prioridad en retiro de basura?</summary>
+            <p>Los trabajos de retiro de basura de las cuentas pasan al frente de nuestra agenda, y la mayoría se hacen el mismo día que nos contacta. El mismo día no está garantizado, y le avisamos desde el principio si no se puede ese día.</p>
+          </details>
+          <details>
+            <summary>¿Nos pueden mandar un certificado de seguro?</summary>
+            <p>Sí. En H&amp;L estamos totalmente asegurados. Guardamos un certificado de seguro en el archivo de su cuenta y podemos nombrar a su compañía o propiedad como asegurado adicional si su póliza lo requiere.</p>
+          </details>
+          <details>
+            <summary>¿Hay un contrato largo?</summary>
+            <p>No. Es un acuerdo de cuenta de una página, y cualquiera de las dos partes puede cerrar la cuenta en cualquier momento por mensaje de texto o correo electrónico.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <h2>Abra su cuenta</h2>
+        <p>Nueve preguntas, unos dos minutos. Abrimos la cuenta y le enviamos su código de descuento.</p>
+        <div class="hero-ctas">
+          <a href="#apply" class="btn-primary js-commercial-wizard">Solicitar ahora</a>
+          <a href="tel:8324257749" class="btn-outline">Llamar al 832-425-7749</a>
+        </div>
+        <div class="nearby">
+          <a href="/es/reservar/">Tamaños y precios de dumpsters</a>
+          <a href="/commercial-junk-removal-league-city-tx/">Retiro de basura comercial</a>
+          <a href="/junk-removal-property-managers-league-city-tx/">Administradores de propiedades</a>
+          <a href="/storage-facility-cleanouts-league-city-tx/">Limpieza de mini bodegas</a>
+          <a href="/dumpster-rental-process/">Cómo funciona la renta de dumpster</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="/es/" class="footer-logo"><img src="/logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" /></a>
+        <nav class="footer-nav" aria-label="Pie de página">
+          <a href="/es/" class="footer-nav-link">Inicio</a>
+          <a href="/es/#services" class="footer-nav-link">Servicios</a>
+          <a href="/gallery.html" class="footer-nav-link">Galería</a>
+          <a href="/blog/" class="footer-nav-link">Guías</a>
+          <a href="/es/#areas" class="footer-nav-link">Zonas de servicio</a>
+          <a href="/es/#faq" class="footer-nav-link">Preguntas</a>
+          <a href="/es/#contact" class="footer-nav-link">Contacto</a>
+        </nav>
+        <p class="footer-tagline">Rápidos. Confiables. Locales.</p>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy" style="margin-bottom:10px;">H&amp;L Junk Removal &amp; Hauling Solutions, LLC &middot; <a href="tel:8324257749">832-425-7749</a></p>
+        <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Totalmente asegurados. Con base en Pearland, TX. &middot; <a href="/privacy-policy/">Política de privacidad</a> (en inglés) &middot; <a href="/terms/">Términos</a> (en inglés)</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function(){
+      var form = document.getElementById('commercialForm');
+      if (!form) return;
+      var box = document.getElementById('cfSmsConsent'), val = document.getElementById('cfSmsConsentVal');
+      if (box && val) { box.addEventListener('change', function(){ val.value = box.checked ? 'Yes' : 'No'; }); }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var honey = form.querySelector('input[name="_honey"]');
+        if (honey && honey.value) { return; } /* silently drop bots */
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var btn = form.querySelector('.hlform-submit');
+        var errEl = document.getElementById('cfError');
+        if (errEl) { errEl.hidden = true; }
+        var label = btn ? btn.textContent : '';
+        if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+
+        var data = {};
+        new FormData(form).forEach(function(v, k){ if (k !== '_honey') data[k] = v; });
+        if (data['Email']) { data['_replyto'] = data['Email']; }
+
+        fetch('https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(function(r){ return r.json(); })
+        .then(function(res){
+          /* FormSubmit answers 200 + JSON on failure too, so check the body. */
+          if (!(res && (res.success === 'true' || res.success === true))) { throw new Error('submit failed'); }
+          /* A GA4 lead event only. Not an Ads conversion: an application is not
+             a booking, and mixing it into the quote conversion would skew bidding. */
+          if (typeof gtag === 'function') { gtag('event', 'generate_lead', { 'send_to': 'G-GYJ54HB3FE', 'lead_type': 'commercial_account' }); }
+          form.style.display = 'none';
+          var ok = document.getElementById('cfSuccess');
+          if (ok) { ok.hidden = false; ok.setAttribute('role', 'status'); ok.scrollIntoView({behavior: 'smooth', block: 'center'}); }
+        })
+        .catch(function(){
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+          if (errEl) { errEl.hidden = false; }
+        });
+      });
+    })();
+  </script>
+
+  <!-- Mobile sticky call bar (shown <=900px) -->
+  <div class="sticky-call" aria-label="Contacto rápido">
+    <a href="tel:8324257749" class="sticky-call-btn sticky-call-primary" aria-label="Llamar al 832 425 7749"><svg class="sticky-call-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2z" fill="currentColor"/></svg> Llamar al <span style="white-space:nowrap;">832-425-7749</span></a>
+    <a href="#apply" class="sticky-call-btn sticky-call-secondary">Solicitar</a>
+  </div>
+  <script>
+    /* Tap-to-call volume for GA4, across ALL traffic. This is analytics only -- the
+       Google Ads conversion is counted by the phone snippet in <head>, which measures
+       real connected calls rather than taps. */
+    (function(){
+      document.addEventListener('click', function(e){
+        var a = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+        if (!a || typeof gtag !== 'function') return;
+        gtag('event', 'click_to_call', {
+          'send_to': 'G-GYJ54HB3FE',
+          'link_url': a.getAttribute('href')
+        });
+      }, true);
+    })();
+  </script>
+
+  <!-- Always-visible route into the storefront (desktop; mobile uses the sticky bar). -->
+  <a href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="shop-fab js-shop-online" target="_blank" rel="noopener" aria-label="Reserve su dumpster en línea. Reserve en minutos."><svg class="shop-fab-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h14.2l-1.9 7.6a2 2 0 0 1-1.9 1.5H8.4a2 2 0 0 1-2-1.6L4.6 4H2V2h4.2l.6 3z" fill="currentColor"/></svg><span>Reserve su dumpster en línea<span class="shop-fab-sub">Reserve en minutos</span></span></a>
+
+  <!-- Shop Online handoff: attribution + GA4 event.
+       Bin Boss owns checkout on its own domain, so a completed booking can never
+       fire a tag here. What we can do is label the handoff: persist Google's click
+       id for the visit and stamp it onto the storefront URL, so a Bin Boss order
+       can be reconciled back to the ad click and the page that sent it. Still no
+       Ads conversion label -- a handoff is not a booking. -->
+  <script>
+    (function(){
+      var STORE_KEY = 'hl_click_id';
+
+      function readStored(k){
+        try { return sessionStorage.getItem(k) || ''; } catch (e) { return ''; }
+      }
+      function writeStored(k, v){
+        try { sessionStorage.setItem(k, v); } catch (e) {}
+      }
+
+      /* Auto-tagging drops the click id on the first page of the visit. Persist it
+         so it survives a hop to a city page before the visitor hands off. */
+      var params = new URLSearchParams(window.location.search);
+      var clickKey = '', clickId = '';
+      ['gclid', 'gbraid', 'wbraid'].forEach(function(k){
+        if (!clickId && params.get(k)) { clickKey = k; clickId = params.get(k); }
+      });
+
+      /* Free channels tag themselves with utm_source (GBP posts, Marketplace,
+         Nextdoor). Carry that through too, or every non-paid visit collapses
+         into one undifferentiated 'website' bucket at the storefront. */
+      var srcKey = 'hl_src';
+      var src = params.get('utm_source') || '';
+      var med = params.get('utm_medium') || '';
+
+      if (clickId) {
+        writeStored(STORE_KEY, clickKey + '=' + clickId);
+      } else {
+        var stored = readStored(STORE_KEY);
+        if (stored) {
+          clickKey = stored.slice(0, stored.indexOf('='));
+          clickId = stored.slice(stored.indexOf('=') + 1);
+        }
+      }
+      if (src) {
+        writeStored(srcKey, src + '|' + med);
+      } else {
+        var s2 = readStored(srcKey);
+        if (s2) { src = s2.slice(0, s2.indexOf('|')); med = s2.slice(s2.indexOf('|') + 1); }
+      }
+
+      /* Which page handed the visitor off. Lets a Bin Boss order be traced to a
+         landing page without needing anything installed on their domain. */
+      var slug = window.location.pathname.replace(/^\/|\/$/g, '') || 'home';
+
+      Array.prototype.forEach.call(
+        document.querySelectorAll('a.js-shop-online'),
+        function(btn){
+          var href = btn.getAttribute('href');
+          if (!href || href.indexOf('mybinboss.com') === -1) return;
+          if (href.indexOf('utm_source=') !== -1) return;
+
+          var sep = href.indexOf('?') === -1 ? '?' : '&';
+          var extra;
+          if (clickId) {
+            extra = sep + clickKey + '=' + encodeURIComponent(clickId) +
+                    '&utm_source=google&utm_medium=cpc';
+          } else if (src) {
+            extra = sep + 'utm_source=' + encodeURIComponent(src) +
+                    '&utm_medium=' + encodeURIComponent(med || 'referral');
+          } else {
+            extra = sep + 'utm_source=website&utm_medium=referral';
+          }
+          extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
+          btn.setAttribute('href', href + extra);
+
+          btn.addEventListener('click', function(){
+            /* Prove this visitor really did hand off to the storefront.
+               /booking-confirmed/ counts an order ONLY when this is present, so a
+               bookmark, a refresh or a stray direct hit records nothing. */
+            writeStored('hl_checkout', String(Date.now()));
+            /* The storefront opens in a new tab, which never sees this tab's
+               sessionStorage, so share the marker through localStorage too. */
+            try { localStorage.setItem('hl_checkout', String(Date.now())); } catch (e) {}
+            if (typeof gtag === 'function') {
+              gtag('event', 'begin_checkout', {
+                'send_to': 'G-GYJ54HB3FE',
+                'link_url': btn.getAttribute('href')
+              });
+            }
+          });
+        }
+      );
+    })();
+  </script>
+</body>
+</html>

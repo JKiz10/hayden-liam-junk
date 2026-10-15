@@ -195,6 +195,22 @@
     }
     .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(255,255,255,0.25); }
 
+    /* Language switch */
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-lang {
+      font-weight: 500;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 9px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .nav-lang:hover, .nav-lang:focus-visible { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
     /* Hamburger */
     .nav-hamburger { display: none; flex-direction: column; gap: 6px; padding: 8px; cursor: pointer; }
     .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: transform 0.4s var(--ease), opacity 0.4s; border-radius: 1px; }
@@ -537,7 +553,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
   </script>
 </head>
 <body>
-  <a href="/dumpster-rental-league-city-tx/" id="hlAnnBar" class="hl-ann-bar" aria-label="New: 14-yard dumpster rentals, 365 dollars for 1 day">
+  <a href="/dumpster-rental-league-city-tx/" id="hlAnnBar" class="hl-ann-bar" aria-label="New: 14 and 20-yard dumpster rentals, starting at 379.99 dollars">
     <span class="hl-ann-tag">New</span>
     <span>14 &amp; 20-Yard Dumpster Rentals</span>
     <span class="hl-ann-mob-hide">&middot; Delivered &amp; Hauled</span>
@@ -575,10 +591,13 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       <a href="/#faq" class="nav-link">FAQ</a>
       <a href="/#contact" class="nav-link">Contact</a>
     </div>
-    <a href="tel:8324257749" class="nav-cta nav-cta-desktop">832-425-7749</a>
-    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+      <a href="/es/" class="nav-lang" hreflang="es" lang="es" aria-label="Ver en español">Español</a>
+      <a href="tel:8324257749" class="nav-cta nav-cta-desktop">832-425-7749</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- Mobile Menu -->
@@ -594,6 +613,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
     <a href="/#faq" class="nav-link" data-close-menu>FAQ</a>
     <a href="/#contact" class="nav-link" data-close-menu>Contact</a>
     <a href="https://www.instagram.com/h.l_junk.removal/" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
+    <a href="/es/" class="nav-link" hreflang="es" lang="es" data-close-menu>Español</a>
     <a href="tel:8324257749" class="nav-cta" data-close-menu>Call 832-425-7749</a>
   </div>
 
