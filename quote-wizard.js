@@ -16,6 +16,8 @@
    Anything a config leaves out falls back to the
    quote wizard's value, so a config only lists
    what differs (other questions, Spanish text).
+   openOnHash: '#apply' opens the wizard when the
+   page loads (or the hash changes) with that hash.
    ============================================= */
 (function () {
   'use strict';
@@ -332,6 +334,16 @@
       .forEach(function (trigger) { trigger.addEventListener('click', open); });
 
     watchOutcome();
+
+    /* A link from another page can arrive already asking for the survey
+       (/commercial-accounts/#apply), so open it on arrival. */
+    if (cfg.openOnHash) {
+      var openFromHash = function () {
+        if (window.location.hash === cfg.openOnHash && !isOpen()) { open(); }
+      };
+      openFromHash();
+      window.addEventListener('hashchange', openFromHash);
+    }
   }
 
   var configs = window.HL_WIZARDS && window.HL_WIZARDS.length ? window.HL_WIZARDS : [{}];

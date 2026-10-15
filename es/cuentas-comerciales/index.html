@@ -145,6 +145,7 @@
       consentId: 'cfSmsConsent',
       triggers: 'a[href="#apply"], .js-commercial-wizard',
       openEvent: 'commercial_wizard_open',
+      openOnHash: '#apply',
       steps: [
         { id: 'cf-type',     q: '¿Qué tipo de negocio es?', hint: 'Elija la opción más parecida.', required: true },
         { id: 'cf-volume',   q: '¿Cuántos dumpsters necesitará en los próximos 6 meses, más o menos?', hint: 'La tarifa de cuenta es para 12 o más. Un cálculo aproximado está bien.', required: true },
@@ -178,7 +179,7 @@
     }];
   </script>
   <link rel="stylesheet" href="/quote-wizard.css?v=1">
-  <script src="/quote-wizard.js?v=2" defer></script>
+  <script src="/quote-wizard.js?v=3" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Saltar al contenido</a>
