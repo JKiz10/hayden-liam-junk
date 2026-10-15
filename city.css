@@ -588,7 +588,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
   .qbook-card { border-radius: 14px; }
 }
 
-/* $365 lead price strip inside the quick-book card */
+/* lead price strip inside the quick-book card */
 .qbook-price {
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 18px;
   border-top: 2px solid var(--black); border-bottom: 1px solid rgba(0,0,0,0.12);

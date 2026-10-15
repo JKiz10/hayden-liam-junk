@@ -75,7 +75,7 @@ grep -ro '8324257749' --include='*.html' . | wc -l
 These are not style preferences, they are business rules. Breaking them costs money or creates legal exposure.
 
 - **Junk removal is never priced on the site.** Free quotes only. No "starting at," no ranges.
-- **Dumpster rental IS priced**, because it is a fixed product: **$399 for 3 days, $525 for 7 days.** Extra days $100/day past the term booked.
+- **Dumpster rental IS priced**, because it is a fixed product. From 2026-10-15 the 14-yard is **$379.99 for 1 day, $399.99 for the weekend, $419.99 for 3 days, $549.99 for 7 days**; the 20-yard is **$500 / $550 / $650** (1 / 3 / 7 days, no weekend). Extra days are $20/day past the term booked. ⚠️ Never find-and-replace prices: the old and new ladders share numbers ($399 was the old 3-day, $399.99 is the new weekend).
 - **Never advertise the $100/day extra-day fee.** You do not headline a penalty.
 - Say **"fully insured."** Never say "licensed."
 - **Oswald is the only font.** Special Elite was removed sitewide and must not come back.
