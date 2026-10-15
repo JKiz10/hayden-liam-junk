@@ -170,6 +170,7 @@
         <p class="hero-sub">Send us a photo or tell us what needs to go. We give you a straight, no-pressure free quote, and if it works for you, we handle all the heavy lifting.</p>
         <div class="hero-ctas">
           <a href="tel:8324257749" class="btn-primary">Call Now 832-425-7749</a>
+          <a href="#quote" class="btn-outline">Get a Free Quote</a>
           <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A" class="btn-outline">Text for a Free Quote</a>
         </div>
         <p class="hero-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google (27 reviews) &middot; Same-day service &middot; Free, no-obligation quotes</p>
@@ -197,6 +198,7 @@
           .hlform-success{max-width:640px;margin:0 auto;text-align:center;padding:36px 24px;border:1px solid rgba(255,255,255,0.22);border-radius:10px;background:rgba(255,255,255,0.04);}
           .hlform-success h3{font-size:1.5rem;margin:0 0 10px;}
           .hlform-success a{color:#fff;}
+          .hlform-error{max-width:640px;margin:0 auto 18px;padding:14px 16px;border:1px solid rgba(255,120,120,0.5);border-radius:8px;color:#fff;background:rgba(255,80,80,0.08);}.hlform-error a{color:#fff;}
         </style>
         <style>
 .hlform label.hl-consent{display:flex;align-items:flex-start;gap:10px;text-align:left;cursor:pointer;text-transform:none;letter-spacing:normal;font-weight:400;margin:6px 0 16px;}
@@ -207,37 +209,39 @@
 .hlform label.hl-consent a{color:#ccc;text-decoration:underline;text-underline-offset:2px;}
 .hlform label.hl-consent:hover span,.hlform label.hl-consent:hover a{color:#fff;}
 </style>
+        <p class="hlform-error" id="qfError" role="alert" hidden>That did not send. Please call or text <a href="tel:8324257749">832-425-7749</a> and we will take care of you.</p>
         <form class="hlform" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" novalidate>
           <input type="hidden" name="_subject" value="New Free Quote — hljunkremovalandhauling.com" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="text" name="_honey" class="hlform-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="hlform-row">
-            <label>Name<span>*</span><input type="text" name="Name" required autocomplete="name" /></label>
-            <label>Phone<span>*</span><input type="tel" name="Phone" required autocomplete="tel" /></label>
+            <label>Name<span>*</span><input type="text" name="Name" id="qf-name" required autocomplete="name" /></label>
+            <label>Phone<span>*</span><input type="tel" name="Phone" id="qf-phone" required autocomplete="tel" /></label>
           </div>
           <div class="hlform-row">
-            <label>Email<input type="email" name="Email" autocomplete="email" /></label>
-            <label>Service Address or ZIP<span>*</span><input type="text" name="Service Address / ZIP" required /></label>
+            <label>Email<input type="email" name="Email" id="qf-email" autocomplete="email" /></label>
+            <label>Service Address or ZIP<span>*</span><input type="text" name="Service Address / ZIP" id="qf-zip" required /></label>
           </div>
           <div class="hlform-row">
-            <label>Service Needed<select name="Service Needed">
+            <label>Service Needed<span>*</span><select name="Service Needed" id="qf-service" required>
+              <option value="" disabled selected>Choose a service</option>
               <option>Junk Removal</option>
               <option>Dumpster Rental (14-yd, $419.99 / 3 days)</option>
               <option>Furniture / Appliance Removal</option>
               <option>Estate / Garage Cleanout</option>
               <option>Construction / Storm Debris</option>
               <option>Commercial / Property Management</option>
-              <option>Not sure — need help</option>
+              <option>Not sure, need help</option>
             </select></label>
-            <label>Preferred Timing<select name="Preferred Timing">
+            <label>Preferred Timing<select name="Preferred Timing" id="qf-when">
               <option>As soon as possible</option>
               <option>Within a few days</option>
               <option>Within a couple weeks</option>
               <option>Just getting a quote</option>
             </select></label>
           </div>
-          <label>Tell us what needs to go<textarea name="Details" rows="3"></textarea></label>
+          <label>Tell us what needs to go<textarea name="Details" id="qf-details" rows="3"></textarea></label>
           <input type="hidden" name="SMS Consent" id="smsConsentVal" value="No" />
           <label class="hl-consent" for="smsConsent">
             <input type="checkbox" id="smsConsent" />
@@ -266,7 +270,7 @@
         <span class="section-label">Local Junk Removal</span>
         <h2 class="section-title">Junk Removal Done Right</h2>
         <p>Hi, if you have junk piling up in League City and you just want it gone, you are in the right place. Text or call us at 832-425-7749, send a quick photo of the pile, and we will give you a <strong>free quote</strong> the same way we would want one, fast and honest with no pressure to book.</p>
-        <p>We are a local, <strong>fully insured</strong> crew based right here in League City, TX. Three of us own the company and do the work ourselves, so you get people who actually show up, treat your place with respect, and clean up when we leave. No prices online, because every job is different. Just tell us what you have and we will quote it.</p>
+        <p>We are a local, <strong>fully insured</strong> crew based in nearby Pearland, TX. Three of us own the company and do the work ourselves, so you get people who actually show up, treat your place with respect, and clean up when we leave. No prices online, because every job is different. Just tell us what you have and we will quote it.</p>
       </div>
     </section>
 
@@ -292,7 +296,7 @@
         <h2 class="section-title">Simple, Insured, Done</h2>
         <div class="trust-grid">
           <div class="trust-item"><h3>Free Quote</h3><p>Call or text 832-425-7749, or send a quick photo. We look at the job and give you an honest quote, free.</p></div>
-          <div class="trust-item"><h3>We Schedule</h3><p>Pick a time that works. We are based in League City, so it is often same or next day.</p></div>
+          <div class="trust-item"><h3>We Schedule</h3><p>Pick a time that works. We are based in nearby Pearland, so it is often same or next day.</p></div>
           <div class="trust-item"><h3>3. We Haul It & You Relax</h3><p>On the day you pick, we show up, load everything ourselves, and haul it off for proper disposal. You do nothing but point. That is the whole job.</p></div>
         </div>
       </div>
@@ -303,7 +307,7 @@
         <div class="trust-grid">
           <div class="trust-item"><h3>Fully Insured</h3><p>Every job is covered. We treat your home and property with care, start to finish.</p></div>
           <div class="trust-item"><h3>Free Quotes</h3><p>No set pricing, no surprises. We look at the job and give you an honest quote, free.</p></div>
-          <div class="trust-item"><h3>Fast &amp; Local</h3><p>Based in League City, often same or next day across the area.</p></div>
+          <div class="trust-item"><h3>Fast &amp; Local</h3><p>Based in nearby Pearland, often same or next day across the area.</p></div>
         </div>
       </div>
     </section>
@@ -379,7 +383,7 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-copy" style="margin-bottom:10px;">H&amp;L Junk Removal &amp; Hauling Solutions, LLC &middot; League City, TX 77573 &middot; <a href="tel:8324257749">832-425-7749</a></p>
-        <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Galveston &amp; Harris County, TX. &middot; <a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/terms/">Terms</a></p>
+        <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Pearland, League City &amp; south Houston, TX. &middot; <a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/terms/">Terms</a></p>
       </div>
     </div>
   </footer>
@@ -389,6 +393,7 @@
       if(!form)return;
       form.addEventListener('submit',function(e){
         e.preventDefault();
+        var er0=document.getElementById('qfError'); if(er0){er0.hidden=true;}
         if(form.querySelector('input[name="_honey"]').value){return;} // bot
         if(!form.checkValidity()){form.reportValidity();return;}
         var btn=form.querySelector('.hlform-submit');
@@ -407,7 +412,7 @@
           form.style.display='none'; if(s){s.hidden=false; s.scrollIntoView({behavior:'smooth',block:'center'});}
         }).catch(function(){
           if(btn){btn.disabled=false;btn.textContent=label;}
-          alert('Sorry, something went wrong. Please call or text 832-425-7749 and we will take care of you.');
+          var er=document.getElementById('qfError'); if(er){er.hidden=false; er.scrollIntoView({behavior:'smooth',block:'center'});}
         });
       });
     })();
