@@ -80,46 +80,225 @@
   <link rel="stylesheet" href="/city.css?v=11" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Service",
-        "serviceType": "Roll-Off Dumpster Rental",
-        "name": "Shop 14-Yard or 20-Yard Roll-Off Dumpster Rentals Online",
-        "description": "Shop a 14-yard or 20-yard roll-off dumpster online, delivered anywhere within 20 miles of our yard. The 14-yard is $379.99 for 1 day, $419.99 for 3 days, $549.99 for 7 days, or a $399.99 weekend special (Saturday morning to Sunday night). The 20-yard is $499.99 for 1 day, $549.99 for 3 days, or $649.99 for 7 days. Both cans share the same 14 ft by 7 ft footprint; the 20-yard has taller sides. Delivery and haul-off included, fully insured, no weight or tonnage fee.",
-        "offers": [
-          { "@type": "Offer", "priceCurrency": "USD", "price": "379.99", "name": "14-Yard 1-Day Rental", "description": "14-yard roll-off dumpster rental, $379.99 for a 1-day rental. We drop it off and pick it up the next day. Delivery and haul-off included, fully insured, no weight or tonnage fee.", "availability": "https://schema.org/InStock" },
-          { "@type": "Offer", "priceCurrency": "USD", "price": "419.99", "name": "14-Yard 3-Day Rental", "description": "14-yard roll-off dumpster rental, $419.99 for a 3-day rental. Delivery and haul-off included, fully insured, no weight or tonnage fee.", "availability": "https://schema.org/InStock" },
-          { "@type": "Offer", "priceCurrency": "USD", "price": "549.99", "name": "14-Yard 7-Day Rental", "description": "14-yard roll-off dumpster rental, $549.99 for a 7-day rental. Delivery and haul-off included, fully insured, no weight or tonnage fee.", "availability": "https://schema.org/InStock" },
-          { "@type": "Offer", "priceCurrency": "USD", "price": "399.99", "name": "14-Yard Weekend Special", "description": "14-yard roll-off dumpster rental, $399.99 weekend special. We drop off Saturday morning and pick up by Sunday night. Delivery and haul-off included, fully insured, no weight or tonnage fee.", "availability": "https://schema.org/InStock" },
-          { "@type": "Offer", "priceCurrency": "USD", "price": "499.99", "name": "20-Yard 1-Day Rental", "description": "20-yard roll-off dumpster rental, $499.99 for a 1-day rental. We drop it off and pick it up the next day. Same 14 ft by 7 ft footprint as the 14-yard with taller sides. Delivery and haul-off included, fully insured, no weight or tonnage fee.", "availability": "https://schema.org/InStock" },
-          { "@type": "Offer", "priceCurrency": "USD", "price": "549.99", "name": "20-Yard 3-Day Rental", "description": "20-yard roll-off dumpster rental, $549.99 for a 3-day rental. Same 14 ft by 7 ft footprint as the 14-yard with taller sides. Delivery and haul-off included, fully insured, no weight or tonnage fee.", "availability": "https://schema.org/InStock" },
-          { "@type": "Offer", "priceCurrency": "USD", "price": "649.99", "name": "20-Yard 7-Day Rental", "description": "20-yard roll-off dumpster rental, $649.99 for a 7-day rental. Same 14 ft by 7 ft footprint as the 14-yard with taller sides. Delivery and haul-off included, fully insured, no weight or tonnage fee.", "availability": "https://schema.org/InStock" }
-        ],
-        "provider": {
-          "@type": "HomeAndConstructionBusiness",
-          "@id": "https://hljunkremovalandhauling.com/#business",
-          "name": "H&L Junk Removal & Hauling Solutions, LLC",
-          "telephone": "+18324257749",
-          "url": "https://hljunkremovalandhauling.com/",
-          "image": "https://hljunkremovalandhauling.com/og-image.jpg",
-          "address": { "@type": "PostalAddress", "addressLocality": "League City", "addressRegion": "TX", "postalCode": "77573", "addressCountry": "US" },
-          "sameAs": ["https://www.instagram.com/h.l_junk.removal/", "https://www.facebook.com/profile.php?id=61589177706129", "https://g.page/r/CUoEnjQdISJpEBM"]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "Roll-Off Dumpster Rental",
+      "name": "Shop 14-Yard or 20-Yard Roll-Off Dumpster Rentals Online",
+      "description": "Shop a 14-yard or 20-yard roll-off dumpster online, delivered anywhere within 20 miles of our yard. The 14-yard is $379.99 for 1 day, $419.99 for 3 days, $549.99 for 7 days, or a $399.99 weekend special (Saturday morning to Sunday night). The 20-yard is $499.99 for 1 day, $549.99 for 3 days, or $649.99 for 7 days. Both cans share the same 14 ft by 7 ft footprint; the 20-yard has taller sides. Delivery and haul-off included, fully insured, no weight or tonnage fee.",
+      "offers": [
+        {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "price": "379.99",
+          "name": "14-Yard 1-Day Rental",
+          "description": "14-yard roll-off dumpster rental, $379.99 for a 1-day rental. We drop it off and pick it up the next day. Delivery and haul-off included, fully insured, no weight or tonnage fee.",
+          "availability": "https://schema.org/InStock"
         },
-        "areaServed": { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 29.5304, "longitude": -95.2891 }, "geoRadius": "32187" },
-        "url": "https://hljunkremovalandhauling.com/book/"
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hljunkremovalandhauling.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Dumpster Rental", "item": "https://hljunkremovalandhauling.com/dumpster-rental-league-city-tx/" },
-          { "@type": "ListItem", "position": 3, "name": "Shop Online", "item": "https://hljunkremovalandhauling.com/book/" }
+        {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "price": "419.99",
+          "name": "14-Yard 3-Day Rental",
+          "description": "14-yard roll-off dumpster rental, $419.99 for a 3-day rental. Delivery and haul-off included, fully insured, no weight or tonnage fee.",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "price": "549.99",
+          "name": "14-Yard 7-Day Rental",
+          "description": "14-yard roll-off dumpster rental, $549.99 for a 7-day rental. Delivery and haul-off included, fully insured, no weight or tonnage fee.",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "price": "399.99",
+          "name": "14-Yard Weekend Special",
+          "description": "14-yard roll-off dumpster rental, $399.99 weekend special. We drop off Saturday morning and pick up by Sunday night. Delivery and haul-off included, fully insured, no weight or tonnage fee.",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "price": "499.99",
+          "name": "20-Yard 1-Day Rental",
+          "description": "20-yard roll-off dumpster rental, $499.99 for a 1-day rental. We drop it off and pick it up the next day. Same 14 ft by 7 ft footprint as the 14-yard with taller sides. Delivery and haul-off included, fully insured, no weight or tonnage fee.",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "price": "549.99",
+          "name": "20-Yard 3-Day Rental",
+          "description": "20-yard roll-off dumpster rental, $549.99 for a 3-day rental. Same 14 ft by 7 ft footprint as the 14-yard with taller sides. Delivery and haul-off included, fully insured, no weight or tonnage fee.",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "price": "649.99",
+          "name": "20-Yard 7-Day Rental",
+          "description": "20-yard roll-off dumpster rental, $649.99 for a 7-day rental. Same 14 ft by 7 ft footprint as the 14-yard with taller sides. Delivery and haul-off included, fully insured, no weight or tonnage fee.",
+          "availability": "https://schema.org/InStock"
+        }
+      ],
+      "provider": {
+        "@type": "HomeAndConstructionBusiness",
+        "@id": "https://hljunkremovalandhauling.com/#business",
+        "name": "H&L Junk Removal & Hauling Solutions, LLC",
+        "telephone": "+18324257749",
+        "url": "https://hljunkremovalandhauling.com/",
+        "image": "https://hljunkremovalandhauling.com/og-image.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "League City",
+          "addressRegion": "TX",
+          "postalCode": "77573",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.instagram.com/h.l_junk.removal/",
+          "https://www.facebook.com/profile.php?id=61589177706129",
+          "https://g.page/r/CUoEnjQdISJpEBM"
         ]
-      }
-    ]
-  }
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Pearland, TX"
+        },
+        {
+          "@type": "City",
+          "name": "League City, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Friendswood, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Manvel, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Alvin, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Iowa Colony, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Rosharon, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Fresno, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Arcola, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Missouri City, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Sienna, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Pasadena, TX"
+        },
+        {
+          "@type": "City",
+          "name": "South Houston, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Deer Park, TX"
+        },
+        {
+          "@type": "City",
+          "name": "La Porte, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Shoreacres, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Webster, TX"
+        },
+        {
+          "@type": "Place",
+          "name": "Clear Lake, Houston, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Nassau Bay, TX"
+        },
+        {
+          "@type": "City",
+          "name": "El Lago, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Taylor Lake Village, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Seabrook, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Kemah, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Dickinson, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Santa Fe, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Bacliff, TX"
+        }
+      ],
+      "url": "https://hljunkremovalandhauling.com/book/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hljunkremovalandhauling.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Dumpster Rental",
+          "item": "https://hljunkremovalandhauling.com/dumpster-rental-league-city-tx/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Shop Online",
+          "item": "https://hljunkremovalandhauling.com/book/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <style>
@@ -344,7 +523,7 @@
     <div class="container">
       <span class="section-label">Service Area</span>
       <h2 class="section-title" id="areaH">We Deliver Within 20 Miles</h2>
-      <p class="lead">Every price on this page covers drop-off and haul-off anywhere inside the circle. Not sure your address is in? Text it to <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20have%20a%20question%20about%20a%20dumpster%20rental%3A">832-425-7749</a> and we will tell you straight.</p>
+      <p class="lead">Every price on this page covers drop-off and haul-off anywhere inside the circle except inner Houston. Not sure your address is in? Text it to <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20have%20a%20question%20about%20a%20dumpster%20rental%3A">832-425-7749</a> and we will tell you straight.</p>
       <figure class="area-map">
         <picture>
           <source type="image/webp" srcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" sizes="(max-width: 768px) calc(100vw - 48px), 720px" />
