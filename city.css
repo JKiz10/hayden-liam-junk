@@ -793,3 +793,26 @@ main li a:not([class]):hover,
 /* No-Scale Rate naming line in the No Surprise Bill panel */
 .nofee-name { margin: 18px 0 22px; max-width: 760px; font-size: 1rem; line-height: 1.65; color: var(--gray-light); }
 .nofee-name strong { color: var(--white); }
+
+/* ---------------- LANGUAGE SWITCH ---------------- */
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-lang {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 10px 14px; border-radius: 8px;
+  white-space: nowrap;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.nav-lang:hover, .nav-lang:focus-visible { border-color: var(--white); background: rgba(255,255,255,0.08); }
+@media (max-width: 400px) {
+  .nav { padding: 12px 14px; gap: 10px; }
+  .nav-right { gap: 8px; }
+  .nav-lang { padding: 9px 10px; font-size: 0.76rem; }
+  .nav-cta { padding: 10px 12px; font-size: 0.84rem; }
+}
+
+/* Spanish capitals carry accents (É, Á, Ó, Ñ). The tight English heading
+   leading pushes them into the line above, so Spanish pages get a little more. */
+html[lang="es"] h1, html[lang="es"] h2 { line-height: 1.12; }
