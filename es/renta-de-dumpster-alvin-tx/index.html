@@ -245,6 +245,12 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "yu33nwh893");
   </script>
+  <style>
+    /* Service area map, shared block on the city pages. */
+    .hl-area-map { margin: 28px 0 0; max-width: 560px; }
+    .hl-area-map img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.14); }
+    .hl-area .lead a { color: var(--white); text-underline-offset: 2px; }
+  </style>
 </head>
 
 <body>
@@ -283,6 +289,21 @@
     <p class="price-tag" style="display:inline-block;margin:6px 0 22px;padding:12px 20px;border:1px solid rgba(255,255,255,0.28);border-radius:8px;font-family:'Oswald',sans-serif;font-size:1.02rem;letter-spacing:0.03em;line-height:1.5;"><span style="font-size:0.74rem;color:rgba(255,255,255,0.58);letter-spacing:0.12em;text-transform:uppercase;">14 Yardas</span> <strong style="color:#fff;font-size:1.2em;">$379.99</strong> / 1 día &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$419.99</strong> / 3 días &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$549.99</strong> / 7 días<br /><span style="font-size:0.74rem;color:rgba(255,255,255,0.58);letter-spacing:0.12em;text-transform:uppercase;">20 Yardas &middot; Más espacio</span> <strong style="color:#fff;font-size:1.2em;">$499.99</strong> / 1 día &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$549.99</strong> / 3 días &nbsp;&middot;&nbsp; <strong style="color:#fff;font-size:1.2em;">$649.99</strong> / 7 días<br /><span style="font-size:0.82rem;color:rgba(255,255,255,0.66);letter-spacing:0.06em;">el mismo espacio de 14 pies &middot; entrega y retiro incluidos &middot; totalmente asegurados</span></p>
   </div>
 </header>
+
+    <section class="hl-area" aria-labelledby="areaH">
+      <div class="container">
+        <span class="section-label">Dónde trabajamos</span>
+        <h2 class="section-title" id="areaH">En cualquier lugar dentro del círculo</h2>
+        <p class="lead">Dejamos y recogemos dumpsters en Alvin y en cualquier lugar dentro de este círculo, a unas 20 millas de nuestro patio en Pearland. ¿No sabes si estás dentro? <a href="sms:+18324257749?&amp;body=Hola%20H%26L%2C%20%C2%BFmi%20direcci%C3%B3n%20est%C3%A1%20en%20su%20%C3%A1rea%3F%20">Mándanos tu dirección por texto</a>.</p>
+        <figure class="hl-area-map">
+          <picture>
+            <source type="image/webp" srcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" sizes="(max-width: 768px) calc(100vw - 36px), 560px" />
+            <img src="/images/service-area-map-720.jpg" width="720" height="723" loading="lazy" decoding="async" alt="Mapa del área de servicio de 20 millas de H&amp;L alrededor de nuestro patio en Pearland, que incluye Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook y Kemah." />
+          </picture>
+        </figure>
+      </div>
+    </section>
+
 
     <!-- Size comparison. Lazy here, unlike /book/: the hero text is the LCP on a
          city page, so this must not sit on the critical path. -->
