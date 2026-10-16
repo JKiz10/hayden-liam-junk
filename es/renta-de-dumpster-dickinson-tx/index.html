@@ -152,6 +152,15 @@
     .hl-area-map img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.14); }
     .hl-area .lead a { color: var(--white); text-underline-offset: 2px; }
   </style>
+  <style>
+    /* Footer city links (site-wide). */
+    .footer-cities { display: grid; grid-template-columns: 2fr 1fr; gap: 24px 48px; padding: 28px 0 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-city-list { display: flex; flex-wrap: wrap; gap: 6px 14px; align-content: flex-start; }
+    .footer-city-head { flex-basis: 100%; margin: 0 0 4px; font-family: 'Oswald', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
+    .footer-city-list a { font-size: 0.86rem; line-height: 1.6; color: rgba(255,255,255,0.62); text-decoration: none; }
+    .footer-city-list a:hover, .footer-city-list a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+    @media (max-width: 700px) { .footer-cities { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Saltar al contenido</a>
@@ -494,7 +503,25 @@
         </nav>
         <p class="footer-tagline">Rápidos. Confiables. Locales.</p>
       </div>
-      <div class="footer-bottom">
+          <div class="footer-cities">
+      <nav class="footer-city-list" aria-label="Renta de dumpster por ciudad">
+        <p class="footer-city-head">Renta de dumpster por ciudad</p>
+        <a href="/es/renta-de-dumpster-alvin-tx/">Alvin</a>
+        <a href="/es/renta-de-dumpster-clear-lake-tx/">Clear Lake</a>
+        <a href="/es/renta-de-dumpster-dickinson-tx/">Dickinson</a>
+        <a href="/es/renta-de-dumpster-friendswood-tx/">Friendswood</a>
+        <a href="/es/renta-de-dumpster-kemah-tx/">Kemah</a>
+        <a href="/es/renta-de-dumpster-league-city-tx/">League City</a>
+        <a href="/es/renta-de-dumpster-manvel-tx/">Manvel</a>
+        <a href="/es/renta-de-dumpster-missouri-city-tx/">Missouri City</a>
+        <a href="/es/renta-de-dumpster-pasadena-tx/">Pasadena</a>
+        <a href="/es/renta-de-dumpster-pearland-tx/">Pearland</a>
+        <a href="/es/renta-de-dumpster-santa-fe-tx/">Santa Fe</a>
+        <a href="/es/renta-de-dumpster-seabrook-tx/">Seabrook</a>
+        <a href="/es/renta-de-dumpster-webster-tx/">Webster</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
         <p class="footer-copy" style="margin-bottom:10px;">H&amp;L Junk Removal &amp; Hauling Solutions, LLC &middot; League City, TX 77573 &middot; <a href="tel:8324257749">832-425-7749</a></p>
         <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Totalmente asegurados. Servimos Pearland, League City y el sur de Houston, TX. &middot; <a href="/privacy-policy/">Política de privacidad</a> (en inglés) &middot; <a href="/terms/">Términos</a> (en inglés)</p>
       </div>
