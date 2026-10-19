@@ -589,11 +589,14 @@
     .hero-headline .line {
       display: block;
       overflow: hidden;
+      /* room for descenders (the y in "Locally") without changing line spacing */
+      padding-bottom: 0.14em;
+      margin-bottom: -0.14em;
     }
 
     .hero-headline .line-inner {
       display: block;
-      transform: translateY(110%);
+      transform: translateY(125%);
       transition: transform 1s var(--ease);
     }
 
@@ -1559,6 +1562,12 @@
       outline: none; border-color: #111; box-shadow: 0 0 0 3px rgba(0,0,0,0.09);
     }
     .qf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .qf-field input[type="file"] { padding: 10px 12px; font-size: 0.9rem; color: #555; cursor: pointer; }
+    .qf-field input[type="file"]::file-selector-button {
+      font-family: 'Oswald', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+      margin-right: 12px; padding: 8px 14px; border: 0; border-radius: 6px; background: #111; color: #fff; cursor: pointer;
+    }
+    .qf-field label .qf-opt { font-weight: 400; color: #777; }
     .qf-submit {
       grid-column: 1 / -1;
       display: inline-flex; align-items: center; justify-content: center;
@@ -1809,7 +1818,7 @@
       ],
       "logo": "https://hljunkremovalandhauling.com/logo.PNG",
       "description": "Retiro de basura, acarreo y limpiezas, totalmente asegurados, con base en Pearland, TX, y servicio en League City, Clear Lake y el sur de Houston. Residencial y comercial. Cotizaciones gratis y sin compromiso.",
-      "slogan": "Nos lo llevamos. Tú descansas.",
+      "slogan": "De confianza y de dueños locales.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "League City",
@@ -2527,7 +2536,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "yu33nwh893");
   </script>
-  <link rel="stylesheet" href="/quote-wizard.css?v=1">
+  <link rel="stylesheet" href="/quote-wizard.css?v=2">
   <script>
     window.HL_WIZARDS = [{
       steps: [
@@ -2537,7 +2546,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
         { id: 'qf-zip',     q: '¿Dónde es el trabajo?', hint: 'La dirección o solo el código postal (ZIP).', required: true },
         { id: 'qf-name',    q: '¿Cómo te llamas?', hint: '', required: true },
         { id: 'qf-phone',   q: '¿A qué número te escribimos?', hint: 'Te mandamos tu precio por mensaje de texto, en español.', required: true, consent: true },
-        { id: 'qf-details', q: '¿Algo más que debamos saber?', hint: 'Opcional. Códigos de reja, escaleras, cosas pesadas.', required: false, last: true }
+        { id: 'qf-details', q: '¿Algo más que debamos saber?', hint: 'Opcional. Con una foto te damos un precio más exacto. También ayudan códigos de reja, escaleras, cosas pesadas.', required: false, last: true, photo: 'qf-photo' }
       ],
       text: {
         count: 'Pregunta {n} de {total}',
@@ -2553,6 +2562,11 @@ body:has(.hl-ann-bar) .nav{top:40px;}
         required: 'Contesta esta para poder darte el precio.',
         phoneShort: 'Ese número de teléfono parece muy corto.',
         emailBad: 'Ese correo no parece correcto.',
+        photoAdd: 'Agregar una foto',
+        photoChange: 'Cambiar foto',
+        photoRemove: 'Quitar',
+        photoBad: 'Ese archivo no es una foto. Prueba con JPG o PNG, o mándala por texto al {phone}.',
+        photoBig: 'Esa foto es muy grande. Elige otra, o mándala por texto al {phone}.',
         doneTitle: '¡Listo, gracias!',
         doneText: 'Ya recibimos tu solicitud. Te mandamos tu precio gratis por mensaje de texto muy pronto.',
         doneSooner: '¿Lo necesitas antes? Mándanos un texto al <a href="sms:{phoneHref}">{phone}</a>.',
@@ -2560,7 +2574,8 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       }
     }];
   </script>
-  <script src="/quote-wizard.js?v=3" defer></script>
+  <script src="/quote-wizard.js?v=4" defer></script>
+  <script src="/quote-photo.js?v=1" defer></script>
   <script src="/text-quote.js?v=2" defer></script>
   <style>
     /* Footer city links (site-wide). */
@@ -2667,12 +2682,12 @@ body:has(.hl-ann-bar) .nav{top:40px;}
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Servicio el mismo día &middot; Negocio local &middot; Totalmente asegurados
+        Servicio el mismo día &middot; Cotización gratis &middot; Totalmente asegurados
       </div>
       <h1 class="hero-headline">
-        <span class="hero-kicker">Retiro de basura el mismo día en Pearland, League City y el sur de Houston</span>
-        <span class="line"><span class="line-inner" id="heroLine1">Nos lo llevamos.</span></span>
-        <span class="line"><span class="line-inner" id="heroLine2">Tú descansas.</span></span>
+        <span class="hero-kicker">Retiro de basura y renta de contenedores en League City y Pearland, TX</span>
+        <span class="line"><span class="line-inner" id="heroLine1">De confianza.</span></span>
+        <span class="line"><span class="line-inner" id="heroLine2">Dueños locales.</span></span>
       </h1>
       <p class="hero-sub" id="heroSub">
         Retiro de basura y cosas viejas, acarreo y limpiezas para casas y negocios en Pearland, League City y el sur de Houston. Totalmente asegurados. Ningún trabajo es demasiado grande ni demasiado chico, tu cotización siempre es gratis, y el precio que te damos es el precio que pagas.
@@ -2825,7 +2840,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
 .quote-form label.hl-consent a{color:#555;text-decoration:underline;text-underline-offset:2px;}
 .quote-form label.hl-consent:hover span,.quote-form label.hl-consent:hover a{color:#111;}
 </style>
-        <form class="quote-form" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" novalidate>
+        <form class="quote-form" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
           <input type="hidden" name="_subject" value="New Free Quote Request (SPANISH speaker, reply by text): H&amp;L Website">
           <input type="hidden" name="Language" value="Spanish. Reply by text in Spanish." />
           <input type="hidden" name="_template" value="table">
@@ -2846,7 +2861,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
           </div>
           <div class="qf-field">
             <label for="qf-zip">Dirección o código postal (ZIP) <span class="req">*</span></label>
-            <input id="qf-zip" name="Service Address / ZIP" type="text" required autocomplete="postal-code" placeholder="Calle o código postal donde está la basura">
+            <input id="qf-zip" name="Service Address / ZIP" type="text" required autocomplete="street-address" placeholder="Dirección, o solo el código postal (ZIP)">
           </div>
           <div class="qf-field qf-full">
             <label for="qf-service">¿Qué necesitas sacar? <span class="req">*</span></label>
@@ -2885,6 +2900,10 @@ body:has(.hl-ann-bar) .nav{top:40px;}
               <option value="This week or next">Esta semana o la próxima</option>
               <option value="Just planning ahead / flexible">Solo estoy planeando, tengo flexibilidad</option>
             </select>
+          </div>
+          <div class="qf-field qf-full">
+            <label for="qf-photo">Foto de lo que hay que sacar <span class="qf-opt">(opcional, te da un precio más exacto)</span></label>
+            <input id="qf-photo" name="attachment" type="file" accept="image/*">
           </div>
           <div class="qf-field qf-full">
             <label for="qf-details">¿Algo más?</label>
@@ -3599,16 +3618,22 @@ body:has(.hl-ann-bar) .nav{top:40px;}
           if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
 
           var data = {};
-          new FormData(quoteForm).forEach(function(v, k){ if (k !== '_honey') data[k] = v; });
+          new FormData(quoteForm).forEach(function(v, k){ if (k !== '_honey' && typeof v === 'string') data[k] = v; });
           var emailVal = (data['Email'] || '').trim();
           if (emailVal) { data['_replyto'] = emailVal; }
 
-          fetch('https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(data)
-          })
-          .then(function(r){ return r.json(); })
+          /* quote-photo.js adds the optional job photo and falls back to a
+             text-only send if the photo cannot go through. */
+          var sendUrl = 'https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com';
+          var send = window.HLQuoteSend
+            ? window.HLQuoteSend(sendUrl, data, document.getElementById('qf-photo'))
+            : fetch(sendUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(data)
+              }).then(function(r){ return r.json(); });
+
+          send
           .then(function(res){
             if (res && (res.success === 'true' || res.success === true)) {
               if (typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18264252114/sPLOCNWoq8ocENK9iYVE'}); }

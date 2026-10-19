@@ -18,12 +18,16 @@
    what differs (other questions, Spanish text).
    openOnHash: '#apply' opens the wizard when the
    page loads (or the hash changes) with that hash.
+   photo: 'qf-photo' on a step adds an "Add a photo"
+   button under it for that file input (the page's
+   handler sends it, see quote-photo.js).
    ============================================= */
 (function () {
   'use strict';
 
   var PHONE = '832-425-7749';
   var PHONE_HREF = '8324257749';
+  var MAX_PHOTO_BYTES = 30 * 1024 * 1024;
 
   var QUOTE = {
     formId: 'quoteForm',
@@ -41,7 +45,7 @@
       { id: 'qf-zip',     q: 'Where is the job?',         hint: 'Street address or just a ZIP code.', required: true },
       { id: 'qf-name',    q: 'What is your name?',        hint: '', required: true },
       { id: 'qf-phone',   q: 'Best number to reach you?', hint: 'We call or text back with your price.', required: true, consent: true },
-      { id: 'qf-details', q: 'Anything else we should know?', hint: 'Optional. Gate codes, stairs, heavy items.', required: false, last: true }
+      { id: 'qf-details', q: 'Anything else we should know?', hint: 'Optional. A photo gets you a closer price. Gate codes, stairs, heavy items help too.', required: false, last: true, photo: 'qf-photo' }
     ],
     text: {
       count: 'Question {n} of {total}',
@@ -57,6 +61,11 @@
       required: 'Please answer this one so we can quote you.',
       phoneShort: 'That phone number looks too short.',
       emailBad: 'That email address does not look right.',
+      photoAdd: 'Add a photo',
+      photoChange: 'Change photo',
+      photoRemove: 'Remove',
+      photoBad: 'That file is not a photo. Try a JPG or PNG, or text it to {phone}.',
+      photoBig: 'That photo is too big. Pick a smaller one, or text it to {phone}.',
       doneTitle: 'Got it, thank you',
       doneText: 'Your request is in. We will call or text you back shortly with a free, no obligation price.',
       doneSooner: 'Need it sooner? Call or text <a href="tel:{phoneHref}">{phone}</a>.',
@@ -149,6 +158,7 @@
 
       if (field.tagName === 'SELECT') { renderOptions(field); }
       else { renderInput(step, field); }
+      if (step.photo && document.getElementById(step.photo)) { renderPhoto(document.getElementById(step.photo)); }
 
       els.next.textContent = step.last ? T.submit : T.next;
       els.next.style.display = field.tagName === 'SELECT' ? 'none' : '';
@@ -193,6 +203,70 @@
 
       if (step.consent) { els.slot.appendChild(buildConsent()); }
       window.setTimeout(function () { proxy.focus(); }, 90);
+    }
+
+    /* The real file input stays in the page form; this button opens its
+       picker, so the chosen file is already where the form sends from. */
+    function renderPhoto(input) {
+      var wrap = document.createElement('div');
+      wrap.className = 'qw-photo';
+      var pick = document.createElement('button');
+      pick.type = 'button';
+      pick.className = 'qw-photo-pick';
+      var thumb = document.createElement('img');
+      thumb.className = 'qw-photo-thumb';
+      thumb.alt = '';
+      var label = document.createElement('span');
+      var remove = document.createElement('button');
+      remove.type = 'button';
+      remove.className = 'qw-photo-remove';
+      remove.textContent = T.photoRemove;
+
+      function show() {
+        var file = input.files && input.files[0];
+        label.textContent = file ? T.photoChange : T.photoAdd;
+        remove.hidden = !file;
+        wrap.classList.toggle('has-photo', !!file);
+        if (thumb.src) { URL.revokeObjectURL(thumb.src); thumb.removeAttribute('src'); }
+        thumb.hidden = true;
+        if (file) {
+          thumb.onload = function () { thumb.hidden = false; };
+          thumb.src = URL.createObjectURL(file);
+        }
+      }
+
+      pick.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4.5 7.6 6.5H5A2 2 0 0 0 3 8.5v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2.6L15 4.5H9Zm3 4.25a4.25 4.25 0 1 1 0 8.5 4.25 4.25 0 0 1 0-8.5Zm0 2a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" fill="currentColor"/></svg>';
+      pick.appendChild(thumb);
+      pick.appendChild(label);
+      pick.addEventListener('click', function () { input.click(); });
+      remove.addEventListener('click', function () { input.value = ''; show(); });
+      photoListener = show;
+      show();
+
+      wrap.appendChild(pick);
+      wrap.appendChild(remove);
+      els.slot.appendChild(wrap);
+    }
+
+    /* Checked once per form. Phone photos are shrunk before sending,
+       so only an absurd file is refused here. */
+    var photoListener = null;
+    function watchPhoto(step) {
+      var input = step.photo && document.getElementById(step.photo);
+      if (!input) { return; }
+      input.addEventListener('change', function () {
+        var file = input.files && input.files[0];
+        if (file && !/^image\//.test(file.type) && !/\.(jpe?g|png|heic|heif|webp|gif)$/i.test(file.name)) {
+          input.value = '';
+          els.err.textContent = fill(T.photoBad);
+        } else if (file && file.size > MAX_PHOTO_BYTES) {
+          input.value = '';
+          els.err.textContent = fill(T.photoBig);
+        } else {
+          els.err.textContent = '';
+        }
+        if (photoListener && isOpen()) { photoListener(); }
+      });
     }
 
     function buildConsent() {
@@ -334,6 +408,7 @@
       .forEach(function (trigger) { trigger.addEventListener('click', open); });
 
     watchOutcome();
+    steps.forEach(watchPhoto);
 
     /* A link from another page can arrive already asking for the survey
        (/commercial-accounts/#apply), so open it on arrival. */
