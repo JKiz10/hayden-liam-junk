@@ -586,11 +586,14 @@
     .hero-headline .line {
       display: block;
       overflow: hidden;
+      /* room for descenders (the y in "Locally") without changing line spacing */
+      padding-bottom: 0.14em;
+      margin-bottom: -0.14em;
     }
 
     .hero-headline .line-inner {
       display: block;
-      transform: translateY(110%);
+      transform: translateY(125%);
       transition: transform 1s var(--ease);
     }
 
@@ -1556,6 +1559,12 @@
       outline: none; border-color: #111; box-shadow: 0 0 0 3px rgba(0,0,0,0.09);
     }
     .qf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .qf-field input[type="file"] { padding: 10px 12px; font-size: 0.9rem; color: #555; cursor: pointer; }
+    .qf-field input[type="file"]::file-selector-button {
+      font-family: 'Oswald', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+      margin-right: 12px; padding: 8px 14px; border: 0; border-radius: 6px; background: #111; color: #fff; cursor: pointer;
+    }
+    .qf-field label .qf-opt { font-weight: 400; color: #777; }
     .qf-submit {
       grid-column: 1 / -1;
       display: inline-flex; align-items: center; justify-content: center;
@@ -1806,7 +1815,7 @@
       ],
       "logo": "https://hljunkremovalandhauling.com/logo.PNG",
       "description": "Fully insured junk removal, hauling, cleanouts and 14 and 20-yard roll-off dumpster rental based in Pearland, TX, serving League City, Friendswood, Clear Lake and the south Houston area. Residential and commercial. Free junk removal quotes.",
-      "slogan": "We Haul. You Relax.",
+      "slogan": "Trusted & Locally Owned.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "League City",
@@ -2518,8 +2527,9 @@ body:has(.hl-ann-bar) .nav{top:40px;}
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "yu33nwh893");
   </script>
-  <link rel="stylesheet" href="/quote-wizard.css?v=1">
-  <script src="/quote-wizard.js?v=3" defer></script>
+  <link rel="stylesheet" href="/quote-wizard.css?v=2">
+  <script src="/quote-wizard.js?v=4" defer></script>
+  <script src="/quote-photo.js?v=1" defer></script>
   <script src="/text-quote.js?v=2" defer></script>
   <style>
     /* Footer city links (site-wide). */
@@ -2626,12 +2636,12 @@ body:has(.hl-ann-bar) .nav{top:40px;}
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Same-Day Service &middot; Locally Owned &middot; Fully Insured
+        Same-Day Service &middot; Free Quotes &middot; Fully Insured
       </div>
       <h1 class="hero-headline">
-        <span class="hero-kicker">Same-Day Junk Removal in League City, TX</span>
-        <span class="line"><span class="line-inner" id="heroLine1">We Haul.</span></span>
-        <span class="line"><span class="line-inner" id="heroLine2">You Relax.</span></span>
+        <span class="hero-kicker">Junk Removal &amp; Dumpster Rental in League City &amp; Pearland, TX</span>
+        <span class="line"><span class="line-inner" id="heroLine1">Trusted &amp;</span></span>
+        <span class="line"><span class="line-inner" id="heroLine2">Locally Owned.</span></span>
       </h1>
       <p class="hero-sub" id="heroSub">
         Fully insured junk removal, hauling, and cleanouts for homes and businesses across League City, Galveston County, and Harris County. No job too big or too small, your quote is always free, and the number we quote is the number you pay.
@@ -2782,7 +2792,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
 .quote-form label.hl-consent a{color:#555;text-decoration:underline;text-underline-offset:2px;}
 .quote-form label.hl-consent:hover span,.quote-form label.hl-consent:hover a{color:#111;}
 </style>
-        <form class="quote-form" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" novalidate>
+        <form class="quote-form" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
           <input type="hidden" name="_subject" value="New Free Quote Request (H&amp;L Website)">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
@@ -2802,7 +2812,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
           </div>
           <div class="qf-field">
             <label for="qf-zip">Service Address / ZIP <span class="req">*</span></label>
-            <input id="qf-zip" name="Service Address / ZIP" type="text" required autocomplete="postal-code" placeholder="Street or ZIP where the junk is">
+            <input id="qf-zip" name="Service Address / ZIP" type="text" required autocomplete="street-address" placeholder="Street address, or just a ZIP">
           </div>
           <div class="qf-field qf-full">
             <label for="qf-service">What do you need removed? <span class="req">*</span></label>
@@ -2841,6 +2851,10 @@ body:has(.hl-ann-bar) .nav{top:40px;}
               <option>This week or next</option>
               <option>Just planning ahead / flexible</option>
             </select>
+          </div>
+          <div class="qf-field qf-full">
+            <label for="qf-photo">Photo of the junk <span class="qf-opt">(optional, gets you a closer price)</span></label>
+            <input id="qf-photo" name="attachment" type="file" accept="image/*">
           </div>
           <div class="qf-field qf-full">
             <label for="qf-details">Anything else?</label>
@@ -3586,16 +3600,22 @@ body:has(.hl-ann-bar) .nav{top:40px;}
           if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
           var data = {};
-          new FormData(quoteForm).forEach(function(v, k){ if (k !== '_honey') data[k] = v; });
+          new FormData(quoteForm).forEach(function(v, k){ if (k !== '_honey' && typeof v === 'string') data[k] = v; });
           var emailVal = (data['Email'] || '').trim();
           if (emailVal) { data['_replyto'] = emailVal; }
 
-          fetch('https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(data)
-          })
-          .then(function(r){ return r.json(); })
+          /* quote-photo.js adds the optional job photo and falls back to a
+             text-only send if the photo cannot go through. */
+          var sendUrl = 'https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com';
+          var send = window.HLQuoteSend
+            ? window.HLQuoteSend(sendUrl, data, document.getElementById('qf-photo'))
+            : fetch(sendUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(data)
+              }).then(function(r){ return r.json(); });
+
+          send
           .then(function(res){
             if (res && (res.success === 'true' || res.success === true)) {
               if (typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18264252114/sPLOCNWoq8ocENK9iYVE'}); }

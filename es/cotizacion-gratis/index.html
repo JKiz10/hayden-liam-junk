@@ -132,7 +132,7 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "yu33nwh893");
   </script>
-  <link rel="stylesheet" href="/quote-wizard.css?v=1">
+  <link rel="stylesheet" href="/quote-wizard.css?v=2">
   <script>
     window.HL_WIZARDS = [{
       steps: [
@@ -142,7 +142,7 @@
         { id: 'qf-zip',     q: '¿Dónde es el trabajo?', hint: 'La dirección o solo el código postal (ZIP).', required: true },
         { id: 'qf-name',    q: '¿Cómo te llamas?', hint: '', required: true },
         { id: 'qf-phone',   q: '¿A qué número te escribimos?', hint: 'Te mandamos tu precio por mensaje de texto, en español.', required: true, consent: true },
-        { id: 'qf-details', q: '¿Algo más que debamos saber?', hint: 'Opcional. Códigos de reja, escaleras, cosas pesadas.', required: false, last: true }
+        { id: 'qf-details', q: '¿Algo más que debamos saber?', hint: 'Opcional. Con una foto te damos un precio más exacto. También ayudan códigos de reja, escaleras, cosas pesadas.', required: false, last: true, photo: 'qf-photo' }
       ],
       text: {
         count: 'Pregunta {n} de {total}',
@@ -158,6 +158,11 @@
         required: 'Contesta esta para poder darte el precio.',
         phoneShort: 'Ese número de teléfono parece muy corto.',
         emailBad: 'Ese correo no parece correcto.',
+        photoAdd: 'Agregar una foto',
+        photoChange: 'Cambiar foto',
+        photoRemove: 'Quitar',
+        photoBad: 'Ese archivo no es una foto. Prueba con JPG o PNG, o mándala por texto al {phone}.',
+        photoBig: 'Esa foto es muy grande. Elige otra, o mándala por texto al {phone}.',
         doneTitle: '¡Listo, gracias!',
         doneText: 'Ya recibimos tu solicitud. Te mandamos tu precio gratis por mensaje de texto muy pronto.',
         doneSooner: '¿Lo necesitas antes? Mándanos un texto al <a href="sms:{phoneHref}">{phone}</a>.',
@@ -165,7 +170,8 @@
       }
     }];
   </script>
-  <script src="/quote-wizard.js?v=3" defer></script>
+  <script src="/quote-wizard.js?v=4" defer></script>
+  <script src="/quote-photo.js?v=1" defer></script>
   <script src="/text-quote.js?v=2" defer></script>
   <style>
     /* Footer city links (site-wide). */
@@ -227,6 +233,8 @@
         <style>
           .hlform{max-width:640px;margin:0 auto;text-align:left;}
           .hlform-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+          .hlform input[type="file"]{padding:10px 12px;font-size:0.9rem;color:rgba(255,255,255,0.75);cursor:pointer;}
+          .hlform input[type="file"]::file-selector-button{font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase;margin-right:12px;padding:8px 14px;border:0;border-radius:5px;background:#fff;color:#111;cursor:pointer;}
           .hlform-row{display:flex;gap:16px;flex-wrap:wrap;}
           .hlform-row > label{flex:1 1 240px;}
           .hlform label{display:block;margin-bottom:16px;font-family:'Oswald',sans-serif;font-size:0.82rem;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.75);}
@@ -252,7 +260,7 @@
 .hlform label.hl-consent:hover span,.hlform label.hl-consent:hover a{color:#fff;}
 </style>
         <p class="hlform-error" id="qfError" role="alert" hidden>No se pudo enviar. Mándanos un texto en español al <a href="sms:+18324257749">832-425-7749</a> y te ayudamos.</p>
-        <form class="hlform" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" novalidate>
+        <form class="hlform" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
           <input type="hidden" name="_subject" value="New Free Quote (SPANISH speaker, reply by text): hljunkremovalandhauling.com" />
           <input type="hidden" name="Language" value="Spanish. Reply by text in Spanish." />
           <input type="hidden" name="_template" value="table" />
@@ -264,7 +272,7 @@
           </div>
           <div class="hlform-row">
             <label>Correo electrónico<input type="email" name="Email" id="qf-email" autocomplete="email" /></label>
-            <label>Dirección o código postal (ZIP)<span>*</span><input type="text" name="Service Address / ZIP" id="qf-zip" required /></label>
+            <label>Dirección o código postal (ZIP)<span>*</span><input type="text" name="Service Address / ZIP" id="qf-zip" required autocomplete="street-address" /></label>
           </div>
           <div class="hlform-row">
             <label>Servicio que necesitas<span>*</span><select name="Service Needed" id="qf-service" required>
@@ -285,6 +293,7 @@
             </select></label>
           </div>
           <label>Dinos qué hay que sacar<textarea name="Details" id="qf-details" rows="3"></textarea></label>
+          <label>Foto de lo que hay que sacar (opcional, te da un precio más exacto)<input type="file" name="attachment" id="qf-photo" accept="image/*" /></label>
           <input type="hidden" name="SMS Consent" id="smsConsentVal" value="No" />
           <label class="hl-consent" for="smsConsent">
             <input type="checkbox" id="smsConsent" />
@@ -459,11 +468,13 @@
         if(!form.checkValidity()){form.reportValidity();return;}
         var btn=form.querySelector('.hlform-submit');
         var label=btn?btn.textContent:''; if(btn){btn.disabled=true;btn.textContent='Enviando…';}
-        fetch('https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com',{
-          method:'POST',
-          headers:{'Accept':'application/json'},
-          body:new FormData(form)
-        }).then(function(r){return r.json();}).then(function(res){
+        /* quote-photo.js adds the optional job photo and falls back to a
+           text-only send if the photo cannot go through. */
+        var sendUrl='https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com';
+        var send=window.HLQuoteSend
+          ? window.HLQuoteSend(sendUrl,window.HLQuoteFields(form),document.getElementById('qf-photo'))
+          : fetch(sendUrl,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)}).then(function(r){return r.json();});
+        send.then(function(res){
           /* FormSubmit answers 200 + JSON on failure too, so .catch never runs.
              Without this guard a failed send fires a conversion, shows a fake
              success screen, and the lead email is silently dropped. */

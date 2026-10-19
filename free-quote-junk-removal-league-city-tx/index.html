@@ -132,8 +132,9 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "yu33nwh893");
   </script>
-  <link rel="stylesheet" href="/quote-wizard.css?v=1">
-  <script src="/quote-wizard.js?v=3" defer></script>
+  <link rel="stylesheet" href="/quote-wizard.css?v=2">
+  <script src="/quote-wizard.js?v=4" defer></script>
+  <script src="/quote-photo.js?v=1" defer></script>
   <script src="/text-quote.js?v=2" defer></script>
   <style>
     /* Service area map, shared block on the area-wide service pages. */
@@ -215,6 +216,8 @@
         <style>
           .hlform{max-width:640px;margin:0 auto;text-align:left;}
           .hlform-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+          .hlform input[type="file"]{padding:10px 12px;font-size:0.9rem;color:rgba(255,255,255,0.75);cursor:pointer;}
+          .hlform input[type="file"]::file-selector-button{font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase;margin-right:12px;padding:8px 14px;border:0;border-radius:5px;background:#fff;color:#111;cursor:pointer;}
           .hlform-row{display:flex;gap:16px;flex-wrap:wrap;}
           .hlform-row > label{flex:1 1 240px;}
           .hlform label{display:block;margin-bottom:16px;font-family:'Oswald',sans-serif;font-size:0.82rem;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.75);}
@@ -240,7 +243,7 @@
 .hlform label.hl-consent:hover span,.hlform label.hl-consent:hover a{color:#fff;}
 </style>
         <p class="hlform-error" id="qfError" role="alert" hidden>That did not send. Please call or text <a href="tel:8324257749">832-425-7749</a> and we will take care of you.</p>
-        <form class="hlform" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" novalidate>
+        <form class="hlform" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
           <input type="hidden" name="_subject" value="New Free Quote — hljunkremovalandhauling.com" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
@@ -251,7 +254,7 @@
           </div>
           <div class="hlform-row">
             <label>Email<input type="email" name="Email" id="qf-email" autocomplete="email" /></label>
-            <label>Service Address or ZIP<span>*</span><input type="text" name="Service Address / ZIP" id="qf-zip" required /></label>
+            <label>Service Address or ZIP<span>*</span><input type="text" name="Service Address / ZIP" id="qf-zip" required autocomplete="street-address" /></label>
           </div>
           <div class="hlform-row">
             <label>Service Needed<span>*</span><select name="Service Needed" id="qf-service" required>
@@ -272,6 +275,7 @@
             </select></label>
           </div>
           <label>Tell us what needs to go<textarea name="Details" id="qf-details" rows="3"></textarea></label>
+          <label>Photo of the junk (optional, gets you a closer price)<input type="file" name="attachment" id="qf-photo" accept="image/*" /></label>
           <input type="hidden" name="SMS Consent" id="smsConsentVal" value="No" />
           <label class="hl-consent" for="smsConsent">
             <input type="checkbox" id="smsConsent" />
@@ -475,11 +479,13 @@
         if(!form.checkValidity()){form.reportValidity();return;}
         var btn=form.querySelector('.hlform-submit');
         var label=btn?btn.textContent:''; if(btn){btn.disabled=true;btn.textContent='Sending…';}
-        fetch('https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com',{
-          method:'POST',
-          headers:{'Accept':'application/json'},
-          body:new FormData(form)
-        }).then(function(r){return r.json();}).then(function(res){
+        /* quote-photo.js adds the optional job photo and falls back to a
+           text-only send if the photo cannot go through. */
+        var sendUrl='https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com';
+        var send=window.HLQuoteSend
+          ? window.HLQuoteSend(sendUrl,window.HLQuoteFields(form),document.getElementById('qf-photo'))
+          : fetch(sendUrl,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)}).then(function(r){return r.json();});
+        send.then(function(res){
           /* FormSubmit answers 200 + JSON on failure too, so .catch never runs.
              Without this guard a failed send fires a conversion, shows a fake
              success screen, and the lead email is silently dropped. */
