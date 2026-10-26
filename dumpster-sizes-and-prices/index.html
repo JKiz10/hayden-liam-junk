@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18264252114"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18264252114');
+    gtag('config', 'G-GYJ54HB3FE');
+    /* Google Ads call tracking, split by product line.
+       Each campaign stamps its own ?src= on the landing URL. We persist that for
+       the visit and fire the matching call conversion label, so a call from a
+       20-yard search is counted separately from a 14-yard or a junk-removal one.
+
+       Exactly ONE label fires per page load. Two forwarding-number configs would
+       compete to swap the same displayed number, and the working call tracking is
+       the only reliable conversion signal on this site -- not worth risking.
+
+       With no ?src= (organic, direct, untagged campaigns) this falls back to the
+       original account-wide label, so behaviour is unchanged until the campaigns
+       are actually tagged. */
+    (function(){
+      var LABELS = {
+        '14yd': 'AW-18264252114/uyJWCMfOmvIcENK9iYVE',
+        '20yd': 'AW-18264252114/7PfICJjQvPIcENK9iYVE',
+        'junk': 'AW-18264252114/yh6aCImtuvIcENK9iYVE'
+      };
+      var FALLBACK = 'AW-18264252114/boQkCKjlqMscENK9iYVE';
+      var KEY = 'hl_line';
+
+      function readLine(){
+        try { return sessionStorage.getItem(KEY) || ''; } catch (e) { return ''; }
+      }
+      function writeLine(v){
+        try { sessionStorage.setItem(KEY, v); } catch (e) {}
+      }
+
+      var line = '';
+      try { line = new URLSearchParams(window.location.search).get('src') || ''; }
+      catch (e) {}
+
+      if (LABELS[line]) { writeLine(line); } else { line = readLine(); }
+
+      gtag('config', LABELS[line] || FALLBACK, {'phone_conversion_number': '832-425-7749'});
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dumpster Sizes &amp; Prices: 14-Yard vs 20-Yard | H&amp;L</title>
+  <meta name="description" content="Which dumpster size do you need? Compare our 14-yard and 20-yard roll-offs, every price from $379.99, and what fits a roof, remodel or cleanout." />
+  <link rel="canonical" href="https://hljunkremovalandhauling.com/dumpster-sizes-and-prices/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="geo.region" content="US-TX" />
+  <meta name="geo.placename" content="Pearland, Texas" />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="H&amp;L Junk Removal &amp; Hauling" />
+  <meta property="og:title" content="Dumpster Sizes &amp; Prices: 14-Yard vs 20-Yard | H&amp;L" />
+  <meta property="og:description" content="Which dumpster size do you need? Compare our 14-yard and 20-yard roll-offs, every price from $379.99, and what fits a roof, remodel or cleanout." />
+  <meta property="og:url" content="https://hljunkremovalandhauling.com/dumpster-sizes-and-prices/" />
+  <meta property="og:image" content="https://hljunkremovalandhauling.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dumpster Sizes &amp; Prices: 14-Yard vs 20-Yard | H&amp;L" />
+  <meta name="twitter:description" content="Which dumpster size do you need? Compare our 14-yard and 20-yard roll-offs, every price from $379.99, and what fits a roof, remodel or cleanout." />
+  <meta name="twitter:image" content="https://hljunkremovalandhauling.com/og-image.jpg" />
+  <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=3" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="/city.css?v=11" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hljunkremovalandhauling.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Dumpster Rental",
+          "item": "https://hljunkremovalandhauling.com/book/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Sizes & Prices",
+          "item": "https://hljunkremovalandhauling.com/dumpster-sizes-and-prices/"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://hljunkremovalandhauling.com/dumpster-sizes-and-prices/#service",
+      "name": "Roll-Off Dumpster Rental: Sizes and Prices",
+      "serviceType": "Roll-off dumpster rental",
+      "url": "https://hljunkremovalandhauling.com/dumpster-sizes-and-prices/",
+      "description": "Two roll-off dumpster sizes, 14-yard and 20-yard, on the same 14 by 7 ft footprint. Delivery, rental days and haul-off included, no weight fee.",
+      "provider": {
+        "@type": "HomeAndConstructionBusiness",
+        "@id": "https://hljunkremovalandhauling.com/#business",
+        "name": "H&L Junk Removal & Hauling Solutions, LLC",
+        "url": "https://hljunkremovalandhauling.com/",
+        "telephone": "+18324257749",
+        "image": "https://hljunkremovalandhauling.com/og-image.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "League City",
+          "addressRegion": "TX",
+          "postalCode": "77573",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.instagram.com/h.l_junk.removal/",
+          "https://www.facebook.com/profile.php?id=61589177706129",
+          "https://g.page/r/CUoEnjQdISJpEBM"
+        ],
+        "hasMap": "https://g.page/r/CUoEnjQdISJpEBM"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Pearland, TX"
+        },
+        {
+          "@type": "City",
+          "name": "League City, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Friendswood, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Manvel, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Alvin, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Iowa Colony, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Rosharon, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Fresno, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Arcola, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Missouri City, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Sienna, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Pasadena, TX"
+        },
+        {
+          "@type": "City",
+          "name": "South Houston, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Deer Park, TX"
+        },
+        {
+          "@type": "City",
+          "name": "La Porte, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Shoreacres, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Webster, TX"
+        },
+        {
+          "@type": "Place",
+          "name": "Clear Lake, Houston, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Nassau Bay, TX"
+        },
+        {
+          "@type": "City",
+          "name": "El Lago, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Taylor Lake Village, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Seabrook, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Kemah, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Dickinson, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Santa Fe, TX"
+        },
+        {
+          "@type": "City",
+          "name": "Bacliff, TX"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Roll-off dumpster rental, 14-yard and 20-yard",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "14-yard roll-off dumpster",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "14-Yard 1-Day Rental",
+                "price": "379.99",
+                "priceCurrency": "USD",
+                "url": "https://hljunkremovalandhauling.com/book/",
+                "eligibleDuration": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "DAY"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "14-Yard Weekend Special",
+                "price": "399.99",
+                "priceCurrency": "USD",
+                "url": "https://hljunkremovalandhauling.com/book/",
+                "description": "Saturday morning drop-off to Sunday night pickup. Booked by phone."
+              },
+              {
+                "@type": "Offer",
+                "name": "14-Yard 3-Day Rental",
+                "price": "419.99",
+                "priceCurrency": "USD",
+                "url": "https://hljunkremovalandhauling.com/book/",
+                "eligibleDuration": {
+                  "@type": "QuantitativeValue",
+                  "value": 3,
+                  "unitCode": "DAY"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "14-Yard 7-Day Rental",
+                "price": "549.99",
+                "priceCurrency": "USD",
+                "url": "https://hljunkremovalandhauling.com/book/",
+                "eligibleDuration": {
+                  "@type": "QuantitativeValue",
+                  "value": 7,
+                  "unitCode": "DAY"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "20-yard roll-off dumpster",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "20-Yard 1-Day Rental",
+                "price": "499.99",
+                "priceCurrency": "USD",
+                "url": "https://hljunkremovalandhauling.com/book/",
+                "eligibleDuration": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "DAY"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "20-Yard 3-Day Rental",
+                "price": "549.99",
+                "priceCurrency": "USD",
+                "url": "https://hljunkremovalandhauling.com/book/",
+                "eligibleDuration": {
+                  "@type": "QuantitativeValue",
+                  "value": 3,
+                  "unitCode": "DAY"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "20-Yard 7-Day Rental",
+                "price": "649.99",
+                "priceCurrency": "USD",
+                "url": "https://hljunkremovalandhauling.com/book/",
+                "eligibleDuration": {
+                  "@type": "QuantitativeValue",
+                  "value": 7,
+                  "unitCode": "DAY"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+  </script>
+  <!-- Microsoft Clarity: click heatmaps, scroll maps, session recordings -->
+  <script type="text/javascript">
+    if (/(^|\.)hljunkremovalandhauling\.com$/.test(location.hostname)) (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yu33nwh893");
+  </script>
+  <script src="/text-quote.js?v=2" defer></script>
+  <style>
+    .size-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .size-table { width: 100%; min-width: 460px; border-collapse: collapse; font-size: 0.98rem; }
+    .size-table th, .size-table td { padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.12); text-align: left; vertical-align: top; }
+    .size-table thead th { font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; }
+    .size-table tbody th { font-weight: 500; color: rgba(255,255,255,0.72); }
+    /* Footer city links (site-wide). */
+    .footer-cities { display: grid; grid-template-columns: 2fr 1fr; gap: 24px 48px; padding: 28px 0 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-city-list { display: flex; flex-wrap: wrap; gap: 6px 14px; align-content: flex-start; }
+    .footer-city-head { flex-basis: 100%; margin: 0 0 4px; font-family: 'Oswald', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
+    .footer-city-list a { font-size: 0.86rem; line-height: 1.6; color: rgba(255,255,255,0.62); text-decoration: none; }
+    .footer-city-list a:hover, .footer-city-list a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+    @media (max-width: 700px) { .footer-cities { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="nav" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="H&amp;L Junk Removal &amp; Hauling home">
+      <img src="/logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
+    </a>
+        <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/#services" class="nav-link">Services</a>
+      <a href="/gallery.html" class="nav-link">Gallery</a>
+      <a href="/blog/" class="nav-link">Guides</a>
+      <a href="/#areas" class="nav-link">Areas</a>
+      <a href="/#faq" class="nav-link">FAQ</a>
+    </div>
+    <div class="nav-right"><a href="/es/" class="nav-lang" hreflang="es" lang="es" aria-label="Ver en español">Español</a><a href="tel:8324257749" class="nav-cta">832-425-7749</a></div>
+  </nav>
+
+  <main id="main">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/book/">Dumpster Rental</a> &rsaquo; <span aria-current="page">Sizes &amp; Prices</span></nav>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="container">
+        <div class="hero-badge"><span class="hero-badge-dot"></span> Pearland, League City &amp; South Houston &middot; Fully Insured &middot; <span class="hero-star">&#9733;</span> 4.9 Google</div>
+        <h1><span class="hero-kicker">Dumpster Sizes &amp; Prices &middot; 14-Yard and 20-Yard Roll-Offs</span> Which Dumpster<br />Size Do You Need?</h1>
+        <p class="hero-sub">We rent two roll-off dumpster sizes: a 14-yard from $379.99 and a 20-yard from $499.99. Both sit on the same spot, about 14 ft long and 7 ft wide; the 20-yard just has taller walls. Every price includes delivery, your rental days and haul-off, with no weight fee.</p>
+        <div class="hero-ctas">
+          <a target="_blank" rel="noopener" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="btn-mega js-shop-online"><span class="btn-mega-main">Shop Dumpsters Online</span><span class="btn-mega-note">Book online in minutes</span></a>
+          <a href="tel:8324257749" class="btn-outline">Call or Text 832-425-7749</a>
+        </div>
+        <p class="cta-proof"><span class="cta-proof-star" aria-hidden="true">&#9733;</span> 4.9 on Google &middot; 27 reviews</p>
+      </div>
+    </header>
+
+    <section style="padding-top:0;">
+      <div class="container">
+        <figure class="size-compare">
+          <picture>
+            <source type="image/webp"
+                    srcset="/images/work/hl-two-sizes-city-1024.webp 1024w,
+                            /images/work/hl-two-sizes-city-1600.webp 1600w"
+                    sizes="(max-width: 1180px) 100vw, 1140px" />
+            <img src="/images/work/hl-two-sizes-city-1600.jpg"
+                 srcset="/images/work/hl-two-sizes-city-1024.jpg 1024w,
+                         /images/work/hl-two-sizes-city-1600.jpg 1600w"
+                 sizes="(max-width: 1180px) 100vw, 1140px"
+                 width="2560" height="1440" loading="lazy" decoding="async"
+                 alt="14-yard and 20-yard roll-off dumpsters side by side with a 6 ft crew member for scale" />
+          </picture>
+          <figcaption>Our 14-yard (orange) and 20-yard (black), side by side. The crew member is <strong>6 ft tall</strong>. Whichever you pick, the delivery and the pickup work exactly the same.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container">
+        <span class="section-label">Side by Side</span>
+        <h2 class="section-title">14-Yard vs 20-Yard Dumpster</h2>
+        <div class="size-table-wrap">
+          <table class="size-table">
+            <thead><tr><th scope="col"></th><th scope="col">14-Yard</th><th scope="col">20-Yard</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Footprint</th><td>About 14 ft by 7 ft</td><td>About 14 ft by 7 ft</td></tr>
+              <tr><th scope="row">Walls</th><td>Standard height</td><td>Taller, so it holds more</td></tr>
+              <tr><th scope="row">1 day</th><td>$379.99</td><td>$499.99</td></tr>
+              <tr><th scope="row">Weekend (Saturday to Sunday)</th><td>$399.99, call to book</td><td>Not offered</td></tr>
+              <tr><th scope="row">3 days</th><td>$419.99</td><td>$549.99</td></tr>
+              <tr><th scope="row">7 days</th><td>$549.99</td><td>$649.99</td></tr>
+              <tr><th scope="row">Extra day</th><td>$50, if the dumpster is free</td><td>$50, if the dumpster is free</td></tr>
+              <tr><th scope="row">Weight fee</th><td>None</td><td>None</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prose" style="margin-top:22px;"><p>Delivery, your rental days and haul-off are inside every price. Going from the 14-yard to the 20-yard costs $100 to $130 more depending on the rental length, and it takes no more of your driveway. Ready to pick one? <a href="/book/">Rent a dumpster online</a>.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="section-label">By the Job</span>
+        <h2 class="section-title">What Fits in Each Size</h2>
+        <div class="svc-grid">
+          <div class="svc-card"><h3>The 14-Yard Usually Covers</h3><p>A garage or attic cleanout, one room of remodel debris, a modest roof, or a fence and yard cleanup. It is the one most homeowners pick.</p></div>
+          <div class="svc-card"><h3>The 20-Yard Usually Covers</h3><p>A whole-house clear-out, a kitchen gut, flooring from several rooms, a bigger roof tear-off, or any job where you are already worried about running out of room.</p></div>
+          <div class="svc-card"><h3>Between Sizes?</h3><p>Take the 20-yard. Running out halfway through a job costs more than the difference, and the bigger one sits on the same spot. Text us a photo and we will tell you which one fits.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container">
+        <span class="section-label">Other Sizes</span>
+        <h2 class="section-title">Looking for a 10, 15 or 30-Yard Dumpster?</h2>
+        <div class="prose">
+          <p>We keep two sizes on purpose. If you were shopping for a 10-yard or a 15-yard, our 14-yard is the closest match and the usual pick for a garage cleanout or one room of remodel debris. If you were looking at a bigger can for a bigger job, look at our 20-yard.</p>
+          <p>We do not rent a 30-yard or a 40-yard. Those are made for commercial lots and tear-downs with room to spare, not a two-car driveway. Both of our sizes are short enough to sit on a normal driveway, on boards, without hanging into the street.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="section-label">The Price</span>
+        <h2 class="section-title">What Changes the Price, and What Does Not</h2>
+        <div class="svc-grid">
+          <div class="svc-card"><h3>What Changes It</h3><p>The size and the rental length (1, 3 or 7 days). The weekend special is a 14-yard rate booked by phone. An extra day is $50, only when the dumpster is not already booked for the next driveway. Cancelling inside 24 hours of a confirmed drop-off keeps $50.</p></div>
+          <div class="svc-card"><h3>What Does Not</h3><p>Weight. We do not own a scale, so a heavy load costs the same as a light one. No fuel fee, no delivery fee, and haul-off is included. Fill it level with the top rail and that is the whole rule.</p></div>
+          <div class="svc-card"><h3>Heavy Loads</h3><p>Shingles, concrete and dirt reach a safe towing weight before the dumpster looks full, so text us before you load them and we will tell you where to stop. The weight never changes your price.</p></div>
+        </div>
+        <div class="prose" style="margin-top:22px;"><p>Some things cannot go in at all: tires, batteries, Freon appliances, chemicals and paint are banned from Texas landfills. See the <a href="/dumpster-rental-process/#what-cant-go-in">full list of what cannot go in a dumpster</a>, and the <a href="/terms/">rental terms</a> in plain English.</p></div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container">
+        <span class="section-label">Where We Deliver</span>
+        <h2 class="section-title">Delivered Within 20 Miles of Pearland</h2>
+        <div class="prose"><p>Every price on this page includes delivery anywhere inside our 20-mile circle around the Pearland yard, except inner Houston. That covers <a href="/dumpster-rental-pearland-tx/">Pearland</a>, <a href="/dumpster-rental-league-city-tx/">League City</a>, <a href="/dumpster-rental-friendswood-tx/">Friendswood</a>, <a href="/dumpster-rental-manvel-tx/">Manvel</a>, <a href="/dumpster-rental-alvin-tx/">Alvin</a>, <a href="/dumpster-rental-clear-lake-tx/">Clear Lake</a>, <a href="/dumpster-rental-webster-tx/">Webster</a>, <a href="/dumpster-rental-dickinson-tx/">Dickinson</a>, <a href="/dumpster-rental-kemah-tx/">Kemah</a>, <a href="/dumpster-rental-seabrook-tx/">Seabrook</a>, <a href="/dumpster-rental-santa-fe-tx/">Santa Fe</a>, <a href="/dumpster-rental-missouri-city-tx/">Missouri City</a>, <a href="/dumpster-rental-pasadena-tx/">Pasadena</a> and the towns between. Not sure you are in? Text your address to <a href="sms:+18324257749">832-425-7749</a>.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="section-label">Straight Answers</span>
+        <h2 class="section-title">Dumpster Size and Price Questions</h2>
+        <div class="faq">
+          <details open>
+            <summary>How much does it cost to rent a dumpster?</summary>
+            <p>The 14-yard is $379.99 for 1 day, $399.99 for the weekend (call to book), $419.99 for 3 days and $549.99 for 7 days. The 20-yard is $499.99 for 1 day, $549.99 for 3 days and $649.99 for 7 days. Delivery, your rental days and haul-off are included, with no weight fee.</p>
+          </details>
+          <details>
+            <summary>What size dumpster do I need for a garage cleanout?</summary>
+            <p>The 14-yard, almost always. A packed two-car garage that also holds furniture from the house can call for the 20-yard. Text us a photo and we will tell you.</p>
+          </details>
+          <details>
+            <summary>What size dumpster do I need for a roof?</summary>
+            <p>A modest roof usually fits the 14-yard and a bigger tear-off calls for the 20-yard. Shingles are heavy, so text us before you load and we will tell you where to stop. The weight never changes your price.</p>
+          </details>
+          <details>
+            <summary>Will a 20-yard dumpster fit in my driveway?</summary>
+            <p>If the 14-yard fits, the 20-yard fits. Both are about 14 ft long and 7 ft wide, and a standard two-car driveway holds either one. We lay boards down before the dumpster touches your concrete.</p>
+          </details>
+          <details>
+            <summary>Can I rent a dumpster for just one day?</summary>
+            <p>Yes. One day is $379.99 for the 14-yard and $499.99 for the 20-yard. <a href="/book/">Book it online</a> or call or text 832-425-7749.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+<section class="cta-band">
+      <div class="container">
+        <h2>Ready to Get Started?</h2>
+        <p>The 14-yard is $379.99 for a day, $419.99 for 3 days, or $549.99 for a full week. The 20-yard is $499.99, $549.99, or $649.99. Call or text and we will get it dropped when you need it, or compare both sizes on our <a href="/book/">dumpster rental page</a>.</p>
+        <div class="hero-ctas">
+          <a href="tel:8324257749" class="btn-primary">Call 832-425-7749</a>
+          <a target="_blank" rel="noopener" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="btn-outline js-shop-online">Book Online</a>
+          <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20have%20a%20question%20about%20a%20dumpster%20rental%3A" class="btn-outline">Text Us</a>
+        </div>
+        <p class="cta-proof"><span class="cta-proof-star" aria-hidden="true">&#9733;</span> 4.9 on Google &middot; 27 reviews</p>
+        <div class="nearby">
+          <a href="/dumpster-rental-pearland-tx/">Pearland</a>
+          <a href="/dumpster-rental-league-city-tx/">Dumpster Rental &amp; Pricing</a>
+          <a href="/dumpster-rental-clear-lake-tx/">Clear Lake</a>
+          <a href="/dumpster-rental-dickinson-tx/">Dickinson</a>
+          <a href="/junk-removal-vs-dumpster-rental/">Dumpster or Junk Removal?</a>
+          <a href="/">All Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="/" class="footer-logo"><img src="/logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" /></a>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/" class="footer-nav-link">Home</a>
+          <a href="/book/" class="footer-nav-link">Dumpster Rental</a>
+          <a href="/#services" class="footer-nav-link">Services</a>
+          <a href="/gallery.html" class="footer-nav-link">Gallery</a>
+          <a href="/blog/" class="footer-nav-link">Guides</a>
+          <a href="/#areas" class="footer-nav-link">Service Areas</a>
+          <a href="/#faq" class="footer-nav-link">FAQ</a>
+          <a href="/#contact" class="footer-nav-link">Contact</a>
+        </nav>
+        <p class="footer-tagline">Fast. Reliable. Local.</p>
+      </div>
+          <div class="footer-cities">
+      <nav class="footer-city-list" aria-label="Junk removal by city">
+        <p class="footer-city-head">Junk removal by city</p>
+        <a href="/junk-removal-alvin-tx/">Alvin</a>
+        <a href="/junk-removal-arcola-tx/">Arcola</a>
+        <a href="/junk-removal-bacliff-san-leon-tx/">Bacliff &amp; San Leon</a>
+        <a href="/junk-removal-clear-lake-tx/">Clear Lake</a>
+        <a href="/junk-removal-deer-park-tx/">Deer Park</a>
+        <a href="/junk-removal-dickinson-tx/">Dickinson</a>
+        <a href="/junk-removal-el-lago-tx/">El Lago</a>
+        <a href="/junk-removal-fresno-tx/">Fresno</a>
+        <a href="/junk-removal-friendswood-tx/">Friendswood</a>
+        <a href="/junk-removal-iowa-colony-tx/">Iowa Colony</a>
+        <a href="/junk-removal-kemah-tx/">Kemah</a>
+        <a href="/junk-removal-la-porte-tx/">La Porte</a>
+        <a href="/">League City</a>
+        <a href="/junk-removal-manvel-tx/">Manvel</a>
+        <a href="/junk-removal-missouri-city-tx/">Missouri City</a>
+        <a href="/junk-removal-nassau-bay-tx/">Nassau Bay</a>
+        <a href="/junk-removal-pasadena-tx/">Pasadena</a>
+        <a href="/junk-removal-pearland-tx/">Pearland</a>
+        <a href="/junk-removal-rosharon-tx/">Rosharon</a>
+        <a href="/junk-removal-santa-fe-tx/">Santa Fe</a>
+        <a href="/junk-removal-seabrook-tx/">Seabrook</a>
+        <a href="/junk-removal-shoreacres-tx/">Shoreacres</a>
+        <a href="/junk-removal-sienna-tx/">Sienna</a>
+        <a href="/junk-removal-south-houston-tx/">South Houston</a>
+        <a href="/junk-removal-taylor-lake-village-tx/">Taylor Lake Village</a>
+        <a href="/junk-removal-webster-tx/">Webster</a>
+      </nav>
+      <nav class="footer-city-list" aria-label="Dumpster rental by city">
+        <p class="footer-city-head">Dumpster rental by city</p>
+        <a href="/dumpster-rental-alvin-tx/">Alvin</a>
+        <a href="/dumpster-rental-clear-lake-tx/">Clear Lake</a>
+        <a href="/dumpster-rental-dickinson-tx/">Dickinson</a>
+        <a href="/dumpster-rental-friendswood-tx/">Friendswood</a>
+        <a href="/dumpster-rental-kemah-tx/">Kemah</a>
+        <a href="/dumpster-rental-league-city-tx/">League City</a>
+        <a href="/dumpster-rental-manvel-tx/">Manvel</a>
+        <a href="/dumpster-rental-missouri-city-tx/">Missouri City</a>
+        <a href="/dumpster-rental-pasadena-tx/">Pasadena</a>
+        <a href="/dumpster-rental-pearland-tx/">Pearland</a>
+        <a href="/dumpster-rental-santa-fe-tx/">Santa Fe</a>
+        <a href="/dumpster-rental-seabrook-tx/">Seabrook</a>
+        <a href="/dumpster-rental-webster-tx/">Webster</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+        <p class="footer-copy" style="margin-bottom:10px;">H&amp;L Junk Removal &amp; Hauling Solutions, LLC &middot; League City, TX 77573 &middot; <a href="tel:8324257749">832-425-7749</a></p>
+        <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Pearland, League City &amp; south Houston, TX. &middot; <a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/terms/">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky call bar (shown <=900px) -->
+  <div class="sticky-call" aria-label="Quick contact">
+    <a href="tel:8324257749" class="sticky-call-btn sticky-call-primary" aria-label="Call 832 425 7749"><svg class="sticky-call-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2z" fill="currentColor"/></svg> Call 832-425-7749</a>
+    <a target="_blank" rel="noopener" href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="sticky-call-btn sticky-call-secondary js-shop-online">Book Online</a>
+  </div>
+  <script>
+    /* Tap-to-call volume for GA4, across ALL traffic. This is analytics only -- the
+       Google Ads conversion is counted by the phone snippet in <head>, which measures
+       real connected calls rather than taps. */
+    (function(){
+      document.addEventListener('click', function(e){
+        var a = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+        if (!a || typeof gtag !== 'function') return;
+        gtag('event', 'click_to_call', {
+          'send_to': 'G-GYJ54HB3FE',
+          'link_url': a.getAttribute('href')
+        });
+      }, true);
+    })();
+  </script>
+
+  <!-- Shop Online handoff: attribution + GA4 event.
+       Bin Boss owns checkout on its own domain, so a completed booking can never
+       fire a tag here. What we can do is label the handoff: persist Google's click
+       id for the visit and stamp it onto the storefront URL, so a Bin Boss order
+       can be reconciled back to the ad click and the page that sent it. Still no
+       Ads conversion label -- a handoff is not a booking. -->
+  <script>
+    (function(){
+      var STORE_KEY = 'hl_click_id';
+
+      function readStored(k){
+        try { return sessionStorage.getItem(k) || ''; } catch (e) { return ''; }
+      }
+      function writeStored(k, v){
+        try { sessionStorage.setItem(k, v); } catch (e) {}
+      }
+
+      /* Auto-tagging drops the click id on the first page of the visit. Persist it
+         so it survives a hop to a city page before the visitor hands off. */
+      var params = new URLSearchParams(window.location.search);
+      var clickKey = '', clickId = '';
+      ['gclid', 'gbraid', 'wbraid'].forEach(function(k){
+        if (!clickId && params.get(k)) { clickKey = k; clickId = params.get(k); }
+      });
+
+      /* Free channels tag themselves with utm_source (GBP posts, Marketplace,
+         Nextdoor). Carry that through too, or every non-paid visit collapses
+         into one undifferentiated 'website' bucket at the storefront. */
+      var srcKey = 'hl_src';
+      var src = params.get('utm_source') || '';
+      var med = params.get('utm_medium') || '';
+
+      if (clickId) {
+        writeStored(STORE_KEY, clickKey + '=' + clickId);
+      } else {
+        var stored = readStored(STORE_KEY);
+        if (stored) {
+          clickKey = stored.slice(0, stored.indexOf('='));
+          clickId = stored.slice(stored.indexOf('=') + 1);
+        }
+      }
+      if (src) {
+        writeStored(srcKey, src + '|' + med);
+      } else {
+        var s2 = readStored(srcKey);
+        if (s2) { src = s2.slice(0, s2.indexOf('|')); med = s2.slice(s2.indexOf('|') + 1); }
+      }
+
+      /* Which page handed the visitor off. Lets a Bin Boss order be traced to a
+         landing page without needing anything installed on their domain. */
+      var slug = window.location.pathname.replace(/^\/|\/$/g, '') || 'home';
+
+      Array.prototype.forEach.call(
+        document.querySelectorAll('a.js-shop-online'),
+        function(btn){
+          var href = btn.getAttribute('href');
+          if (!href || href.indexOf('mybinboss.com') === -1) return;
+          if (href.indexOf('utm_source=') !== -1) return;
+
+          var sep = href.indexOf('?') === -1 ? '?' : '&';
+          var extra;
+          if (clickId) {
+            extra = sep + clickKey + '=' + encodeURIComponent(clickId) +
+                    '&utm_source=google&utm_medium=cpc';
+          } else if (src) {
+            extra = sep + 'utm_source=' + encodeURIComponent(src) +
+                    '&utm_medium=' + encodeURIComponent(med || 'referral');
+          } else {
+            extra = sep + 'utm_source=website&utm_medium=referral';
+          }
+          extra += '&utm_campaign=dumpster&utm_content=' + encodeURIComponent(slug);
+          btn.setAttribute('href', href + extra);
+
+          btn.addEventListener('click', function(){
+            /* Prove this visitor really did hand off to the storefront.
+               /booking-confirmed/ counts an order ONLY when this is present, so a
+               bookmark, a refresh or a stray direct hit records nothing. */
+            writeStored('hl_checkout', String(Date.now()));
+            /* The storefront opens in a new tab, which never sees this tab's
+               sessionStorage, so share the marker through localStorage too. */
+            try { localStorage.setItem('hl_checkout', String(Date.now())); } catch (e) {}
+            if (typeof gtag === 'function') {
+              gtag('event', 'begin_checkout', {
+                'send_to': 'G-GYJ54HB3FE',
+                'link_url': btn.getAttribute('href')
+              });
+            }
+          });
+        }
+      );
+    })();
+  </script>
+
+  <!-- Always-visible route into the storefront (desktop; mobile uses the sticky bar). -->
+  <a href="https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc" class="shop-fab js-shop-online" target="_blank" rel="noopener" aria-label="Shop dumpsters online. Book online in minutes."><svg class="shop-fab-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h14.2l-1.9 7.6a2 2 0 0 1-1.9 1.5H8.4a2 2 0 0 1-2-1.6L4.6 4H2V2h4.2l.6 3z" fill="currentColor"/></svg><span>Shop Dumpsters Online<span class="shop-fab-sub">Book online in minutes</span></span></a>
+</body>
+</html>
