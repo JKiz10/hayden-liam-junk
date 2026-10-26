@@ -88,6 +88,14 @@
   </style></noscript>
 
   <style>
+    /* Breadcrumb: colors match city.css; it sits inside the hero to clear the fixed nav */
+    .breadcrumb {
+      margin: 0 auto 28px;
+      font-size: 0.82rem; letter-spacing: 0.02em; color: var(--gray);
+    }
+    .breadcrumb a { color: var(--gray-light); }
+    .breadcrumb a:hover { color: var(--white); }
+    .breadcrumb span[aria-current] { color: var(--gray); }
     :root {
       --black: #000000;
       --dark: #0a0a0a;
@@ -506,6 +514,7 @@
     "@graph": [
       {
         "@type": "BreadcrumbList",
+        "@id": "https://hljunkremovalandhauling.com/gallery.html#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hljunkremovalandhauling.com/" },
           { "@type": "ListItem", "position": 2, "name": "Before & After Gallery", "item": "https://hljunkremovalandhauling.com/gallery.html" }
@@ -513,6 +522,10 @@
       },
       {
         "@type": "ImageGallery",
+        "@id": "https://hljunkremovalandhauling.com/gallery.html#webpage",
+        "isPartOf": { "@id": "https://hljunkremovalandhauling.com/#website" },
+        "breadcrumb": { "@id": "https://hljunkremovalandhauling.com/gallery.html#breadcrumb" },
+        "inLanguage": "en-US",
         "name": "H&L Junk Removal Before & After Gallery",
         "about": { "@id": "https://hljunkremovalandhauling.com/#business" },
         "url": "https://hljunkremovalandhauling.com/gallery.html",
@@ -631,6 +644,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
   <!-- Gallery Hero -->
   <section class="gallery-hero">
     <div class="gallery-hero-bg" aria-hidden="true"></div>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span aria-current="page">Before &amp; After Gallery</span></nav>
     <span class="section-label reveal">Our Work</span>
     <h1 class="section-title reveal d1" style="color: var(--white);">Junk Removal Before &amp; After in League City, TX</h1>
     <p class="gallery-hero-sub reveal d2">Real junk removal and cleanout jobs across League City and the Bay Area. Drag the slider to see the transformation.</p>
