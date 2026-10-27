@@ -162,6 +162,8 @@
     .footer-city-list a:hover, .footer-city-list a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
     @media (max-width: 700px) { .footer-cities { grid-template-columns: 1fr; } }
   </style>
+  <link rel="stylesheet" href="/nav-areas.css" />
+  <script src="/nav-areas.js" defer></script>
 </head>
 <body>
   <a href="/book/" id="hlAnnBar" class="hl-ann-bar" aria-label="New: 14 and 20-yard dumpster rentals, starting at 379.99 dollars">
@@ -177,15 +179,69 @@
     <a href="/" class="nav-logo" aria-label="H&amp;L Junk Removal &amp; Hauling home">
       <img src="/logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
     </a>
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
       <a href="/" class="nav-link">Home</a>
       <a href="/#services" class="nav-link">Services</a>
       <a href="/gallery.html" class="nav-link">Gallery</a>
       <a href="/blog/" class="nav-link">Guides</a>
-      <a href="/#areas" class="nav-link">Areas</a>
+      <details class="nav-areas">
+        <summary class="nav-link">Areas</summary>
+        <div class="nav-areas-panel">
+          <div class="nav-areas-col nav-areas-col--wide">
+            <p class="nav-areas-head">Junk Removal</p>
+            <ul class="nav-areas-list">
+              <li><a href="/junk-removal-alvin-tx/">Alvin</a></li>
+              <li><a href="/junk-removal-arcola-tx/">Arcola</a></li>
+              <li><a href="/junk-removal-bacliff-san-leon-tx/">Bacliff &amp; San Leon</a></li>
+              <li><a href="/junk-removal-clear-lake-tx/">Clear Lake</a></li>
+              <li><a href="/junk-removal-deer-park-tx/">Deer Park</a></li>
+              <li><a href="/junk-removal-dickinson-tx/">Dickinson</a></li>
+              <li><a href="/junk-removal-el-lago-tx/">El Lago</a></li>
+              <li><a href="/junk-removal-fresno-tx/">Fresno</a></li>
+              <li><a href="/junk-removal-friendswood-tx/">Friendswood</a></li>
+              <li><a href="/junk-removal-iowa-colony-tx/">Iowa Colony</a></li>
+              <li><a href="/junk-removal-kemah-tx/">Kemah</a></li>
+              <li><a href="/junk-removal-la-porte-tx/">La Porte</a></li>
+              <li><a href="/">League City</a></li>
+              <li><a href="/junk-removal-manvel-tx/">Manvel</a></li>
+              <li><a href="/junk-removal-missouri-city-tx/">Missouri City</a></li>
+              <li><a href="/junk-removal-nassau-bay-tx/">Nassau Bay</a></li>
+              <li><a href="/junk-removal-pasadena-tx/">Pasadena</a></li>
+              <li><a href="/junk-removal-pearland-tx/">Pearland</a></li>
+              <li><a href="/junk-removal-rosharon-tx/">Rosharon</a></li>
+              <li><a href="/junk-removal-santa-fe-tx/">Santa Fe</a></li>
+              <li><a href="/junk-removal-seabrook-tx/">Seabrook</a></li>
+              <li><a href="/junk-removal-shoreacres-tx/">Shoreacres</a></li>
+              <li><a href="/junk-removal-sienna-tx/">Sienna</a></li>
+              <li><a href="/junk-removal-south-houston-tx/">South Houston</a></li>
+              <li><a href="/junk-removal-taylor-lake-village-tx/">Taylor Lake Village</a></li>
+              <li><a href="/junk-removal-webster-tx/">Webster</a></li>
+            </ul>
+          </div>
+          <div class="nav-areas-col">
+            <p class="nav-areas-head">Dumpster Rental</p>
+            <ul class="nav-areas-list">
+              <li><a href="/dumpster-rental-alvin-tx/">Alvin</a></li>
+              <li><a href="/dumpster-rental-clear-lake-tx/">Clear Lake</a></li>
+              <li><a href="/dumpster-rental-dickinson-tx/">Dickinson</a></li>
+              <li><a href="/dumpster-rental-friendswood-tx/">Friendswood</a></li>
+              <li><a href="/dumpster-rental-kemah-tx/">Kemah</a></li>
+              <li><a href="/dumpster-rental-league-city-tx/">League City</a></li>
+              <li><a href="/dumpster-rental-manvel-tx/">Manvel</a></li>
+              <li><a href="/dumpster-rental-missouri-city-tx/">Missouri City</a></li>
+              <li><a href="/dumpster-rental-pasadena-tx/">Pasadena</a></li>
+              <li><a href="/dumpster-rental-pearland-tx/">Pearland</a></li>
+              <li><a href="/dumpster-rental-santa-fe-tx/">Santa Fe</a></li>
+              <li><a href="/dumpster-rental-seabrook-tx/">Seabrook</a></li>
+              <li><a href="/dumpster-rental-webster-tx/">Webster</a></li>
+            </ul>
+          </div>
+          <p class="nav-areas-foot"><a href="/#areas">See the 20-mile service area map</a></p>
+        </div>
+      </details>
       <a href="/#faq" class="nav-link">FAQ</a>
     </div>
-    <div class="nav-right"><a href="/es/cotizacion-gratis/" class="nav-lang" hreflang="es" lang="es" aria-label="Ver en español">Español</a><a href="tel:8324257749" class="nav-cta">832-425-7749</a></div>
+    <div class="nav-right"><a href="/es/cotizacion-gratis/" class="nav-lang" hreflang="es" lang="es" aria-label="Ver en español">Español</a><a href="tel:8324257749" class="nav-cta">832-425-7749</a><button class="nav-burger" type="button" data-nav-burger aria-controls="navLinks" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button></div>
   </nav>
 
   <main id="main">
