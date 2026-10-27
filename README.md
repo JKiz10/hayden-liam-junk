@@ -29,6 +29,7 @@ dumpster-rental-league-city-tx/index.html  ->  /dumpster-rental-league-city-tx/
 |---|---|
 | `index.html` | Homepage. Has its own inline CSS (it is the only page that does). |
 | `city.css` | Shared stylesheet for the other ~40 pages |
+| `nav-areas.css`, `nav-areas.js` | The "Areas" dropdown in the top nav and the phone menu button. Loaded by every page that has the dropdown. |
 | `book/` | Dumpster booking request form |
 | `terms/` | Rental terms. Also the terms URL required for text-message registration. |
 | `privacy-policy/` | Privacy policy |
@@ -47,6 +48,16 @@ dumpster-rental-league-city-tx/index.html  ->  /dumpster-rental-league-city-tx/
 ## Editing a stylesheet
 
 `city.css` is linked as `/city.css?v=2`. **If you change `city.css`, bump that number** (`?v=3`) everywhere it appears, or returning visitors keep the old cached version and your change appears to do nothing.
+
+---
+
+## Adding or removing a city
+
+Every city page is listed in **two places on every page**:
+- the "Areas" dropdown in the top nav (`<details class="nav-areas">`, twice on the homepage and gallery because their phone menu has its own copy)
+- the "by city" lists in the footer
+
+Update both, on every page, or the menu and the footer will disagree. A city's own page marks its link with `aria-current="page"`.
 
 ---
 

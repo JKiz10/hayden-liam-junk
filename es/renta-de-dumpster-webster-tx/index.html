@@ -289,6 +289,8 @@
     .footer-city-list a:hover, .footer-city-list a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
     @media (max-width: 700px) { .footer-cities { grid-template-columns: 1fr; } }
   </style>
+  <link rel="stylesheet" href="/nav-areas.css" />
+  <script src="/nav-areas.js" defer></script>
 </head>
 
 <body>
@@ -298,15 +300,38 @@
     <a href="/es/" class="nav-logo" aria-label="H&amp;L Junk Removal &amp; Hauling, inicio">
       <img src="/logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
     </a>
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
       <a href="/es/" class="nav-link">Inicio</a>
       <a href="/es/#services" class="nav-link">Servicios</a>
       <a href="/gallery.html" class="nav-link">Galería</a>
       <a href="/blog/" class="nav-link">Guías</a>
-      <a href="/es/#areas" class="nav-link">Áreas</a>
+      <details class="nav-areas">
+        <summary class="nav-link">Áreas</summary>
+        <div class="nav-areas-panel nav-areas-panel--single">
+          <div class="nav-areas-col">
+            <p class="nav-areas-head">Renta de dumpster</p>
+            <ul class="nav-areas-list">
+              <li><a href="/es/renta-de-dumpster-alvin-tx/">Alvin</a></li>
+              <li><a href="/es/renta-de-dumpster-clear-lake-tx/">Clear Lake</a></li>
+              <li><a href="/es/renta-de-dumpster-dickinson-tx/">Dickinson</a></li>
+              <li><a href="/es/renta-de-dumpster-friendswood-tx/">Friendswood</a></li>
+              <li><a href="/es/renta-de-dumpster-kemah-tx/">Kemah</a></li>
+              <li><a href="/es/renta-de-dumpster-league-city-tx/">League City</a></li>
+              <li><a href="/es/renta-de-dumpster-manvel-tx/">Manvel</a></li>
+              <li><a href="/es/renta-de-dumpster-missouri-city-tx/">Missouri City</a></li>
+              <li><a href="/es/renta-de-dumpster-pasadena-tx/">Pasadena</a></li>
+              <li><a href="/es/renta-de-dumpster-pearland-tx/">Pearland</a></li>
+              <li><a href="/es/renta-de-dumpster-santa-fe-tx/">Santa Fe</a></li>
+              <li><a href="/es/renta-de-dumpster-seabrook-tx/">Seabrook</a></li>
+              <li><a href="/es/renta-de-dumpster-webster-tx/" aria-current="page">Webster</a></li>
+            </ul>
+          </div>
+          <p class="nav-areas-foot"><a href="/es/#areas">Ver el mapa del área de servicio</a></p>
+        </div>
+      </details>
       <a href="/es/#faq" class="nav-link">Preguntas</a>
     </div>
-    <div class="nav-right"><a href="/dumpster-rental-webster-tx/" class="nav-lang" hreflang="en" lang="en" aria-label="View this page in English">English</a><a href="tel:8324257749" class="nav-cta">832-425-7749</a></div>
+    <div class="nav-right"><a href="/dumpster-rental-webster-tx/" class="nav-lang" hreflang="en" lang="en" aria-label="View this page in English">English</a><a href="tel:8324257749" class="nav-cta">832-425-7749</a><button class="nav-burger" type="button" data-nav-burger aria-controls="navLinks" aria-expanded="false" aria-label="Menú"><span></span><span></span><span></span></button></div>
   </nav>
 
 
