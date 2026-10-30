@@ -77,8 +77,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
-  <!-- The map is the first thing on screen, so fetch it before anything else. -->
-  <link rel="preload" as="image" type="image/webp" href="/images/service-area-map-720.webp" imagesrcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" imagesizes="(max-width: 900px) calc(100vw - 36px), 520px" fetchpriority="high" />
+  <!-- The first job photo is the first image on screen, so fetch it before anything else. -->
+  <link rel="preload" as="image" type="image/webp" href="/images/before2.webp" fetchpriority="high" />
   <link rel="stylesheet" href="/city.css?v=11" />
   <style>
     /* Junk ads landing page only. jl- prefix so nothing collides with city.css. */
@@ -103,6 +103,28 @@
     }
     .jl-map figcaption a { color: var(--white); text-underline-offset: 2px; }
     .jl-towns { margin-top: 6px; font-size: 0.82rem; color: var(--gray); font-weight: 300; line-height: 1.6; }
+    /* Real job photos in the hero (the map sits under How It Works). */
+    .jl-shot { grid-area: map; margin: 0; }
+    .jl-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .jl-pic { position: relative; margin: 0; }
+    .jl-pic img {
+      display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover;
+      border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+    }
+    .jl-pic-wide img { aspect-ratio: 4 / 3; }
+    .jl-tag {
+      position: absolute; left: 10px; top: 10px; padding: 4px 9px; border-radius: 4px;
+      background: rgba(0,0,0,0.74); color: #fff; font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .jl-tag-after { background: #fff; color: #111; }
+    .jl-shot figcaption { margin-top: 12px; font-size: 0.92rem; line-height: 1.55; font-weight: 300; color: var(--gray-light); }
+    .jl-where { max-width: 560px; margin: 44px auto 0; }
+    .jl-where h3 { font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 14px; }
+    .jl-pair-lower { margin-top: 34px; max-width: 760px; }
+    .jl-pair-lower figure { margin: 0; }
+    .jl-pair-lower figcaption { margin-top: 9px; font-family: 'Oswald', sans-serif; font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
 
     .jl-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; counter-reset: jl; }
     .jl-steps li {
@@ -133,7 +155,7 @@
       .jl-hero-grid { grid-template-columns: 1fr; grid-template-areas: "copy" "map"; gap: 0; }
       .jl-copy { display: contents; }
       .jl-kicker, .jl-hero h1 { order: 1; }
-      .jl-map { order: 2; margin: 4px 0 26px; }
+      .jl-shot { order: 2; margin: 4px 0 26px; }
       .jl-hero .hero-sub, .jl-hero .hero-ctas, .jl-hero .hero-trust { order: 3; }
       .jl-hero-grid { display: flex; flex-direction: column; align-items: stretch; }
       .jl-hero .hero-badge { display: none; }
@@ -259,15 +281,12 @@
             <p class="cta-form-link jl-formlink">Rather type it out? <a href="#quote">Use the short quote form</a>.</p>
           </div>
 
-          <figure class="jl-map">
-            <picture>
-              <source type="image/webp" srcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" sizes="(max-width: 900px) calc(100vw - 36px), 520px" />
-              <img src="/images/service-area-map-720.jpg" width="720" height="723" loading="eager" fetchpriority="high" decoding="async" alt="Map of H&amp;L's 20-mile service area, a circle around our yard covering Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston." />
-            </picture>
-            <figcaption>
-              We haul anywhere inside this circle except inner Houston. Not sure you&rsquo;re in? <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20hoarder%20clean%20out.%20Is%20this%20address%20in%20your%20area%3F%20">Text us your address</a>.
-              <span class="jl-towns">Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston.</span>
-            </figcaption>
+          <figure class="jl-shot">
+            <div class="jl-pair">
+              <div class="jl-pic"><picture><source srcset="/images/before2.webp" type="image/webp" /><img src="/images/before2.jpg" width="825" height="1100" loading="eager" fetchpriority="high" decoding="async" alt="Front room packed with furniture, boxes and bags before an H&amp;L cleanout" /></picture><span class="jl-tag">Before</span></div>
+              <div class="jl-pic"><picture><source srcset="/images/after2.webp" type="image/webp" /><img src="/images/after2.jpg" width="825" height="1100" loading="eager" decoding="async" alt="The same front room cleared to bare floor after the H&amp;L cleanout" /></picture><span class="jl-tag jl-tag-after">After</span></div>
+            </div>
+            <figcaption>A real H&amp;L job. No judgment, just an empty room.</figcaption>
           </figure>
         </div>
       </div>
@@ -299,6 +318,19 @@
           <li><h3>Get One Written Price</h3><p>You get one written price before anything is loaded, and that is the price. Big jobs are never billed by the hour.</p></li>
           <li><h3>We Load, Sweep &amp; Haul</h3><p>Our crew does all the loading and carrying, room by room. Then we sweep up and haul it all away.</p></li>
         </ol>
+        <div class="jl-where">
+          <h3>Where We Work</h3>
+          <figure class="jl-map">
+            <picture>
+              <source type="image/webp" srcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" sizes="(max-width: 900px) calc(100vw - 36px), 520px" />
+              <img src="/images/service-area-map-720.jpg" width="720" height="723" loading="lazy" decoding="async" alt="Map of H&amp;L's 20-mile service area, a circle around our yard covering Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston." />
+            </picture>
+            <figcaption>
+              We haul anywhere inside this circle except inner Houston. Not sure you&rsquo;re in? <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20hoarder%20clean%20out.%20Is%20this%20address%20in%20your%20area%3F%20">Text us your address</a>.
+              <span class="jl-towns">Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston.</span>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -315,19 +347,19 @@
           <div class="hc-ba">
             <figure>
               <picture>
-                <source srcset="/images/before2.webp" type="image/webp" />
-                <img src="/images/before2.jpg" width="825" height="1100" loading="lazy" decoding="async" alt="Front room of a house covered in loose belongings, bags and furniture before an H&amp;L property cleanout" />
+                <source srcset="/images/before1.webp" type="image/webp" />
+                <img src="/images/before1.jpg" width="825" height="1100" loading="lazy" decoding="async" alt="Bedroom floor covered in left-behind clothes, bags and a stained mattress before an H&amp;L cleanout" />
               </picture>
               <figcaption>Before</figcaption>
             </figure>
             <figure>
               <picture>
-                <source srcset="/images/after2.webp" type="image/webp" />
-                <img src="/images/after2.jpg" width="825" height="1100" loading="lazy" decoding="async" alt="The same front room cleared to bare floor after the H&amp;L cleanout" />
+                <source srcset="/images/after1.webp" type="image/webp" />
+                <img src="/images/after1.jpg" width="825" height="1100" loading="lazy" decoding="async" alt="The same bedroom cleared to bare floor after the H&amp;L cleanout" />
               </picture>
               <figcaption>After</figcaption>
             </figure>
-            <p class="hc-ba-note">The same front room, before and after one of our cleanouts.</p>
+            <p class="hc-ba-note">The same bedroom, before and after one of our cleanouts.</p>
           </div>
         </div>
       </div>
