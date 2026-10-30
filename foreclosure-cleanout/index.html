@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18264252114"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18264252114');
+    gtag('config', 'G-GYJ54HB3FE');
+    /* Google Ads call tracking, split by product line.
+       Each campaign stamps its own ?src= on the landing URL. We persist that for
+       the visit and fire the matching call conversion label, so a call from a
+       20-yard search is counted separately from a 14-yard or a junk-removal one.
+
+       Exactly ONE label fires per page load. Two forwarding-number configs would
+       compete to swap the same displayed number, and the working call tracking is
+       the only reliable conversion signal on this site -- not worth risking.
+
+       With no ?src= (organic, direct, untagged campaigns) this falls back to the
+       original account-wide label, so behaviour is unchanged until the campaigns
+       are actually tagged. */
+    (function(){
+      var LABELS = {
+        '14yd': 'AW-18264252114/uyJWCMfOmvIcENK9iYVE',
+        '20yd': 'AW-18264252114/7PfICJjQvPIcENK9iYVE',
+        'junk': 'AW-18264252114/yh6aCImtuvIcENK9iYVE'
+      };
+      var FALLBACK = 'AW-18264252114/boQkCKjlqMscENK9iYVE';
+      var KEY = 'hl_line';
+
+      function readLine(){
+        try { return sessionStorage.getItem(KEY) || ''; } catch (e) { return ''; }
+      }
+      function writeLine(v){
+        try { sessionStorage.setItem(KEY, v); } catch (e) {}
+      }
+
+      var line = '';
+      try { line = new URLSearchParams(window.location.search).get('src') || ''; }
+      catch (e) {}
+
+      if (LABELS[line]) { writeLine(line); } else { line = readLine(); }
+
+      gtag('config', LABELS[line] || FALLBACK, {'phone_conversion_number': '832-425-7749'});
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foreclosure Clean Out in Pearland &amp; South Houston | H&amp;L</title>
+  <meta name="description" content="Fully insured foreclosure clean out for bank-owned and REO houses in Pearland, League City and south Houston. Text a photo for a free quote: 832-425-7749." />
+  <link rel="canonical" href="https://hljunkremovalandhauling.com/foreclosure-cleanout/" />
+  <!-- Paid-search landing page (Google Ads, "Foreclosure Clean Out" ad group). Kept out
+       of the index so it never competes with /foreclosure-reo-cleanout-league-city-tx/,
+       the indexed foreclosure page. Ads landing-page checks ignore noindex. -->
+  <meta name="robots" content="noindex, follow" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://hljunkremovalandhauling.com/foreclosure-cleanout/#webpage",
+    "url": "https://hljunkremovalandhauling.com/foreclosure-cleanout/",
+    "name": "Foreclosure Clean Out in Pearland & South Houston | H&L",
+    "isPartOf": { "@id": "https://hljunkremovalandhauling.com/#website" },
+    "about": { "@id": "https://hljunkremovalandhauling.com/#business" },
+    "inLanguage": "en-US"
+  }
+  </script>
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=3" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
+  <!-- The first job photo is the first image on screen, so fetch it before anything else. -->
+  <link rel="preload" as="image" type="image/webp" href="/images/before3.webp" fetchpriority="high" />
+  <link rel="stylesheet" href="/city.css?v=11" />
+  <style>
+    /* Junk ads landing page only. jl- prefix so nothing collides with city.css. */
+    .jl-hero { padding: clamp(1.6rem, 1rem + 3vw, 4.5rem) 0 clamp(2.5rem, 2rem + 3vw, 4.5rem); }
+    .jl-hero-grid {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+      grid-template-areas: "copy map";
+      gap: clamp(28px, 4vw, 64px); align-items: center;
+    }
+    .jl-copy { grid-area: copy; }
+    .jl-map { grid-area: map; margin: 0; }
+    .jl-hero h1 { font-size: clamp(2.1rem, 1.2rem + 4.2vw, 4.6rem); margin-bottom: 18px; }
+    .jl-hero .hero-sub { margin-bottom: 28px; }
+    .jl-map img {
+      display: block; width: 100%; height: auto; border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+    }
+    .jl-map figcaption {
+      margin-top: 12px; font-size: 0.92rem; line-height: 1.55;
+      font-weight: 300; color: var(--gray-light);
+    }
+    .jl-map figcaption a { color: var(--white); text-underline-offset: 2px; }
+    .jl-towns { margin-top: 6px; font-size: 0.82rem; color: var(--gray); font-weight: 300; line-height: 1.6; }
+    /* Real job photos in the hero (the map sits under How It Works). */
+    .jl-shot { grid-area: map; margin: 0; }
+    .jl-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .jl-pic { position: relative; margin: 0; }
+    .jl-pic img {
+      display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover;
+      border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+    }
+    .jl-pic-wide img { aspect-ratio: 4 / 3; }
+    .jl-tag {
+      position: absolute; left: 10px; top: 10px; padding: 4px 9px; border-radius: 4px;
+      background: rgba(0,0,0,0.74); color: #fff; font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .jl-tag-after { background: #fff; color: #111; }
+    .jl-shot figcaption { margin-top: 12px; font-size: 0.92rem; line-height: 1.55; font-weight: 300; color: var(--gray-light); }
+    .jl-where { max-width: 560px; margin: 44px auto 0; }
+    .jl-where h3 { font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 14px; }
+    .jl-pair-lower { margin-top: 34px; max-width: 760px; }
+    .jl-pair-lower figure { margin: 0; }
+    .jl-pair-lower figcaption { margin-top: 9px; font-family: 'Oswald', sans-serif; font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
+
+    .jl-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; counter-reset: jl; }
+    .jl-steps li {
+      counter-increment: jl; position: relative;
+      background: var(--dark2); border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius); padding: 26px 24px 24px;
+    }
+    .jl-steps li::before {
+      content: counter(jl); display: block;
+      font-size: 2.6rem; font-weight: 700; line-height: 1; margin-bottom: 14px;
+      color: rgba(255,255,255,0.22);
+    }
+    .jl-steps h3 { font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 8px; }
+    .jl-steps p { color: var(--gray); font-weight: 300; font-size: 0.97rem; }
+
+    .jl-why { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 28px; margin-top: 28px; max-width: 820px; }
+    .jl-why li { padding-left: 22px; position: relative; color: var(--gray-light); font-weight: 300; }
+    .jl-why li::before { content: "\2605"; position: absolute; left: 0; top: 0; color: var(--white); font-size: 0.9rem; }
+    .jl-why strong { color: var(--white); font-weight: 600; }
+
+    .jl-alt { margin-top: 26px; font-size: 0.92rem; color: var(--gray); font-weight: 300; }
+    .jl-alt a { color: var(--gray-light); text-decoration: underline; text-underline-offset: 2px; }
+    .jl-alt a:hover { color: var(--white); }
+
+    @media (max-width: 900px) {
+      /* Phones: headline, then the map straight away, then the buttons.
+         The sticky bar keeps Call and Text on screen the whole time. */
+      .jl-hero-grid { grid-template-columns: 1fr; grid-template-areas: "copy" "map"; gap: 0; }
+      .jl-copy { display: contents; }
+      .jl-kicker, .jl-hero h1 { order: 1; }
+      .jl-shot { order: 2; margin: 4px 0 26px; }
+      .jl-hero .hero-sub, .jl-hero .hero-ctas, .jl-hero .hero-trust { order: 3; }
+      .jl-hero-grid { display: flex; flex-direction: column; align-items: stretch; }
+      .jl-hero .hero-badge { display: none; }
+      .jl-steps { grid-template-columns: 1fr; }
+      .jl-why { grid-template-columns: 1fr; }
+    }
+  </style>
+  <style>
+    /* Foreclosure clean out ads page only (on top of the jl- block above). */
+    .jl-formlink { margin-top: 12px; font-size: 0.92rem; color: var(--gray); font-weight: 300; }
+    .jl-formlink a { color: var(--gray-light); text-decoration: underline; text-underline-offset: 2px; }
+    .jl-formlink a:hover { color: var(--white); }
+
+    .jl-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 620px; margin-top: 34px; }
+    .jl-ba figure { margin: 0; }
+    .jl-ba img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); }
+    .jl-ba figcaption { margin-top: 8px; font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
+    .jl-ba-note { margin-top: 10px; font-size: 0.88rem; color: var(--gray); font-weight: 300; }
+
+    .jl-more { list-style: none; display: grid; gap: 10px; margin: 26px auto 0; font-size: 0.92rem; color: var(--gray); font-weight: 300; }
+    .jl-more a { color: var(--gray-light); text-decoration: underline; text-underline-offset: 2px; }
+    .jl-more a:hover { color: var(--white); }
+
+    @media (max-width: 900px) {
+      .jl-hero .jl-formlink { order: 3; }
+    }
+  </style>
+  <style>
+    /* Google review excerpts (verbatim, from H&L's Google listing). */
+    .hl-reviews .hl-rev-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 26px; }
+    .hl-rev { margin: 0; padding: 22px 22px 18px; background: var(--dark2, #111); border: 1px solid rgba(255,255,255,0.09); border-radius: var(--radius, 14px); display: flex; flex-direction: column; gap: 14px; }
+    .hl-rev-stars { color: #fff; letter-spacing: 2px; font-size: 0.95rem; }
+    .hl-rev blockquote { margin: 0; color: var(--gray-light, #ccc); font-weight: 300; font-size: 1rem; line-height: 1.6; }
+    .hl-rev figcaption { margin-top: auto; font-family: 'Oswald', sans-serif; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; }
+    .hl-rev figcaption span { color: var(--gray, #888); text-transform: none; letter-spacing: 0; font-family: inherit; }
+    .hl-rev-more { margin-top: 18px; font-size: 0.92rem; }
+    .hl-rev-more a { color: #fff; text-underline-offset: 2px; }
+    @media (max-width: 860px) { .hl-reviews .hl-rev-grid { grid-template-columns: 1fr; } }
+  </style>
+  <!-- Microsoft Clarity: click heatmaps, scroll maps, session recordings -->
+  <script type="text/javascript">
+    if (/(^|\.)hljunkremovalandhauling\.com$/.test(location.hostname)) (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yu33nwh893");
+  </script>
+  <script>
+    /* Same questions as the default quote wizard. The timing hint differs (this page
+       makes no promise about how soon we can come) and the text link carries a
+       foreclosure-specific message. */
+    window.HL_WIZARDS = [{
+      formId: 'quoteForm',
+      steps: [
+        { id: 'qf-service', q: 'What do you need cleared out?', hint: 'Pick the closest one. We will sort out the details.', required: true },
+        { id: 'qf-amount',  q: 'About how much is there?',  hint: 'A rough guess is fine.', required: false },
+        { id: 'qf-when',    q: 'When do you need it gone?', hint: 'Have a closing or listing date? Tell us and we will tell you when we can be there.', required: false },
+        { id: 'qf-zip',     q: 'Where is the property?',    hint: 'Street address or just a ZIP code.', required: true },
+        { id: 'qf-name',    q: 'What is your name?',        hint: '', required: true },
+        { id: 'qf-phone',   q: 'Best number to reach you?', hint: 'We call or text back with your price.', required: true, consent: true },
+        { id: 'qf-details', q: 'Anything else we should know?', hint: 'Optional. A photo gets you a closer price. Rooms, garage, attic, yard and anything staying with the house help too.', required: false, last: true, photo: 'qf-photo' }
+      ],
+      text: {
+        alt: 'Rather not type? <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20foreclosure%20clean%20out.%20Here%20are%20some%20photos%3A">Text photos to {phone}</a>'
+      }
+    }];
+  </script>
+  <link rel="stylesheet" href="/quote-wizard.css?v=2">
+  <script src="/quote-wizard.js?v=4" defer></script>
+  <script src="/quote-photo.js?v=1" defer></script>
+  <script src="/text-quote.js?v=2" defer></script>
+  <style>
+    /* Footer city links (site-wide). */
+    .footer-cities { display: grid; grid-template-columns: 2fr 1fr; gap: 24px 48px; padding: 28px 0 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-city-list { display: flex; flex-wrap: wrap; gap: 6px 14px; align-content: flex-start; }
+    .footer-city-head { flex-basis: 100%; margin: 0 0 4px; font-family: 'Oswald', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
+    .footer-city-list a { font-size: 0.86rem; line-height: 1.6; color: rgba(255,255,255,0.62); text-decoration: none; }
+    .footer-city-list a:hover, .footer-city-list a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+    @media (max-width: 700px) { .footer-cities { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="nav" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="H&amp;L Junk Removal &amp; Hauling home">
+      <img src="/logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" />
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/#services" class="nav-link">Services</a>
+      <a href="/gallery.html" class="nav-link">Gallery</a>
+      <a href="/#faq" class="nav-link">FAQ</a>
+    </div>
+    <div class="nav-right"><a href="/es/" class="nav-lang" hreflang="es" lang="es" aria-label="Ver en español">Español</a><a href="tel:8324257749" class="nav-cta">832-425-7749</a></div>
+  </nav>
+
+  <main id="main">
+    <header class="hero jl-hero">
+      <div class="container">
+        <div class="jl-hero-grid">
+          <div class="jl-copy">
+            <div class="hero-badge"><span class="hero-badge-dot"></span> Fully Insured &middot; <span class="hero-star">&#9733;</span> 4.9 Google &middot; Locally Owned</div>
+            <span class="hero-kicker jl-kicker">Foreclosure Clean Out Near You</span>
+            <h1>Foreclosure Clean Out.<br />Ready to List or Fix Up.</h1>
+            <p class="hero-sub">Got a bank-owned or foreclosed house that is still full of the last owner&rsquo;s things? Text us photos for a free foreclosure clean out quote, or we can come walk it with you for free. Our fully insured, locally owned Pearland crew does all the loading, sweeps up and hauls it off, so the house is ready to list, fix up or move into.</p>
+            <div class="hero-ctas">
+              <a href="tel:8324257749" class="btn-primary">Call 832-425-7749</a>
+              <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20foreclosure%20clean%20out.%20Here%20are%20some%20photos%3A" class="btn-outline">Text Photos for a Quote</a>
+            </div>
+            <p class="hero-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google (31 reviews) &middot; Free, no-obligation quotes</p>
+            <p class="jl-formlink">Rather type it out? <a href="#quote">Send the details with our quote form</a>.</p>
+          </div>
+
+          <figure class="jl-shot">
+            <div class="jl-pair">
+              <div class="jl-pic"><picture><source srcset="/images/before3.webp" type="image/webp" /><img src="/images/before3.jpg" width="825" height="1100" loading="eager" fetchpriority="high" decoding="async" alt="Hallway and kitchen littered with a broken chair, a bucket and left-behind belongings before an H&amp;L cleanout" /></picture><span class="jl-tag">Before</span></div>
+              <div class="jl-pic"><picture><source srcset="/images/after3.webp" type="image/webp" /><img src="/images/after3.jpg" width="825" height="1100" loading="eager" decoding="async" alt="The same hallway and kitchen emptied after the H&amp;L cleanout" /></picture><span class="jl-tag jl-tag-after">After</span></div>
+            </div>
+            <figcaption>A real H&amp;L job: the same hallway and kitchen, before and after.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </header>
+
+    <section aria-labelledby="clearH">
+      <div class="container">
+        <span class="section-label">What We Clear</span>
+        <h2 class="section-title" id="clearH">Every Room, the Garage, the Attic and the Yard</h2>
+        <p class="lead">A lot of foreclosed houses still have the last owner&rsquo;s things inside when the keys change hands. Whether you are the listing agent, an investor, an asset manager or the new owner, we clear the whole property and you never carry a thing to the curb.</p>
+        <div class="svc-grid">
+          <div class="svc-card"><h3>Furniture &amp; Belongings</h3><p>Beds, couches, dressers, clothes, boxes and the personal things left in every room and closet.</p></div>
+          <div class="svc-card"><h3>Old Appliances</h3><p>Fridges, freezers, washers and dryers that are not staying with the house. Tell us which ones stay and we leave them.</p></div>
+          <div class="svc-card"><h3>Trash &amp; Junk in Every Room</h3><p>Bags of trash, broken items and the general mess left in the kitchen, the bathrooms and the bedrooms.</p></div>
+          <div class="svc-card"><h3>Garage, Attic &amp; Yard</h3><p>Boxes, old tools and stored junk from the garage and the attic, plus patio furniture, yard debris and curbside piles outside.</p></div>
+          <div class="svc-card"><h3>Before the Rehab</h3><p>Investors and new owners: get the house empty before your contractors start, so nobody works around someone else&rsquo;s stuff.</p></div>
+          <div class="svc-card"><h3>Before the Listing</h3><p>Realtors: we haul the leftovers that keep a listing from photographing clean. A few rooms or the whole house.</p></div>
+        </div>
+        <div class="jl-ba">
+          <figure>
+            <picture><source srcset="/images/before1.webp" type="image/webp" /><img src="/images/before1.jpg" width="825" height="1100" loading="lazy" decoding="async" alt="Bedroom floor covered in left-behind clothes, bags and a stained mattress before an H&amp;L cleanout" /></picture>
+            <figcaption>Before &middot; left behind</figcaption>
+          </figure>
+          <figure>
+            <picture><source srcset="/images/after1.webp" type="image/webp" /><img src="/images/after1.jpg" width="825" height="1100" loading="lazy" decoding="async" alt="The same bedroom cleared to bare floor after the H&amp;L cleanout" /></picture>
+            <figcaption>After &middot; bare floor</figcaption>
+          </figure>
+        </div>
+        <p class="jl-ba-note">Another real H&amp;L job: a bedroom left full of belongings, then cleared to bare floor.</p>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="howH">
+      <div class="container">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title" id="howH">Three Steps to an Empty House</h2>
+        <ol class="jl-steps">
+          <li><h3>Send Photos or Have Us Look</h3><p>Text a few photos of each room to 832-425-7749. For a full house, we can meet you at the property and walk it with you. The walkthrough is free.</p></li>
+          <li><h3>Get One Written Price</h3><p>You get one written price before anything is loaded, and that is the price. Big jobs are never billed by the hour.</p></li>
+          <li><h3>We Load, Sweep &amp; Haul</h3><p>Our crew does all the carrying and loading, sweeps up and hauls it all away. You get the house back empty.</p></li>
+        </ol>
+        <div class="jl-where">
+          <h3>Where We Work</h3>
+          <figure class="jl-map">
+            <picture>
+              <source type="image/webp" srcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" sizes="(max-width: 900px) calc(100vw - 36px), 520px" />
+              <img src="/images/service-area-map-720.jpg" width="720" height="723" loading="lazy" decoding="async" alt="Map of H&amp;L's 20-mile service area, a circle around our yard covering Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston." />
+            </picture>
+            <figcaption>
+              We haul anywhere inside this circle except inner Houston. Not sure you&rsquo;re in? <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20foreclosure%20clean%20out.%20Is%20this%20address%20in%20your%20area%3F%20">Text us the address</a>.
+              <span class="jl-towns">Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="hl-reviews" aria-labelledby="revH">
+      <div class="container">
+        <span class="section-label">Google Reviews</span>
+        <h2 class="section-title" id="revH">Rated 4.9 on Google</h2>
+        <div class="hl-rev-grid">
+          <figure class="hl-rev">
+            <span class="hl-rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;These guys worked so hard and went above and beyond for me. They were so nice and easy to work with! The price was very fair.&rdquo;</blockquote>
+            <figcaption>Tracy B. <span>&middot; Google review</span></figcaption>
+          </figure>
+          <figure class="hl-rev">
+            <span class="hl-rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;Guys got me on their schedule with very little notice and showed up early which really helped me out.&rdquo;</blockquote>
+            <figcaption>Chris S. <span>&middot; Google review</span></figcaption>
+          </figure>
+          <figure class="hl-rev">
+            <span class="hl-rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;These guys are super efficient, dependable and professional. I can’t say enough good things about them.&rdquo;</blockquote>
+            <figcaption>Randa A. <span>&middot; Google review</span></figcaption>
+          </figure>
+        </div>
+        <p class="hl-rev-more"><a href="https://g.page/r/CUoEnjQdISJpEBM" target="_blank" rel="noopener">Read all of our Google reviews</a></p>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="whyH">
+      <div class="container">
+        <span class="section-label">Why H&amp;L</span>
+        <h2 class="section-title" id="whyH">Local Crew, One Written Price</h2>
+        <ul class="jl-why">
+          <li><strong>Fully insured.</strong> Certificate of insurance on request for your file.</li>
+          <li><strong>4.9 stars on Google</strong> from 31 reviews.</li>
+          <li><strong>Locally owned.</strong> Our yard and our crew are in Pearland.</li>
+          <li><strong>No surprises.</strong> One written price before anything is loaded, and big jobs are never hourly.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="faqH">
+      <div class="container">
+        <span class="section-label">Questions</span>
+        <h2 class="section-title" id="faqH">Foreclosure Clean Out Questions</h2>
+        <div class="faq">
+          <details open>
+            <summary>What does a foreclosure clean out include?</summary>
+            <p>Everything left in and around the house: furniture, clothes, boxes, appliances that are not staying, trash, and the junk in the garage, the attic and the yard. We do all the loading and carrying, then sweep up, so the house is empty and ready for photos, repairs or a cleaning crew.</p>
+          </details>
+          <details>
+            <summary>How much does a foreclosure clean out cost?</summary>
+            <p>Every house is different, so we quote per job. Text us photos or have us come walk the property, and you get one written price before anything is loaded. That is the price you pay. We never bill big jobs by the hour.</p>
+          </details>
+          <details>
+            <summary>Can you work around a closing or listing date?</summary>
+            <p>Yes. Tell us the closing or listing date when you call or text, and we will schedule the clean out to hit it.</p>
+          </details>
+          <details>
+            <summary>Are you insured? Can you send a certificate of insurance?</summary>
+            <p>Yes. We are fully insured, and a certificate of insurance is available for your file. Just ask when you call or text 832-425-7749.</p>
+          </details>
+          <details>
+            <summary>Is there anything you will not take?</summary>
+            <p>A few things. We cannot take hazardous materials like wet paint, motor oil, gasoline, propane tanks, chemicals or medical waste, since those need special disposal. Just about everything else left in the house, the garage and the yard is fair game. Not sure about something? Text a photo and we will tell you straight.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="quote" aria-labelledby="quoteH">
+      <div class="container">
+        <span class="section-label">Free Quote</span>
+        <h2 class="section-title" id="quoteH">Get Your Foreclosure Clean Out Quote</h2>
+        <p class="lead" style="margin-bottom:28px;">Send the address and tell us what is in the house. Add a photo if you have one. We will get right back to you with a free, no-obligation quote. Prefer to talk? Call or text <a href="tel:8324257749" style="color:var(--white);text-decoration:underline;">832-425-7749</a>.</p>
+        <style>
+          .hlform{max-width:640px;margin:0 auto;text-align:left;}
+          .hlform-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+          .hlform input[type="file"]{padding:10px 12px;font-size:0.9rem;color:rgba(255,255,255,0.75);cursor:pointer;}
+          .hlform input[type="file"]::file-selector-button{font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase;margin-right:12px;padding:8px 14px;border:0;border-radius:5px;background:#fff;color:#111;cursor:pointer;}
+          .hlform-row{display:flex;gap:16px;flex-wrap:wrap;}
+          .hlform-row > label{flex:1 1 240px;}
+          .hlform label{display:block;margin-bottom:16px;font-family:'Oswald',sans-serif;font-size:0.82rem;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.75);}
+          .hlform label span{color:#fff;margin-left:3px;}
+          .hlform input,.hlform select,.hlform textarea{width:100%;margin-top:7px;padding:13px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.22);border-radius:7px;color:#fff;font-family:inherit;font-size:1rem;box-sizing:border-box;}
+          .hlform input:focus,.hlform select:focus,.hlform textarea:focus{outline:none;border-color:#fff;background:rgba(255,255,255,0.09);}
+          .hlform select option{background:#111;color:#fff;}
+          .hlform-submit{margin-top:6px;width:100%;cursor:pointer;border:none;font-size:1.05rem;}
+          .hlform-alt{margin-top:16px;font-size:0.9rem;color:rgba(255,255,255,0.6);text-transform:none;letter-spacing:0;font-family:inherit;}
+          .hlform-alt a{color:#fff;}
+          .hlform-success{max-width:640px;margin:0 auto;text-align:center;padding:36px 24px;border:1px solid rgba(255,255,255,0.22);border-radius:10px;background:rgba(255,255,255,0.04);}
+          .hlform-success h3{font-size:1.5rem;margin:0 0 10px;}
+          .hlform-success a{color:#fff;}
+          .hlform-error{max-width:640px;margin:0 auto 18px;padding:14px 16px;border:1px solid rgba(255,120,120,0.5);border-radius:8px;color:#fff;background:rgba(255,80,80,0.08);}.hlform-error a{color:#fff;}
+        </style>
+        <style>
+.hlform label.hl-consent{display:flex;align-items:flex-start;gap:10px;text-align:left;cursor:pointer;text-transform:none;letter-spacing:normal;font-weight:400;margin:6px 0 16px;}
+.hlform label.hl-consent input[type="checkbox"]{-webkit-appearance:checkbox;appearance:checkbox;flex:0 0 auto;width:17px;min-width:17px;height:17px;margin:2px 0 0;padding:0;border:none;border-radius:0;background:none;box-shadow:none;cursor:pointer;accent-color:#fff;}
+.hlform label.hl-consent input[type="checkbox"]:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+.hlform label.hl-consent span{font-family:'Oswald',sans-serif;font-weight:300;font-size:0.72rem;line-height:1.55;letter-spacing:normal;text-transform:none;margin-left:0;color:#ccc;}
+.hlform label.hl-consent span strong{font-weight:600;color:#fff;}
+.hlform label.hl-consent a{color:#ccc;text-decoration:underline;text-underline-offset:2px;}
+.hlform label.hl-consent:hover span,.hlform label.hl-consent:hover a{color:#fff;}
+</style>
+        <p class="hlform-error" id="qfError" role="alert" hidden>That did not send. Please call or text <a href="tel:8324257749">832-425-7749</a> and we will take care of you.</p>
+        <form class="hlform" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="_subject" value="New Foreclosure Clean Out Quote (ads page)" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" class="hlform-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="hlform-row">
+            <label>Name<span>*</span><input type="text" name="Name" id="qf-name" required autocomplete="name" /></label>
+            <label>Phone<span>*</span><input type="tel" name="Phone" id="qf-phone" required autocomplete="tel" /></label>
+          </div>
+          <div class="hlform-row">
+            <label>Email<input type="email" name="Email" id="qf-email" autocomplete="email" /></label>
+            <label>Service Address or ZIP<span>*</span><input type="text" name="Service Address / ZIP" id="qf-zip" required autocomplete="street-address" /></label>
+          </div>
+          <div class="hlform-row">
+            <label>Service Needed<span>*</span><select name="Service Needed" id="qf-service" required>
+              <option value="" disabled>Choose a service</option>
+              <option selected>Foreclosure / REO clean out (whole house)</option>
+              <option>Part of the house (a few rooms)</option>
+              <option>Garage, attic or shed cleanout</option>
+              <option>Furniture or appliances only</option>
+              <option>Yard debris / curbside piles</option>
+              <option>Rentals / property manager</option>
+              <option>Something else</option>
+            </select></label>
+            <label>About how much is there?<select name="Amount" id="qf-amount">
+              <option value="" disabled selected>Estimate the load</option>
+              <option>A few items</option>
+              <option>About a quarter truckload</option>
+              <option>About half a truckload</option>
+              <option>A full truckload</option>
+              <option>More than one load</option>
+              <option>Not sure, I will send a photo</option>
+            </select></label>
+          </div>
+          <div class="hlform-row">
+            <label>Preferred Timing<select name="Preferred Timing" id="qf-when">
+              <option>As soon as possible</option>
+              <option>Within a few days</option>
+              <option>Within a couple weeks</option>
+              <option>Just getting a quote</option>
+            </select></label>
+          </div>
+          <label>Tell us about the property<textarea name="Details" id="qf-details" rows="3" placeholder="Rooms, garage, attic, yard, anything staying with the house, and your closing or listing date if you have one."></textarea></label>
+          <label>Photo of what needs to go (optional, gets you a closer price)<input type="file" name="attachment" id="qf-photo" accept="image/*" /></label>
+          <input type="hidden" name="SMS Consent" id="smsConsentVal" value="No" />
+          <label class="hl-consent" for="smsConsent">
+            <input type="checkbox" id="smsConsent" />
+            <span><strong>Text me about my job.</strong> I agree to receive service text messages from H&amp;L Junk Removal &amp; Hauling at the number above, about my quote and my job. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy/">Privacy Policy</a> and <a href="/terms/">Terms</a>.</span>
+          </label>
+
+          <button type="submit" class="btn-primary hlform-submit">Get My Free Quote</button>
+          <p class="hlform-alt">Prefer to talk? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
+        </form>
+        <script>
+  (function(){
+    var box = document.getElementById('smsConsent'), val = document.getElementById('smsConsentVal');
+    if (!box || !val) return;
+    box.addEventListener('change', function(){ val.value = box.checked ? 'Yes' : 'No'; });
+  })();
+  </script>
+        <div class="hlform-success" id="quoteSuccess" hidden>
+          <h3>Thanks, we got it!</h3>
+          <p>We will get right back to you with your free quote. Need it fast? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band cta-band" aria-labelledby="ctaH">
+      <div class="container">
+        <h2 id="ctaH">Get the House Cleared Out</h2>
+        <p>Text photos or call with the address. You will get one written price and a time that works with your closing or listing date.</p>
+        <div class="hero-ctas">
+          <a href="tel:8324257749" class="btn-primary">Call 832-425-7749</a>
+          <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20foreclosure%20clean%20out.%20Here%20are%20some%20photos%3A" class="btn-outline">Text Photos</a>
+        </div>
+        <p class="cta-trust"><strong>Fully insured</strong> &middot; Certificate of insurance on request &middot; 4.9&#9733; on Google</p>
+        <p class="cta-form-link">Prefer to type it out? <a href="/free-quote-junk-removal-league-city-tx/">Request a free quote online</a>.</p>
+        <ul class="jl-more">
+          <li><a href="/foreclosure-reo-cleanout-league-city-tx/">More about our foreclosure clean outs</a> for realtors, banks and asset managers.</li>
+          <li>Managing rentals too? See our <a href="/junk-removal-property-managers-league-city-tx/">junk removal for property managers</a>.</li>
+          <li>Just a few items? <a href="/junk-removal/">See our regular junk removal</a>.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="/" class="footer-logo"><img src="/logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC" /></a>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/" class="footer-nav-link">Home</a>
+          <a href="/book/" class="footer-nav-link">Dumpster Rental</a>
+          <a href="/#services" class="footer-nav-link">Services</a>
+          <a href="/gallery.html" class="footer-nav-link">Gallery</a>
+          <a href="/blog/" class="footer-nav-link">Guides</a>
+          <a href="/#areas" class="footer-nav-link">Service Areas</a>
+          <a href="/#faq" class="footer-nav-link">FAQ</a>
+          <a href="/#contact" class="footer-nav-link">Contact</a>
+        </nav>
+        <p class="footer-tagline">Fast. Reliable. Local.</p>
+      </div>
+          <div class="footer-cities">
+      <nav class="footer-city-list" aria-label="Junk removal by city">
+        <p class="footer-city-head">Junk removal by city</p>
+        <a href="/junk-removal-alvin-tx/">Alvin</a>
+        <a href="/junk-removal-arcola-tx/">Arcola</a>
+        <a href="/junk-removal-bacliff-san-leon-tx/">Bacliff &amp; San Leon</a>
+        <a href="/junk-removal-clear-lake-tx/">Clear Lake</a>
+        <a href="/junk-removal-deer-park-tx/">Deer Park</a>
+        <a href="/junk-removal-dickinson-tx/">Dickinson</a>
+        <a href="/junk-removal-el-lago-tx/">El Lago</a>
+        <a href="/junk-removal-fresno-tx/">Fresno</a>
+        <a href="/junk-removal-friendswood-tx/">Friendswood</a>
+        <a href="/junk-removal-iowa-colony-tx/">Iowa Colony</a>
+        <a href="/junk-removal-kemah-tx/">Kemah</a>
+        <a href="/junk-removal-la-porte-tx/">La Porte</a>
+        <a href="/">League City</a>
+        <a href="/junk-removal-manvel-tx/">Manvel</a>
+        <a href="/junk-removal-missouri-city-tx/">Missouri City</a>
+        <a href="/junk-removal-nassau-bay-tx/">Nassau Bay</a>
+        <a href="/junk-removal-pasadena-tx/">Pasadena</a>
+        <a href="/junk-removal-pearland-tx/">Pearland</a>
+        <a href="/junk-removal-rosharon-tx/">Rosharon</a>
+        <a href="/junk-removal-santa-fe-tx/">Santa Fe</a>
+        <a href="/junk-removal-seabrook-tx/">Seabrook</a>
+        <a href="/junk-removal-shoreacres-tx/">Shoreacres</a>
+        <a href="/junk-removal-sienna-tx/">Sienna</a>
+        <a href="/junk-removal-south-houston-tx/">South Houston</a>
+        <a href="/junk-removal-taylor-lake-village-tx/">Taylor Lake Village</a>
+        <a href="/junk-removal-webster-tx/">Webster</a>
+      </nav>
+      <nav class="footer-city-list" aria-label="Dumpster rental by city">
+        <p class="footer-city-head">Dumpster rental by city</p>
+        <a href="/dumpster-rental-alvin-tx/">Alvin</a>
+        <a href="/dumpster-rental-clear-lake-tx/">Clear Lake</a>
+        <a href="/dumpster-rental-dickinson-tx/">Dickinson</a>
+        <a href="/dumpster-rental-friendswood-tx/">Friendswood</a>
+        <a href="/dumpster-rental-kemah-tx/">Kemah</a>
+        <a href="/dumpster-rental-league-city-tx/">League City</a>
+        <a href="/dumpster-rental-manvel-tx/">Manvel</a>
+        <a href="/dumpster-rental-missouri-city-tx/">Missouri City</a>
+        <a href="/dumpster-rental-pasadena-tx/">Pasadena</a>
+        <a href="/dumpster-rental-pearland-tx/">Pearland</a>
+        <a href="/dumpster-rental-santa-fe-tx/">Santa Fe</a>
+        <a href="/dumpster-rental-seabrook-tx/">Seabrook</a>
+        <a href="/dumpster-rental-webster-tx/">Webster</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+        <p class="footer-copy" style="margin-bottom:10px;">H&amp;L Junk Removal &amp; Hauling Solutions, LLC &middot; League City, TX 77573 &middot; <a href="tel:8324257749">832-425-7749</a></p>
+        <p class="footer-copy">&copy; 2026 H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Fully insured. Serving Pearland, League City &amp; south Houston, TX. &middot; <a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/terms/">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function(){
+      var form=document.getElementById('quoteForm');
+      if(!form)return;
+      form.addEventListener('submit',function(e){
+        e.preventDefault();
+        var er0=document.getElementById('qfError'); if(er0){er0.hidden=true;}
+        if(form.querySelector('input[name="_honey"]').value){return;} // bot
+        if(!form.checkValidity()){form.reportValidity();return;}
+        var btn=form.querySelector('.hlform-submit');
+        var label=btn?btn.textContent:''; if(btn){btn.disabled=true;btn.textContent='Sending…';}
+        /* quote-photo.js adds the optional job photo and falls back to a
+           text-only send if the photo cannot go through. */
+        var sendUrl='https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com';
+        var send=window.HLQuoteSend
+          ? window.HLQuoteSend(sendUrl,window.HLQuoteFields(form),document.getElementById('qf-photo'))
+          : fetch(sendUrl,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)}).then(function(r){return r.json();});
+        send.then(function(res){
+          /* FormSubmit answers 200 + JSON on failure too, so .catch never runs.
+             Without this guard a failed send fires a conversion, shows a fake
+             success screen, and the lead email is silently dropped. */
+          if(!(res && (res.success === 'true' || res.success === true))){throw new Error('submit failed');}
+          if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18264252114/sPLOCNWoq8ocENK9iYVE'});}
+          var s=document.getElementById('quoteSuccess');
+          form.style.display='none'; if(s){s.hidden=false; s.scrollIntoView({behavior:'smooth',block:'center'});}
+        }).catch(function(){
+          if(btn){btn.disabled=false;btn.textContent=label;}
+          var er=document.getElementById('qfError'); if(er){er.hidden=false; er.scrollIntoView({behavior:'smooth',block:'center'});}
+        });
+      });
+    })();
+  </script>
+
+  <!-- Mobile sticky bar (shown <=900px): Call and Text, the two junk lead paths. -->
+  <div class="sticky-call" aria-label="Quick contact">
+    <a href="tel:8324257749" class="sticky-call-btn sticky-call-primary" aria-label="Call 832 425 7749"><svg class="sticky-call-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2z" fill="currentColor"/></svg> Call 832-425-7749</a>
+    <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20foreclosure%20clean%20out.%20Here%20are%20some%20photos%3A" class="sticky-call-btn sticky-call-secondary">Text Photos</a>
+  </div>
+  <script>
+    /* Tap-to-call volume for GA4, across ALL traffic. This is analytics only -- the
+       Google Ads conversion is counted by the phone snippet in <head>, which measures
+       real connected calls rather than taps. */
+    (function(){
+      document.addEventListener('click', function(e){
+        var a = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+        if (!a || typeof gtag !== 'function') return;
+        gtag('event', 'click_to_call', {
+          'send_to': 'G-GYJ54HB3FE',
+          'link_url': a.getAttribute('href')
+        });
+      }, true);
+    })();
+  </script>
+</body>
+</html>
