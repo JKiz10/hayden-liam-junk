@@ -138,17 +138,35 @@
     .jl-alt a:hover { color: var(--white); }
 
     @media (max-width: 900px) {
-      /* Phones: headline, then the map straight away, then the buttons.
-         The sticky bar keeps Call and Text on screen the whole time. */
-      .jl-hero-grid { grid-template-columns: 1fr; grid-template-areas: "copy" "map"; gap: 0; }
+      /* Phones: headline, rating, Call + Quote Online, then the job photos.
+         The sticky bar keeps Call and Text a Photo on screen the whole time. */
+      .nav { position: relative; }
+      .jl-hero-grid { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
       .jl-copy { display: contents; }
-      .jl-kicker, .jl-hero h1 { order: 1; }
-      .jl-shot { order: 2; margin: 4px 0 26px; }
-      .jl-hero .hero-sub, .jl-hero .hero-ctas, .jl-hero .hero-trust { order: 3; }
-      .jl-hero-grid { display: flex; flex-direction: column; align-items: stretch; }
+      .jl-kicker { display: none; }
+      .jl-hero h1 { order: 1; margin-bottom: 8px; }
+      .jl-hero .hero-trust { order: 2; margin: 0 0 14px; }
+      .jl-hero .hero-ctas { order: 3; }
+      .jl-hero .jl-cta-text { display: none; }
+      .jl-shot { order: 4; margin: 22px 0 18px; }
+      .jl-shot .jl-pic img { aspect-ratio: 4 / 3; }
+      .jl-hero .hero-sub { order: 5; margin-bottom: 0; }
       .jl-hero .hero-badge { display: none; }
       .jl-steps { grid-template-columns: 1fr; }
       .jl-why { grid-template-columns: 1fr; }
+    }
+    /* The rating jumps to the reviews; anchors clear the header. */
+    .jl-rating { color: var(--white); text-decoration: underline; text-underline-offset: 3px; display: inline-block; padding: 8px 0; }
+    #revH, #quote, #areaH { scroll-margin-top: 90px; }
+    .jl-steps p a, .faq details p a, .lead a, .hlform-alt a, .hlform-error a, .hlform-success a { color: var(--white); text-decoration: underline; text-underline-offset: 2px; }
+    /* Opens the quote survey at the top of the form section. */
+    .jl-quote-start { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin: 6px 0 22px; }
+    .jl-quote-start span { font-size: 0.92rem; color: var(--gray); font-weight: 300; }
+    @media (max-width: 900px) {
+      /* Keep the Call / Text bar usable above the quote survey. */
+      .sticky-call { z-index: 9001; }
+      .qw-scrim { padding-bottom: calc(74px + env(safe-area-inset-bottom)); }
+      .qw-scrim .qw-panel { max-height: calc(92dvh - 74px - env(safe-area-inset-bottom)); }
     }
   </style>
   <style>
@@ -193,21 +211,24 @@
        Only two hints differ: the garage option is already picked, and this
        page makes no promise about how soon we can come. Declared before quote-wizard.js runs. */
     window.HL_WIZARDS = [{
+      autoClose: 0,
       steps: [
-        { id: 'qf-service', q: 'What do you need removed?', hint: 'We picked garage for you. Change it if it is something else.', required: true },
-        { id: 'qf-amount',  q: 'About how much is there?',  hint: 'A rough guess is fine.', required: false },
-        { id: 'qf-when',    q: 'When do you need it gone?', hint: 'Pick what fits. We will tell you what we have open.', required: false },
-        { id: 'qf-zip',     q: 'Where is the job?',         hint: 'Street address or just a ZIP code.', required: true },
-        { id: 'qf-name',    q: 'What is your name?',        hint: '', required: true },
-        { id: 'qf-phone',   q: 'Best number to reach you?', hint: 'We call or text back with your price.', required: true, consent: true },
-        { id: 'qf-details', q: 'Anything else we should know?', hint: 'Optional. A photo gets you a closer price. Gate codes, stairs, heavy items help too.', required: false, last: true, photo: 'qf-photo' }
-      ]
+        { id: 'qf-zip',   q: 'Where is the garage?', hint: 'Street address or just a ZIP code.', required: true },
+        { id: 'qf-name',  q: 'What is your name?', hint: '', required: true },
+        { id: 'qf-phone', q: 'Best number to reach you?', hint: 'We will call you back with your price. Tick the box if a text is easier.', required: true, consent: true, last: true }
+      ],
+      text: {
+        alt: 'Rather talk? <a href="tel:{callHref}">Call us</a> or <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20garage%20clean%20out.%20Here%20are%20some%20photos%3A">text photos</a>.',
+        doneTitle: 'Got it, thank you',
+        doneText: 'Your request is in. We will call you back about the garage and your free price.',
+        doneSooner: 'Have photos? <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20garage%20clean%20out.%20Here%20are%20some%20photos%3A">Text them to us</a>. Want to talk now? <a href="tel:{callHref}">Call {call}</a>.'
+      }
     }];
   </script>
-  <link rel="stylesheet" href="/quote-wizard.css?v=2">
-  <script src="/quote-wizard.js?v=4" defer></script>
+  <link rel="stylesheet" href="/quote-wizard.css?v=3">
+  <script src="/quote-wizard.js?v=5" defer></script>
   <script src="/quote-photo.js?v=1" defer></script>
-  <script src="/text-quote.js?v=2" defer></script>
+  <script src="/text-quote.js?v=3" defer></script>
   <style>
     /* Footer city links (site-wide). */
     .footer-cities { display: grid; grid-template-columns: 2fr 1fr; gap: 24px 48px; padding: 28px 0 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -257,9 +278,10 @@
             <p class="hero-sub">Can&rsquo;t park in your garage anymore? We clear out the boxes, shelving, broken tools, yard gear and even the old garage fridge. Text a few photos and get one written price before anything is loaded. Then our crew does all the lifting and sweeps up when it&rsquo;s empty.</p>
             <div class="hero-ctas">
               <a href="tel:8324257749" class="btn-primary">Call 832-425-7749</a>
-              <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20garage%20clean%20out.%20Here%20are%20some%20photos%3A" class="btn-outline">Text a Photo for a Quote</a>
+              <a href="#quote" class="btn-outline">Get a Quote Online</a>
+              <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20garage%20clean%20out.%20Here%20are%20some%20photos%3A" class="btn-outline jl-cta-text">Text a Photo</a>
             </div>
-            <p class="hero-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google (31 reviews) &middot; Free, no-obligation quotes</p>
+            <p class="hero-trust"><a href="#revH" class="jl-rating">4.9&#9733; on Google (31 reviews)</a> &middot; <strong>Fully insured</strong> &middot; One written price before we load</p>
           </div>
           <figure class="jl-shot">
             <div class="jl-pic jl-pic-wide"><picture><source srcset="/images/work/work14.webp" type="image/webp" /><img src="/images/work/work14.jpg" width="1200" height="900" loading="eager" fetchpriority="high" decoding="async" alt="A garage workbench and floor crowded with paint cans, cleaning jugs, boxes, bags of yard supplies and kids&rsquo; gear, the kind of pile a garage clean out clears." /></picture></div>
@@ -305,7 +327,7 @@
         <span class="section-label">How It Works</span>
         <h2 class="section-title" id="howH">Three Steps. You Don&rsquo;t Lift a Thing.</h2>
         <ol class="jl-steps">
-          <li><h3>Send Photos or Have Us Look</h3><p>Text a few photos of the garage to <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20garage%20clean%20out.%20Here%20are%20some%20photos%3A">832-425-7749</a>, or <a href="#quote">use our quote form</a>. For a big job, our crew can come look and price it on site. Either way, the quote is free.</p></li>
+          <li><h3>Send Photos or Have Us Look</h3><p><a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20garage%20clean%20out.%20Here%20are%20some%20photos%3A">Text a few photos of the garage</a>, or <a href="#quote">answer 3 quick questions</a>. For a big job, our crew can come look and price it on site. Either way, the quote is free.</p></li>
           <li><h3>Get One Written Price</h3><p>You get one written price before anything is loaded, and that is the price. Big jobs are never billed by the hour.</p></li>
           <li><h3>We Load, Sweep &amp; Haul</h3><p>We carry everything out and load it, sweep the floor, and haul it all away. We sort out what can go to donation or recycling on the spot.</p></li>
         </ol>
@@ -395,7 +417,8 @@
       <div class="container">
         <span class="section-label">Free Quote</span>
         <h2 class="section-title" id="quoteH">Get Your Free Garage Clean Out Quote</h2>
-        <p class="lead" style="margin-bottom:28px;">Tell us about the garage and add a photo if you can. We&rsquo;ll get back to you with a free, no-obligation quote. Prefer to talk? Call or text <a href="tel:8324257749" style="color:var(--white);text-decoration:underline;">832-425-7749</a>.</p>
+        <p class="jl-quote-start"><a href="#quote" class="btn-primary">Start My Free Quote</a><span>3 quick questions, one at a time.</span></p>
+        <p class="lead" style="margin-bottom:28px;">Or fill out the form below. Tell us about the garage and add a photo if you can. We&rsquo;ll get back to you with a free, no-obligation quote. Prefer to talk? Call <a href="tel:8324257749" style="color:var(--white);text-decoration:underline;">832-425-7749</a> or <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20garage%20clean%20out.%20Here%20are%20some%20photos%3A">text us</a>.</p>
         <style>
           .hlform{max-width:640px;margin:0 auto;text-align:left;}
           .hlform-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
@@ -425,7 +448,7 @@
 .hlform label.hl-consent a{color:#ccc;text-decoration:underline;text-underline-offset:2px;}
 .hlform label.hl-consent:hover span,.hlform label.hl-consent:hover a{color:#fff;}
 </style>
-        <p class="hlform-error" id="qfError" role="alert" hidden>That did not send. Please call or text <a href="tel:8324257749">832-425-7749</a> and we will take care of you.</p>
+        <p class="hlform-error" id="qfError" role="alert" hidden>That did not send. Please call <a href="tel:8324257749">832-425-7749</a> or <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20garage%20clean%20out.%20Here%20are%20some%20photos%3A">text us</a> and we will take care of you.</p>
         <form class="hlform" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
           <input type="hidden" name="_subject" value="New Garage Clean Out Quote (ads page)" />
           <input type="hidden" name="_template" value="table" />
@@ -462,6 +485,7 @@
             </select></label>
           </div>
           <label>Preferred Timing<select name="Preferred Timing" id="qf-when">
+            <option value="" disabled selected>Pick one (optional)</option>
             <option>As soon as possible</option>
             <option>Within a few days</option>
             <option>Within a couple weeks</option>
@@ -476,7 +500,7 @@
           </label>
 
           <button type="submit" class="btn-primary hlform-submit">Get My Free Quote</button>
-          <p class="hlform-alt">Prefer to talk? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
+          <p class="hlform-alt">Prefer to talk? Call <a href="tel:8324257749">832-425-7749</a> or <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20garage%20clean%20out.%20Here%20are%20some%20photos%3A">text us</a>.</p>
         </form>
         <script>
   (function(){
@@ -487,7 +511,7 @@
   </script>
         <div class="hlform-success" id="quoteSuccess" hidden>
           <h3>Thanks, we got it!</h3>
-          <p>We will get right back to you with your free quote. Need it fast? Call or text <a href="tel:8324257749">832-425-7749</a>.</p>
+          <p>Your request is in. We will call you back about the garage and your free price. Have photos? <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20garage%20clean%20out.%20Here%20are%20some%20photos%3A">Text them to us</a>. Want to talk now? Call <a href="tel:8324257749">832-425-7749</a>.</p>
         </div>
       </div>
     </section>
@@ -501,12 +525,7 @@
           <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20I%20need%20a%20garage%20clean%20out.%20Here%20are%20some%20photos%3A" class="btn-outline">Text a Photo</a>
         </div>
         <p class="cta-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google &middot; You point, we lift</p>
-        <ul class="jl-more">
-          <li><a href="/garage-cleanout-league-city-tx/">More about our garage clean outs</a></li>
-          <li>Clearing out a whole house too? <a href="/estate-cleanout-league-city-tx/">See our estate cleanouts</a></li>
-          <li>Just a few items? <a href="/junk-removal/">Our junk removal page</a> is a better fit.</li>
-          <li>Need a quote for something besides the garage? <a href="/free-quote-junk-removal-league-city-tx/">Request a free quote online</a></li>
-        </ul>
+        <p class="cta-form-link">Prefer to type it out? <a href="#quote">Answer 3 quick questions</a>.</p>
       </div>
     </section>
   </main>
@@ -525,7 +544,6 @@
           <a href="/#faq" class="footer-nav-link">FAQ</a>
           <a href="/#contact" class="footer-nav-link">Contact</a>
         </nav>
-        <p class="footer-tagline">Fast. Reliable. Local.</p>
       </div>
           <div class="footer-cities">
       <nav class="footer-city-list" aria-label="Junk removal by city">
@@ -602,7 +620,10 @@
              Without this guard a failed send fires a conversion, shows a fake
              success screen, and the lead email is silently dropped. */
           if(!(res && (res.success === 'true' || res.success === true))){throw new Error('submit failed');}
-          if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18264252114/sPLOCNWoq8ocENK9iYVE'});}
+          if(typeof gtag==='function'){
+            gtag('event','conversion',{'send_to':'AW-18264252114/sPLOCNWoq8ocENK9iYVE'});
+            gtag('event','generate_lead',{'send_to':'G-GYJ54HB3FE','form_id':'quoteForm','method':document.querySelector('.qw-scrim[data-open="true"]')?'survey':'form'});
+          }
           var s=document.getElementById('quoteSuccess');
           form.style.display='none'; if(s){s.hidden=false; s.scrollIntoView({behavior:'smooth',block:'center'});}
         }).catch(function(){
