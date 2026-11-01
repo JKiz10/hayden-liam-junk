@@ -64,8 +64,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
-  <!-- The map is the first thing on screen, so fetch it before anything else. -->
-  <link rel="preload" as="image" type="image/webp" href="/images/service-area-map-720.webp" imagesrcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" imagesizes="(max-width: 900px) calc(100vw - 36px), 520px" fetchpriority="high" />
+  <!-- The first job photo is the first image on screen, so fetch it before anything else. -->
+  <link rel="preload" as="image" type="image/webp" href="/images/before2.webp" fetchpriority="high" />
   <link rel="stylesheet" href="/city.css?v=11" />
   <style>
     /* Junk ads landing page only. jl- prefix so nothing collides with city.css. */
@@ -114,18 +114,58 @@
     .jl-alt a { color: var(--gray-light); text-decoration: underline; text-underline-offset: 2px; }
     .jl-alt a:hover { color: var(--white); }
 
+    /* Real job photos in the hero (the map has its own section below). */
+    .jl-shot { grid-area: map; margin: 0; }
+    .jl-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .jl-pic { position: relative; margin: 0; }
+    .jl-pic img {
+      display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover;
+      border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+    }
+    .jl-pic-wide img { aspect-ratio: 4 / 3; }
+    .jl-tag {
+      position: absolute; left: 10px; top: 10px; padding: 4px 9px; border-radius: 4px;
+      background: rgba(0,0,0,0.74); color: #fff; font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .jl-tag-after { background: #fff; color: #111; }
+    .jl-shot figcaption { margin-top: 12px; font-size: 0.92rem; line-height: 1.55; font-weight: 300; color: var(--gray-light); }
+    /* Where We Work block, same pattern as the city pages. */
+    .hl-area-map { margin: 28px 0 0; max-width: 560px; }
+    .hl-area-map img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.14); }
+    .hl-area .lead a { color: var(--white); text-underline-offset: 2px; }
+
     @media (max-width: 900px) {
-      /* Phones: headline, then the map straight away, then the buttons.
-         The sticky bar keeps Call and Text on screen the whole time. */
-      .jl-hero-grid { grid-template-columns: 1fr; grid-template-areas: "copy" "map"; gap: 0; }
+      /* Phones: headline, rating, Call + Quote Online, then the job photos.
+         The sticky bar keeps Call and Text a Photo on screen the whole time. */
+      .nav { position: relative; }
+      .jl-hero-grid { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
       .jl-copy { display: contents; }
-      .jl-kicker, .jl-hero h1 { order: 1; }
-      .jl-map { order: 2; margin: 4px 0 26px; }
-      .jl-hero .hero-sub, .jl-hero .hero-ctas, .jl-hero .hero-trust { order: 3; }
-      .jl-hero-grid { display: flex; flex-direction: column; align-items: stretch; }
+      .jl-kicker { display: none; }
+      .jl-hero h1 { order: 1; margin-bottom: 8px; }
+      .jl-hero .hero-trust { order: 2; margin: 0 0 14px; }
+      .jl-hero .hero-ctas { order: 3; }
+      .jl-hero .jl-cta-text { display: none; }
+      .jl-shot { order: 4; margin: 22px 0 18px; }
+      .jl-shot .jl-pic img { aspect-ratio: 4 / 3; }
+      .jl-hero .hero-sub { order: 5; margin-bottom: 0; }
       .jl-hero .hero-badge { display: none; }
       .jl-steps { grid-template-columns: 1fr; }
       .jl-why { grid-template-columns: 1fr; }
+    }
+    /* The rating jumps to the reviews; anchors clear the header. */
+    .jl-rating { color: var(--white); text-decoration: underline; text-underline-offset: 3px; display: inline-block; padding: 8px 0; }
+    #revH, #quote, #areaH { scroll-margin-top: 90px; }
+    .jl-steps p a, .faq details p a, .lead a, .hlform-alt a, .hlform-error a, .hlform-success a { color: var(--white); text-decoration: underline; text-underline-offset: 2px; }
+    /* Opens the quote survey at the top of the form section. */
+    .jl-quote-start { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin: 6px 0 22px; }
+    .jl-quote-start span { font-size: 0.92rem; color: var(--gray); font-weight: 300; }
+    @media (max-width: 900px) {
+      /* Keep the Call / Text bar usable above the quote survey. */
+      .sticky-call { z-index: 9001; }
+      .qw-scrim { padding-bottom: calc(74px + env(safe-area-inset-bottom)); }
+      .qw-scrim .qw-panel { max-height: calc(92dvh - 74px - env(safe-area-inset-bottom)); }
     }
   </style>
   <!-- Microsoft Clarity: click heatmaps, scroll maps, session recordings -->
@@ -136,7 +176,6 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "yu33nwh893");
   </script>
-  <script src="/text-quote.js?v=2" defer></script>
   <style>
     /* Footer city links (site-wide). */
     .footer-cities { display: grid; grid-template-columns: 2fr 1fr; gap: 24px 48px; padding: 28px 0 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -146,6 +185,41 @@
     .footer-city-list a:hover, .footer-city-list a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
     @media (max-width: 700px) { .footer-cities { grid-template-columns: 1fr; } }
   </style>
+  <style>
+    /* Google review excerpts (verbatim, from H&L's Google listing). */
+    .hl-reviews .hl-rev-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 26px; }
+    .hl-rev { margin: 0; padding: 22px 22px 18px; background: var(--dark2, #111); border: 1px solid rgba(255,255,255,0.09); border-radius: var(--radius, 14px); display: flex; flex-direction: column; gap: 14px; }
+    .hl-rev-stars { color: #fff; letter-spacing: 2px; font-size: 0.95rem; }
+    .hl-rev blockquote { margin: 0; color: var(--gray-light, #ccc); font-weight: 300; font-size: 1rem; line-height: 1.6; }
+    .hl-rev figcaption { margin-top: auto; font-family: 'Oswald', sans-serif; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; }
+    .hl-rev figcaption span { color: var(--gray, #888); text-transform: none; letter-spacing: 0; font-family: inherit; }
+    .hl-rev-more { margin-top: 18px; font-size: 0.92rem; }
+    .hl-rev-more a { color: #fff; text-underline-offset: 2px; }
+    @media (max-width: 860px) { .hl-reviews .hl-rev-grid { grid-template-columns: 1fr; } }
+  </style>
+  <script>
+    /* Quote survey for this page: what needs to go, where, name, phone.
+       It fills #quoteForm and the page's own handler sends it. */
+    window.HL_WIZARDS = [{
+      autoClose: 0,
+      steps: [
+        { id: 'qf-service', q: 'What needs to go?', hint: 'Pick the closest one.', required: true },
+        { id: 'qf-zip',     q: 'Where is the job?', hint: 'Street address or just a ZIP code.', required: true },
+        { id: 'qf-name',    q: 'What is your name?', hint: '', required: true },
+        { id: 'qf-phone',   q: 'Best number to reach you?', hint: 'We will call you back with your price. Tick the box if a text is easier.', required: true, consent: true, last: true }
+      ],
+      text: {
+        alt: 'Rather talk? <a href="tel:{callHref}">Call us</a> or <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A">text a photo</a>.',
+        doneTitle: 'Got it, thank you',
+        doneText: 'Your request is in. We will call you back with your free price.',
+        doneSooner: 'Have a photo? <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A">Text it to us</a> for a closer price. Want to talk now? <a href="tel:{callHref}">Call {call}</a>.'
+      }
+    }];
+  </script>
+  <link rel="stylesheet" href="/quote-wizard.css?v=3">
+  <script src="/quote-wizard.js?v=5" defer></script>
+  <script src="/quote-photo.js?v=1" defer></script>
+  <script src="/text-quote.js?v=3" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -169,29 +243,42 @@
         <div class="jl-hero-grid">
           <div class="jl-copy">
             <div class="hero-badge"><span class="hero-badge-dot"></span> Fully Insured &middot; <span class="hero-star">&#9733;</span> 4.9 Google &middot; Locally Owned</div>
-            <span class="hero-kicker jl-kicker">Junk Removal Near You</span>
-            <h1>Junk Removal Near You.<br />Inside the Circle, We&rsquo;ll Haul It.</h1>
-            <p class="hero-sub">Hi, we&rsquo;re H&amp;L, a fully insured local junk removal and junk hauling crew based in Pearland. Text us a photo of what needs to go and we&rsquo;ll send back a free quote. We do all the loading, from the garage, the attic or the backyard, and haul it off the same trip.</p>
+            <span class="hero-kicker jl-kicker">Pearland, League City &amp; South Houston</span>
+            <h1>Junk Removal Near You.<br />You Point, We Lift.</h1>
+            <p class="hero-sub">Junk removal and junk hauling from a fully insured crew based in Pearland. Text us a photo and get one price before we lift. We do all the loading, from the garage, the attic or the backyard.</p>
             <div class="hero-ctas">
               <a href="tel:8324257749" class="btn-primary">Call 832-425-7749</a>
-              <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A" class="btn-outline">Text a Photo for a Quote</a>
+              <a href="#quote" class="btn-outline">Get a Quote Online</a>
+              <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A" class="btn-outline jl-cta-text">Text a Photo</a>
             </div>
-            <p class="hero-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google (27 reviews) &middot; Free, no-obligation quotes &middot; Ask about same-day</p>
+            <p class="hero-trust"><a href="#revH" class="jl-rating">4.9&#9733; on Google (31 reviews)</a> &middot; <strong>Fully insured</strong> &middot; You get the price before we load</p>
           </div>
 
-          <figure class="jl-map">
-            <picture>
-              <source type="image/webp" srcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" sizes="(max-width: 900px) calc(100vw - 36px), 520px" />
-              <img src="/images/service-area-map-720.jpg" width="720" height="723" loading="eager" fetchpriority="high" decoding="async" alt="Map of H&amp;L's 20-mile service area, a circle around our yard covering Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston." />
-            </picture>
-            <figcaption>
-              We haul anywhere inside this circle except inner Houston. Not sure you&rsquo;re in? <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20is%20my%20address%20in%20your%20area%3F%20">Text us your address</a>.
-              <span class="jl-towns">Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston.</span>
-            </figcaption>
+          <figure class="jl-shot">
+            <div class="jl-pair">
+              <div class="jl-pic"><picture><source srcset="/images/before2.webp" type="image/webp" /><img src="/images/before2.jpg" width="825" height="1100" loading="eager" fetchpriority="high" decoding="async" alt="Front room packed with furniture, boxes and bags before an H&amp;L cleanout" /></picture><span class="jl-tag">Before</span></div>
+              <div class="jl-pic"><picture><source srcset="/images/after2.webp" type="image/webp" /><img src="/images/after2.jpg" width="825" height="1100" loading="eager" decoding="async" alt="The same front room cleared to bare floor after the H&amp;L cleanout" /></picture><span class="jl-tag jl-tag-after">After</span></div>
+            </div>
+            <figcaption>A real H&amp;L job: the same front room, before and after.</figcaption>
           </figure>
         </div>
       </div>
     </header>
+
+    <section class="hl-area" aria-labelledby="areaH">
+      <div class="container">
+        <span class="section-label">Where We Work</span>
+        <h2 class="section-title" id="areaH">Anywhere Inside the Circle</h2>
+        <p class="lead">We haul within about 20 miles of our Pearland yard, except inner Houston. Not sure you&rsquo;re in? <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20is%20my%20address%20in%20your%20area%3F%20">Text us your address</a>.</p>
+        <figure class="hl-area-map">
+          <picture>
+            <source type="image/webp" srcset="/images/service-area-map-720.webp 720w, /images/service-area-map-1084.webp 1084w" sizes="(max-width: 768px) calc(100vw - 36px), 560px" />
+            <img src="/images/service-area-map-720.jpg" width="720" height="723" loading="lazy" decoding="async" alt="Map of H&amp;L's 20-mile service area, a circle around our yard covering Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston." />
+          </picture>
+          <figcaption class="jl-towns">Pearland, Friendswood, Manvel, Iowa Colony, Alvin, Fresno, Missouri City, South Houston, Pasadena, Webster, Clear Lake, League City, Dickinson, Santa Fe, Seabrook, Kemah and south Houston.</figcaption>
+        </figure>
+      </div>
+    </section>
 
     <section aria-labelledby="haulH">
       <div class="container">
@@ -214,10 +301,36 @@
         <span class="section-label">How It Works</span>
         <h2 class="section-title" id="howH">Three Steps, No Lifting</h2>
         <ol class="jl-steps">
-          <li><h3>Text a Photo</h3><p>Send a picture or two to 832-425-7749, or just tell us what it is. Calling works too.</p></li>
+          <li><h3>Text a Photo</h3><p><a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A">Text us a picture or two</a>, or just tell us what it is. Calling works too.</p></li>
           <li><h3>Get Your Price</h3><p>We tell you the price before anything goes on the trailer. That&rsquo;s the price you pay.</p></li>
           <li><h3>We Load It &amp; Haul It</h3><p>You point, we lift. We sweep up after, and donate or recycle what we can.</p></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="hl-reviews" aria-labelledby="revH">
+      <div class="container">
+        <span class="section-label">Google Reviews</span>
+        <h2 class="section-title" id="revH">Rated 4.9 on Google</h2>
+        <p class="lead">From 31 reviews. Here are a few, word for word.</p>
+        <div class="hl-rev-grid">
+          <figure class="hl-rev">
+            <span class="hl-rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;These guys worked so hard and went above and beyond for me. They were so nice and easy to work with! The price was very fair.&rdquo;</blockquote>
+            <figcaption>Tracy B. <span>&middot; Google review</span></figcaption>
+          </figure>
+          <figure class="hl-rev">
+            <span class="hl-rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;Guys got me on their schedule with very little notice and showed up early which really helped me out.&rdquo;</blockquote>
+            <figcaption>Chris S. <span>&middot; Google review</span></figcaption>
+          </figure>
+          <figure class="hl-rev">
+            <span class="hl-rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <blockquote>&ldquo;These guys are super efficient, dependable and professional. I can’t say enough good things about them.&rdquo;</blockquote>
+            <figcaption>Randa A. <span>&middot; Google review</span></figcaption>
+          </figure>
+        </div>
+        <p class="hl-rev-more"><a href="https://g.page/r/CUoEnjQdISJpEBM" target="_blank" rel="noopener">Read all of our Google reviews</a></p>
       </div>
     </section>
 
@@ -227,7 +340,7 @@
         <h2 class="section-title" id="whyH">Local Crew, Straight Answers</h2>
         <ul class="jl-why">
           <li><strong>Fully insured</strong> on every job, homes and job sites.</li>
-          <li><strong>4.9 stars on Google</strong> from 27 reviews.</li>
+          <li><strong>4.9 stars on Google</strong> from 31 reviews.</li>
           <li><strong>Locally owned.</strong> Every job starts from our Pearland yard.</li>
           <li><strong>No surprises.</strong> You know the price before we load a thing.</li>
         </ul>
@@ -257,13 +370,105 @@
           </details>
           <details>
             <summary>Can you come the same day?</summary>
-            <p>Same-day and next-day pickups are often open. Text a photo and we will tell you what we have.</p>
+            <p>Same or next day is often possible. <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A">Text a photo</a> and we will tell you what we have open.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section class="band cta-band" aria-labelledby="ctaH">
+    <section id="quote" class="band" aria-labelledby="quoteH">
+      <div class="container">
+        <span class="section-label">Free Quote</span>
+        <h2 class="section-title" id="quoteH">Get a Free Junk Removal Quote</h2>
+        <p class="jl-quote-start"><a href="#quote" class="btn-primary">Start My Free Quote</a><span>4 quick questions, one at a time.</span></p>
+        <p class="lead" style="margin-bottom:28px;">Or fill out the form below. Tell us what needs to go and add a photo if you have one. We will get back to you with a free, no-obligation price. Prefer to talk? Call <a href="tel:8324257749" style="color:var(--white);text-decoration:underline;">832-425-7749</a> or <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A">text us</a>.</p>
+        <style>
+          .hlform{max-width:640px;margin:0 auto;text-align:left;}
+          .hlform-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+          .hlform input[type="file"]{padding:10px 12px;font-size:0.9rem;color:rgba(255,255,255,0.75);cursor:pointer;}
+          .hlform input[type="file"]::file-selector-button{font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase;margin-right:12px;padding:8px 14px;border:0;border-radius:5px;background:#fff;color:#111;cursor:pointer;}
+          .hlform-row{display:flex;gap:16px;flex-wrap:wrap;}
+          .hlform-row > label{flex:1 1 240px;}
+          .hlform label{display:block;margin-bottom:16px;font-family:'Oswald',sans-serif;font-size:0.82rem;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.75);}
+          .hlform label span{color:#fff;margin-left:3px;}
+          .hlform input,.hlform select,.hlform textarea{width:100%;margin-top:7px;padding:13px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.22);border-radius:7px;color:#fff;font-family:inherit;font-size:1rem;box-sizing:border-box;}
+          .hlform input:focus,.hlform select:focus,.hlform textarea:focus{outline:none;border-color:#fff;background:rgba(255,255,255,0.09);}
+          .hlform select option{background:#111;color:#fff;}
+          .hlform-submit{margin-top:6px;width:100%;cursor:pointer;border:none;font-size:1.05rem;}
+          .hlform-alt{margin-top:16px;font-size:0.9rem;color:rgba(255,255,255,0.6);text-transform:none;letter-spacing:0;font-family:inherit;}
+          .hlform-alt a{color:#fff;}
+          .hlform-success{max-width:640px;margin:0 auto;text-align:center;padding:36px 24px;border:1px solid rgba(255,255,255,0.22);border-radius:10px;background:rgba(255,255,255,0.04);}
+          .hlform-success h3{font-size:1.5rem;margin:0 0 10px;}
+          .hlform-success a{color:#fff;}
+          .hlform-error{max-width:640px;margin:0 auto 18px;padding:14px 16px;border:1px solid rgba(255,120,120,0.5);border-radius:8px;color:#fff;background:rgba(255,80,80,0.08);}.hlform-error a{color:#fff;}
+        </style>
+        <style>
+.hlform label.hl-consent{display:flex;align-items:flex-start;gap:10px;text-align:left;cursor:pointer;text-transform:none;letter-spacing:normal;font-weight:400;margin:6px 0 16px;}
+.hlform label.hl-consent input[type="checkbox"]{-webkit-appearance:checkbox;appearance:checkbox;flex:0 0 auto;width:17px;min-width:17px;height:17px;margin:2px 0 0;padding:0;border:none;border-radius:0;background:none;box-shadow:none;cursor:pointer;accent-color:#fff;}
+.hlform label.hl-consent input[type="checkbox"]:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+.hlform label.hl-consent span{font-family:'Oswald',sans-serif;font-weight:300;font-size:0.72rem;line-height:1.55;letter-spacing:normal;text-transform:none;margin-left:0;color:#ccc;}
+.hlform label.hl-consent span strong{font-weight:600;color:#fff;}
+.hlform label.hl-consent a{color:#ccc;text-decoration:underline;text-underline-offset:2px;}
+.hlform label.hl-consent:hover span,.hlform label.hl-consent:hover a{color:#fff;}
+</style>
+        <p class="hlform-error" id="qfError" role="alert" hidden>That did not send. Please call <a href="tel:8324257749">832-425-7749</a> or <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A">text us</a> and we will take care of you.</p>
+        <form class="hlform" id="quoteForm" action="https://formsubmit.co/H.ljunkremovalsolutions@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="_subject" value="New Junk Removal Quote (ads page)" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" class="hlform-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="hlform-row">
+            <label>Name<span>*</span><input type="text" name="Name" id="qf-name" required autocomplete="name" /></label>
+            <label>Phone<span>*</span><input type="tel" name="Phone" id="qf-phone" required autocomplete="tel" /></label>
+          </div>
+          <div class="hlform-row">
+            <label>Email<input type="email" name="Email" id="qf-email" autocomplete="email" /></label>
+            <label>Service Address or ZIP<span>*</span><input type="text" name="Service Address / ZIP" id="qf-zip" required autocomplete="street-address" /></label>
+          </div>
+          <label>What needs to go?<span>*</span><select name="Service Needed" id="qf-service" required>
+            <option value="" disabled selected>Choose one</option>
+            <option>Furniture or appliances</option>
+            <option>Garage, attic or storage unit</option>
+            <option>Whole house or estate cleanout</option>
+            <option>Remodel or storm debris</option>
+            <option>Hot tub, shed or fence</option>
+            <option>A bit of everything</option>
+          </select></label>
+          <div class="hlform-row">
+            <label>Preferred Timing<select name="Preferred Timing" id="qf-when">
+              <option value="" disabled selected>Pick one (optional)</option>
+              <option>As soon as possible</option>
+              <option>Within a few days</option>
+              <option>Within a couple weeks</option>
+              <option>Just getting a quote</option>
+            </select></label>
+          </div>
+          <label>Tell us what needs to go<textarea name="Details" id="qf-details" rows="3" placeholder="What it is, which floor, gate code"></textarea></label>
+          <label>Photo of the junk (optional, gets you a closer price)<input type="file" name="attachment" id="qf-photo" accept="image/*" /></label>
+          <input type="hidden" name="SMS Consent" id="smsConsentVal" value="No" />
+          <label class="hl-consent" for="smsConsent">
+            <input type="checkbox" id="smsConsent" />
+            <span><strong>Text me about my job.</strong> I agree to receive service text messages from H&amp;L Junk Removal &amp; Hauling at the number above, about my quote and my job. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy/">Privacy Policy</a> and <a href="/terms/">Terms</a>.</span>
+          </label>
+
+          <button type="submit" class="btn-primary hlform-submit">Get My Free Quote</button>
+          <p class="hlform-alt">Prefer to talk? Call <a href="tel:8324257749">832-425-7749</a> or <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A">text us</a>.</p>
+        </form>
+        <script>
+  (function(){
+    var box = document.getElementById('smsConsent'), val = document.getElementById('smsConsentVal');
+    if (!box || !val) return;
+    box.addEventListener('change', function(){ val.value = box.checked ? 'Yes' : 'No'; });
+  })();
+  </script>
+        <div class="hlform-success" id="quoteSuccess" hidden>
+          <h3>Thanks, we got it!</h3>
+          <p>Your request is in. We will call you back with your free price. Have a photo? <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A">Text it to us</a> for a closer price. Want to talk now? Call <a href="tel:8324257749">832-425-7749</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="ctaH">
       <div class="container">
         <h2 id="ctaH">Schedule Your Junk Removal</h2>
         <p>Text a photo or give us a call to schedule a junk pickup. We&rsquo;ll tell you the price and when we can be there.</p>
@@ -272,7 +477,7 @@
           <a href="sms:+18324257749?&body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A" class="btn-outline">Text a Photo</a>
         </div>
         <p class="cta-trust"><strong>Fully insured</strong> &middot; 4.9&#9733; on Google &middot; You point, we lift</p>
-        <p class="cta-form-link">Prefer to type it out? <a href="/free-quote-junk-removal-league-city-tx/">Request a free quote online</a>.</p>
+        <p class="cta-form-link">Prefer to type it out? <a href="#quote">Answer 4 quick questions</a>.</p>
         <p class="jl-alt">Would you rather load it yourself on your own schedule? <a href="/book/">See our 14 and 20-yard dumpsters</a>.</p>
       </div>
     </section>
@@ -347,6 +552,41 @@
       </div>
     </div>
   </footer>
+  <script>
+    (function(){
+      var form=document.getElementById('quoteForm');
+      if(!form)return;
+      form.addEventListener('submit',function(e){
+        e.preventDefault();
+        var er0=document.getElementById('qfError'); if(er0){er0.hidden=true;}
+        if(form.querySelector('input[name="_honey"]').value){return;} // bot
+        if(!form.checkValidity()){form.reportValidity();return;}
+        var btn=form.querySelector('.hlform-submit');
+        var label=btn?btn.textContent:''; if(btn){btn.disabled=true;btn.textContent='Sending…';}
+        /* quote-photo.js adds the optional job photo and falls back to a
+           text-only send if the photo cannot go through. */
+        var sendUrl='https://formsubmit.co/ajax/H.ljunkremovalsolutions@gmail.com';
+        var send=window.HLQuoteSend
+          ? window.HLQuoteSend(sendUrl,window.HLQuoteFields(form),document.getElementById('qf-photo'))
+          : fetch(sendUrl,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)}).then(function(r){return r.json();});
+        send.then(function(res){
+          /* FormSubmit answers 200 + JSON on failure too, so .catch never runs.
+             Without this guard a failed send fires a conversion, shows a fake
+             success screen, and the lead email is silently dropped. */
+          if(!(res && (res.success === 'true' || res.success === true))){throw new Error('submit failed');}
+          if(typeof gtag==='function'){
+            gtag('event','conversion',{'send_to':'AW-18264252114/sPLOCNWoq8ocENK9iYVE'});
+            gtag('event','generate_lead',{'send_to':'G-GYJ54HB3FE','form_id':'quoteForm','method':document.querySelector('.qw-scrim[data-open="true"]')?'survey':'form'});
+          }
+          var s=document.getElementById('quoteSuccess');
+          form.style.display='none'; if(s){s.hidden=false; s.scrollIntoView({behavior:'smooth',block:'center'});}
+        }).catch(function(){
+          if(btn){btn.disabled=false;btn.textContent=label;}
+          var er=document.getElementById('qfError'); if(er){er.hidden=false; er.scrollIntoView({behavior:'smooth',block:'center'});}
+        });
+      });
+    })();
+  </script>
 
   <!-- Mobile sticky bar (shown <=900px): Call and Text, the two junk lead paths. -->
   <div class="sticky-call" aria-label="Quick contact">

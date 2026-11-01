@@ -21,6 +21,10 @@
    photo: 'qf-photo' on a step adds an "Add a photo"
    button under it for that file input (the page's
    handler sends it, see quote-photo.js).
+   autoClose: 0 keeps the thank-you screen open
+   until the visitor closes it (default 5.2 s).
+   Text can use {call}/{callHref} for the live call
+   number and {phone}/{phoneHref} for the real one.
    ============================================= */
 (function () {
   'use strict';
@@ -80,8 +84,24 @@
     return out;
   }
 
+  /* Google's call snippet swaps the number in the page's static call links
+     for a forwarding number on ad visits. The survey is built later, so it
+     borrows the header's (possibly swapped) number for calls.
+     {call}/{callHref}: live call number. {phone}/{phoneHref}: the real
+     number, which is the one sms: links must use. */
+  function liveCall() {
+    var a = document.querySelector('a.nav-cta[href^="tel:"]');
+    var text = a ? (a.textContent || '').trim() : '';
+    var digits = text.replace(/\D/g, '');
+    if (digits.length < 10) { return { href: PHONE_HREF, text: PHONE }; }
+    return { href: digits, text: text };
+  }
+
   function fill(str) {
-    return String(str).replace(/\{phoneHref\}/g, PHONE_HREF).replace(/\{phone\}/g, PHONE);
+    var c = liveCall();
+    return String(str)
+      .replace(/\{callHref\}/g, c.href).replace(/\{call\}/g, c.text)
+      .replace(/\{phoneHref\}/g, PHONE_HREF).replace(/\{phone\}/g, PHONE);
   }
 
   function create(config) {
@@ -163,6 +183,10 @@
       els.next.textContent = step.last ? T.submit : T.next;
       els.next.style.display = field.tagName === 'SELECT' ? 'none' : '';
       els.skip.style.display = step.required ? 'none' : '';
+      if (field.tagName === 'SELECT') {
+        var firstOpt = els.slot.querySelector('.qw-opt');
+        window.setTimeout(function () { if (firstOpt) { firstOpt.focus(); } }, 90);
+      }
     }
 
     /* A select becomes tap tiles, so multiple-choice steps need no typing. */
@@ -279,8 +303,21 @@
       box.addEventListener('change', function () {
         if (real) { real.checked = box.checked; real.dispatchEvent(new Event('change', { bubbles: true })); }
       });
-      var span = document.createElement('span');
-      span.textContent = T.consent;
+      /* Show the page form's own consent wording, links included, so the
+         survey and the form can never disagree. Links open in a new tab so
+         reading them does not lose the survey. */
+      var source = document.querySelector('label[for="' + cfg.consentId + '"] span');
+      var span;
+      if (source) {
+        span = source.cloneNode(true);
+        Array.prototype.slice.call(span.querySelectorAll('a[href]')).forEach(function (a) {
+          a.target = '_blank';
+          a.rel = 'noopener';
+        });
+      } else {
+        span = document.createElement('span');
+        span.textContent = T.consent;
+      }
       label.appendChild(box);
       label.appendChild(span);
       return label;
@@ -327,8 +364,13 @@
           '<h3>' + fill(T.doneTitle) + '</h3>' +
           '<p>' + fill(T.doneText) + '</p>' +
           '<p>' + fill(T.doneSooner) + '</p>' +
+          '<button type="button" class="qw-next qw-done-close">' + fill(T.close) + '</button>' +
         '</div>';
-      window.setTimeout(function () { close(); }, 5200);
+      var btn = els.panel.querySelector('.qw-done-close');
+      if (btn) { btn.addEventListener('click', close); btn.focus(); }
+      if (cfg.autoClose !== 0) {
+        window.setTimeout(function () { if (isOpen()) { close(); } }, cfg.autoClose || 5200);
+      }
     }
 
     function showError() {
@@ -367,6 +409,8 @@
       lastFocus = document.activeElement;
       index = 0;
       render();
+      var alt = scrim.querySelector('.qw-alt');
+      if (alt) { alt.innerHTML = fill(T.alt); }
       scrim.setAttribute('data-open', 'true');
       document.body.style.overflow = 'hidden';
       if (typeof gtag === 'function') { gtag('event', cfg.openEvent); }
@@ -380,9 +424,13 @@
 
     function trapFocus(e) {
       if (e.key !== 'Tab') { return; }
-      var f = els.panel.querySelectorAll('button, input, textarea, a[href], select');
+      var f = Array.prototype.filter.call(
+        els.panel.querySelectorAll('button, input, textarea, a[href], select'),
+        function (n) { return !n.disabled && !n.hidden && n.offsetParent !== null && getComputedStyle(n).visibility !== 'hidden'; }
+      );
       if (!f.length) { return; }
       var first = f[0], last = f[f.length - 1];
+      if (!els.panel.contains(document.activeElement)) { e.preventDefault(); first.focus(); return; }
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
