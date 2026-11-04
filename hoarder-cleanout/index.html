@@ -261,6 +261,7 @@
     .footer-city-list a:hover, .footer-city-list a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
     @media (max-width: 700px) { .footer-cities { grid-template-columns: 1fr; } }
   </style>
+<link rel="stylesheet" href="/reviews-ticker.css?v=1">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -305,6 +306,10 @@
         </div>
       </div>
     </header>
+
+    <section class="hl-ticker" data-hl-ticker aria-label="Google reviews">
+      <a class="hl-ticker-badge" href="https://g.page/r/CUoEnjQdISJpEBM" target="_blank" rel="noopener">&#9733; 4.9 on Google &middot; Read our reviews</a>
+    </section>
 
     <section aria-labelledby="clearH">
       <div class="container">
@@ -688,5 +693,6 @@
       }, true);
     })();
   </script>
+<script src="/reviews-ticker.js?v=1" defer></script>
 </body>
 </html>
