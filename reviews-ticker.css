@@ -1,0 +1,112 @@
+/* Moving Google reviews strip (filled in by reviews-ticker.js).
+   Height is fixed so nothing shifts when the quotes load. */
+.hl-ticker {
+  --tick-bg: #0d0d0d;
+  --tick-line: rgba(255, 255, 255, 0.14);
+  --tick-text: #e6e6e6;
+  --tick-dim: #9a9a9a;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 56px;
+  margin: 0;
+  padding: 0;
+  background: var(--tick-bg);
+  border-top: 1px solid var(--tick-line);
+  border-bottom: 1px solid var(--tick-line);
+  color: var(--tick-text);
+  font-family: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+.hl-ticker-badge {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  padding: 0 18px;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+}
+.hl-ticker-badge:hover, .hl-ticker-badge:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.hl-ticker-badge:focus-visible, .hl-ticker-pause:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+.hl-ticker-badge:focus-visible { outline-color: #000; }
+.hl-ticker-count::before { content: '\00B7'; margin-right: 6px; }
+
+.hl-ticker-view {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+}
+.hl-ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: hl-ticker-move 90s linear infinite;
+  will-change: transform;
+}
+.hl-ticker:hover .hl-ticker-track,
+.hl-ticker:focus-within .hl-ticker-track,
+.hl-ticker.is-paused .hl-ticker-track { animation-play-state: paused; }
+@keyframes hl-ticker-move { to { transform: translateX(-50%); } }
+
+.hl-tick {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 34px 0 0;
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+.hl-tick-stars { color: #fff; letter-spacing: 0.08em; font-size: 0.8rem; }
+.hl-tick-text { color: var(--tick-text); }
+.hl-tick-name { color: var(--tick-dim); font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; }
+
+.hl-ticker-pause {
+  flex: 0 0 auto;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 6px;
+  border: 1px solid var(--tick-line);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.hl-ticker.is-ready .hl-ticker-pause { display: inline-flex; }
+.hl-ticker-pause:hover { background: rgba(255, 255, 255, 0.1); }
+
+@media (max-width: 640px) {
+  .hl-ticker { height: 52px; }
+  .hl-ticker-badge { padding: 0 12px; font-size: 0.75rem; }
+  .hl-ticker-count { display: none; }
+  .hl-tick { font-size: 0.88rem; padding-right: 26px; }
+}
+
+/* No motion: show the quotes as a row you can swipe instead. */
+@media (prefers-reduced-motion: reduce) {
+  .hl-ticker-track { animation: none; }
+  .hl-ticker-view { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .hl-tick[aria-hidden="true"] { display: none; }
+  .hl-tick:first-child { padding-left: 16px; }
+  .hl-ticker.is-ready .hl-ticker-pause { display: none; }
+}
