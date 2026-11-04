@@ -9,14 +9,26 @@
   var PROFILE = 'https://g.page/r/CUoEnjQdISJpEBM';
   var RATING = '4.9';
   var COUNT = 31; /* read from the Google listing 2026-11-04 */
+  /* All 31 read 2026-11-04; the full list and the ones left out on purpose
+     (owner and family accounts, the 1-star, "same day" and price-superlative
+     quotes) are in the H&L folder: Google Reviews Snapshot 2026-11-04.md. */
   var REVIEWS = [
     { name: 'Tracy B.', text: 'These guys worked so hard and went above and beyond for me. They were so nice and easy to work with! The price was very fair.' },
+    { name: 'Jonathon', text: 'They arrived right on time and removed everything quickly and efficiently.' },
     { name: 'Vasilio H.', text: 'The guys were awesome. On time! Cleaned up junk from my garage in less than an hour.' },
+    { name: 'Char M.', text: 'Javan & team were so straight forward & ready to assist!! Flat price, sent pics, very flexible etc!!!' },
+    { name: 'Jerry M.', text: 'They delivered and picked up exactly on time. They were such a pleasure to work with.' },
     { name: 'Randa A.', text: 'These guys are super efficient, dependable and professional. I can’t say enough good things about them.' },
+    { name: 'Sydney S.', text: 'H&L’s services were perfect for our company office clean out.' },
+    { name: 'Tina', text: 'The entire process was smooth from start to finish. Scheduling was easy, communication was excellent, and the job was completed quickly and efficiently.' },
     { name: 'L. C.', text: 'I’ve used these guys twice now and they do not disappoint! They are clean cut and honest guys and they’re always on time.' },
+    { name: 'Natalie K.', text: 'The guys were very respectful and professional. I had all my junk removed within less than 15 minutes.' },
     { name: 'Chris S.', text: 'Guys got me on their schedule with very little notice and showed up early which really helped me out.' },
+    { name: 'Josh J.', text: 'Incredible experience! Fantastic communication, very professional, super fast. HIGHLY RECOMMEND!' },
     { name: 'Tim R.', text: 'Extremely professional, efficient, courteous. The price for the job was extremely reasonable for the job.' },
-    { name: 'Samuel V.', text: 'These guys were great! Quick service very nice guys and took care of our stuff.' }
+    { name: 'Summer L.', text: 'Excellent service, friendly, and reliable. I will definitely be calling them again!' },
+    { name: 'Samuel V.', text: 'These guys were great! Quick service very nice guys and took care of our stuff.' },
+    { name: 'Anthony A.', text: 'Great pricing and fast service!' }
   ];
   var PX_PER_SECOND = 40;
 
