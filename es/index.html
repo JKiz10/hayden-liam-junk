@@ -1103,6 +1103,28 @@
       line-height: 1.8;
       margin-bottom: 44px;
     }
+    .reviews-quotes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 0 0 44px;
+      text-align: left;
+    }
+    .reviews-quote {
+      margin: 0;
+      padding: 20px 22px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .reviews-quote:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .reviews-quote .reviews-stars { font-size: 0.9rem; }
+    .reviews-quote blockquote { margin: 0; font-weight: 300; font-size: 0.98rem; line-height: 1.65; color: rgba(255,255,255,0.8); }
+    .reviews-quote figcaption { margin-top: auto; font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+    .areas-lead a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 640px) { .reviews-quotes { grid-template-columns: 1fr; } }
     .reviews-ctas {
       display: flex;
       gap: 16px;
@@ -1932,6 +1954,10 @@
         {
           "@type": "City",
           "name": "Bacliff, TX"
+        },
+        {
+          "@type": "City",
+          "name": "San Leon, TX"
         }
       ],
       "contactPoint": {
@@ -2235,7 +2261,7 @@
           "name": "¿Cuánto cuesta el retiro de basura?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Cada trabajo es diferente, así que cada uno se cotiza a la medida. El precio depende del volumen de basura, el tipo de cosas y el acceso a tu propiedad. Te damos una cotización gratis y sin compromiso antes de empezar cualquier trabajo, así que siempre sabes el precio antes de que empecemos. Mándanos un texto en español al 832-425-7749 o llámanos para tu cotización gratis."
+            "text": "Cada trabajo es diferente, así que cada uno se cotiza a la medida. El precio depende del volumen de basura, el tipo de cosas y el acceso a tu propiedad. Te damos una cotización gratis y sin compromiso antes de empezar cualquier trabajo, así que siempre sabes el precio antes de que empecemos. Tu precio queda fijo: es lo que pagas. Si la carga resulta diferente a las fotos, te decimos el precio nuevo antes de levantar nada. Mándanos un texto en español al 832-425-7749 o llámanos para tu cotización gratis."
           }
         },
         {
@@ -2283,7 +2309,7 @@
           "name": "¿Qué tan rápido pueden venir?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Buscamos ser rápidos y flexibles, y muchas veces podemos programar la recogida pronto, según el día y tu ubicación dentro de nuestra área de servicio en los condados de Galveston y Harris. La mejor forma de apartar un horario es mandarnos un texto en español al 832-425-7749 o llamarnos. Buscamos un horario que te funcione y te damos una cotización gratis cuando lo confirmamos."
+            "text": "Mándanos fotos por texto al 832-425-7749 entre las 7am y las 9pm y te mandamos un precio en menos de 1 hora. Muchas veces es posible el mismo día o al siguiente, según el día y tu ubicación dentro de nuestra área de servicio. Escríbenos en español o llámanos para apartar un horario y buscamos uno que te funcione."
           }
         },
         {
@@ -3198,7 +3224,34 @@ body:has(.hl-ann-bar) .nav{top:40px;}
         <span class="reviews-badge-text"><strong>4.9</strong> en Google</span>
       </div>
       <h2 class="reviews-title reveal d1">La confianza de tus vecinos</h2>
-      <p class="reviews-sub reveal d2">Dueños de casa y negocios en League City y el área de la bahía confían en H&amp;L para llegar, trabajar duro y llevarse todo. Totalmente asegurados, cotizaciones gratis y 4.9 estrellas en Google. Mira lo que dicen nuestros clientes y después déjanos despejar tu espacio.</p>
+      <p class="reviews-sub reveal d2">Dueños de casa y negocios en League City y el área de la bahía confían en H&amp;L para llegar, trabajar duro y llevarse todo. Totalmente asegurados, cotizaciones gratis y 4.9 estrellas de 31 reseñas en Google. Aquí tienes algunas, palabra por palabra y en inglés, como las escribieron.</p>
+      <div class="reviews-quotes">
+        <figure class="reviews-quote">
+          <span class="reviews-stars" role="img" aria-label="5 de 5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <blockquote lang="en">&ldquo;These guys worked so hard and went above and beyond for me. They were so nice and easy to work with! The price was very fair.&rdquo;</blockquote>
+          <figcaption>Tracy B. &middot; Reseña de Google</figcaption>
+        </figure>
+        <figure class="reviews-quote">
+          <span class="reviews-stars" role="img" aria-label="5 de 5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <blockquote lang="en">&ldquo;The guys were awesome. On time! Cleaned up junk from my garage in less than an hour.&rdquo;</blockquote>
+          <figcaption>Vasilio H. &middot; Reseña de Google</figcaption>
+        </figure>
+        <figure class="reviews-quote">
+          <span class="reviews-stars" role="img" aria-label="5 de 5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <blockquote lang="en">&ldquo;Javan &amp; team were so straight forward &amp; ready to assist!! Flat price, sent pics, very flexible etc!!!&rdquo;</blockquote>
+          <figcaption>Char M. &middot; Reseña de Google</figcaption>
+        </figure>
+        <figure class="reviews-quote">
+          <span class="reviews-stars" role="img" aria-label="5 de 5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <blockquote lang="en">&ldquo;They delivered and picked up exactly on time. They were such a pleasure to work with.&rdquo;</blockquote>
+          <figcaption>Jerry M. &middot; Reseña de Google</figcaption>
+        </figure>
+        <figure class="reviews-quote">
+          <span class="reviews-stars" role="img" aria-label="5 de 5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <blockquote lang="en">&ldquo;H&amp;L’s services were perfect for our company office clean out.&rdquo;</blockquote>
+          <figcaption>Sydney S. &middot; Reseña de Google</figcaption>
+        </figure>
+      </div>
       <div class="reviews-ctas reveal d2">
         <a href="https://g.page/r/CUoEnjQdISJpEBM" target="_blank" rel="noopener noreferrer" class="btn-primary">Lee nuestras reseñas en Google</a>
         <a href="https://g.page/r/CUoEnjQdISJpEBM/review" target="_blank" rel="noopener noreferrer" class="btn-outline"><span class="reviews-g" aria-hidden="true">G</span> Deja una reseña</a>
@@ -3221,7 +3274,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       <div class="about-text-col">
         <span class="section-label reveal">Quiénes somos</span>
         <h2 class="section-title reveal d1" style="color: var(--white); margin-bottom: 32px;">Locales. Confiables. Totalmente asegurados.</h2>
-        <p class="about-body reveal d2">Hola, somos Hayden, Liam y Javan, los tres dueños de H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Empezamos H&amp;L en League City, y hoy todos los trabajos salen de nuestro patio en Pearland. Todavía manejamos y hacemos cada trabajo nosotros mismos, así que cuando nos contactas hablas con las personas que de verdad van a llegar. Hacemos acarreos rápidos y responsables para casas y negocios en los condados de Galveston y Harris, totalmente asegurados en cada trabajo. Escríbenos cuando quieras y te damos una cotización gratis.</p>
+        <p class="about-body reveal d2">Hola, somos Hayden, Liam y Javan, los tres dueños de H&amp;L Junk Removal &amp; Hauling Solutions, LLC. Empezamos H&amp;L en League City, y hoy todos los trabajos salen de nuestro patio en Pearland. Todavía manejamos y hacemos cada trabajo nosotros mismos, así que cuando nos contactas hablas con las personas que de verdad van a llegar. Hacemos acarreos rápidos y responsables para casas y negocios en los condados de Galveston, Harris y Brazoria, totalmente asegurados en cada trabajo. Escríbenos cuando quieras y te damos una cotización gratis.</p>
         <div class="about-stats">
           <div class="about-stat reveal d2">
             <div class="about-stat-value">Mismo día o al siguiente</div>
@@ -3251,7 +3304,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       <div class="areas-header">
         <span class="section-label reveal">Área de servicio</span>
         <h2 class="section-title reveal d1" style="color: var(--white);">Damos servicio en Pearland, League City y el sur de Houston</h2>
-        <p class="areas-lead reveal d2">Todos los trabajos salen de nuestro patio en Pearland, así que estamos a unas 20 millas de todo, desde Missouri City hasta Clear Lake. Cubrimos Pearland, League City, Friendswood, Pasadena, Clear Lake, Missouri City y los pueblos de en medio. El centro de Houston, Galveston, Texas City y La Marque quedan fuera de nuestra área. Totalmente asegurados en cada trabajo, y tu cotización siempre es gratis.</p>
+        <p class="areas-lead reveal d2">Todos los trabajos salen de nuestro patio en Pearland, así que estamos a unas 20 millas de todo, desde Missouri City hasta Clear Lake. Cubrimos Pearland, League City, Friendswood, Pasadena, Clear Lake, Missouri City y los pueblos de en medio. El centro de Houston, Galveston, Texas City y La Marque quedan fuera de nuestra área. Pearland es nuestra base: mira la <a href="/es/renta-de-dumpster-pearland-tx/">renta de dumpster en Pearland</a> o el <a href="/junk-removal-pearland-tx/" hreflang="en">retiro de basura en Pearland</a> (en inglés). Totalmente asegurados en cada trabajo, y tu cotización siempre es gratis.</p>
       </div>
 
       <div class="areas-grid reveal d2">
@@ -3312,7 +3365,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       </details>
       <details class="faq-item reveal">
         <summary>¿Cuánto cuesta el retiro de basura?</summary>
-        <div class="faq-answer">Cada trabajo es diferente, así que cada uno se cotiza a la medida. El precio depende del volumen de basura, el tipo de cosas y el acceso a tu propiedad. Te damos una cotización gratis y sin compromiso antes de empezar cualquier trabajo, así que siempre sabes el precio antes de que empecemos. Mándanos un texto en español al <a href="sms:+18324257749?&body=Hola%20H%26L%2C%20quiero%20una%20cotizaci%C3%B3n%20gratis.">832-425-7749</a> o <a href="tel:8324257749">llámanos</a> para tu cotización gratis.</div>
+        <div class="faq-answer">Cada trabajo es diferente, así que cada uno se cotiza a la medida. El precio depende del volumen de basura, el tipo de cosas y el acceso a tu propiedad. Te damos una cotización gratis y sin compromiso antes de empezar cualquier trabajo, así que siempre sabes el precio antes de que empecemos. Tu precio queda fijo: es lo que pagas. Si la carga resulta diferente a las fotos, te decimos el precio nuevo antes de levantar nada. Mándanos un texto en español al <a href="sms:+18324257749?&body=Hola%20H%26L%2C%20quiero%20una%20cotizaci%C3%B3n%20gratis.">832-425-7749</a> o <a href="tel:8324257749">llámanos</a> para tu cotización gratis.</div>
       </details>
       <details class="faq-item reveal">
         <summary>¿Están asegurados?</summary>
@@ -3336,7 +3389,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       </details>
       <details class="faq-item reveal">
         <summary>¿Qué tan rápido pueden venir?</summary>
-        <div class="faq-answer">Buscamos ser rápidos y flexibles, y muchas veces podemos programar la recogida pronto, según el día y tu ubicación dentro de nuestra área de servicio en los condados de Galveston y Harris. La mejor forma de apartar un horario es mandarnos un texto en español al <a href="sms:+18324257749?&body=Hola%20H%26L%2C%20quiero%20una%20cotizaci%C3%B3n%20gratis.">832-425-7749</a> o <a href="tel:8324257749">llamarnos</a>. Buscamos un horario que te funcione y te damos una cotización gratis cuando lo confirmamos.</div>
+        <div class="faq-answer">Mándanos fotos por texto al <a href="sms:+18324257749?&body=Hola%20H%26L%2C%20quiero%20una%20cotizaci%C3%B3n%20gratis.">832-425-7749</a> entre las 7am y las 9pm y te mandamos un precio en menos de 1 hora. Muchas veces es posible el mismo día o al siguiente, según el día y tu ubicación dentro de nuestra área de servicio. Escríbenos en español o <a href="tel:8324257749">llámanos</a> para apartar un horario y buscamos uno que te funcione.</div>
       </details>
       <details class="faq-item reveal">
         <summary>¿Tengo que sacar las cosas antes de que lleguen?</summary>

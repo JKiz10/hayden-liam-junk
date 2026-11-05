@@ -10,3 +10,6 @@
 # Local-only source images (originals live in ~/Downloads/H&L Junk Removal/)
 *.HEIC
 *.heic
+
+# Python bytecode
+__pycache__/
