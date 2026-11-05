@@ -1100,6 +1100,28 @@
       line-height: 1.8;
       margin-bottom: 44px;
     }
+    .reviews-quotes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 0 0 44px;
+      text-align: left;
+    }
+    .reviews-quote {
+      margin: 0;
+      padding: 20px 22px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .reviews-quote:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .reviews-quote .reviews-stars { font-size: 0.9rem; }
+    .reviews-quote blockquote { margin: 0; font-weight: 300; font-size: 0.98rem; line-height: 1.65; color: rgba(255,255,255,0.8); }
+    .reviews-quote figcaption { margin-top: auto; font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+    .areas-lead a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 640px) { .reviews-quotes { grid-template-columns: 1fr; } }
     .reviews-ctas {
       display: flex;
       gap: 16px;
@@ -1938,6 +1960,10 @@
         {
           "@type": "City",
           "name": "Bacliff, TX"
+        },
+        {
+          "@type": "City",
+          "name": "San Leon, TX"
         }
       ],
       "contactPoint": {
@@ -2242,7 +2268,7 @@
           "name": "How much does junk removal cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Every job is different, so each one is custom quoted. The quote depends on the volume of junk, the type of items, and access at your property. We give you a free, no-obligation quote up front before any work begins, so you always know the price before we start. Call or text 832-425-7749 for your free quote."
+            "text": "Every job is different, so each one is custom quoted. The quote depends on the volume of junk, the type of items, and access at your property. We give you a free, no-obligation quote up front before any work begins, so you always know the price before we start. Your price is locked: it is what you pay. If the load turns out different from the photos, we tell you the new price before we lift anything. Call or text 832-425-7749 for your free quote."
           }
         },
         {
@@ -2290,7 +2316,7 @@
           "name": "How quickly can you come out?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We aim to be fast and flexible and can often schedule pickups quickly depending on the day and your location in our south Houston service area. The best way to lock in a time is to call or text 832-425-7749. We will find a slot that works and give you a free quote when we confirm."
+            "text": "Text photos of what needs to go to 832-425-7749 between 7am and 9pm and we send a price within 1 hour. Same or next day is often possible, depending on the day and where you are in our south Houston service area. Call or text to lock in a time, and we will find a slot that works."
           }
         },
         {
@@ -3222,7 +3248,34 @@ body:has(.hl-ann-bar) .nav{top:40px;}
         <span class="reviews-badge-text"><strong>4.9</strong> Rated on Google</span>
       </div>
       <h2 class="reviews-title reveal d1">Trusted by Your Neighbors</h2>
-      <p class="reviews-sub reveal d2">Homeowners and businesses across League City and the Bay Area count on H&amp;L to show up, work hard, and haul it away. Fully insured, free quotes, and 4.9 stars on Google. See what our customers say, then let us clear your space next.</p>
+      <p class="reviews-sub reveal d2">Homeowners and businesses across League City and the Bay Area count on H&amp;L to show up, work hard, and haul it away. Fully insured, free quotes, and 4.9 stars from 31 Google reviews. Here are a few of them, word for word.</p>
+      <div class="reviews-quotes">
+        <figure class="reviews-quote">
+          <span class="reviews-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <blockquote>&ldquo;These guys worked so hard and went above and beyond for me. They were so nice and easy to work with! The price was very fair.&rdquo;</blockquote>
+          <figcaption>Tracy B. &middot; Google review</figcaption>
+        </figure>
+        <figure class="reviews-quote">
+          <span class="reviews-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <blockquote>&ldquo;The guys were awesome. On time! Cleaned up junk from my garage in less than an hour.&rdquo;</blockquote>
+          <figcaption>Vasilio H. &middot; Google review</figcaption>
+        </figure>
+        <figure class="reviews-quote">
+          <span class="reviews-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <blockquote>&ldquo;Javan &amp; team were so straight forward &amp; ready to assist!! Flat price, sent pics, very flexible etc!!!&rdquo;</blockquote>
+          <figcaption>Char M. &middot; Google review</figcaption>
+        </figure>
+        <figure class="reviews-quote">
+          <span class="reviews-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <blockquote>&ldquo;They delivered and picked up exactly on time. They were such a pleasure to work with.&rdquo;</blockquote>
+          <figcaption>Jerry M. &middot; Google review</figcaption>
+        </figure>
+        <figure class="reviews-quote">
+          <span class="reviews-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <blockquote>&ldquo;H&amp;L’s services were perfect for our company office clean out.&rdquo;</blockquote>
+          <figcaption>Sydney S. &middot; Google review</figcaption>
+        </figure>
+      </div>
       <div class="reviews-ctas reveal d2">
         <a href="https://g.page/r/CUoEnjQdISJpEBM" target="_blank" rel="noopener noreferrer" class="btn-primary">Read Our Google Reviews</a>
         <a href="https://g.page/r/CUoEnjQdISJpEBM/review" target="_blank" rel="noopener noreferrer" class="btn-outline"><span class="reviews-g" aria-hidden="true">G</span> Leave a Review</a>
@@ -3245,7 +3298,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       <div class="about-text-col">
         <span class="section-label reveal">About Us</span>
         <h2 class="section-title reveal d1" style="color: var(--white); margin-bottom: 32px;">Local. Reliable. Fully Insured.</h2>
-        <p class="about-body reveal d2">Hi, we are Hayden, Liam, and Javan, the three owners behind H&amp;L Junk Removal &amp; Hauling Solutions, LLC. We started H&amp;L in League City, and today every job runs out of our Pearland yard. We still drive and work every job ourselves, so when you call you are talking to the people who actually show up. We handle fast, responsible hauling for homes and businesses across Galveston County and Harris County, fully insured on every job. Reach out any time and we will get you a free quote.</p>
+        <p class="about-body reveal d2">Hi, we are Hayden, Liam, and Javan, the three owners behind H&amp;L Junk Removal &amp; Hauling Solutions, LLC. We started H&amp;L in League City, and today every job runs out of our Pearland yard. We still drive and work every job ourselves, so when you call you are talking to the people who actually show up. We handle fast, responsible hauling for homes and businesses across Galveston, Harris and Brazoria counties, fully insured on every job. Reach out any time and we will get you a free quote.</p>
         <div class="about-stats">
           <div class="about-stat reveal d2">
             <div class="about-stat-value">Same or Next Day</div>
@@ -3275,7 +3328,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       <div class="areas-header">
         <span class="section-label reveal">Service Area</span>
         <h2 class="section-title reveal d1" style="color: var(--white);">Serving Pearland, League City &amp; South Houston</h2>
-        <p class="areas-lead reveal d2">Every job runs out of our Pearland yard, which puts us inside about 20 miles of everywhere from Missouri City to Clear Lake. We cover Pearland, League City, Friendswood, Pasadena, Clear Lake, Missouri City and the towns in between. Inner Houston, Galveston, Texas City and La Marque are outside our area. Fully insured on every job, and your quote is always free.</p>
+        <p class="areas-lead reveal d2">Every job runs out of our Pearland yard, which puts us inside about 20 miles of everywhere from Missouri City to Clear Lake. We cover Pearland, League City, Friendswood, Pasadena, Clear Lake, Missouri City and the towns in between. Inner Houston, Galveston, Texas City and La Marque are outside our area. Pearland is home base, so start with <a href="/junk-removal-pearland-tx/">junk removal in Pearland</a> or <a href="/dumpster-rental-pearland-tx/">dumpster rental in Pearland</a>. Fully insured on every job, and your quote is always free.</p>
       </div>
 
       <div class="areas-grid reveal d2">
@@ -3336,7 +3389,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       </details>
       <details class="faq-item reveal">
         <summary>How much does junk removal cost?</summary>
-        <div class="faq-answer">Every job is different, so each one is custom quoted. The quote depends on the volume of junk, the type of items, and access at your property. We give you a free, no-obligation quote up front before any work begins, so you always know the price before we start. <a href="tel:8324257749">Call or text 832-425-7749</a> for your free quote.</div>
+        <div class="faq-answer">Every job is different, so each one is custom quoted. The quote depends on the volume of junk, the type of items, and access at your property. We give you a free, no-obligation quote up front before any work begins, so you always know the price before we start. Your price is locked: it is what you pay. If the load turns out different from the photos, we tell you the new price before we lift anything. <a href="tel:8324257749">Call or text 832-425-7749</a> for your free quote.</div>
       </details>
       <details class="faq-item reveal">
         <summary>Are you insured?</summary>
@@ -3360,7 +3413,7 @@ body:has(.hl-ann-bar) .nav{top:40px;}
       </details>
       <details class="faq-item reveal">
         <summary>How quickly can you come out?</summary>
-        <div class="faq-answer">We aim to be fast and flexible and can often schedule pickups quickly depending on the day and your location in our south Houston service area. The best way to lock in a time is to call or text <a href="tel:8324257749">832-425-7749</a>. We will find a slot that works and give you a free quote when we confirm.</div>
+        <div class="faq-answer">Text photos of what needs to go to <a href="sms:+18324257749">832-425-7749</a> between 7am and 9pm and we send a price within 1 hour. Same or next day is often possible, depending on the day and where you are in our south Houston service area. Call or text to lock in a time, and we will find a slot that works.</div>
       </details>
       <details class="faq-item reveal">
         <summary>Do I need to move the items outside before you arrive?</summary>

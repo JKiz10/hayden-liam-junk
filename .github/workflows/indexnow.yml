@@ -1,0 +1,52 @@
+name: IndexNow ping
+
+# Tells Bing (and the other IndexNow engines: Yandex, Seznam, Naver, Yep) which
+# pages changed, right after each deploy. Bing's index feeds ChatGPT search,
+# Copilot and DuckDuckGo, so a changed price or review count reaches them in days
+# instead of weeks. The key file at the site root (2d47f...txt) proves we own the
+# domain; it does nothing on its own, this workflow is what sends the pings.
+#
+# Like the link check, this cannot touch the live site. It waits for GitHub Pages
+# to finish publishing the pushed commit, so Bing never fetches the old page.
+# Only URLs listed in sitemap.xml are sent (noindex pages are skipped).
+# Run it by hand with "all" to resubmit every sitemap URL.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      all:
+        description: 'Submit every URL in sitemap.xml'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pages: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+
+      - name: Wait for GitHub Pages to publish this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 30); do
+            build=$(gh api "repos/${{ github.repository }}/pages/builds/latest" --jq '"\(.status) \(.commit)"' || echo "unknown")
+            echo "Pages build: $build"
+            if [ "$build" = "built ${{ github.sha }}" ]; then exit 0; fi
+            sleep 20
+          done
+          echo "Pages did not publish ${{ github.sha }} within 10 minutes; pinging anyway."
+
+      - name: Send changed URLs to IndexNow
+        env:
+          BEFORE: ${{ github.event.before }}
+          ALL: ${{ github.event.inputs.all }}
+        run: python3 .github/scripts/indexnow.py

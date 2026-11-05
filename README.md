@@ -79,6 +79,12 @@ Known gap: lychee does not verify `tel:` or `sms:` links. There are ~240 `tel:` 
 grep -ro '8324257749' --include='*.html' . | wc -l
 ```
 
+## IndexNow (Bing, ChatGPT search, Copilot)
+
+`.github/workflows/indexnow.yml` runs after every push to `main`. It waits for GitHub Pages to publish the commit, then sends the changed pages to IndexNow so Bing recrawls them within days. Only URLs in `sitemap.xml` (plus `llms.txt`) are sent; noindex pages are skipped. The logic is in `.github/scripts/indexnow.py`. To resend every page, run the workflow by hand from the Actions tab with "all" ticked.
+
+Keep each page's `<lastmod>` in `sitemap.xml` equal to the date its content last changed.
+
 ---
 
 ## House rules for content
