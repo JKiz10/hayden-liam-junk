@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18264252114"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18264252114');
+    gtag('config', 'G-GYJ54HB3FE');
+    /* Google Ads call tracking, split by product line.
+       Each campaign stamps its own ?src= on the landing URL. We persist that for
+       the visit and fire the matching call conversion label, so a call from a
+       20-yard search is counted separately from a 14-yard or a junk-removal one.
+
+       Exactly ONE label fires per page load. Two forwarding-number configs would
+       compete to swap the same displayed number, and the working call tracking is
+       the only reliable conversion signal on this site -- not worth risking.
+
+       With no ?src= (organic, direct, untagged campaigns) this falls back to the
+       original account-wide label, so behaviour is unchanged until the campaigns
+       are actually tagged. */
+    (function(){
+      var LABELS = {
+        '14yd': 'AW-18264252114/uyJWCMfOmvIcENK9iYVE',
+        '20yd': 'AW-18264252114/7PfICJjQvPIcENK9iYVE',
+        'junk': 'AW-18264252114/yh6aCImtuvIcENK9iYVE'
+      };
+      var FALLBACK = 'AW-18264252114/boQkCKjlqMscENK9iYVE';
+      var KEY = 'hl_line';
+
+      function readLine(){
+        try { return sessionStorage.getItem(KEY) || ''; } catch (e) { return ''; }
+      }
+      function writeLine(v){
+        try { sessionStorage.setItem(KEY, v); } catch (e) {}
+      }
+
+      var line = '';
+      try { line = new URLSearchParams(window.location.search).get('src') || ''; }
+      catch (e) {}
+
+      if (LABELS[line]) { writeLine(line); } else { line = readLine(); }
+
+      gtag('config', LABELS[line] || FALLBACK, {'phone_conversion_number': '832-425-7749'});
+    })();
+  </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<!-- noindex on purpose: this page is not linked or in the sitemap until the owner approves it. -->
+<title>Free Quote | H&amp;L Junk Removal &amp; Hauling</title>
+<meta name="description" content="Answer a few quick questions and text us photos for a free junk removal quote, or see dumpster rental prices. H&amp;L Junk Removal &amp; Hauling.">
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=3" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" /></noscript>
+<style>
+:root{
+  --ink:#000; --paper:#fff; --muted:#555; --line:#000; --focus:#000; --focus-dark:#fff;
+  --soft:#f5f5f7; --soft-line:#cccccc; --alert:#b00020; --good:#0a7d33;
+  --radius:14px; --gutter:16px; --tap:56px;
+  --font:'Oswald','Arial Narrow','Helvetica Neue Condensed','Roboto Condensed',Arial,sans-serif;
+  --ease:cubic-bezier(0.16,1,0.3,1); --dur:200ms;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.4;font-stretch:condensed;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.top :focus-visible{outline-color:var(--focus-dark)}
+.top{position:sticky;top:0;z-index:10;background:var(--ink);color:var(--paper)}
+.proto-banner{background:var(--alert);color:#fff;text-align:center;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:5px var(--gutter);line-height:1.25}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:8px;height:56px;padding:0 var(--gutter);max-width:520px;margin:0 auto}
+.brand{display:flex;flex-direction:column;text-decoration:none;color:#fff;line-height:1}
+.brand img{height:48px;width:auto;display:block}
+.brand span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft-line)}
+.call{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 12px;border-radius:var(--radius);background:#fff;color:#000;font-weight:700;font-size:16px;text-decoration:none;white-space:nowrap}
+.progress{height:6px;background:#333}
+.progress i{display:block;height:100%;width:100%;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform var(--dur) var(--ease)}
+main{flex:1;width:100%;max-width:520px;margin:0 auto;padding:12px var(--gutter) 24px}
+.meta{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+.back{min-height:48px;min-width:48px;padding:0 8px 0 0;background:none;border:0;font:inherit;font-weight:600;font-size:17px;text-decoration:underline;cursor:pointer;color:var(--ink)}
+.back[hidden]{display:none}
+.steplabel{font-size:14px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.screen{animation:in var(--dur) var(--ease)}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+h1{font-size:clamp(26px,8vw,34px);line-height:1.1;font-weight:700;text-transform:uppercase;letter-spacing:.01em;margin:8px 0 8px}
+h1:focus{outline:none}
+h2.sub{font-size:20px;font-weight:600;text-transform:uppercase;margin:24px 0 8px}
+.helper{color:var(--muted);margin:0 0 16px;font-size:17px}
+.body{margin:0 0 14px;font-size:18px}
+.group{display:flex;flex-direction:column;gap:12px;margin:12px 0}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:var(--tap);padding:10px 16px;border:2px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);font:inherit;font-weight:500;font-size:18px;line-height:1.2;text-align:left;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.opt[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.opt .tick{flex:none;width:22px;height:22px;border:2px solid currentColor;border-radius:50%}
+.opt[aria-pressed="true"] .tick{background:var(--paper);box-shadow:inset 0 0 0 4px var(--ink)}
+.chip .tick{border-radius:6px}
+.chip[aria-pressed="true"] .tick{box-shadow:inset 0 0 0 3px var(--ink)}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:var(--tap);padding:10px 16px;border-radius:var(--radius);border:2px solid var(--ink);background:var(--paper);color:var(--ink);font:inherit;font-weight:700;font-size:19px;text-align:center;text-decoration:none;cursor:pointer;touch-action:manipulation;margin:12px 0}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn[disabled],.btn[aria-disabled="true"]{background:var(--soft);border-color:var(--soft-line);color:#777;cursor:not-allowed}
+.field{display:block;margin:12px 0}
+.field label,.field .lbl{display:block;font-weight:600;font-size:17px;margin-bottom:6px}
+input[type=text],input[type=tel],input[type=date],input[type=number]{width:100%;min-height:var(--tap);padding:10px 14px;border:2px solid var(--ink);border-radius:var(--radius);font:inherit;font-size:20px;background:var(--paper);color:var(--ink)}
+.err{color:var(--alert);font-weight:600;min-height:1.4em;margin:4px 0 0}
+.fine{font-size:15px;color:var(--muted);margin:10px 0}
+.link{background:none;border:0;padding:0;font:inherit;text-decoration:underline;cursor:pointer;color:var(--ink);min-height:48px;display:inline-flex;align-items:center}
+.panel{border:2px solid var(--ink);border-radius:var(--radius);padding:14px;margin:8px 0}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.35;margin:10px 0}
+.consent input{flex:none;width:24px;height:24px;margin-top:2px;accent-color:#000}
+.cards{display:grid;gap:14px;margin:12px 0}
+.card{border:2px solid var(--soft-line);border-radius:var(--radius);padding:14px}
+.card.pick{border:3px solid var(--ink)}
+.card h3{margin:0 0 2px;font-size:22px;text-transform:uppercase}
+.card .tag{display:inline-block;background:var(--ink);color:var(--paper);font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:6px;margin:4px 0 8px}
+.card table{width:100%;border-collapse:collapse;font-size:18px}
+.card th{text-align:left;font-weight:400;padding:6px 0;border-top:1px solid var(--soft-line)}
+.card td{text-align:right;padding:6px 0;border-top:1px solid var(--soft-line);font-variant-numeric:tabular-nums}
+.card tr.on th,.card tr.on td{font-weight:700}
+.note{background:var(--soft);border-radius:var(--radius);padding:10px 14px;margin:10px 0}
+.proto{margin-top:28px;border:2px dashed var(--alert);border-radius:var(--radius);padding:10px 14px;font-size:15px}
+.proto summary{cursor:pointer;font-weight:700;color:var(--alert);min-height:44px;display:flex;align-items:center}
+.proto pre{white-space:pre-wrap;word-break:break-word;font:14px/1.35 ui-monospace,Menlo,monospace;background:var(--soft);padding:10px;border-radius:8px}
+footer{max-width:520px;width:100%;margin:0 auto;padding:12px var(--gutter) 28px;border-top:1px solid var(--soft-line);font-size:16px}
+footer a{display:inline-flex;align-items:center;min-height:48px}
+noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:359px){.brand span{display:none}.call{font-size:15px;padding:0 10px}}
+@media (min-width:600px){body{font-size:18px}}
+@media (prefers-reduced-motion:reduce){.screen{animation:none}.progress i{transition:none}*{scroll-behavior:auto!important}}
+</style>
+  <script type="text/javascript">
+    if (/(^|\.)hljunkremovalandhauling\.com$/.test(location.hostname)) (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yu33nwh893");
+  </script>
+</head>
+<body>
+<div class="top">
+  <div class="bar">
+    <a class="brand" href="/" aria-label="H&amp;L Junk Removal &amp; Hauling home"><img src="/logo.PNG?v=2" width="1600" height="1200" alt="H&amp;L Junk Removal &amp; Hauling Solutions, LLC"></a>
+    <a class="call js-call" href="tel:+18324257749">Call 832-425-7749</a>
+  </div>
+  <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+</div>
+
+<noscript><p class="ns">This quote page needs JavaScript. You can still reach us: <a href="tel:+18324257749">call 832-425-7749</a> or <a href="sms:+18324257749?&amp;body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A">text photos to 832-425-7749</a>.</p></noscript>
+
+<main id="main">
+  <div class="meta">
+    <button type="button" class="back" id="back" hidden>Back</button>
+    <span class="steplabel" id="steplabel" aria-live="polite"></span>
+  </div>
+  <div id="screen" class="screen"></div>
+</main>
+
+<footer>
+  <span>Rather text? </span><a class="js-text" id="footText" href="sms:+18324257749?&amp;body=Hi%20H%26L%2C%20can%20I%20get%20a%20free%20quote%3F%20Here%20are%20some%20photos%20of%20what%20I%20need%20gone%3A">Send photos to 832-425-7749</a>
+</footer>
+
+<!-- CORE: pure logic, no DOM. Exposed as window.HLIntake for tests. -->
+<script>
+(function (root) {
+  'use strict';
+  var CONFIG = {
+    PHONE_E164: '+18324257749',
+    PHONE_DISPLAY: '832-425-7749',
+    BIN_BOSS_URL: 'https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc',
+    BOOK_URL: '/book/',
+    PROTOTYPE_MODE: false,
+    // Desktop "call me" needs a form endpoint that does not exist yet (Phase 2). Off until it does.
+    DESKTOP_CALLBACK_ENABLED: false,
+    ADS_TEXT_LABEL: 'AW-18264252114/WDElCKyz6JodENK9iYVE',
+    FCITY_MODE: 'flag',
+    ROUTE_DAY_ENABLED: false,
+    ROUTE_DAY_LABEL: '',
+    VIDEO_WALKTHROUGH_ENABLED: false,
+    // Dumpster prices: blueprint section 3.2 and memory hl-oct15-prices-decided.md. Re-copy from live /book/ before launch.
+    prices: {
+      y14: { d1: 379.99, wknd: 399.99, d3: 419.99, d7: 549.99 },
+      y20: { d1: 499.99, wknd: null, d3: 549.99, d7: 649.99 },
+      extraDay: 50
+    }
+  };
+
+  var ZIP_POINTS = {
+    '77584':20,'77581':20,'77578':20,'77546':20,'77511':20,
+    '77587':15,'77598':15,'77058':15,'77573':15,
+    '77089':15,'77075':15,'77034':15,'77047':15,'77048':15,'77583':15,'77545':15,
+    '77539':8,'77489':8,'77586':8,'77565':8,'77510':8,'77459':8,'77477':8,
+    '77504':8,'77017':8,'77502':8,'77021':8,'77054':8,'77012':8,'77023':8,'77503':8,'77030':8,'77004':8,'77506':8,'77011':8
+  };
+  var ZIP_OUT = ['77591','77479','77449','77450','77493','77494'];
+  var FCITY_ZIPS = ['77584','77581','77598','77511','77502','77503','77504','77505','77506','77573','77489','77459','77578'];
+  var FCITY_GRAY_ZIPS = ['77546','77565','77510','77517','77586'];
+  var HOUSTON_ZIPS = ['77058','77017','77021','77054','77012','77023','77030','77004','77011','77089','77075','77034','77047','77048'];
+
+  var SCHED = { thu_sun:20, tue_am:20, any:20, evenings:12, monwed_day:12 };
+  var ACCESS = { curb:10, ground:10, unsure:5, upstairs:0 };
+  var CUST = { landlord:10, family:10, realtor:10, business:10, homeowner:5, renter:5, contractor:5 };
+
+  var LABELS = {
+    lane: { J:'We load it', D:'Dumpster', C:'Whole house' },
+    size: { 0:'1 or 2 items', 10:'A pickup-truck load or a small pile', 20:'About a room, or half a garage', 30:'A full garage or a few rooms', 40:'A whole house, or more than one load' },
+    days: { thu_sun:'Thursday to Sunday', tue_am:'Tuesday morning', evenings:'Weekday evenings', monwed_day:'Monday or Wednesday daytime', any:'Any day works' },
+    access: { curb:'Curb, driveway or garage', ground:'Inside, ground floor', upstairs:'Upstairs, or a long walk to the truck', unsure:'Not sure' },
+    role: { homeowner:'Homeowner', renter:'Renter', contractor:'Contractor', landlord:'Landlord or property manager', family:"Clearing a family member's home", realtor:'Realtor', business:'Business' },
+    when: { week:'This week', '2weeks':'In the next 2 weeks', pricing:'No date yet' },
+    dLoad: { household:'Furniture and household junk', remodel:'Remodel debris', heavy:'Roofing, tile, concrete, dirt or brick', bigclean:'A big cleanout or move' },
+    addon: { fridge:'Fridge', mattress:'Mattress', tv:'TV', tires:'Tires' }
+  };
+
+  function setHas(s, k) { return !!s && typeof s.has === 'function' && s.has(k); }
+  function own(o, k) { return Object.prototype.hasOwnProperty.call(o, k); }
+  function inList(list, v) { return list.indexOf(v) >= 0; }
+  function round2(n) { return Math.round(n * 100) / 100; }
+
+  function customerPoints(a) {
+    if (a.when === 'pricing' && a.size < 20) return 0;
+    return own(CUST, a.role) ? CUST[a.role] : 0;
+  }
+  function distancePoints(zip) {
+    if (own(ZIP_POINTS, zip)) return ZIP_POINTS[zip];
+    return inList(ZIP_OUT, zip) ? 0 : 8;
+  }
+  function schedulePoints(days) {
+    var m = 0;
+    if (days && typeof days.forEach === 'function') days.forEach(function (d) { if (own(SCHED, d) && SCHED[d] > m) m = SCHED[d]; });
+    return m;
+  }
+  function score(a) {
+    var sum = (a.size || 0) + distancePoints(a.zip) + schedulePoints(a.days) +
+      (own(ACCESS, a.access) ? ACCESS[a.access] : 0) + customerPoints(a);
+    if (setHas(a.items, 'heavy') && a.size >= 10) sum -= 15;
+    if (a.paid && a.size <= 10) sum -= 5;
+    return Math.max(0, Math.min(100, sum));
+  }
+  // QA 2026-11-14: lane J with size 40 ("a whole house, or more than one load") is the same job as lane C,
+  // so it gets the whole-house rules for bio and demo (flag, no decline), matching the size-40 walkthrough rule in spec 8.3.
+  function isWhole(a) { return a.lane === 'C' || (a.lane === 'J' && a.size === 40); }
+  function grade(a, s) {
+    if (inList(ZIP_OUT, a.zip)) return 'DECLINE_AREA';
+    if (a.lane === 'D') return 'DUMPSTER';
+    if (!isWhole(a) && setHas(a.items, 'bio')) return 'DECLINE_BIO';
+    if (!isWhole(a) && setHas(a.items, 'demo')) return 'DECLINE_DEMO';
+    if (setHas(a.items, 'hazmat') && a.hazmatChoice === 'all') return 'DECLINE_HAZMAT';
+    if (s == null) s = score(a);
+    var gate = a.size >= 20 || customerPoints(a) === 10;
+    var g = (s >= 70 && gate) ? 'A' : (s >= 45 ? 'B' : 'C');
+    if (setHas(a.items, 'special') && g === 'C') g = 'B';
+    if (setHas(a.items, 'bio') && g === 'A') g = 'B';
+    return g;
+  }
+  function suggestSize(a) { return a.dLoad === 'bigclean' ? 20 : 14; }
+  function flags(a) {
+    var f = [];
+    if (!own(ZIP_POINTS, a.zip) && !inList(ZIP_OUT, a.zip)) f.push('zip_check');
+    if (a.hazmatChoice === 'rest') f.push('hazmat_rest');
+    if (setHas(a.items, 'heavy') || (a.lane === 'D' && a.dLoad === 'heavy')) f.push('heavy');
+    if (setHas(a.items, 'special')) f.push('special_item');
+    if (isWhole(a) && setHas(a.items, 'bio')) f.push('bio');
+    if (isWhole(a) && setHas(a.items, 'demo')) f.push('demo');
+    ['fridge', 'mattress', 'tv', 'tires'].forEach(function (k) { if (setHas(a.items, k)) f.push(k); });
+    if (a.paid) f.push('paid');
+    if (a.lane === 'D') {
+      if (inList(FCITY_ZIPS, a.zip)) f.push('fcity');
+      if (inList(FCITY_GRAY_ZIPS, a.zip)) f.push('fcity_gray');
+      if (a.dSpot === 'street' && inList(HOUSTON_ZIPS, a.zip)) f.push('street_houston');
+    }
+    return f;
+  }
+  function refCode(a, s) {
+    return a.lane === 'D' ? 'Ref D' + suggestSize(a) : 'Ref ' + a.lane + s;
+  }
+  function evaluate(a) {
+    var s = a.lane === 'D' ? 0 : score(a);
+    return { score: s, grade: grade(a, s), flags: flags(a), ref: refCode(a, s) };
+  }
+  function money(n) {
+    var r = round2(n);
+    return '$' + (r === Math.floor(r) ? String(r) : r.toFixed(2));
+  }
+  function nudge(a) {
+    var p = suggestSize(a) === 20 ? CONFIG.prices.y20 : CONFIG.prices.y14;
+    return round2(p.d3 - p.d1);
+  }
+
+  function itemLine(a, res) {
+    var parts = [];
+    ['fridge', 'mattress', 'tv', 'tires'].forEach(function (k) { if (setHas(a.items, k)) parts.push(LABELS.addon[k]); });
+    if (setHas(a.items, 'heavy')) parts.push('Heavy: concrete etc.');
+    if (setHas(a.items, 'special')) parts.push('Hot tub, piano or safe');
+    if (isWhole(a) && setHas(a.items, 'bio')) parts.push('Biohazard flagged');
+    if (isWhole(a) && setHas(a.items, 'demo')) parts.push('Tear-down flagged');
+    if (a.hazmatChoice === 'rest') parts.push('Hazmat: priced the rest');
+    return parts.join(', ');
+  }
+  function textBody(a, res) {
+    var days = [];
+    if (a.days && a.days.forEach) a.days.forEach(function (d) { if (own(LABELS.days, d)) days.push(LABELS.days[d]); });
+    var whenTxt = a.when === 'date' && /^\d{4}-\d{2}-\d{2}$/.test(a.date || '') ? 'By ' + a.date : (LABELS.when[a.when] || '');
+    // 'paid' prints as 'ad' so a customer reading the text does not think it means they already paid (QA 2026-11-14).
+    var tags = res.flags.filter(function (f) { return ['zip_check', 'paid', 'fcity', 'fcity_gray'].indexOf(f) >= 0; })
+      .map(function (f) { return f === 'paid' ? 'ad' : f; });
+    var lines = [
+      'Hi H&L, quote request. [' + res.ref + ']',
+      'Job: ' + (a.lane === 'C' ? 'Whole house' : 'We load it'),
+      'ZIP: ' + a.zip,
+      'Size: ' + (LABELS.size[a.size] || ''),
+      'In it: ' + itemLine(a, res),
+      'When: ' + whenTxt,
+      'Days: ' + days.join(', '),
+      'Where: ' + (LABELS.access[a.access] || ''),
+      "I'm: " + (LABELS.role[a.role] || ''),
+      'Name: ' + (a.firstName || ''),
+      'Tags: ' + tags.join(', '),
+      'Photos below:'
+    ];
+    function build() { return lines.filter(function (l) { return !/: $/.test(l); }).join('\n'); }
+    var b = build();
+    ['Tags: ', 'Days: ', 'Where: '].forEach(function (p) {
+      if (b.length <= 600) return;
+      lines = lines.map(function (l) { return l.indexOf(p) === 0 ? p : l; });
+      b = build();
+    });
+    return b;
+  }
+  function dumpsterBody(a, res) {
+    return 'Hi H&L, dumpster question. [' + res.ref + '] ZIP ' + a.zip + '. Going in it: ' + (LABELS.dLoad[a.dLoad] || '') + '. Photos below:';
+  }
+  function smsHref(body) { return 'sms:' + CONFIG.PHONE_E164 + '?&body=' + encodeURIComponent(body); }
+
+  function parseUrl(search) {
+    var out = { paid: false, src: '' };
+    try {
+      var p = new URLSearchParams(search || '');
+      var src = (p.get('src') || '').toLowerCase().slice(0, 20);
+      if (/^[a-z0-9_-]*$/.test(src)) out.src = src;
+      var srcPaid = ['junk', 'paid', '14yd', '20yd'].indexOf(out.src) >= 0;
+      out.paid = p.has('gclid') || p.has('gbraid') || p.has('wbraid') || srcPaid;
+    } catch (e) { /* ignore */ }
+    return out;
+  }
+
+  root.HLIntake = {
+    CONFIG: CONFIG, LABELS: LABELS, score: score, grade: grade, isWhole: isWhole, flags: flags, evaluate: evaluate,
+    customerPoints: customerPoints, suggestSize: suggestSize, nudge: nudge, money: money,
+    textBody: textBody, dumpsterBody: dumpsterBody, smsHref: smsHref, parseUrl: parseUrl, refCode: refCode
+  };
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+
+<!-- UI: builds every node with createElement and textContent. Text only, no HTML strings. No network calls. -->
+<script>
+(function () {
+  'use strict';
+  var H = window.HLIntake, CFG = H.CONFIG, L = H.LABELS;
+  var screenEl = document.getElementById('screen');
+  var backBtn = document.getElementById('back');
+  var stepLabel = document.getElementById('steplabel');
+  var bar = document.getElementById('bar');
+  var reduce = false;
+  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+  var urlInfo = H.parseUrl(window.location.search);
+  var A = fresh();
+  A.paid = urlInfo.paid; A.src = urlInfo.src;
+  var trail = ['lane'], histOK = true, started = false, busy = false;
+
+  function fresh() {
+    return { lane: null, zip: '', size: null, items: new Set(), hazmatChoice: null, hazmatNote: false,
+      when: null, date: null, days: new Set(), access: null, role: null, firstName: '',
+      dLoad: null, dDays: null, dSpot: null, paid: false, src: '' };
+  }
+  function el(tag, o, kids) {
+    var n = document.createElement(tag); o = o || {};
+    if (o.cls) n.className = o.cls;
+    if (o.text != null) n.textContent = o.text;
+    if (o.attrs) Object.keys(o.attrs).forEach(function (k) { n.setAttribute(k, o.attrs[k]); });
+    if (o.on) Object.keys(o.on).forEach(function (k) { n.addEventListener(k, o.on[k]); });
+    (kids || []).forEach(function (c) { if (c) n.appendChild(c); });
+    return n;
+  }
+  function track(name, params) {
+    try { if (typeof window.gtag === 'function') window.gtag('event', name, params); } catch (e) {}
+    if (CFG.PROTOTYPE_MODE) { try { console.debug('[prototype track]', name, params); } catch (e) {} }
+  }
+  function todayStr() {
+    var d = new Date(), m = d.getMonth() + 1, day = d.getDate();
+    return d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day;
+  }
+
+  /* ---------- flow ---------- */
+  var JC_STEPS = ['lane', 'zip', 'size', 'items', 'when', 'where'];
+  var D_STEPS = ['lane', 'zip', 'dload', 'ddays', 'dspot'];
+
+  function stepInfo(id) {
+    var list = A.lane === 'D' ? D_STEPS : JC_STEPS;
+    var key = id === 'hazmat' ? 'items' : id;
+    var i = list.indexOf(key);
+    return { n: i + 1, total: list.length, known: i >= 0 };
+  }
+  function show(id) {
+    screenEl.replaceChildren();
+    var node = RENDER[id] ? RENDER[id]() : RENDER.lane();
+    screenEl.appendChild(node);
+    screenEl.classList.remove('screen'); void screenEl.offsetWidth; screenEl.classList.add('screen');
+    var si = stepInfo(id);
+    if (id.indexOf('x_') === 0) track('intake_complete', { lane: A.lane || '', grade: 'decline_' + id.slice(2), score_band: 'n/a' });
+    if (id === 'outcome' || id.indexOf('x_') === 0) {
+      stepLabel.textContent = id === 'outcome' ? 'Done' : '';
+      bar.style.transform = 'scaleX(1)';
+    } else {
+      stepLabel.textContent = 'Step ' + si.n + ' of ' + si.total;
+      bar.style.transform = 'scaleX(' + (si.n / si.total).toFixed(3) + ')';
+    }
+    backBtn.hidden = trail.length < 2;
+    var h = screenEl.querySelector('h1');
+    if (h && started) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: false }); }
+    if (!started) { started = true; track('intake_start', { lane: '' }); }
+    busy = false;
+  }
+  function go(id) {
+    trail.push(id);
+    try { history.pushState({ n: trail.length }, ''); } catch (e) { histOK = false; }
+    show(id);
+  }
+  function goBack() {
+    if (trail.length < 2) return;
+    if (histOK) { try { history.back(); return; } catch (e) { histOK = false; } }
+    trail.pop(); show(trail[trail.length - 1]);
+  }
+  backBtn.addEventListener('click', goBack);
+  try { history.replaceState({ n: 1 }, ''); } catch (e) { histOK = false; }
+  window.addEventListener('popstate', function (e) {
+    var n = e.state && e.state.n ? e.state.n : 1;
+    if (n > trail.length) n = trail.length;
+    trail = trail.slice(0, n);
+    show(trail[trail.length - 1]);
+  });
+  function stepDone(name) { track('intake_step', { step: name, lane: A.lane || '' }); }
+  function advance(from, to) { stepDone(from); go(to); }
+
+  /* ---------- builders ---------- */
+  function heading(text, helper) {
+    var out = [el('h1', { text: text, attrs: { id: 'h1' } })];
+    if (helper) out.push(el('p', { cls: 'helper', text: helper }));
+    return out;
+  }
+  function optBtn(label, pressed, onClick, extraCls) {
+    return el('button', { cls: 'opt ' + (extraCls || ''), attrs: { type: 'button', 'aria-pressed': pressed ? 'true' : 'false' }, on: { click: onClick } },
+      [el('span', { text: label }), el('span', { cls: 'tick', attrs: { 'aria-hidden': 'true' } })]);
+  }
+  function setPressed(group, btn) {
+    Array.prototype.forEach.call(group.children, function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+  }
+  function singleGroup(labelledBy, options, current, onPick) {
+    var g = el('div', { cls: 'group', attrs: { role: 'group', 'aria-labelledby': labelledBy } });
+    options.forEach(function (o) {
+      var b = optBtn(o.label, String(current) === String(o.value), function () {
+        if (busy) return; busy = true; setPressed(g, b);
+        window.setTimeout(function () { onPick(o.value); }, reduce ? 0 : 150);
+      });
+      g.appendChild(b);
+    });
+    return g;
+  }
+  function linkBtn(label, href, cls, extra) {
+    var a = el('a', { cls: 'btn ' + (cls || ''), text: label, attrs: { href: href } });
+    if (extra) Object.keys(extra).forEach(function (k) { a.setAttribute(k, extra[k]); });
+    return a;
+  }
+  function callBtn(label, cls) { return linkBtn(label, 'tel:' + CFG.PHONE_E164, (cls || '') + ' js-call'); }
+  function textBtn(label, body, cls, decline) {
+    return linkBtn(label, H.smsHref(body), (cls || '') + (decline ? ' js-text-decline' : ' js-text'));
+  }
+  function nextBtn(label, handler) {
+    var b = el('button', { cls: 'btn primary', text: label || 'Next', attrs: { type: 'button' }, on: { click: handler } });
+    return b;
+  }
+  function setEnabled(btn, on) {
+    if (on) { btn.removeAttribute('disabled'); btn.removeAttribute('aria-disabled'); }
+    else { btn.setAttribute('disabled', ''); btn.setAttribute('aria-disabled', 'true'); }
+  }
+  function wrap(kids) { var d = el('div'); kids.forEach(function (k) { if (k) d.appendChild(k); }); return d; }
+
+  /* ---------- screens ---------- */
+  var RENDER = {};
+
+  RENDER.lane = function () {
+    var opts = [{ label: 'We load it and haul it away', value: 'J' }, { label: 'A dumpster I fill myself', value: 'D' }, { label: 'A whole house, estate or move-out', value: 'C' }];
+    var g = singleGroup('h1', opts, A.lane, function (v) {
+      var keepZip = A.zip, paid = A.paid, src = A.src;
+      if (A.lane !== v) { A = fresh(); A.zip = keepZip; A.paid = paid; A.src = src; }
+      A.lane = v;
+      if (v === 'C' && A.size == null) A.size = 40;
+      advance('s1', 'zip');
+    });
+    return wrap(heading('What do you need?').concat([g, el('p', { cls: 'fine' }, [document.createTextNode('Rather talk? '), el('a', { cls: 'js-call', text: 'Call ' + CFG.PHONE_DISPLAY, attrs: { href: 'tel:' + CFG.PHONE_E164 } })])]));
+  };
+
+  RENDER.zip = function () {
+    var input = el('input', { attrs: { id: 'zip', type: 'text', inputmode: 'numeric', pattern: '[0-9]{5}', maxlength: '5', autocomplete: 'postal-code', 'aria-describedby': 'zip-err zip-help', value: A.zip } });
+    var err = el('p', { cls: 'err', attrs: { id: 'zip-err', 'aria-live': 'polite' } });
+    function submit(ev) {
+      if (ev) ev.preventDefault();
+      var v = input.value.replace(/\D/g, '');
+      if (!/^\d{5}$/.test(v)) { err.textContent = 'Please enter a 5-digit ZIP.'; input.setAttribute('aria-invalid', 'true'); input.focus(); return; }
+      A.zip = v; stepDone('s2');
+      if (H.grade(Object.assign({}, A, { lane: 'J' })) === 'DECLINE_AREA') { go('x_area'); return; }
+      go(A.lane === 'D' ? 'dload' : 'size');
+    }
+    input.addEventListener('input', function () { input.value = input.value.replace(/\D/g, '').slice(0, 5); err.textContent = ''; input.removeAttribute('aria-invalid'); });
+    var form = el('form', { attrs: { novalidate: '' }, on: { submit: submit } }, [
+      el('div', { cls: 'field' }, [el('label', { text: 'ZIP code', attrs: { for: 'zip' } }), input]), err,
+      el('button', { cls: 'btn primary', text: 'Next', attrs: { type: 'submit' } })]);
+    return wrap(heading('What ZIP is it in?').concat([el('p', { cls: 'helper', text: 'We work within about 20 miles of our Pearland yard.', attrs: { id: 'zip-help' } }), form]));
+  };
+
+  RENDER.size = function () {
+    var opts = [0, 10, 20, 30, 40].map(function (v) { return { label: L.size[v], value: v }; });
+    var g = singleGroup('h1', opts, A.size, function (v) { A.size = Number(v); advance('s3', 'items'); });
+    var kids = heading('About how much is going?', 'Your best guess is fine. Photos fix it later.').concat([g]);
+    if (A.size != null) kids.push(nextBtn('Next', function () { advance('s3', 'items'); }));
+    return wrap(kids);
+  };
+
+  var ITEMS = [
+    ['hazmat', 'Paint, chemicals, fuel, oil or propane'], ['heavy', 'Concrete, dirt, brick, rock, tile or shingles'],
+    ['special', 'Hot tub, piano or safe'], ['fridge', 'Fridge, freezer or AC'], ['mattress', 'Mattress'], ['tv', 'TV'], ['tires', 'Tires'],
+    ['bio', 'Waste, needles, or heavy mold'], ['demo', 'Something has to be torn down first (shed, deck, fence)'], ['none', 'None of these']];
+  RENDER.items = function () {
+    var g = el('div', { cls: 'group', attrs: { role: 'group', 'aria-labelledby': 'h1' } });
+    var btns = {};
+    var nb = nextBtn('Next', function () {
+      if (!A.items.size) return;
+      if (!H.isWhole(A) && A.items.has('bio')) { stepDone('s4'); go('x_bio'); return; }
+      if (!H.isWhole(A) && A.items.has('demo')) { stepDone('s4'); go('x_demo'); return; }
+      if (A.items.has('hazmat')) { A.hazmatNote = false; A.hazmatChoice = null; stepDone('s4'); go('hazmat'); return; }
+      if (!A.hazmatNote) A.hazmatChoice = null;
+      advance('s4', 'when');
+    });
+    function sync() {
+      Object.keys(btns).forEach(function (k) { btns[k].setAttribute('aria-pressed', A.items.has(k) ? 'true' : 'false'); });
+      setEnabled(nb, A.items.size > 0);
+    }
+    ITEMS.forEach(function (it) {
+      var b = optBtn(it[1], A.items.has(it[0]), function () {
+        if (it[0] === 'none') { A.items = new Set(A.items.has('none') ? [] : ['none']); }
+        else { var n = new Set(A.items); n.delete('none'); if (n.has(it[0])) n.delete(it[0]); else n.add(it[0]); A.items = n; }
+        sync();
+      }, 'chip');
+      btns[it[0]] = b; g.appendChild(b);
+    });
+    sync();
+    return wrap(heading('Is any of this in the pile?', 'Tap all that fit.').concat([g, nb]));
+  };
+
+  RENDER.hazmat = function () {
+    var opts = [{ label: 'Price the rest', value: 'rest' }, { label: "That's all of it", value: 'all' }];
+    var g = singleGroup('h1', opts, null, function (v) {
+      A.hazmatChoice = v; stepDone('s4h');
+      if (v === 'all') { go('x_hazmat'); } else { go('when'); }
+    });
+    return wrap(heading("We can't take paint, chemicals or fuel.", "It's a safety rule for our crew. We can take everything else.").concat([g]));
+  };
+
+  RENDER.when = function () {
+    var dateIn = el('input', { attrs: { id: 'dt', type: 'date', min: todayStr(), 'aria-describedby': 'dt-err' } });
+    if (A.date) dateIn.value = A.date;
+    var dateErr = el('p', { cls: 'err', attrs: { id: 'dt-err', 'aria-live': 'polite' } });
+    var dateWrap = el('div', { cls: 'field', attrs: { hidden: '' } }, [el('label', { text: 'Which date?', attrs: { for: 'dt' } }), dateIn, dateErr]);
+    var nb;
+    var whenOpts = [['week', L.when.week], ['2weeks', L.when['2weeks']], ['date', 'By a set date'], ['pricing', 'No date yet, just getting a price']];
+    var wg = el('div', { cls: 'group', attrs: { role: 'group', 'aria-labelledby': 'h1' } });
+    var dayGroup = el('div', { cls: 'group', attrs: { role: 'group', 'aria-labelledby': 'days-h' } });
+    var wBtns = {}, dBtns = {};
+    function valid() {
+      if (!A.when || !A.days.size) return false;
+      if (A.when === 'date') return /^\d{4}-\d{2}-\d{2}$/.test(A.date || '') && A.date >= todayStr();
+      return true;
+    }
+    function sync() {
+      Object.keys(wBtns).forEach(function (k) { wBtns[k].setAttribute('aria-pressed', A.when === k ? 'true' : 'false'); });
+      Object.keys(dBtns).forEach(function (k) { dBtns[k].setAttribute('aria-pressed', A.days.has(k) ? 'true' : 'false'); });
+      if (A.when === 'date') dateWrap.removeAttribute('hidden'); else dateWrap.setAttribute('hidden', '');
+      setEnabled(nb, valid());
+    }
+    whenOpts.forEach(function (o) {
+      var b = optBtn(o[1], A.when === o[0], function () { A.when = o[0]; sync(); }); wBtns[o[0]] = b; wg.appendChild(b);
+    });
+    Object.keys(L.days).forEach(function (k) {
+      var b = optBtn(L.days[k], A.days.has(k), function () { var n = new Set(A.days); if (n.has(k)) n.delete(k); else n.add(k); A.days = n; sync(); }, 'chip');
+      dBtns[k] = b; dayGroup.appendChild(b);
+    });
+    dateIn.addEventListener('input', function () {
+      A.date = dateIn.value || null;
+      dateErr.textContent = (A.date && A.date < todayStr()) ? 'Please pick today or a later date.' : '';
+      sync();
+    });
+    nb = nextBtn('Next', function () { if (valid()) advance('s5', 'where'); });
+    var out = heading('When does it need to be gone?').concat([wg, dateWrap, el('h2', { cls: 'sub', text: 'Which days work for you?', attrs: { id: 'days-h' } }), el('p', { cls: 'helper', text: 'Tap all that fit.' }), dayGroup, nb]);
+    sync();
+    return wrap(out);
+  };
+
+  RENDER.where = function () {
+    var ag = el('div', { cls: 'group', attrs: { role: 'group', 'aria-labelledby': 'h1' } });
+    var rg = el('div', { cls: 'group', attrs: { role: 'group', 'aria-labelledby': 'role-h' } });
+    var aB = {}, rB = {}, nb;
+    function sync() {
+      Object.keys(aB).forEach(function (k) { aB[k].setAttribute('aria-pressed', A.access === k ? 'true' : 'false'); });
+      Object.keys(rB).forEach(function (k) { rB[k].setAttribute('aria-pressed', A.role === k ? 'true' : 'false'); });
+      setEnabled(nb, !!(A.access && A.role));
+    }
+    Object.keys(L.access).forEach(function (k) { var b = optBtn(L.access[k], A.access === k, function () { A.access = k; sync(); }); aB[k] = b; ag.appendChild(b); });
+    Object.keys(L.role).forEach(function (k) { var b = optBtn(L.role[k], A.role === k, function () { A.role = k; sync(); }); rB[k] = b; rg.appendChild(b); });
+    nb = nextBtn('Next', function () { if (A.access && A.role) advance('s6', 'outcome'); });
+    var out = heading('Where is it?').concat([ag, el('h2', { cls: 'sub', text: 'Who are you?', attrs: { id: 'role-h' } }), rg, nb]);
+    sync();
+    return wrap(out);
+  };
+
+  /* dumpster questions */
+  RENDER.dload = function () {
+    var opts = [['household', 'Furniture and household junk'], ['remodel', 'Remodel debris (drywall, cabinets, flooring)'], ['heavy', 'Roof shingles, tile, concrete, dirt or brick'], ['bigclean', 'A big cleanout or move']].map(function (o) { return { value: o[0], label: o[1] }; });
+    return wrap(heading("What's going in it?").concat([singleGroup('h1', opts, A.dLoad, function (v) { A.dLoad = v; advance('d2', 'ddays'); })]));
+  };
+  RENDER.ddays = function () {
+    var opts = [['d1', '1 day'], ['wknd', 'A weekend'], ['d3', '3 days'], ['d7', '7 days'], ['unsure', 'Not sure']].map(function (o) { return { value: o[0], label: o[1] }; });
+    return wrap(heading('How long do you need it?', 'The weekend rate is Saturday morning to Sunday night, 14-yard only.').concat([singleGroup('h1', opts, A.dDays, function (v) { A.dDays = v; advance('d3', 'dspot'); })]));
+  };
+  RENDER.dspot = function () {
+    var opts = [['driveway', 'Driveway'], ['street', 'Street'], ['unsure', 'Not sure']].map(function (o) { return { value: o[0], label: o[1] }; });
+    return wrap(heading('Where will it sit?').concat([singleGroup('h1', opts, A.dSpot, function (v) { A.dSpot = v; advance('d4', 'outcome'); })]));
+  };
+
+  /* declines */
+  RENDER.x_area = function () {
+    return wrap(heading("That's outside our area.").concat([
+      el('p', { cls: 'body', text: "We work within about 20 miles of our Pearland yard, and we'd rather tell you now than show up late. A hauler closer to you will serve you better. If you think we got your ZIP wrong, give us a call." }),
+      callBtn('Call ' + CFG.PHONE_DISPLAY, 'primary'),
+      el('button', { cls: 'btn', text: 'Change my ZIP', attrs: { type: 'button' }, on: { click: function () { go('zip'); } } })]));
+  };
+  RENDER.x_hazmat = function () {
+    return wrap(heading("We can't take that load.").concat([
+      el('p', { cls: 'body', text: "Paint, chemicals and fuel need a household hazardous waste drop-off. Your city or county can tell you where. If there's anything else to haul, we'd be glad to price it." }),
+      el('button', { cls: 'btn primary', text: 'I have other stuff too', attrs: { type: 'button' }, on: { click: function () {
+        var n = new Set(A.items); n.delete('hazmat'); A.items = n; A.hazmatChoice = 'rest'; A.hazmatNote = true; go('items'); } } })]));
+  };
+  RENDER.x_bio = function () {
+    return wrap(heading('That part needs a specialist first.').concat([
+      el('p', { cls: 'body', text: "We don't do biohazard work. Waste, needles and heavy mold need a remediation or biohazard cleanup company first. Once it's cleared, we'd be glad to clear the contents." }),
+      textBtn('Text us when it\'s cleared', "Hi H&L, the remediation is done. Can you price the contents?", 'primary', true)]));
+  };
+  RENDER.x_demo = function () {
+    return wrap(heading("We don't do tear-downs.").concat([
+      el('p', { cls: 'body', text: "Once it's taken down, we can haul the debris. Send photos then and we'll price it." }),
+      textBtn('Text us photos later', 'Hi H&L, can I get a free quote? Here are some photos of what I need gone:', 'primary', true)]));
+  };
+
+  /* outcomes */
+  function debugPanel(res, body) {
+    var txt = 'Ref: ' + res.ref + '\nScore: ' + res.score + '\nGrade (never shown to customer): ' + res.grade + '\nFlags: ' + (res.flags.join(', ') || 'none') +
+      '\nText body length: ' + body.length + ' chars\n\n' + body;
+    return el('details', { cls: 'proto' }, [el('summary', { text: 'Debug: what the owner would see' }), el('pre', { text: txt })]);
+  }
+  function desktopPanel(res) {
+    var phone = el('input', { attrs: { id: 'dp', type: 'tel', autocomplete: 'tel', inputmode: 'tel', required: '', 'aria-describedby': 'dp-err' } });
+    var err = el('p', { cls: 'err', attrs: { id: 'dp-err', 'aria-live': 'polite' } });
+    var consent = el('input', { attrs: { type: 'checkbox', id: 'dc' } });
+    var panel = el('div', { cls: 'panel', attrs: { id: 'dpanel', hidden: '' } });
+    var form = el('form', { attrs: { novalidate: '' }, on: { submit: function (ev) {
+      ev.preventDefault();
+      var digits = phone.value.replace(/\D/g, '');
+      if (digits.length === 11 && digits.charAt(0) === '1') digits = digits.slice(1);
+      if (digits.length !== 10) { err.textContent = 'Please enter a 10-digit mobile number.'; phone.setAttribute('aria-invalid', 'true'); phone.focus(); return; }
+      var payload = { ref: res.ref, score: res.score, grade: res.grade, flags: res.flags, phone: digits, textConsent: consent.checked, answers: { lane: A.lane, zip: A.zip, size: A.size, items: Array.from(A.items), when: A.when, date: A.date, days: Array.from(A.days), access: A.access, role: A.role, firstName: A.firstName, paid: A.paid } };
+      try { console.log('[prototype] desktop callback payload (not sent anywhere):', JSON.stringify(payload)); } catch (e) {}
+      panel.replaceChildren(el('p', { cls: 'body', text: "Got it. We'll get back to you within the hour, 7am to 9pm. After 9pm, first thing next morning.", attrs: { tabindex: '-1', id: 'dp-done' } }));
+      var d = document.getElementById('dp-done'); if (d) d.focus();
+    } } }, [
+      el('div', { cls: 'field' }, [el('label', { text: 'Mobile number', attrs: { for: 'dp' } }), phone]), err,
+      el('div', { cls: 'consent' }, [consent, el('label', { attrs: { for: 'dc' } }, [
+        el('strong', { text: 'Text me about my job.' }),
+        document.createTextNode(' I agree to receive service text messages from H&L Junk Removal & Hauling at the number above, about my quote and my job. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our '),
+        el('a', { text: 'Privacy Policy', attrs: { href: '/privacy-policy/', target: '_blank', rel: 'noopener' } }), document.createTextNode(' and '),
+        el('a', { text: 'Terms', attrs: { href: '/terms/', target: '_blank', rel: 'noopener' } }), document.createTextNode('.')])]),
+      el('button', { cls: 'btn primary', text: 'Call me', attrs: { type: 'submit' } })]);
+    panel.appendChild(form);
+    var toggle = el('button', { cls: 'link', text: "I'm on a computer, call me instead", attrs: { type: 'button', 'aria-expanded': 'false', 'aria-controls': 'dpanel' }, on: { click: function () {
+      var open = panel.hasAttribute('hidden');
+      if (open) { panel.removeAttribute('hidden'); phone.focus(); } else { panel.setAttribute('hidden', ''); }
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false'); } } });
+    return [toggle, panel];
+  }
+
+  function jcOutcome(res) {
+    var g = res.grade, sizeAB = A.size === 30, kids = [], head, body, small = null, extra = null, showCall = true, callLabel = 'Call now: ' + CFG.PHONE_DISPLAY;
+    // QA 2026-11-14: show the biohazard copy at any grade. Before, a whole-house bio lead that scored under 45
+    // got the small-pickup screen and was never told H&L does not do the biohazard part.
+    var capBio = H.isWhole(A) && A.items.has('bio');
+    if (capBio) {
+      head = 'We can clear the contents.';
+      body = "We don't do biohazard work, like human or animal waste, needles or heavy mold. A remediation or biohazard cleanup company handles that part first. We clear everything else. Send the text and we'll call or text you within the hour, 7am to 9pm, to walk you through the order.";
+      callLabel = 'Call ' + CFG.PHONE_DISPLAY;
+    } else if (g === 'A' && (A.lane === 'C' || A.size === 40)) {
+      head = "Let's set up your free walkthrough.";
+      body = "For a job this size we like to see it first. The walkthrough is free, and you get one written price. Send the text and we'll call or text you within the hour, 7am to 9pm, to pick a time.";
+      if (CFG.VIDEO_WALKTHROUGH_ENABLED) extra = 'Out of town? We can do it by video call.';
+      small = 'Big jobs are never billed by the hour.';
+    } else if (g === 'A') {
+      head = 'This is right in our wheelhouse.';
+      body = sizeAB ? "Send photos or a short video of the whole space, and we'll call or text you within the hour, 7am to 9pm. If the photos can't show it, we'll set up a free walkthrough."
+        : "Send us the text with your photos and we'll call or text you within the hour, 7am to 9pm. After 9pm, first thing next morning.";
+      small = 'Your price is locked once we see the photos. If the load turns out different, you hear the new price before we lift anything.';
+    } else if (g === 'B') {
+      head = "Send the photos and we'll text you a locked price.";
+      body = 'We reply within 1 hour, 7am to 9pm. That price is what you pay. If the load turns out different from the photos, we tell you before we lift anything.';
+      callLabel = 'Call ' + CFG.PHONE_DISPLAY;
+    } else {
+      head = 'We can help with that.';
+      body = CFG.ROUTE_DAY_ENABLED ? 'Smaller pickups go on our ' + CFG.ROUTE_DAY_LABEL + " route, when the truck is already near you. Send a photo and we'll text you the price and the date."
+        : "For smaller pickups we fit you in when the truck is already near you. Send a photo and we'll text you the price and the soonest day.";
+      extra = "Got anything else going? Add it to the photos and we'll price it all together.";
+      showCall = false;
+    }
+    kids.push(el('h1', { text: head, attrs: { id: 'h1' } }), el('p', { cls: 'body', text: body }));
+    if (extra) kids.push(el('p', { cls: 'body', text: extra }));
+    var textA = null;
+    var nameIn = el('input', { attrs: { id: 'fn', type: 'text', maxlength: '40', autocomplete: 'given-name', value: A.firstName } });
+    function refreshLink() { textA.setAttribute('href', H.smsHref(H.textBody(A, res))); }
+    nameIn.addEventListener('input', function () { A.firstName = nameIn.value.replace(/[^\p{L}\p{M}' -]/gu, '').slice(0, 40); refreshLink(); });
+    textA = linkBtn('Text my answers and photos', H.smsHref(H.textBody(A, res)), 'primary js-text');
+    kids.push(el('div', { cls: 'field' }, [el('label', { text: 'First name (optional)', attrs: { for: 'fn' } }), nameIn]),
+      el('p', { cls: 'fine', text: 'Your phone opens a text to us with your answers filled in. Add 2 or 3 photos and hit send.' }), textA);
+    if (showCall) kids.push(callBtn(callLabel));
+    if (small) kids.push(el('p', { cls: 'fine', text: small }));
+    if (CFG.DESKTOP_CALLBACK_ENABLED) kids = kids.concat(desktopPanel(res));
+    else kids.push(el('p', { cls: 'fine', text: 'On a computer? Call ' + CFG.PHONE_DISPLAY + ', or text that number from your phone and mention ' + res.ref + '.' }));
+    kids.push(el('p', { cls: 'fine', text: 'We reply within 1 hour, 7am to 9pm. After 9pm, first thing next morning.' }));
+    return { kids: kids, text: H.textBody(A, res) };
+  }
+
+  function priceCard(size, pick) {
+    var p = size === 20 ? CFG.prices.y20 : CFG.prices.y14;
+    var rows = [['d1', '1 day', p.d1], ['wknd', size === 14 ? 'Weekend (call to book)' : 'Weekend', p.wknd], ['d3', '3 days', p.d3], ['d7', '7 days', p.d7]];
+    var tb = el('tbody');
+    rows.forEach(function (r) {
+      tb.appendChild(el('tr', { cls: A.dDays === r[0] ? 'on' : '' }, [el('th', { text: r[1], attrs: { scope: 'row' } }), el('td', { text: r[2] == null ? 'Not offered' : H.money(r[2]) })]));
+    });
+    var kids = [el('h3', { text: size + '-yard dumpster' })];
+    if (pick) kids.push(el('span', { cls: 'tag', text: 'Our pick for your job' }));
+    kids.push(el('table', {}, [el('caption', { cls: 'sr', text: size + '-yard prices' }), tb]));
+    return el('section', { cls: 'card' + (pick ? ' pick' : ''), attrs: { 'aria-label': size + '-yard dumpster prices' } }, kids);
+  }
+  function dumpsterOutcome(res) {
+    var sz = H.suggestSize(A), fl = res.flags, kids = [el('h1', { text: "Here's your dumpster.", attrs: { id: 'h1' } })];
+    kids.push(el('div', { cls: 'cards' }, [priceCard(14, sz === 14), priceCard(20, sz === 20)]));
+    kids.push(el('p', { cls: 'body', text: 'Every price is the whole price: drop-off, your rental days and haul-off. No weight fee and no tonnage fee.' }));
+    kids.push(el('p', { cls: 'fine', text: 'Extra days are ' + H.money(CFG.prices.extraDay) + " each, if the can isn't already booked." }));
+    if (A.dDays === 'd1') kids.push(el('p', { cls: 'note', text: 'Need more time? For ' + H.money(H.nudge(A)) + ' more, you get 3 days.' }));
+    var notes = { household: 'Most household jobs fit the 14.', remodel: 'Most remodel jobs fit the 14.',
+      heavy: 'Heavy stuff goes in the 14. Keep it level with the top rail, and call or text us before you load concrete, brick, dirt, rock or shingles.', bigclean: 'A big cleanout usually wants the 20.' };
+    kids.push(el('p', { cls: 'body', text: notes[A.dLoad] || '' }));
+    if (fl.indexOf('street_houston') >= 0) kids.push(el('p', { cls: 'note', text: 'In the City of Houston a dumpster on the street needs a city permit, so we place on driveways.' }));
+    if (A.dDays === 'wknd' && sz === 20) kids.push(el('p', { cls: 'note', text: 'The weekend rate is 14-yard only. The 20-yard starts at 1 day.' }));
+    var hold = fl.indexOf('fcity') >= 0 && CFG.FCITY_MODE === 'hold';
+    if (hold) {
+      kids.push(el('p', { cls: 'body', text: "We'll confirm the drop-off for your address today. If you'd rather we load and haul it ourselves, we can price that now." }));
+      kids.push(textBtn('Text us your address', 'Hi H&L, dumpster request. [' + res.ref + '] Address: ', 'primary'));
+    } else if (A.dDays === 'wknd') {
+      kids.push(callBtn('Call to book the weekend', 'primary'));
+    } else {
+      kids.push(linkBtn('Book online', CFG.BIN_BOSS_URL, 'primary js-shop-online', { target: '_blank', rel: 'noopener' }));
+    }
+    kids.push(textBtn('Text us a photo first', H.dumpsterBody(A, res)));
+    kids.push(el('button', { cls: 'link', text: "Rather not load it yourself? We'll price the full haul.", attrs: { type: 'button' }, on: { click: function () {
+      var keep = { zip: A.zip, paid: A.paid, src: A.src }; A = fresh(); A.zip = keep.zip; A.paid = keep.paid; A.src = keep.src; A.lane = 'J'; go('size'); } } }));
+    return { kids: kids, text: H.dumpsterBody(A, res) };
+  }
+
+  RENDER.outcome = function () {
+    var res = H.evaluate(A);
+    var map = { DECLINE_AREA: 'x_area', DECLINE_HAZMAT: 'x_hazmat', DECLINE_BIO: 'x_bio', DECLINE_DEMO: 'x_demo' };
+    if (map[res.grade]) return RENDER[map[res.grade]]();
+    var out = A.lane === 'D' ? dumpsterOutcome(res) : jcOutcome(res);
+    if (/[?&]debug=1(&|$)/.test(window.location.search)) out.kids.push(debugPanel(res, out.text));
+    var band = A.lane === 'D' ? 'n/a' : (res.score < 50 ? '0-49' : (res.score < 75 ? '50-74' : '75-100'));
+    track('intake_complete', { lane: A.lane, grade: res.grade, score_band: band });
+    return wrap(out.kids);
+  };
+
+  document.addEventListener('click', function (e) {
+    var t = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!t) return;
+    var cls = t.classList;
+    // QA 2026-11-14: grade only when an outcome is on screen (a footer tap on screen 1 used to report grade 'C'),
+    // and declines report their own code, e.g. 'decline_bio', as spec section 10 asks.
+    var cur = trail[trail.length - 1], res = null;
+    if (cur === 'outcome') { try { res = H.evaluate(A); } catch (x) {} }
+    if (cls.contains('js-text-decline')) track('text_quote_click', { source: 'intake', grade: cur.indexOf('x_') === 0 ? 'decline_' + cur.slice(2) : 'decline' });
+    else if (cls.contains('js-text')) { track('text_quote_click', { source: 'intake', grade: res ? res.grade : '' });
+      /* Same Ads action as the site's text-quote.js ("Text Click (SMS)", secondary). That file is NOT loaded here,
+         so this cannot double-fire. Decline links stay GA4 only so turned-away leads never reach Ads. */
+      try { if (typeof window.gtag === 'function') window.gtag('event', 'conversion', { send_to: CFG.ADS_TEXT_LABEL, value: 75.0, currency: 'USD' }); } catch (x) {}
+    }
+    else if (cls.contains('js-call')) track('click_to_call', { source: 'intake' });
+    else if (cls.contains('js-shop-online')) shopHandoff(t);
+  });
+
+  /* Bin Boss handoff, same rules as the script on /book/: carry the Google click id or utm_source to the
+     storefront, and leave the hl_checkout marker that /booking-confirmed/ needs before it counts an order.
+     Done on click because this link is built after page load. */
+  function shopHandoff(a) {
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('mybinboss.com') === -1) return;
+    function rd(k) { try { return sessionStorage.getItem(k) || ''; } catch (e) { return ''; } }
+    function wr(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
+    if (href.indexOf('utm_source=') === -1) {
+      var p; try { p = new URLSearchParams(window.location.search); } catch (e) { p = null; }
+      var clickKey = '', clickId = '';
+      if (p) ['gclid', 'gbraid', 'wbraid'].forEach(function (k) { if (!clickId && p.get(k)) { clickKey = k; clickId = p.get(k); } });
+      if (clickId) { wr('hl_click_id', clickKey + '=' + clickId); }
+      else { var st = rd('hl_click_id'); if (st) { clickKey = st.slice(0, st.indexOf('=')); clickId = st.slice(st.indexOf('=') + 1); } }
+      var src = p ? (p.get('utm_source') || '') : '', med = p ? (p.get('utm_medium') || '') : '';
+      if (src) { wr('hl_src', src + '|' + med); }
+      else { var s2 = rd('hl_src'); if (s2) { src = s2.slice(0, s2.indexOf('|')); med = s2.slice(s2.indexOf('|') + 1); } }
+      var extra = href.indexOf('?') === -1 ? '?' : '&';
+      if (clickId) extra += clickKey + '=' + encodeURIComponent(clickId) + '&utm_source=google&utm_medium=cpc';
+      else if (src) extra += 'utm_source=' + encodeURIComponent(src) + '&utm_medium=' + encodeURIComponent(med || 'referral');
+      else extra += 'utm_source=website&utm_medium=referral';
+      extra += '&utm_campaign=dumpster&utm_content=quote';
+      href += extra; a.setAttribute('href', href);
+    }
+    var now = String(new Date().getTime());
+    wr('hl_checkout', now);
+    try { localStorage.setItem('hl_checkout', now); } catch (e) {}
+    try { if (typeof window.gtag === 'function') window.gtag('event', 'begin_checkout', { send_to: 'G-GYJ54HB3FE', link_url: href }); } catch (e) {}
+  }
+
+  show('lane');
+  window.HLIntakeUI = { state: function () { return A; } };
+})();
+</script>
+</body>
+</html>
