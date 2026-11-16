@@ -211,7 +211,7 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
   var CUST = { landlord:10, family:10, realtor:10, business:10, homeowner:5, renter:5, contractor:5 };
 
   var LABELS = {
-    lane: { J:'Junk removal', D:'Dumpster', C:'Whole house' },
+    lane: { J:'Junk removal', D:'Dumpster rental', C:'Whole-home cleanout' },
     size: { 0:'1 or 2 items', 10:'A pickup-truck load or a small pile', 20:'About a room, or half a garage', 30:'A full garage or a few rooms', 40:'A whole house, or more than one load' },
     days: { thu_sun:'Thursday to Sunday', tue_am:'Tuesday morning', evenings:'Weekday evenings', monwed_day:'Monday or Wednesday daytime', any:'Any day works' },
     access: { curb:'Curb, driveway or garage', ground:'Inside, ground floor', upstairs:'Upstairs, or a long walk to the truck', unsure:'Not sure' },
@@ -315,7 +315,7 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
       .map(function (f) { return f === 'paid' ? 'ad' : f; });
     var lines = [
       'Hi H&L, quote request. [' + res.ref + ']',
-      'Job: ' + (a.lane === 'C' ? 'Whole house' : 'Junk removal'),
+      'Job: ' + (a.lane === 'C' ? 'Whole-home cleanout' : 'Junk removal'),
       'ZIP: ' + a.zip,
       'Size: ' + (LABELS.size[a.size] || ''),
       'In it: ' + itemLine(a, res),
@@ -499,7 +499,7 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
   var RENDER = {};
 
   RENDER.lane = function () {
-    var opts = [{ label: 'Junk removal', value: 'J' }, { label: 'A dumpster I fill myself', value: 'D' }, { label: 'A whole house, estate or move-out', value: 'C' }];
+    var opts = [{ label: 'Junk removal', value: 'J' }, { label: 'Dumpster rental', value: 'D' }, { label: 'Estate or whole-home cleanout', value: 'C' }];
     var g = singleGroup('h1', opts, A.lane, function (v) {
       var keepZip = A.zip, paid = A.paid, src = A.src;
       if (A.lane !== v) { A = fresh(); A.zip = keepZip; A.paid = paid; A.src = src; }
