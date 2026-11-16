@@ -104,6 +104,11 @@ h2.sub{font-size:20px;font-weight:600;text-transform:uppercase;margin:24px 0 8px
 .opt .tick{flex:none;width:22px;height:22px;border:2px solid currentColor;border-radius:50%}
 .opt[aria-pressed="true"] .tick{background:var(--paper);box-shadow:inset 0 0 0 4px var(--ink)}
 .chip .tick{border-radius:6px}
+.pills{display:grid;gap:8px}
+.pills.cols4{grid-template-columns:repeat(4,1fr)}
+.pills.cols3{grid-template-columns:repeat(3,1fr)}
+.pill{min-height:52px;padding:6px 4px;border:2px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);font:inherit;font-weight:600;font-size:18px;text-align:center;cursor:pointer;touch-action:manipulation}
+.pill[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .chip[aria-pressed="true"] .tick{box-shadow:inset 0 0 0 3px var(--ink)}
 .btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:var(--tap);padding:10px 16px;border-radius:var(--radius);border:2px solid var(--ink);background:var(--paper);color:var(--ink);font:inherit;font-weight:700;font-size:19px;text-align:center;text-decoration:none;cursor:pointer;touch-action:manipulation;margin:12px 0}
 .btn.primary{background:var(--ink);color:var(--paper)}
@@ -206,14 +211,18 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
   var FCITY_GRAY_ZIPS = ['77546','77565','77510','77517','77586'];
   var HOUSTON_ZIPS = ['77058','77017','77021','77054','77012','77023','77030','77004','77011','77089','77075','77034','77047','77048'];
 
-  var SCHED = { thu_sun:20, tue_am:20, any:20, evenings:12, monwed_day:12 };
+  // 2026-11-16: the customer picks days (Mon to Sun) and then Morning / Evening / Either. The points are the
+  // blueprint's crew calendar, unchanged: Thu to Sun = 20, Tuesday morning = 20, Mon / Wed and any weekday evening = 12.
+  var DAY_ORDER = ['mon','tue','wed','thu','fri','sat','sun'];
   var ACCESS = { curb:10, ground:10, unsure:5, upstairs:0 };
   var CUST = { landlord:10, family:10, realtor:10, business:10, homeowner:5, renter:5, contractor:5 };
 
   var LABELS = {
     lane: { J:'Junk removal', D:'Dumpster rental', C:'Whole-home cleanout' },
     size: { 0:'1 or 2 items', 10:'A pickup-truck load or a small pile', 20:'About a room, or half a garage', 30:'A full garage or a few rooms', 40:'A whole house, or more than one load' },
-    days: { thu_sun:'Thursday to Sunday', tue_am:'Tuesday morning', evenings:'Weekday evenings', monwed_day:'Monday or Wednesday daytime', any:'Any day works' },
+    days: { mon:'Mon', tue:'Tue', wed:'Wed', thu:'Thu', fri:'Fri', sat:'Sat', sun:'Sun' },
+    dayNames: { mon:'Monday', tue:'Tuesday', wed:'Wednesday', thu:'Thursday', fri:'Friday', sat:'Saturday', sun:'Sunday' },
+    time: { am:'Morning', pm:'Evening', either:'Either' },
     access: { curb:'Curb, driveway or garage', ground:'Inside, ground floor', upstairs:'Upstairs, or a long walk to the truck', unsure:'Not sure' },
     role: { homeowner:'Homeowner', renter:'Renter', contractor:'Contractor', landlord:'Landlord or property manager', family:"Clearing a family member's home", realtor:'Realtor', business:'Business' },
     when: { week:'This week', '2weeks':'In the next 2 weeks', pricing:'No date yet' },
@@ -234,13 +243,20 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
     if (own(ZIP_POINTS, zip)) return ZIP_POINTS[zip];
     return inList(ZIP_OUT, zip) ? 0 : 8;
   }
-  function schedulePoints(days) {
-    var m = 0;
-    if (days && typeof days.forEach === 'function') days.forEach(function (d) { if (own(SCHED, d) && SCHED[d] > m) m = SCHED[d]; });
+  function schedulePoints(a) {
+    var m = 0, days = a && a.days, t = a && a.time;
+    if (!days || typeof days.forEach !== 'function') return 0;
+    days.forEach(function (d) {
+      var p = 0;
+      if (d === 'thu' || d === 'fri' || d === 'sat' || d === 'sun') p = 20;
+      else if (d === 'tue') p = (t === 'pm') ? 12 : 20;
+      else if (d === 'mon' || d === 'wed') p = 12;
+      if (p > m) m = p;
+    });
     return m;
   }
   function score(a) {
-    var sum = (a.size || 0) + distancePoints(a.zip) + schedulePoints(a.days) +
+    var sum = (a.size || 0) + distancePoints(a.zip) + schedulePoints(a) +
       (own(ACCESS, a.access) ? ACCESS[a.access] : 0) + customerPoints(a);
     if (setHas(a.items, 'heavy') && a.size >= 10) sum -= 15;
     if (a.paid && a.size <= 10) sum -= 5;
@@ -308,7 +324,8 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
   }
   function textBody(a, res) {
     var days = [];
-    if (a.days && a.days.forEach) a.days.forEach(function (d) { if (own(LABELS.days, d)) days.push(LABELS.days[d]); });
+    if (a.days && a.days.has) DAY_ORDER.forEach(function (d) { if (a.days.has(d)) days.push(LABELS.days[d]); });
+    var timeTxt = own(LABELS.time, a.time) ? (a.time === 'either' ? 'morning or evening' : LABELS.time[a.time].toLowerCase()) : '';
     var whenTxt = a.when === 'date' && /^\d{4}-\d{2}-\d{2}$/.test(a.date || '') ? 'By ' + a.date : (LABELS.when[a.when] || '');
     // 'paid' prints as 'ad' so a customer reading the text does not think it means they already paid (QA 2026-11-14).
     var tags = res.flags.filter(function (f) { return ['zip_check', 'paid', 'fcity', 'fcity_gray'].indexOf(f) >= 0; })
@@ -320,7 +337,7 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
       'Size: ' + (LABELS.size[a.size] || ''),
       'In it: ' + itemLine(a, res),
       'When: ' + whenTxt,
-      'Days: ' + days.join(', '),
+      'Days: ' + days.join(', ') + (timeTxt ? ' (' + timeTxt + ')' : ''),
       'Where: ' + (LABELS.access[a.access] || ''),
       "I'm: " + (LABELS.role[a.role] || ''),
       'Name: ' + (a.firstName || ''),
@@ -380,7 +397,7 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
 
   function fresh() {
     return { lane: null, zip: '', size: null, items: new Set(), hazmatChoice: null, hazmatNote: false,
-      when: null, date: null, days: new Set(), access: null, role: null, firstName: '',
+      when: null, date: null, days: new Set(), time: null, access: null, role: null, firstName: '',
       dLoad: null, dDays: null, dSpot: null, paid: false, src: '' };
   }
   function el(tag, o, kids) {
@@ -564,7 +581,7 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
       btns[it[0]] = b; g.appendChild(b);
     });
     sync();
-    return wrap(heading('Is any of this in the pile?', 'Tap all that fit.').concat([g, nb]));
+    return wrap(heading('Is any of this in the pile?', 'Select all that apply.').concat([g, nb]));
   };
 
   RENDER.hazmat = function () {
@@ -584,25 +601,36 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
     var nb;
     var whenOpts = [['week', L.when.week], ['2weeks', L.when['2weeks']], ['date', 'By a set date'], ['pricing', 'No date yet, just getting a price']];
     var wg = el('div', { cls: 'group', attrs: { role: 'group', 'aria-labelledby': 'h1' } });
-    var dayGroup = el('div', { cls: 'group', attrs: { role: 'group', 'aria-labelledby': 'days-h' } });
-    var wBtns = {}, dBtns = {};
+    var dayGroup = el('div', { cls: 'group pills cols4', attrs: { role: 'group', 'aria-labelledby': 'days-h' } });
+    var wBtns = {}, dBtns = {}, tBtns = {};
+    var timeGroup = el('div', { cls: 'group pills cols3', attrs: { role: 'group', 'aria-labelledby': 'time-h' } });
     function valid() {
-      if (!A.when || !A.days.size) return false;
+      if (!A.when || !A.days.size || !A.time) return false;
       if (A.when === 'date') return /^\d{4}-\d{2}-\d{2}$/.test(A.date || '') && A.date >= todayStr();
       return true;
     }
     function sync() {
       Object.keys(wBtns).forEach(function (k) { wBtns[k].setAttribute('aria-pressed', A.when === k ? 'true' : 'false'); });
       Object.keys(dBtns).forEach(function (k) { dBtns[k].setAttribute('aria-pressed', A.days.has(k) ? 'true' : 'false'); });
+      Object.keys(tBtns).forEach(function (k) { tBtns[k].setAttribute('aria-pressed', A.time === k ? 'true' : 'false'); });
       if (A.when === 'date') dateWrap.removeAttribute('hidden'); else dateWrap.setAttribute('hidden', '');
       setEnabled(nb, valid());
     }
     whenOpts.forEach(function (o) {
       var b = optBtn(o[1], A.when === o[0], function () { A.when = o[0]; sync(); }); wBtns[o[0]] = b; wg.appendChild(b);
     });
+    function pill(label, full, pressed, onClick) {
+      var at = { type: 'button', 'aria-pressed': pressed ? 'true' : 'false' };
+      if (full) at['aria-label'] = full;
+      return el('button', { cls: 'pill', text: label, attrs: at, on: { click: onClick } });
+    }
     Object.keys(L.days).forEach(function (k) {
-      var b = optBtn(L.days[k], A.days.has(k), function () { var n = new Set(A.days); if (n.has(k)) n.delete(k); else n.add(k); A.days = n; sync(); }, 'chip');
+      var b = pill(L.days[k], L.dayNames[k], A.days.has(k), function () { var n = new Set(A.days); if (n.has(k)) n.delete(k); else n.add(k); A.days = n; sync(); });
       dBtns[k] = b; dayGroup.appendChild(b);
+    });
+    ['am', 'pm', 'either'].forEach(function (k) {
+      var b = pill(L.time[k], null, A.time === k, function () { A.time = k; sync(); });
+      tBtns[k] = b; timeGroup.appendChild(b);
     });
     dateIn.addEventListener('input', function () {
       A.date = dateIn.value || null;
@@ -610,7 +638,7 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
       sync();
     });
     nb = nextBtn('Next', function () { if (valid()) advance('s5', 'where'); });
-    var out = heading('When does it need to be gone?').concat([wg, dateWrap, el('h2', { cls: 'sub', text: 'Which days work for you?', attrs: { id: 'days-h' } }), el('p', { cls: 'helper', text: 'Tap all that fit.' }), dayGroup, nb]);
+    var out = heading('When does it need to be gone?').concat([wg, dateWrap, el('h2', { cls: 'sub', text: 'Which days work for you?', attrs: { id: 'days-h' } }), el('p', { cls: 'helper', text: 'Select all that apply.' }), dayGroup, el('h2', { cls: 'sub', text: 'What time of day?', attrs: { id: 'time-h' } }), timeGroup, nb]);
     sync();
     return wrap(out);
   };
@@ -686,7 +714,7 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
       var digits = phone.value.replace(/\D/g, '');
       if (digits.length === 11 && digits.charAt(0) === '1') digits = digits.slice(1);
       if (digits.length !== 10) { err.textContent = 'Please enter a 10-digit mobile number.'; phone.setAttribute('aria-invalid', 'true'); phone.focus(); return; }
-      var payload = { ref: res.ref, score: res.score, grade: res.grade, flags: res.flags, phone: digits, textConsent: consent.checked, answers: { lane: A.lane, zip: A.zip, size: A.size, items: Array.from(A.items), when: A.when, date: A.date, days: Array.from(A.days), access: A.access, role: A.role, firstName: A.firstName, paid: A.paid } };
+      var payload = { ref: res.ref, score: res.score, grade: res.grade, flags: res.flags, phone: digits, textConsent: consent.checked, answers: { lane: A.lane, zip: A.zip, size: A.size, items: Array.from(A.items), when: A.when, date: A.date, days: Array.from(A.days), time: A.time, access: A.access, role: A.role, firstName: A.firstName, paid: A.paid } };
       try { console.log('[prototype] desktop callback payload (not sent anywhere):', JSON.stringify(payload)); } catch (e) {}
       panel.replaceChildren(el('p', { cls: 'body', text: "Got it. We'll get back to you within the hour, 7am to 9pm. After 9pm, first thing next morning.", attrs: { tabindex: '-1', id: 'dp-done' } }));
       var d = document.getElementById('dp-done'); if (d) d.focus();
