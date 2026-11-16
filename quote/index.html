@@ -214,7 +214,8 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
   // 2026-11-16: the customer picks days (Mon to Sun) and then Morning / Evening / Either. The points are the
   // blueprint's crew calendar, unchanged: Thu to Sun = 20, Tuesday morning = 20, Mon / Wed and any weekday evening = 12.
   var DAY_ORDER = ['mon','tue','wed','thu','fri','sat','sun'];
-  var ACCESS = { curb:10, ground:10, unsure:5, upstairs:0 };
+  // 2026-11-16: 'upstairs' split into floors. Both score 0, as upstairs did; the floor tells the crew what to expect.
+  var ACCESS = { curb:10, ground:10, unsure:5, floor2:0, floor3:0 };
   var CUST = { landlord:10, family:10, realtor:10, business:10, homeowner:5, renter:5, contractor:5 };
 
   var LABELS = {
@@ -223,7 +224,7 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
     days: { mon:'Mon', tue:'Tue', wed:'Wed', thu:'Thu', fri:'Fri', sat:'Sat', sun:'Sun' },
     dayNames: { mon:'Monday', tue:'Tuesday', wed:'Wednesday', thu:'Thursday', fri:'Friday', sat:'Saturday', sun:'Sunday' },
     time: { am:'Morning', pm:'Evening', either:'Either' },
-    access: { curb:'Curb, driveway or garage', ground:'Inside, ground floor', upstairs:'Upstairs, or a long walk to the truck', unsure:'Not sure' },
+    access: { curb:'Curb, driveway or garage', ground:'Inside, ground floor', floor2:'Inside, 2nd floor', floor3:'Inside, 3rd floor or higher', unsure:'Not sure' },
     role: { homeowner:'Homeowner', renter:'Renter', contractor:'Contractor', landlord:'Landlord or property manager', family:"Clearing a family member's home", realtor:'Realtor', business:'Business' },
     when: { week:'This week', '2weeks':'In the next 2 weeks', pricing:'No date yet' },
     dLoad: { household:'Furniture and household junk', remodel:'Remodel debris', heavy:'Roofing, tile, concrete, dirt or brick', bigclean:'A big cleanout or move' },
