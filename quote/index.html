@@ -120,6 +120,7 @@ input[type=text],input[type=tel],input[type=date],input[type=number]{width:100%;
 .fine{font-size:15px;color:var(--muted);margin:10px 0}
 .link{background:none;border:0;padding:0;font:inherit;text-decoration:underline;cursor:pointer;color:var(--ink);min-height:48px;display:inline-flex;align-items:center}
 .panel{border:2px solid var(--ink);border-radius:var(--radius);padding:14px;margin:8px 0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .consent{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.35;margin:10px 0}
 .consent input{flex:none;width:24px;height:24px;margin-top:2px;accent-color:#000}
 .cards{display:grid;gap:14px;margin:12px 0}
@@ -184,8 +185,9 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
     BIN_BOSS_URL: 'https://app.mybinboss.com/storefront/?tenant=tenant_172be0ca689b416a9651bff19daa85dc',
     BOOK_URL: '/book/',
     PROTOTYPE_MODE: false,
-    // Desktop "call me" needs a form endpoint that does not exist yet (Phase 2). Off until it does.
-    DESKTOP_CALLBACK_ENABLED: false,
+    // GoHighLevel inbound webhook for the lead form. Public URL, no key. Empty = text handoff only.
+    LEAD_WEBHOOK: 'https://services.leadconnectorhq.com/hooks/m3evjIsHvPFHAadJ5ZjT/webhook-trigger/33mGfvCZhgSbty3vxzz5',
+    ADS_FORM_LABEL: 'AW-18264252114/sPLOCNWoq8ocENK9iYVE',
     ADS_TEXT_LABEL: 'AW-18264252114/WDElCKyz6JodENK9iYVE',
     FCITY_MODE: 'flag',
     ROUTE_DAY_ENABLED: false,
@@ -705,34 +707,71 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
       '\nText body length: ' + body.length + ' chars\n\n' + body;
     return el('details', { cls: 'proto' }, [el('summary', { text: 'Debug: what the owner would see' }), el('pre', { text: txt })]);
   }
-  function desktopPanel(res) {
+  /* Lead form. Works the same on a phone or a computer: it posts the answers to the GoHighLevel inbound
+     webhook (CFG.LEAD_WEBHOOK, a public URL with no key in it). The API key never touches this page.
+     If the send fails the visitor is told to call or text, so a lead is never silently lost. */
+  function leadPayload(res, digits, consent) {
+    var body = H.textBody(A, res), get = function (label) {
+      var m = body.split('\n').filter(function (l) { return l.indexOf(label + ': ') === 0; })[0];
+      return m ? m.slice(label.length + 2) : '';
+    };
+    return {
+      phone: '+1' + digits, first_name: A.firstName || '', ref: res.ref,
+      service: get('Job'), zip: A.zip || '', job_size: get('Size'), items: get('In it'), timing: get('When'),
+      days: Array.from(A.days).join(', '), time_of_day: A.time || '', location: get('Where'), customer_type: get("I'm"),
+      score: res.score, grade: res.grade, flags: res.flags.join(', '), ad_source: A.paid ? (A.src || 'ad') : '',
+      text_consent: consent ? 'yes' : 'no', summary: body, page: window.location.pathname
+    };
+  }
+  function leadForm(res, textHref) {
+    var nameIn = el('input', { attrs: { id: 'fn', type: 'text', maxlength: '40', autocomplete: 'given-name', value: A.firstName } });
+    nameIn.addEventListener('input', function () { A.firstName = nameIn.value.replace(/[^\p{L}\p{M}' -]/gu, '').slice(0, 40); });
     var phone = el('input', { attrs: { id: 'dp', type: 'tel', autocomplete: 'tel', inputmode: 'tel', required: '', 'aria-describedby': 'dp-err' } });
     var err = el('p', { cls: 'err', attrs: { id: 'dp-err', 'aria-live': 'polite' } });
     var consent = el('input', { attrs: { type: 'checkbox', id: 'dc' } });
-    var panel = el('div', { cls: 'panel', attrs: { id: 'dpanel', hidden: '' } });
+    var trap = el('input', { attrs: { type: 'text', name: 'company', tabindex: '-1', autocomplete: 'off', 'aria-hidden': 'true' } });
+    var send = el('button', { cls: 'btn primary', text: 'Send my request', attrs: { type: 'submit' } });
+    var panel = el('div', { attrs: { id: 'lead' } });
+    function done(ok) {
+      var kids = ok
+        ? [el('h2', { cls: 'sub', text: 'Request received. ' + res.ref + '.', attrs: { tabindex: '-1', id: 'dp-done' } }),
+           el('p', { cls: 'body', text: 'Next step: text 2 or 3 photos of what you need gone to ' + CFG.PHONE_DISPLAY + '. We reply within 1 hour, 7am to 9pm. After 9pm, first thing next morning.' }),
+           linkBtn('Text photos now', textHref(), 'primary js-text'), callBtn('Call ' + CFG.PHONE_DISPLAY)]
+        : [el('h2', { cls: 'sub', text: "That didn't go through.", attrs: { tabindex: '-1', id: 'dp-done' } }),
+           el('p', { cls: 'body', text: 'Please call or text ' + CFG.PHONE_DISPLAY + ' and mention ' + res.ref + '.' }),
+           callBtn('Call ' + CFG.PHONE_DISPLAY, 'primary'), linkBtn('Text my answers', textHref(), 'js-text')];
+      panel.replaceChildren.apply(panel, kids);
+      var d = document.getElementById('dp-done'); if (d) d.focus();
+    }
     var form = el('form', { attrs: { novalidate: '' }, on: { submit: function (ev) {
       ev.preventDefault();
       var digits = phone.value.replace(/\D/g, '');
       if (digits.length === 11 && digits.charAt(0) === '1') digits = digits.slice(1);
-      if (digits.length !== 10) { err.textContent = 'Please enter a 10-digit mobile number.'; phone.setAttribute('aria-invalid', 'true'); phone.focus(); return; }
-      var payload = { ref: res.ref, score: res.score, grade: res.grade, flags: res.flags, phone: digits, textConsent: consent.checked, answers: { lane: A.lane, zip: A.zip, size: A.size, items: Array.from(A.items), when: A.when, date: A.date, days: Array.from(A.days), time: A.time, access: A.access, role: A.role, firstName: A.firstName, paid: A.paid } };
-      try { console.log('[prototype] desktop callback payload (not sent anywhere):', JSON.stringify(payload)); } catch (e) {}
-      panel.replaceChildren(el('p', { cls: 'body', text: "Got it. We'll get back to you within the hour, 7am to 9pm. After 9pm, first thing next morning.", attrs: { tabindex: '-1', id: 'dp-done' } }));
-      var d = document.getElementById('dp-done'); if (d) d.focus();
+      if (digits.length !== 10) { err.textContent = 'Please enter a 10-digit phone number.'; phone.setAttribute('aria-invalid', 'true'); phone.focus(); return; }
+      err.textContent = ''; phone.removeAttribute('aria-invalid');
+      if (trap.value) { done(true); return; }
+      send.disabled = true; send.textContent = 'Sending...';
+      var payload = leadPayload(res, digits, consent.checked);
+      fetch(CFG.LEAD_WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          track('generate_lead', { source: 'intake', grade: res.grade });
+          try { if (typeof window.gtag === 'function') window.gtag('event', 'conversion', { send_to: CFG.ADS_FORM_LABEL }); } catch (x) {}
+          done(true);
+        })
+        .catch(function () { track('lead_form_error', { source: 'intake' }); done(false); });
     } } }, [
-      el('div', { cls: 'field' }, [el('label', { text: 'Mobile number', attrs: { for: 'dp' } }), phone]), err,
+      el('div', { cls: 'field' }, [el('label', { text: 'First name', attrs: { for: 'fn' } }), nameIn]),
+      el('div', { cls: 'field' }, [el('label', { text: 'Phone number', attrs: { for: 'dp' } }), phone]), err,
+      el('div', { cls: 'hp' }, [trap]),
       el('div', { cls: 'consent' }, [consent, el('label', { attrs: { for: 'dc' } }, [
         el('strong', { text: 'Text me about my job.' }),
         document.createTextNode(' I agree to receive service text messages from H&L Junk Removal & Hauling at the number above, about my quote and my job. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our '),
         el('a', { text: 'Privacy Policy', attrs: { href: '/privacy-policy/', target: '_blank', rel: 'noopener' } }), document.createTextNode(' and '),
         el('a', { text: 'Terms', attrs: { href: '/terms/', target: '_blank', rel: 'noopener' } }), document.createTextNode('.')])]),
-      el('button', { cls: 'btn primary', text: 'Call me', attrs: { type: 'submit' } })]);
+      send]);
     panel.appendChild(form);
-    var toggle = el('button', { cls: 'link', text: "I'm on a computer, call me instead", attrs: { type: 'button', 'aria-expanded': 'false', 'aria-controls': 'dpanel' }, on: { click: function () {
-      var open = panel.hasAttribute('hidden');
-      if (open) { panel.removeAttribute('hidden'); phone.focus(); } else { panel.setAttribute('hidden', ''); }
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false'); } } });
-    return [toggle, panel];
+    return panel;
   }
 
   function jcOutcome(res) {
@@ -742,11 +781,11 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
     var capBio = H.isWhole(A) && A.items.has('bio');
     if (capBio) {
       head = 'We can clear the contents.';
-      body = "We don't do biohazard work, like human or animal waste, needles or heavy mold. A remediation or biohazard cleanup company handles that part first. We clear everything else. Send the text and we'll call or text you within the hour, 7am to 9pm, to walk you through the order.";
+      body = "We don't do biohazard work, like human or animal waste, needles or heavy mold. A remediation or biohazard cleanup company handles that part first. We clear everything else. Send your request and we'll call or text you within the hour, 7am to 9pm, to walk you through the order.";
       callLabel = 'Call ' + CFG.PHONE_DISPLAY;
     } else if (g === 'A' && (A.lane === 'C' || A.size === 40)) {
       head = "Let's set up your free walkthrough.";
-      body = "For a job this size we like to see it first. The walkthrough is free, and you get one written price. Send the text and we'll call or text you within the hour, 7am to 9pm, to pick a time.";
+      body = "For a job this size we like to see it first. The walkthrough is free, and you get one written price. Send your request and we'll call or text you within the hour, 7am to 9pm, to pick a time.";
       if (CFG.VIDEO_WALKTHROUGH_ENABLED) extra = 'Out of town? We can do it by video call.';
       small = 'Big jobs are never billed by the hour.';
     } else if (g === 'A') {
@@ -755,8 +794,8 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
         : "Send us the text with your photos and we'll call or text you within the hour, 7am to 9pm. After 9pm, first thing next morning.";
       small = 'Your price is locked once we see the photos. If the load turns out different, you hear the new price before we lift anything.';
     } else if (g === 'B') {
-      head = "Send the photos and we'll text you a locked price.";
-      body = 'We reply within 1 hour, 7am to 9pm. That price is what you pay. If the load turns out different from the photos, we tell you before we lift anything.';
+      head = 'Get your locked price.';
+      body = 'Send your request, then text us 2 or 3 photos. We reply within 1 hour, 7am to 9pm. That price is what you pay. If the load turns out different from the photos, we tell you before we lift anything.';
       callLabel = 'Call ' + CFG.PHONE_DISPLAY;
     } else {
       head = 'We can help with that.';
@@ -767,18 +806,22 @@ noscript .ns{max-width:520px;margin:16px auto;padding:0 var(--gutter);font-size:
     }
     kids.push(el('h1', { text: head, attrs: { id: 'h1' } }), el('p', { cls: 'body', text: body }));
     if (extra) kids.push(el('p', { cls: 'body', text: extra }));
-    var textA = null;
-    var nameIn = el('input', { attrs: { id: 'fn', type: 'text', maxlength: '40', autocomplete: 'given-name', value: A.firstName } });
-    function refreshLink() { textA.setAttribute('href', H.smsHref(H.textBody(A, res))); }
-    nameIn.addEventListener('input', function () { A.firstName = nameIn.value.replace(/[^\p{L}\p{M}' -]/gu, '').slice(0, 40); refreshLink(); });
-    textA = linkBtn('Text my answers and photos', H.smsHref(H.textBody(A, res)), 'primary js-text');
-    kids.push(el('div', { cls: 'field' }, [el('label', { text: 'First name (optional)', attrs: { for: 'fn' } }), nameIn]),
-      el('p', { cls: 'fine', text: 'Your phone opens a text to us with your answers filled in. Add 2 or 3 photos and hit send.' }), textA);
-    if (showCall) kids.push(callBtn(callLabel));
-    if (small) kids.push(el('p', { cls: 'fine', text: small }));
-    if (CFG.DESKTOP_CALLBACK_ENABLED) kids = kids.concat(desktopPanel(res));
-    else kids.push(el('p', { cls: 'fine', text: 'On a computer? Call ' + CFG.PHONE_DISPLAY + ', or text that number from your phone and mention ' + res.ref + '.' }));
-    kids.push(el('p', { cls: 'fine', text: 'We reply within 1 hour, 7am to 9pm. After 9pm, first thing next morning.' }));
+    var textHref = function () { return H.smsHref(H.textBody(A, res)); };
+    if (CFG.LEAD_WEBHOOK) {
+      kids.push(leadForm(res, textHref));
+      if (small) kids.push(el('p', { cls: 'fine', text: small }));
+      kids.push(el('p', { cls: 'fine', text: 'Rather not fill this in? Call or text ' + CFG.PHONE_DISPLAY + ' and mention ' + res.ref + '.' }));
+    } else {
+      /* No webhook set: fall back to the text handoff so the page still works. */
+      var nameIn = el('input', { attrs: { id: 'fn', type: 'text', maxlength: '40', autocomplete: 'given-name', value: A.firstName } });
+      var textA = linkBtn('Text my answers and photos', textHref(), 'primary js-text');
+      nameIn.addEventListener('input', function () { A.firstName = nameIn.value.replace(/[^\p{L}\p{M}' -]/gu, '').slice(0, 40); textA.setAttribute('href', textHref()); });
+      kids.push(el('div', { cls: 'field' }, [el('label', { text: 'First name (optional)', attrs: { for: 'fn' } }), nameIn]),
+        el('p', { cls: 'fine', text: 'Your phone opens a text to us with your answers filled in. Add 2 or 3 photos and hit send.' }), textA);
+      if (showCall) kids.push(callBtn(callLabel));
+      if (small) kids.push(el('p', { cls: 'fine', text: small }));
+      kids.push(el('p', { cls: 'fine', text: 'We reply within 1 hour, 7am to 9pm. After 9pm, first thing next morning.' }));
+    }
     return { kids: kids, text: H.textBody(A, res) };
   }
 
