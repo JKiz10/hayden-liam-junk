@@ -76,7 +76,7 @@ lychee --no-progress --root-dir "$(pwd)" --index-files index.html --offline './*
 Known gap: lychee does not verify `tel:` or `sms:` links. There are ~240 `tel:` links on this site and they are the main way customers convert, so if the phone number ever changes, grep for it rather than trusting CI:
 
 ```sh
-grep -ro '8324257749' --include='*.html' . | wc -l
+grep -ro '3466015008' --include='*.html' . | wc -l
 ```
 
 ## IndexNow (Bing, ChatGPT search, Copilot)
