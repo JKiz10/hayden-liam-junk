@@ -29,8 +29,8 @@
 (function () {
   'use strict';
 
-  var PHONE = '832-425-7749';
-  var PHONE_HREF = '8324257749';
+  var PHONE = '346-601-5008';
+  var PHONE_HREF = '3466015008';
   var MAX_PHOTO_BYTES = 30 * 1024 * 1024;
 
   var QUOTE = {

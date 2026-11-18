@@ -29,7 +29,7 @@
   var JPEG_QUALITY = 0.8;
   var MAX_SEND_BYTES = 9 * 1024 * 1024;
   var NOTE_ATTACHED = 'Attached to this email';
-  var NOTE_FAILED = 'Customer added a photo but it did not come through. Ask them to text it to 832-425-7749.';
+  var NOTE_FAILED = 'Customer added a photo but it did not come through. Ask them to text it to 346-601-5008.';
 
   function isOk(res) {
     return res && (res.success === 'true' || res.success === true);
